@@ -14,3 +14,28 @@ a {
 * {
   box-sizing: border-box;
 }
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box; }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (max-width: 37.5em) {
+    html {
+      font-size: 30%; } }
+  @media only screen and (min-width: 112.5) {
+    html {
+      font-size: 75%; } }
+
+body {
+  margin: 0;
+  font-family: 'Bnazanin';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  /* direction:rtl; */
+}
