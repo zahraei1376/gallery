@@ -9,7 +9,7 @@ import MyNavbar from '../component/HomePage/Menu/Navbar.component';
 // import AnswerQuestionComponent from '../component/answerQuestion/answerQuestion.component';
 // import CustomersComments from '../component/CustomersComments/CustomersComments.component';
 // import LastWeblog from '../component/lastWeblog/lastWeblog.component';
-// import ProductForHomePage from '../component/productHomePage/productHomePage.component';
+import ProductForHomePage from '../component/productHomePage/productHomePage.component';
 // import WayBuy from '../component/wayBuy/wayBuy.component';
 import {MainTitleContainer,MainTitle} from '../styles/Home.styles';
 
@@ -20,12 +20,12 @@ export default function Home() {
     >
       <MyNavbar/>
       <Header/>
-      <MainTitleContainer>
-          <MainTitle>مراقبت از اسب های خود را به ما بسپارید</MainTitle>
-      </MainTitleContainer>
+      {/* <MainTitleContainer>
+          <MainTitle>زندگی حیوانات با زهرا</MainTitle>
+      </MainTitleContainer> */}
       {/* <CarouselComponnet/> */}
-      {/* <ProductForHomePage/>
-      <WayBuy/>
+      <ProductForHomePage/>
+      {/* <WayBuy/>
       <AnswerQuestionComponent/>
       <CustomersComments/>
       <LastWeblog/> */}

@@ -5,7 +5,8 @@ import headerFood from '../../../assets/img/food.jpg';
 export const HeaderContainer = styled.div`
     width:100%;
     background-color: #1d1d1d;
-    height:90vh;
+    height:100vh;
+    // clip-path: polygon(0 0, 100% 0, 100% 87%, 0% 100%);
 `;
 
 export const HeadercontextContainer = styled.div`
@@ -15,11 +16,19 @@ export const HeadercontextContainer = styled.div`
     top:0;
     display:flex;
     justify-content:space-evanly;
+    // @media only screen and (max-width: 967px){
+    //     flex-direction:column;
+    // }
 `;
 
 export const TitleHeaderContainer = styled.div`
-    width:50%;
+    // width:50%;
     padding:7rem 2rem 1rem 2rem;
+    // @media only screen and (max-width: 967px){
+    //     width:100%;
+    // }
+    position:absolute;
+    top:3rem;
 `;
 
 export const TitleHeader = styled.h1`
@@ -33,12 +42,14 @@ export const SubTitleHeader = styled.p`
     text-align:right;
     line-height:4rem;
     font-size:2rem;
+        white-space: nowrap;
 `;
 
 export const HeaderImageContainer = styled.div`
     width:50%;
-    height: 33rem;
+    // height: 33rem;
     padding:0 2rem;
+    margin-top:6rem;
     // background-image:  url('${headerFood}');
 	// background-size: 50%;
 	// background-repeat: no-repeat;
@@ -49,8 +60,8 @@ export const HeaderImageContainer = styled.div`
 `;
 
 export const HeaderImage = styled(Image)`
-    width:80%;
-    height: 33rem;
+    width:100%;
+    height: 3rem !important;
     // height:100% !important;
 
     // &:hover{

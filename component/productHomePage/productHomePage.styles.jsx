@@ -1,4 +1,5 @@
 import styled ,{keyframes} from 'styled-components';
+import Image from 'next/image';
 
 const fade = keyframes`
   0% {
@@ -20,20 +21,128 @@ const fade = keyframes`
   }
 `;
 
+export const ImageSContainer = styled.div`
+width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+`;
+
+export const ImageBox = styled.div`
+  width:34%;
+  height:20rem;
+  margin-left:3rem;
+`;
+
+export const ImageProductSection = styled(Image)`
+//   width:20%;
+//   height:20rem;
+//   margin-left:3rem;
+`;
+
 export const ProductContainer = styled.div`
     width:100%;
+    min-height:120rem;
     display:flex;
     flex-direction:column;
     justify-content:space-evenly;
     align-item:center;
-    margin:15rem 0;
+    position:relative;
+    // margin:15rem 0;
+
+    &::before{
+        content: "";
+        position: absolute;
+        display: block;
+        top: -44px;
+        bottom: -206px;
+        left: 0;
+        width: calc(50vw + 72px);
+        background: #eee;
+        z-index: 0;
+    }
+`;
+
+export const ProductContainerRight = styled.div`
+    position:absolute;
+    top:5rem;
+    right:0;
+    text-align:right;
+    padding:3rem 3rem 3rem 0;
+
+    @media only screen and (max-width: 768px){
+        // text-align:center;
+        padding:3rem 0;
+        left:50%;
+        transform:translate(-50%,0);
+    }
+`;
+
+export const ProductContainerLeft = styled.div`
+    width:60%;
+    position:absolute;
+    top:5rem;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    @media only screen and (max-width: 768px){
+        display:none;
+    }
+`;
+
+export const TextContainer = styled.div`
+    // width:80%;
+    // float:right;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+`;
+
+export const Text = styled.h5`
+    background-image: linear-gradient(to bottom ,rgb(218,160,103),#bf4f7b);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size:2rem;
+`;
+
+export const TextSpan = styled.span`
+    // font-size:3rem;
+    width:6rem;
+    height:3px;
+    display: inline-block;
+    margin:0 1rem;
+    background-image:linear-gradient(to bottom ,rgb(218,160,103),#bf4f7b);
+`;
+
+export const SubDescriprion = styled.p`
+    color:#999;
+    text-align:right;
+    line-height:4rem;
+    font-size:2rem;
+    // white-space: nowrap;
+    width:60rem;
+    line-height:5rem;
+    padding-right:3rem;
+
+    @media only screen and (max-width: 1260px){
+        width:50rem;
+    }
+
+    @media only screen and (max-width: 1001px){
+        width:40rem;
+    }
+
+    @media only screen and (max-width: 768px){
+        line-height:6rem;
+        width:60rem;
+    }
 `;
 
 export const ProductContainerTitle = styled.h1`
     font-size:3rem;
     font-family:Bnazanin;
-    text-align:center;
-    margin-bottom:10rem;
+    text-align:right;
+    margin-bottom:3rem;
     transition:all .3s;
 
     &:hover{

@@ -1,13 +1,15 @@
 import {HeaderContainer , TitleHeaderContainer,HeadercontextContainer,TitleHeader,
     HeaderImageContainer,HeaderImage,SubTitleHeader,
     TextContainer,Text,TextSpan} from './header.styles';
-import headerFood from '../../../assets/img/food.jpg';
+import headerFood from '../../../assets/img/dog1.jpg';
 const Header = () =>{
     return(
         <HeaderContainer>
             <HeadercontextContainer>
+
+                
                 <TitleHeaderContainer>
-                    <TitleHeader>سفارش آنلاین غذا</TitleHeader>
+                    <TitleHeader>زندگی حیوانات با زهرا</TitleHeader>
                     <TextContainer>
                         <Text><TextSpan></TextSpan> ویژگی ما <TextSpan></TextSpan></Text>
                     </TextContainer>
@@ -17,10 +19,12 @@ const Header = () =>{
                 <HeaderImageContainer>
                     <HeaderImage src={headerFood} 
                         alt="Picture of the food"
-                        width={500}
-                        height={600}
+                        // layout="fixed"
+                        // width={500}
+                        // height={600}
                     />
                 </HeaderImageContainer>
+                
                
                 
             </HeadercontextContainer>

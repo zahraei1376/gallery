@@ -1,5 +1,6 @@
 module.exports = {
   reactStrictMode: true,
+  disableStaticImages: true,
   // future: {
   //   webpack5: true,
   // },

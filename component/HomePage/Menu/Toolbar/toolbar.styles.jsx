@@ -136,7 +136,7 @@ export const ToolbarInfoBack = styled.div`
     transition:all .3s;
     // display: none;
     height:${props => props.show ? '10rem' : '0'};
-    // transform: ${props => props.show ? 'scale(7)' : 'scale(0)'};
+    transform: ${props => props.show ? 'scale(7)' : 'scale(0)'};
     position:fixed;
     top:0;
     z-index:1;
