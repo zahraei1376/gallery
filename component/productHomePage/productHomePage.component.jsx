@@ -2,7 +2,8 @@ import React from 'react';
 import {ProductContainer ,ProductBox ,ProductImage ,ProductTitle,ProductBtn ,ProductBtnContainer,
     ProductImageTextContainer,ProductImageText,ProductContainerTitle,ProductBoxes,
     SpanVisible,SpanInvisible,Btn,ProductContainerRight,ProductContainerLeft,
-    TextContainer ,Text,TextSpan,SubDescriprion,ImageSContainer,ImageProductSection,ImageBox} from './productHomePage.styles';
+    TextContainer ,Text,TextSpan,SubDescriprion,ImageSContainer,ImageProductSection,
+    ImageBox,ProductButton,ImageContainer,TitleImage,SubTitleImage,ProductLinkContainer,ProductLink} from './productHomePage.styles';
 import dogPic1 from '../../assets/img/dog2.jpg';
 import dogPic2 from '../../assets/img/dog3.jpg';
 import IconButton from '@material-ui/core/IconButton';
@@ -118,15 +119,29 @@ const ProductForHomePage = () =>{
     return (
         <ProductContainer>
             <ProductContainerLeft>
-                <ImageBox>
-                    <ImageProductSection  src={dogPic1} 
-                        alt="Picture of the food"/>
-                </ImageBox>
-
-                <ImageBox>
-                    <ImageProductSection  src={dogPic2} 
-                        alt="Picture of the food"/>
-                </ImageBox>
+                <ImageContainer>
+                    <ImageBox>
+                        <ImageProductSection  src={dogPic1} 
+                            alt="Picture of the food"/>
+                            <ProductLinkContainer>
+                                <ProductLink>نمایش</ProductLink>
+                            </ProductLinkContainer>
+                    </ImageBox>
+                    <TitleImage>حیوانات</TitleImage>
+                    <SubTitleImage>حیوانات +  تصاویر</SubTitleImage>
+                </ImageContainer>
+                <ImageContainer>
+                    <ImageBox>
+                        <ImageProductSection  src={dogPic2} 
+                            alt="Picture of the big dog"/>
+                            <ProductLinkContainer>
+                                <ProductLink>نمایش</ProductLink>
+                            </ProductLinkContainer>
+                            
+                    </ImageBox>
+                    <TitleImage>سگ های قوی</TitleImage>
+                    <SubTitleImage>سگ های قوی +  تصاویر</SubTitleImage>
+                </ImageContainer>
                 {/* <ImageSContainer>
                     
                 </ImageSContainer> */}
@@ -138,7 +153,11 @@ const ProductForHomePage = () =>{
                     <Text>طبیعت</Text><TextSpan/>
                 </TextContainer>
                 <SubDescriprion>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</SubDescriprion>
+                <ProductButton>
+                    نمایش کار های ما
+                </ProductButton>
             </ProductContainerRight>
+            
             {/* <ProductContainerTitle>اسب خود را بهتر بشناسید</ProductContainerTitle>
             <ProductBoxes>
             <ProductBox>

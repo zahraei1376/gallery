@@ -4,18 +4,25 @@ import { connect } from 'react-redux';
 import Toolbar from './Toolbar/toolbar.component';
 import PopoverPopupState from './profileBox/propfileBox.component';
 import {NavberContainer,UserIconButton ,MyUserIcon ,ProfileBox,
-    LoginButtonContainer,LoginButton,LogoContainer,LogoImg ,InfoContainer} from './Navbar.styles';
-import horseLogo from '../../../assets/img/logo.jpg';
+    LoginButtonContainer,LoginButton,LogoImg ,InfoContainer,
+    LogoContainer,Logo} from './Navbar.styles';
+import logo from '../../../assets/img/logo1.png';
+import { useRouter } from 'next/router';
+import ToolbarItems from './Toolbar/ToolbarItem.component';
 
 const MyNavbar = ({currentUser}) =>{
+    const [clicked,setClicked] = useState(false);
     /////////////////////////////
     // let history = useHistory();
+    const router = useRouter()
     /////////////////////////////
     return (
         <NavberContainer>
             <LogoContainer>
-                    <LogoImg src={horseLogo} 
+                    <Logo src={logo} 
+                    // onClick={() => router.push('/', undefined, { shallow: true })}
                     // onClick={()=> history.push('/')} 
+                    onClick={()=> router.push('/')} 
                     />
             </LogoContainer>
             
@@ -27,12 +34,15 @@ const MyNavbar = ({currentUser}) =>{
                 {!currentUser ? 
                     <LoginButtonContainer>
                         <LoginButton 
+                        // onClick={() => router.push('/login', undefined, { shallow: true })}
                         // onClick={()=> history.push('/login')}
+                        onClick={()=> router.push('/login')} 
                         >ورود</LoginButton>
                     </LoginButtonContainer> 
                     : '' 
                 }
-                <Toolbar />
+                <Toolbar clicked={clicked} setClicked={setClicked} />
+                <ToolbarItems clicked={clicked} />
                 
                 
             </InfoContainer>

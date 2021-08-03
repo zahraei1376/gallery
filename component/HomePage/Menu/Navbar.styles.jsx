@@ -1,6 +1,7 @@
 import styled ,{keyframes} from "styled-components";
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 import { IconButton } from '@material-ui/core';
+import Image from 'next/image';
 
 const fade = keyframes`
   0% {
@@ -18,6 +19,12 @@ const fade = keyframes`
   }
 `;
 
+export const Logo = styled(Image)`
+  width:100%;
+  height:100%;
+  cursor:pointer;
+`;
+
 export const NavberContainer = styled.div`
     height: 5rem;
     width: 100%;
@@ -30,6 +37,7 @@ export const NavberContainer = styled.div`
     top: 0;
     left: 50%;
     padding:0 10%;
+    margin-top:3rem;
 `;
 
 export const UserIconButton = styled(IconButton)`
@@ -84,14 +92,17 @@ export const LoginButton = styled.button`
   border-radius:5px;
   border:1px solid #fff;
   color:#fff;
-  background-color:rgba(0,0,0,.3);
+  // background-color:rgb(218,160,103);
+  background-image: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgb(218,160,103) 50%);
+  background-size: 200%;
   transition:all .2s;
   font-size:1.5rem;
   font-size:Bnazanin;
   text-align:center;
   &:hover{
-    border:1px solid rgb(218,160,103);
-    color:rgb(218,160,103);
+    background-position: 100%;
+    // border:1px solid rgb(218,160,103);
+    // color:#fff;
     // transform:scale(1.05);
   }
 `;
@@ -100,14 +111,14 @@ export const LoginButton = styled.button`
 export const LogoContainer = styled.div`
   height:100%;
   z-index:2;
-  width:5rem;
+  width:7rem;
   display:flex;
   justify-content:Center;
   align-items:center;
   // border-radius:50%;
   // border:1px solid #fff;
   // background-color:#eee;
-  margin:0 2rem;
+  // margin:0 2rem;
 `;
 
 export const LogoImg = styled.img`

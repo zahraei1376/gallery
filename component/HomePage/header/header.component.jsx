@@ -1,7 +1,7 @@
 import {HeaderContainer , TitleHeaderContainer,HeadercontextContainer,TitleHeader,
     HeaderImageContainer,HeaderImage,SubTitleHeader,
     TextContainer,Text,TextSpan} from './header.styles';
-import headerFood from '../../../assets/img/dog1.jpg';
+import headerFood from '../../../assets/img/dog.jpg';
 const Header = () =>{
     return(
         <HeaderContainer>

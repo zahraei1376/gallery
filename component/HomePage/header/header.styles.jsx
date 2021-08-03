@@ -7,6 +7,46 @@ export const HeaderContainer = styled.div`
     background-color: #1d1d1d;
     height:100vh;
     // clip-path: polygon(0 0, 100% 0, 100% 87%, 0% 100%);
+    @media only screen and (max-width: 1097px){
+        height:93vh;
+    }
+
+    @media only screen and (max-width: 1018px){
+        height:86vh;
+    }
+
+    @media only screen and (max-width: 932px){
+        height:79.5vh;
+    }
+
+    @media only screen and (max-width: 854px){
+        height:73vh;
+    }
+
+    @media only screen and (max-width: 774px){
+        height:66vh;
+    }
+
+    @media only screen and (max-width: 696px){
+        height:60vh;
+    }
+
+    @media only screen and (max-width: 596px){
+        height:50vh;
+    }
+
+    @media only screen and (max-width: 411px){
+        height:45vh;
+    }
+
+    @media only screen and (max-width: 320px){
+        height:55vh;
+    }
+
+    // @media only screen and (max-width: 578px){
+    //     height:50vh;
+    // }
+
 `;
 
 export const HeadercontextContainer = styled.div`
@@ -22,19 +62,24 @@ export const HeadercontextContainer = styled.div`
 `;
 
 export const TitleHeaderContainer = styled.div`
-    // width:50%;
+    width:50%;
+    
     padding:7rem 2rem 1rem 2rem;
     // @media only screen and (max-width: 967px){
     //     width:100%;
     // }
-    position:absolute;
-    top:3rem;
+    // position:absolute;
+    // top:3rem;
 `;
 
 export const TitleHeader = styled.h1`
     color:#fff;
     text-align:right;
     font-size:5rem;
+
+    @media only screen and (max-width: 696px){
+        font-size:3rem;
+    }
 `;
 
 export const SubTitleHeader = styled.p`
@@ -42,12 +87,27 @@ export const SubTitleHeader = styled.p`
     text-align:right;
     line-height:4rem;
     font-size:2rem;
-        white-space: nowrap;
+    // white-space: nowrap;
+
+    @media only screen and (max-width: 774px){
+        font-size:1.8rem;
+        line-height:3rem;
+    }
+
+    // @media only screen and (max-width: 657px){
+    //     font-size:1.8rem;
+    //     line-height:3rem;
+    // }
+
+    @media only screen and (max-width: 596px){
+        font-size:2rem;
+        line-height:5rem;
+    }
 `;
 
 export const HeaderImageContainer = styled.div`
     width:50%;
-    // height: 33rem;
+    height:90%;
     padding:0 2rem;
     margin-top:6rem;
     // background-image:  url('${headerFood}');

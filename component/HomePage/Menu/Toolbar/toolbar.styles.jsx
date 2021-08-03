@@ -115,13 +115,13 @@ import { IconButton } from '@material-ui/core';
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 ///////////////////////////////
 export const Title = styled.h1`
-    color:#000;
+    color:#fff;
     font-size:4rem;
     text-align:right;
 `;
 
 export const SubTitle = styled.h4`
-    color:#000;
+    color:#fff;
     font-size:2rem;
     text-align:right;
 `;
@@ -135,14 +135,15 @@ export const ToolbarInfoBack = styled.div`
     background-color: #1d1d1d;
     transition:all .3s;
     // display: none;
-    height:${props => props.show ? '10rem' : '0'};
-    transform: ${props => props.show ? 'scale(7)' : 'scale(0)'};
+    height:${props => props.show ? '40rem' : '0'};
+    // transform: ${props => props.show ? 'scale(7)' : 'scale(0)'};
     position:fixed;
     top:0;
     z-index:1;
 `;
 export const ToolbarInfoContainer = styled.div`
-    // width:100%;
+    width:100%;
+    height:100%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -153,11 +154,12 @@ export const ToolbarInfoContainer = styled.div`
     width:${props => props.show ? '100%' : '0'};
     // transform: ${props => props.show ? 'scale(1)' : 'scale(0)'};
     // transform: ${props => props.show ? 'scale(7)' : 'scale(0)'};
-    background-color: #fff;
+    // background-color: #fff;
     z-index: 1000;
     display:flex;
     justify-content:center;
     align-items:center;
+    color:#fff;
     
     // background-color: #1d1d1d;
     // transition:all .3s;
@@ -232,30 +234,45 @@ export const MyListIcon = styled(ListAltIcon)`
 
 export const ArrowIcon = styled(MenuIcon)`
     ${IconsCss};
-    color:#fff;
+    color:rgb(218,160,103);
     font-size:2.5rem !important;
+
+    // @media only screen and (max-width: 604px){
+    //     font-size:2rem !important;
+    // }
 
 `;
 
 export const MyCloseIcon = styled(CloseIcon)`
     ${IconsCss};
-    color:#fff;
+    color:rgb(218,160,103);
     font-size:2.5rem !important;
+
+    // @media only screen and (max-width: 604px){
+    //     font-size:2rem !important;
+    // }
 
 `;
 
 
 
 export const ArrowIconButton = styled(IconButton)`
-    color:#fff;
+    color:rgb(218,160,103);
     // font-size:2.5rem;
-    width:3rem !important;
-    height:3rem !important;
+    // width:3rem !important;
+    // height:3rem !important;
     border-radius:5px !important;
-    margin:1rem 0 ;
-    border:1px solid #fff !important;
-    // position:relative;
+    margin:1rem 2rem !important;
+    border:1px solid rgb(218,160,103) !important;
+    padding:5px 1rem !important;
+    position:relative;
     z-index:3;
+    transition:all .3s;
+
+    // @media only screen and (max-width: 604px){
+    //     width:2rem !important;
+    //     height:2rem !important;
+    // }
 
     &:active,
     &:focus{
@@ -264,16 +281,16 @@ export const ArrowIconButton = styled(IconButton)`
 
     &:hover{
         border:1px solid rgb(218,160,103) !important;
-        color:rgb(218,160,103) !important;
+        background-color:rgb(218,160,103) !important;
         // transform:scale(1.05);
     }
 
     &:hover ${ArrowIcon}{
-        color:rgb(218,160,103) !important;
+        color:#fff !important;
     }
 
     &:hover ${MyCloseIcon} {
-        color:rgb(218,160,103) !important;
+        color:#fff !important;
     }
 `;
 
@@ -292,7 +309,7 @@ export const ArrowIconButton = styled(IconButton)`
 
 export const MyNavLink = styled.a`
     text-decoration: none;
-    color:#000;
+    color:#fff;
     font-family:Bnazanin;
     font-size:2rem;
 
@@ -347,7 +364,7 @@ export const ListLink = styled.a`
 
 export const ConnectionIcon = styled(AssignmentIndIcon)`
     font-size:2.5rem !important;
-    color:#000;
+    color:#fff;
 
     &:hover{
         color:#bf4f7b;

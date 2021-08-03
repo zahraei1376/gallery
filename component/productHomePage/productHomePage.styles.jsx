@@ -1,5 +1,6 @@
 import styled ,{keyframes} from 'styled-components';
 import Image from 'next/image';
+// import back from  '../../assets/img/dog2.jpg';
 
 const fade = keyframes`
   0% {
@@ -21,23 +22,137 @@ const fade = keyframes`
   }
 `;
 
+export const TitleImage = styled.h1`
+    color:#777;
+    font-family:Bnazanin;
+    font-size: 2rem;
+`;
+
+export const SubTitleImage = styled.p`
+    color:#999;
+    font-family:Bnazanin;
+    font-size: 1.5rem;
+`;
+
+export const ProductButton = styled.button`
+  color:#000;
+  border-radius:1rem;
+  cursor:pointer;
+  font-family:Bnazanin;
+  border:none;
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 300;
+  padding: 2rem;
+  background-image: linear-gradient(-120deg, #bf4f7b 0%, #bf4f7b 50%, #fff 50%);
+  background-size: 200%;
+   transition: all .4s;
+    // linear-gradient(to bottom ,rgb(218,160,103),#bf4f7b);
+
+    &:hover{
+        background-position: 100%;
+        color: #fff;
+        transform: translateX(-1rem);
+    }
+
+`;
+
+export const ImageContainer = styled.div`
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    width:34%;
+    margin-left:3rem;
+`;
+
 export const ImageSContainer = styled.div`
-width:100%;
+  width:100%;
   display:flex;
   justify-content:center;
   align-items:center;
 `;
 
 export const ImageBox = styled.div`
-  width:34%;
-  height:20rem;
-  margin-left:3rem;
+  width:100%;
+  overflow:hidden;
+  border-radius:1rem;
+  position:relative;
+//   height:20rem;
+  
 `;
 
+export const ProductLinkContainer = styled.div`
+    // position:absolute;
+    // bottom: 0;
+    // right: 1rem;
+    // display:inline-block;
+    // display:flex;
+    // justify-content:center;
+    // align-items:center;
+    width:100%;
+    display:none;
+    background-color:rgba(0,0,0,.6);
+    color:#fff;
+`;
+
+export const ProductLink = styled.span`
+    font-size:3rem;
+    font-family:Bnazanin;
+    color:#fff;
+`;
+
+// export const ImageProductSection = styled.div`
+// //   width:20%;
+// //   height:20rem;
+// //   margin-left:3rem;
+// background-color: #6DB3F2;
+// background-image: url(${back});
+// transition:all .3s;
+//     border-radius:1rem;
+//     position:relative;
+//     &:hover{
+//         transform:scale(1.1);
+//     }
+//     &:hover ${ProductLink} {
+//         display:flex;
+       
+//     }
+
+//     // &::before{
+//     //     content: "";
+//     //     position: absolute;
+//     //     display: block;
+//     //     right: 100%;
+//     //     background: #000;
+//     //     z-index: 0;
+//     // }
+
+//     &::after {
+//         position: absolute;
+//         content: " ";
+//         top: 0;
+//         left: 0;
+//         width: 100%;
+//         height: 100%;
+//         // z-index: 0;
+//         background-color: linear-gradient(to bottom ,rgb(218,160,103),#bf4f7b,#191e3e);
+//       }
+// `;
+
 export const ImageProductSection = styled(Image)`
-//   width:20%;
-//   height:20rem;
-//   margin-left:3rem;
+    transition:all .3s;
+    border-radius:1rem;
+    // position:relative;
+    &:hover{
+        transform:scale(1.1);
+    }
+    &:hover ${ProductLink} {
+        display:flex;
+    justify-content:center;
+    align-items:center;
+       
+    }
 `;
 
 export const ProductContainer = styled.div`
@@ -48,7 +163,6 @@ export const ProductContainer = styled.div`
     justify-content:space-evenly;
     align-item:center;
     position:relative;
-    // margin:15rem 0;
 
     &::before{
         content: "";
