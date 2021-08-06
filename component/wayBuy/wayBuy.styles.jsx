@@ -1,5 +1,10 @@
 import styled from 'styled-components';
-import back from '../../asset/img/back1.jpg';
+import Image from 'next/image';
+
+
+export const TitleContainer = styled.div`
+    margin:0 0 10rem 0;
+`;
 
 export const Title = styled.h1`
     text-align:center;
@@ -18,41 +23,65 @@ export const Title = styled.h1`
 
 
 export const Container = styled.div`
-    height:95vh;
-    clip-path: polygon(0 0, 100% 0%, 100% 80%, 0% 100%);
-    // background-image:url(${back});
-    // background-size: cover;
-    // filter:blur(5px);
-    background-color:rgba(0,0,0,.5);
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    width:80%;
+    padding:3rem 7rem;
+    // height:95vh;
+    // clip-path: polygon(0 0, 100% 0%, 100% 80%, 0% 100%);
+    // background-color:rgba(0,0,0,.5);
+    // display: flex;
+    // justify-content: space-evenly;
+    // align-items: center;
+    margin-bottom:5rem;
+    position:relative;
+    margin:0 auto;
 `;
 
 export const ImgContainer = styled.div`
-    width:40%;
+    width:70%;
     height:100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    position:absolute;
+    top:10rem;
+    right:0;
+    z-index:-1;
+    margin-right:6rem;
+    @media only screen and (max-width: 540px){
+        width:70%;
+        top:42rem;
+        right:10rem;
+    }
 `;
 
-export const Image = styled.img`
-        width:90%;
+export const MyImage = styled(Image)`
+
 `;
+
+// export const Image = styled.img`
+//         width:90%;
+// `;
 
 export const ParagContainer = styled.div`
-    width:40%;
+    width:60%;
     height:100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    // padding:10rem;
+    outline: 1.5rem solid #bf4f7b;
+    outline-offset: 3rem;
+    z-index:3;
+
+    @media only screen and (max-width: 540px){
+        width:90%;
+    }
 `;
 
 export const Parags = styled.p`
         font-size:2rem;
         font-family:Bnazanin;
-        color:#fff;
+        color:#000;
         text-align:right;
         line-height:3.8rem;
 `;

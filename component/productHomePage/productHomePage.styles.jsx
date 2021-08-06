@@ -157,12 +157,16 @@ export const ImageProductSection = styled(Image)`
 
 export const ProductContainer = styled.div`
     width:100%;
-    min-height:120rem;
+    min-height:60rem;
     display:flex;
     flex-direction:column;
     justify-content:space-evenly;
     align-item:center;
     position:relative;
+
+    // @media only screen and (max-width: 540px){
+    //     min-height:40rem;
+    // }
 
     &::before{
         content: "";
@@ -172,6 +176,7 @@ export const ProductContainer = styled.div`
         bottom: -206px;
         left: 0;
         width: calc(50vw + 72px);
+        // height: 100%;
         background: #eee;
         z-index: 0;
     }

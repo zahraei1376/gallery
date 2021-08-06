@@ -1,11 +1,15 @@
 import styled from 'styled-components';
 
-export const AnswerConatiner = styled.div`
-    width:100%;
-    margin:15rem 0;
+export const ServiceConatiner = styled.div`
+    // // width:100%;
+    // margin:15rem 0;
+
+    position: relative;
+    padding: 80px 0 83px;
+    background: #fff;
 `;
 
-export const AnswerTitle = styled.h1`
+export const ServiceTitle = styled.h1`
     font-size:4rem;
     font-weight:400;
     font-family:Nastaliq;
@@ -14,7 +18,7 @@ export const AnswerTitle = styled.h1`
 `;
 
 
-export const AnswerBox = styled.div`
+export const ServiceBox = styled.div`
     display:flex;
     margin:2rem auto;
     align-items:center;
@@ -23,30 +27,30 @@ export const AnswerBox = styled.div`
     min-height:20rem;
 `;
 
-export const AnswerImageContainer = styled.div`
+export const ServiceImageContainer = styled.div`
     width:20rem;
     height:100%;
 `;
 
-export const AnswerImage = styled.img`
+export const ServiceImage = styled.img`
     width:100%;
     height:100%;
 `;
 
-export const AnswerName = styled.p`
+export const ServiceName = styled.p`
     font-size:2rem;
     font-weight:300;
     font-family:Bnazanin;
     margin:3rem 0;
 `;
 
-export const AnswerTextContainer = styled.div`
+export const ServiceTextContainer = styled.div`
     display:flex;
     flex-direction:column;
     align-items:center;
 `;
 
-export const AnswerTextBotton = styled.button`
+export const ServiceTextBotton = styled.button`
     color: #843910;
     font-size: 1.2rem;
     border: none;
@@ -64,13 +68,13 @@ export const AnswerTextBotton = styled.button`
     }
 `;
 
-export const AnswerTextSpan = styled.span`
+export const ServiceTextSpan = styled.span`
     font-size:2.5rem;
     font-weight:400;
     font-family:Bnazanin;
 `;
 
-export const AnswerTextQuestion = styled.pre`
+export const ServiceTextQuestion = styled.pre`
     font-size:1.5rem;
     font-weight:300;
     font-family:Bnazanin;
@@ -83,7 +87,7 @@ export const AnswerTextQuestion = styled.pre`
     text-align:center;
 `;
 
-export const AnswerTextAnswer = styled.pre`
+export const ServiceTextService = styled.pre`
     font-size:1.6rem;
     font-weight:400;
     font-family:Bnazanin;
@@ -95,7 +99,7 @@ export const AnswerTextAnswer = styled.pre`
     text-align:center;
 `;
 
-export const AnswerTextAnswerSpan = styled.span`
+export const ServiceTextServiceSpan = styled.span`
     font-size:1.7rem;
     font-weight:bold;
     font-family:Bnazanin;

@@ -7,6 +7,20 @@ import CloseIcon from '@material-ui/icons/Close';
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import { IconButton } from '@material-ui/core';
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import TelegramIcon from '@material-ui/icons/Telegram';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
+
+const IconsConnectionCss = css`
+    color:#fff;
+    font-size:2.5rem !important;
+    cursor:pointer;
+
+    &:hover {
+        color : #bf4f7b;
+    }
+`;
 
 export const Title = styled.h1`
     width:100%;
@@ -236,10 +250,37 @@ export const ConnectionIcon = styled(AssignmentIndIcon) `
     }
 `;
 
+export const IconBox = styled.div`
+    margin-left:1.5rem;
+    &:hover {
+        color : #bf4f7b;
+    }
+`;
+
+
+export const MyInstagramIcon = styled(InstagramIcon)`
+    ${IconsConnectionCss}
+`;
+
+export const MyTelegramIcon = styled(TelegramIcon)`
+    ${IconsConnectionCss}
+`;
+
+export const MyFacebookIcon = styled(FacebookIcon)`
+    ${IconsConnectionCss}
+`;
+
+export const MyMailOutlineIcon = styled(MailOutlineIcon)`
+    ${IconsConnectionCss}
+`;
+
 export const ConnectionBox = styled.div`
     border-bottom:1px solid rgb(218,160,103);
     padding-bottom:2rem;
     margin-bottom:1rem;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
 `;
 
 export const TitleBox = styled.div`

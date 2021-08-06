@@ -1,12 +1,9 @@
 import {ToolbarContainer,ToolbarInfoContainer,ToolbarInfo,DrawerContainer,ToolbarInfoBack,
     IconContainer,MyListIcon ,MyCloseIcon,ListContainer,ToolbarInfoText,List ,
     ListItem ,ListImg,ImgContainer,MyNavLink,ArrowIcon,ArrowIconButton,ListLink,
-    ConnectionBox,ConnectionIcon,TitleBox,SubTitle,Title} from './toolbar.styles';
-
-import InstagramIcon from '@material-ui/icons/Instagram';
-import TelegramIcon from '@material-ui/icons/Telegram';
-import FacebookIcon from '@material-ui/icons/Facebook';
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
+    ConnectionBox,ConnectionIcon,TitleBox,SubTitle,Title,IconBox,
+    MyInstagramIcon,MyTelegramIcon,MyFacebookIcon,MyMailOutlineIcon,
+  } from './toolbar.styles';
 
 const ToolbarItems = ({clicked}) =>{
     return(
@@ -50,17 +47,23 @@ const ToolbarItems = ({clicked}) =>{
           
           <ToolbarInfoText show = {clicked ? true : null}>
             <ConnectionBox>
-              <InstagramIcon style={{fontSize:'2.5rem',
-                color:'#fff', }}/>
+              <IconBox>
+                <MyInstagramIcon />
+              </IconBox>
 
-              <TelegramIcon style={{fontSize:'2.5rem',
-                color:'#fff',marginLeft:'1.5rem' }} />
+              <IconBox>
+                <MyTelegramIcon />
+              </IconBox>
 
-              <FacebookIcon style={{fontSize:'2.5rem',
-                color:'#fff', marginLeft:'1.5rem'}} />
+              <IconBox>
+                <MyFacebookIcon />
+              </IconBox>
 
-              <MailOutlineIcon style={{fontSize:'2.5rem',
-                color:'#fff',marginLeft:'1.5rem' }} />
+              <IconBox>
+                <MyMailOutlineIcon />
+              </IconBox>
+              
+
               {/* <ConnectionIcon/>
               <ConnectionIcon/>
               <ConnectionIcon/> */}
