@@ -11,6 +11,10 @@ export const HeaderContainer = styled.div`
         height:93vh;
     }
 
+    @media only screen and (max-width: 1024px){
+        height:38.98vh;
+    }
+
     @media only screen and (max-width: 1018px){
         height:86vh;
     }

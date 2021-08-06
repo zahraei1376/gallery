@@ -2,7 +2,7 @@ import React from 'react';
 import { CommentsBox ,CommentsBoxText ,CommentsBoxUser ,CommentsBoxImg,CommentsBoxdisc,
     CommentsBoxdiscName,CommentsBoxdiscdate,CommentsBoxdiscRate ,CommentsBoxUserContent} from './cutomersComponetBox.styles';
 // import user from '../../assets/img/user.png';
-import user from '../../asset/img/user.png';
+// import user from '../../asset/img/user.png';
 
 const CustomersCommentsBox =() =>(
     <CommentsBox>
@@ -16,7 +16,7 @@ const CustomersCommentsBox =() =>(
                     <CommentsBoxdiscName >mary</CommentsBoxdiscName>
                     <CommentsBoxdiscdate>Feb 23rd,2020</CommentsBoxdiscdate>
                 </CommentsBoxdisc>
-                <CommentsBoxImg src={user} alt="کاربر" />
+                {/* <CommentsBoxImg src={user} alt="کاربر" /> */}
             </CommentsBoxUserContent>
             
         </CommentsBoxUser>

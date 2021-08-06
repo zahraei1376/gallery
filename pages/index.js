@@ -6,12 +6,13 @@ import Header from '../component/HomePage/header/header.component';
 
 import MyNavbar from '../component/HomePage/Menu/Navbar.component';
 // import CarouselComponnet from '../component/carouselHeader/carouselHeader.component';
-// import AnswerQuestionComponent from '../component/answerQuestion/answerQuestion.component';
-// import CustomersComments from '../component/CustomersComments/CustomersComments.component';
+import OurServices from '../component/OurServices/OurServices.component';
+import ShowCustomersComments from '../component/ShowCustomersComments/ShowCustomersComments.component';
 // import LastWeblog from '../component/lastWeblog/lastWeblog.component';
 import ProductForHomePage from '../component/productHomePage/productHomePage.component';
-// import WayBuy from '../component/wayBuy/wayBuy.component';
+import WayBuy from '../component/wayBuy/wayBuy.component';
 import {MainTitleContainer,MainTitle} from '../styles/Home.styles';
+import ContactUs from '../component/contactUs/contactUs.component';
 
 export default function Home() {
   return (
@@ -25,10 +26,12 @@ export default function Home() {
       </MainTitleContainer> */}
       {/* <CarouselComponnet/> */}
       <ProductForHomePage/>
-      {/* <WayBuy/>
-      <AnswerQuestionComponent/>
-      <CustomersComments/>
-      <LastWeblog/> */}
+      <WayBuy/>
+      {/* <AnswerQuestionComponent/> */}
+      <ShowCustomersComments/>
+      <OurServices/>
+      <ContactUs/>
+      {/* <LastWeblog/> */}
     </div>
   )
 }

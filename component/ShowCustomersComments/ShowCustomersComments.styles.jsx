@@ -18,18 +18,9 @@ export const ComentsContainer = styled.div`
 
 export const ComentsContainerDiv = styled.div`
     width:100%;
-    // height:40rem;
-    // display:grid;
-    // grid-template-columns: auto auto auto;
-    // grid-column-gap: 50px;
-    // display:flex;
-    // justify-content:center;
-    // align-items:center;
-    // background-color:#ccc;
-    background-color:rgba(132, 57, 16, .6);
-    // padding:6rem 4rem;
+    margin-top:20rem;
+    background-color: #1d1d1d;
     box-sizing:border-box;
-    // position:fixed;
 `;
 
 export const ComentsImageDiv = styled.div`
