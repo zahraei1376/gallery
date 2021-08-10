@@ -62,13 +62,17 @@ export const ContactContainer = styled.div`
             right: 372px;
         }
 
-        @media only screen and (max-width: 1120px){
-
+        @media only screen and (max-width: 1125px){
+            height: 680px;
         }
     
         @media only screen and (max-width: 950px){
-            height: 520px;
+            height: 700px;
             top: 0;
+        }
+
+        @media only screen and (max-width: 920px){
+            width: 50%;
         }
     }
 
@@ -94,6 +98,9 @@ export const Content = styled.div`
     text-align:right;
     width:30%;
     margin:0 auto;
+    @media only screen and (max-width: 1203px){
+        width:40%;
+    }
 `;
 
 export const ContentTitle = styled.h1`

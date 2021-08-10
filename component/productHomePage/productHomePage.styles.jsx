@@ -163,6 +163,7 @@ export const ProductContainer = styled.div`
     justify-content:space-evenly;
     align-item:center;
     position:relative;
+    margin-bottom:10rem;
 
     // @media only screen and (max-width: 540px){
     //     min-height:40rem;
@@ -174,11 +175,12 @@ export const ProductContainer = styled.div`
         display: block;
         top: -44px;
         bottom: -206px;
-        left: 0;
+        right: 0;
         width: calc(50vw + 72px);
         // height: 100%;
         background: #eee;
         z-index: 0;
+        height:100%;
     }
 `;
 

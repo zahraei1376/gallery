@@ -26,18 +26,29 @@ export const Logo = styled(Image)`
 `;
 
 export const NavberContainer = styled.div`
-    height: 5rem;
+    // height: 5rem;
     width: 100%;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    position:absolute;
-    z-index:2;
-    transform:translate(-50%,0);
+    height: ${props => props.scroll ? '7rem' : '5rem'};
+    position:${props => props.scroll ? 'fixed' : 'absolute'};
+    background-color:${props => props.scroll ? 'rgba(29, 29, 29, 1)' : 'transparent'};
     top: 0;
-    left: 50%;
+    // left: 50%;
+    z-index:2;
+    left: ${props => props.scroll ? '0' : '50%'};
+    transform: ${props => props.scroll ? 'translate(0,0)' : 'translate(-50%,0)'};
+    // transform:translate(-50%,0);
+    // top: 0;
+    // left: 50%;
     padding:0 10%;
-    margin-top:3rem;
+    margin-top: ${props => props.scroll ? '0' : '3rem'};
+    box-shadow: ${props => props.scroll ? '0 0 13px 1px rgba(0,0,0,.5)' : '0'};
+    // margin-top:3rem;
+    // background-color : ${props => props.scroll ? '#1d1d1d' : 'transparent'}; 
+    transition : height .3s , background-color .6s;
+    // transition : cubic-bezier(.35,.53,.78,.82) .3s;
 `;
 
 export const UserIconButton = styled(IconButton)`

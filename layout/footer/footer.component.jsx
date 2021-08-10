@@ -13,7 +13,7 @@ import {FooterContainer ,
     SocialMediaLinks,
     SocialMediaLinksIcon,
 } from './footer.styles';
-import FooterImg from '../../assets/img/horse5.jpg';
+// import FooterImg from '../../assets/img/horse5.jpg';
 //////////////////////////////////////////////////
 // import { Icon } from '@material-ui/core';
 // import { IconButton } from '@material-ui/core';
@@ -27,15 +27,15 @@ const Footer = () =>{
         <FooterContainer>
             <FooterTitle>اسب های من</FooterTitle>
             <FooterInfo>
-                <FooterImage src={FooterImg} />
+                {/* <FooterImage src={FooterImg} /> */}
                 <FooterLinks>
-                    <FooterUl>
+                    {/* <FooterUl>
                         <FooterUlTitle>صفحات ما</FooterUlTitle>
                         <FooterItem><FooterLink href="#">صفحه تماس با ما</FooterLink></FooterItem>
                         <FooterItem><FooterLink href="#">صفحه تماس با ما</FooterLink></FooterItem>
                         <FooterItem><FooterLink href="#">صفحه تماس با ما</FooterLink></FooterItem>
                         <FooterItem><FooterLink href="#">صفحه تماس با ما</FooterLink></FooterItem>
-                    </FooterUl>
+                    </FooterUl> */}
                     <FooterUl>
                         <FooterUlTitle>نمونه گزارش ها</FooterUlTitle>
                         <FooterItem><FooterLink href="#">صفحه تماس با ما</FooterLink></FooterItem>
@@ -66,7 +66,7 @@ const Footer = () =>{
                             <FacebookIcon />
                         </SocialMediaLinksIcon>
                     </SocialMediaLinks>
-                    <SocialMediadisc>طراحی و تولید زهسان-ایران سال 1399-1400</SocialMediadisc>
+                    <SocialMediadisc>طراحی و تولید زهسان-ایران سال 1401-1400</SocialMediadisc>
                 </SocialMediaContainer>
             </FooterInfo>
             
