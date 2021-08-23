@@ -1,6 +1,9 @@
 module.exports = {
   reactStrictMode: true,
-  disableStaticImages: true,
+  images: {
+    domains: ['https://newevolutiondesigns.com/images/freebies'],
+  },
+  // disableStaticImages: true,
   // future: {
   //   webpack5: true,
   // },

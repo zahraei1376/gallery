@@ -22,6 +22,20 @@ const fade = keyframes`
   }
 `;
 
+const fadeButtom = keyframes`
+  0% {
+    opacity: 0;
+    // height:0;
+    transform: translateY(10rem);
+  }
+
+  100%{
+    opacity: 1;
+    // height:100%;
+    transform: translateY(0);
+  }
+`;
+
 export const TitleImage = styled.h1`
     color:#777;
     font-family:Bnazanin;
@@ -44,7 +58,7 @@ export const ProductButton = styled.button`
   font-size: 2rem;
   font-weight: 300;
   padding: 2rem;
-  background-image: linear-gradient(-120deg, #bf4f7b 0%, #bf4f7b 50%, #fff 50%);
+  background-image:${props => props.color ? `linear-gradient(-120deg, ${props.color} 0%, ${props.color} 50%, #fff 50%)` : "linear-gradient(-120deg, #9dc6da 0%, #9dc6da 50%, #eee 50%)"};
   background-size: 200%;
    transition: all .4s;
     // linear-gradient(to bottom ,rgb(218,160,103),#bf4f7b);
@@ -73,34 +87,60 @@ export const ImageSContainer = styled.div`
   align-items:center;
 `;
 
+export const ProductLinkContainer = styled.div`
+    position:absolute;
+    bottom: 0;
+    right: 0 ;
+    width:0;
+    height :0;
+    // display:block;
+    // background-color:transparent;
+    background-color:rgba(157, 198, 218, 0.8);
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-end;
+    transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s , background-color 0.1s;
+    // opacity:.5;
+`;
+
+export const ProductLink = styled.span`
+    // width:100%;
+    font-size:3rem;
+    text-align:center;
+    font-family:Bnazanin;
+    color:#fff;
+    display:none;
+    padding:2rem 0;
+    cursor:pointer;
+    animation: ${fadeButtom} 1s alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    // animation-delay: 1s;
+`;
+
 export const ImageBox = styled.div`
   width:100%;
   overflow:hidden;
   border-radius:1rem;
   position:relative;
-//   height:20rem;
-  
-`;
-
-export const ProductLinkContainer = styled.div`
-    // position:absolute;
-    // bottom: 0;
-    // right: 1rem;
-    // display:inline-block;
-    // display:flex;
-    // justify-content:center;
-    // align-items:center;
+  &:hover ${ProductLinkContainer}{  
+    left:0;
     width:100%;
-    display:none;
-    background-color:rgba(0,0,0,.6);
-    color:#fff;
+    height : 100%;
+    // background-color:rgba(157, 198, 218, 0.8);
+  }
+
+  &:hover ${ProductLink}{
+    display:block;
+    // transform: translateY(0);
+  }
 `;
 
-export const ProductLink = styled.span`
-    font-size:3rem;
-    font-family:Bnazanin;
-    color:#fff;
-`;
+
+
+
 
 // export const ImageProductSection = styled.div`
 // //   width:20%;
@@ -141,29 +181,27 @@ export const ProductLink = styled.span`
 // `;
 
 export const ImageProductSection = styled(Image)`
+    width:100% !important;
+    // height:100%;
     transition:all .3s;
     border-radius:1rem;
     // position:relative;
     &:hover{
         transform:scale(1.1);
     }
-    &:hover ${ProductLink} {
-        display:flex;
-    justify-content:center;
-    align-items:center;
-       
-    }
 `;
 
 export const ProductContainer = styled.div`
     width:100%;
-    min-height:60rem;
+    min-height:70rem;
     display:flex;
     flex-direction:column;
     justify-content:space-evenly;
     align-item:center;
     position:relative;
-
+    margin:10rem 0 0 0;
+    padding:10rem 0;
+    box-sizing:border-box;
     // @media only screen and (max-width: 540px){
     //     min-height:40rem;
     // }
@@ -171,14 +209,20 @@ export const ProductContainer = styled.div`
     &::before{
         content: "";
         position: absolute;
+        padding:10rem 0;
         display: block;
-        top: -44px;
-        bottom: -206px;
-        left: 0;
+        top: -10rem;
+        // bottom: -206px;
+        bottom: 0;
+        right: 0;
         width: calc(50vw + 72px);
         // height: 100%;
         background: #eee;
         z-index: 0;
+        box-sizing:border-box;
+        // height:100%;
+        // border-top-left-radius:1rem;
+        // border-bottom-left-radius:1rem;
     }
 `;
 
@@ -218,9 +262,9 @@ export const TextContainer = styled.div`
 `;
 
 export const Text = styled.h5`
-    background-image: linear-gradient(to bottom ,rgb(218,160,103),#bf4f7b);
-    -webkit-background-clip: text;
-    color: transparent;
+    color: rgb(218,160,103);
+    // -webkit-background-clip: text;
+    // color: transparent;
     font-size:2rem;
 `;
 
@@ -230,7 +274,8 @@ export const TextSpan = styled.span`
     height:3px;
     display: inline-block;
     margin:0 1rem;
-    background-image:linear-gradient(to bottom ,rgb(218,160,103),#bf4f7b);
+    background-color: rgb(218,160,103);
+    // background-image:linear-gradient(to bottom ,rgb(218,160,103),#bf4f7b);
 `;
 
 export const SubDescriprion = styled.p`

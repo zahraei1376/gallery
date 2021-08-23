@@ -53,6 +53,20 @@ export const HeaderContainer = styled.div`
 
 `;
 
+
+export const HeaderBoxes = styled.div`
+    width:50%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+`;
+
+export const Box = styled.div`
+    width:45%;
+    height:30rem;
+    background-color:red;
+`;
+
 export const HeadercontextContainer = styled.div`
     width:100%;
     position:absolute;
@@ -114,6 +128,8 @@ export const HeaderImageContainer = styled.div`
     height:90%;
     padding:0 2rem;
     margin-top:6rem;
+    position:absolute;
+    top:0;right:0;
     // background-image:  url('${headerFood}');
 	// background-size: 50%;
 	// background-repeat: no-repeat;
@@ -126,6 +142,7 @@ export const HeaderImageContainer = styled.div`
 export const HeaderImage = styled(Image)`
     width:100%;
     height: 3rem !important;
+    object-fit: cover;
     // height:100% !important;
 
     // &:hover{

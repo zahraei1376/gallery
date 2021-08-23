@@ -3,7 +3,8 @@ import Image from 'next/image';
 
 
 export const TitleContainer = styled.div`
-    margin:0 0 10rem 0;
+    // margin:0 0 10rem 0;
+    margin:10rem 0;
 `;
 
 export const Title = styled.h1`
@@ -33,20 +34,21 @@ export const Container = styled.div`
     // align-items: center;
     margin-bottom:5rem;
     position:relative;
-    margin:0 auto;
+    margin:10rem auto;
 `;
 
 export const ImgContainer = styled.div`
     width:70%;
-    height:100%;
+    height:70%;
     display: flex;
     justify-content: center;
     align-items: center;
     position:absolute;
-    top:10rem;
+    top:30rem;
     right:0;
     z-index:-1;
     margin-right:6rem;
+    overflow:hidden;
     @media only screen and (max-width: 540px){
         width:70%;
         top:42rem;
@@ -69,7 +71,7 @@ export const ParagContainer = styled.div`
     justify-content: center;
     align-items: center;
     // padding:10rem;
-    outline: 1.5rem solid #bf4f7b;
+    outline: 1.5rem solid #9dc6da;
     outline-offset: 3rem;
     z-index:3;
 

@@ -1,6 +1,5 @@
-import  React , {useState} from 'react';
+import  React , {useState } from 'react';
 import { connect } from 'react-redux';
-// import { useHistory } from "react-router-dom";
 import Toolbar from './Toolbar/toolbar.component';
 import PopoverPopupState from './profileBox/propfileBox.component';
 import {NavberContainer,UserIconButton ,MyUserIcon ,ProfileBox,
@@ -10,20 +9,17 @@ import logo from '../../../assets/img/logo1.png';
 import { useRouter } from 'next/router';
 import ToolbarItems from './Toolbar/ToolbarItem.component';
 
-const MyNavbar = ({currentUser}) =>{
+const MyNavbar = ({currentUser , scrolling}) =>{
     const [clicked,setClicked] = useState(false);
     /////////////////////////////
-    // let history = useHistory();
     const router = useRouter()
     /////////////////////////////
     return (
-        <NavberContainer>
+        <NavberContainer scroll = {scrolling === true ? true : null}>
             <LogoContainer>
-                    <Logo src={logo} 
-                    // onClick={() => router.push('/', undefined, { shallow: true })}
-                    // onClick={()=> history.push('/')} 
-                    onClick={()=> router.push('/')} 
-                    />
+                <Logo src={logo}
+                onClick={()=> router.push('/')} 
+                />
             </LogoContainer>
             
             <InfoContainer>
@@ -34,8 +30,6 @@ const MyNavbar = ({currentUser}) =>{
                 {!currentUser ? 
                     <LoginButtonContainer>
                         <LoginButton 
-                        // onClick={() => router.push('/login', undefined, { shallow: true })}
-                        // onClick={()=> history.push('/login')}
                         onClick={()=> router.push('/login')} 
                         >ورود</LoginButton>
                     </LoginButtonContainer> 

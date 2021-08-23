@@ -4,7 +4,7 @@
 import React from 'react';
 import {Container , ImgContainer ,MyImage , ParagContainer,Parags,
 TitleContainer,Title} from './wayBuy.styles';
-import naturePic from '../../assets/img/nature2.jpg';
+import naturePic from '../../assets/img/nature17.jpg';
 
 const WayBuy = () =>{
     return(

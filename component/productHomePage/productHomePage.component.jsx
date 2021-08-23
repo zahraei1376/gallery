@@ -123,9 +123,9 @@ const ProductForHomePage = () =>{
                     <ImageBox>
                         <ImageProductSection  src={dogPic1} 
                             alt="Picture of the food"/>
-                            <ProductLinkContainer>
-                                <ProductLink>نمایش</ProductLink>
-                            </ProductLinkContainer>
+                        <ProductLinkContainer>
+                            <ProductLink>نمایش &rarr;</ProductLink>
+                        </ProductLinkContainer>
                     </ImageBox>
                     <TitleImage>حیوانات</TitleImage>
                     <SubTitleImage>حیوانات +  تصاویر</SubTitleImage>
@@ -134,9 +134,9 @@ const ProductForHomePage = () =>{
                     <ImageBox>
                         <ImageProductSection  src={dogPic2} 
                             alt="Picture of the big dog"/>
-                            <ProductLinkContainer>
-                                <ProductLink>نمایش</ProductLink>
-                            </ProductLinkContainer>
+                        <ProductLinkContainer>
+                            <ProductLink>نمایش &rarr;</ProductLink>
+                        </ProductLinkContainer>
                             
                     </ImageBox>
                     <TitleImage>سگ های قوی</TitleImage>
