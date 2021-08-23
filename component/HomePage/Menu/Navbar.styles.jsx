@@ -43,7 +43,7 @@ export const NavberContainer = styled.div`
     // top: 0;
     // left: 50%;
     padding:0 10%;
-    margin-top: ${props => props.scroll ? '0' : '3rem'};
+    padding-top: ${props => props.scroll ? '0' : '3rem'};
     box-shadow: ${props => props.scroll ? '0 0 13px 1px rgba(0,0,0,.5)' : '0'};
     // margin-top:3rem;
     // background-color : ${props => props.scroll ? '#1d1d1d' : 'transparent'}; 

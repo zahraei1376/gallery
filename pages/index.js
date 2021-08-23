@@ -15,7 +15,7 @@ import WayBuy from '../component/wayBuy/wayBuy.component';
 import {MainTitleContainer,MainTitle} from '../styles/Home.styles';
 import ContactUs from '../component/contactUs/contactUs.component';
 import Footer from '../layout/footer/footer.component';
-
+import  CarouselComponnet from '../component/carouselHeader/carouselHeader.component';
 export default function Home() {
   ////////////////////////////////////////////
   const [scrolling,setScrolling] = useState(false);
@@ -44,7 +44,8 @@ export default function Home() {
     // className={styles.container}
     >
       <MyNavbar scrolling = {scrolling} />
-      <Header/>
+      <CarouselComponnet/>
+      {/* <Header/> */}
       {/* <MainTitleContainer>
           <MainTitle>زندگی حیوانات با زهرا</MainTitle>
       </MainTitleContainer> */}

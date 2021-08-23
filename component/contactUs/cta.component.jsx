@@ -5,7 +5,7 @@ const Cta = () =>{
     return(
         <Container>
             <Text>برای مشاهده کارهای ما آماده اید ؟ </Text>
-            <ProductButton>
+            <ProductButton color="rgba(218,160,103 ,1)">
                 نمایش کار های ما
             </ProductButton>
         </Container>

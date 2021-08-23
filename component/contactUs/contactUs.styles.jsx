@@ -11,8 +11,10 @@ export const ButtonContainer = styled.div`
   height:100%;
   width:100%;
   display:flex;
-  justify-content:flex-end;
+//   justify-content:flex-end;
+  justify-content:center;
   align-items:center;
+  margin-top:8rem;
 `;
 
 export const Button = styled.button`
@@ -49,17 +51,20 @@ export const ContactContainer = styled.div`
         display: block;
         top: -30px;
         left: 7px;
-        width: 70rem;
+        // width: 70rem;
+        width: 50%;
         bottom: -79px;
         // background-color: #fec303;
-        background-color: #bf4f7b;
+        // background-color: #bf4f7b;
+        background-color:#9dc6da;
         z-index: -1;
 
         @media only screen and (max-width: 1200px){
-            left: auto;
-            width: 43%;
+            // left: auto;
+            width: 50%;
+            // width: 43%;
             height: 580px;
-            right: 372px;
+            // right: 372px;
         }
 
         @media only screen and (max-width: 1125px){
@@ -96,11 +101,12 @@ export const Content = styled.div`
     // text-align:center;
     // padding: 28px 0 0 278px;
     text-align:right;
-    width:30%;
+    // width:30%;
+    width: 50%;
     margin:0 auto;
-    @media only screen and (max-width: 1203px){
-        width:40%;
-    }
+    // @media only screen and (max-width: 1203px){
+    //     width:40%;
+    // }
 `;
 
 export const ContentTitle = styled.h1`

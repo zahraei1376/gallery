@@ -18,7 +18,7 @@ const IconsConnectionCss = css`
     cursor:pointer;
 
     &:hover {
-        color : #bf4f7b;
+        color :rgba(157, 198, 218, 1);
     }
 `;
 
@@ -208,7 +208,7 @@ export const ListItem = styled.div`
         right: 0;
         width:0;
         height: 0;
-        background-color:#bf4f7b;
+        background-color:rgba(157, 198, 218, 1);
         z-index: -1;
         // transition:all .3s;
         transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.1s;
