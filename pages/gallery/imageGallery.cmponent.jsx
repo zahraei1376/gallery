@@ -30,7 +30,7 @@ const ImageGallery = ({index , handleRowImages}) =>{
     return(
         <MyImage 
         // onLoad={onImgLoad}
-         src={`/img/gal-${index}.jpg`} 
+         src={`/img/bunny/bunny-${index}.jpg`} 
         layout='fill'
         // layout="responsive" objectFit="cover"
           alt={`Gallery image ${index + 1}`} />

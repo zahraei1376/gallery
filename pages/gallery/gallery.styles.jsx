@@ -3,10 +3,17 @@ import Image from 'next/image';
 
 const SIZE = 3;
 const rowGutter = '30px';
+
+// export const CartDropDown = styled.div`
+//     width:100%
+// `;
+
 export const GallerySecion = styled.div`
     width:100%;
+    position:relative;
     min-height:100vh;
     background-color: #f9f7f6;
+    // background-color: #1d1d1d;
     // grid-column: 1 / 7;
     display: grid;
     grid-template-columns: repeat(${SIZE},minmax(0,1fr));
@@ -82,11 +89,23 @@ export const GalleryColumn = styled.div`
     // grid-template-columns: minmax(0,1fr);
 `;
 
+export const SavedBoxContainer = styled.div`
+    display:none;
+    // width:100%;
+    // padding:2rem;
+    // display:none;
+    // position:absolute;
+    // top:0;
+    // left:0;
+`;
+
 export const Gallery__item = styled.div`
     // position:relative;
     // cursor: -webkit-zoom-in;
     // cursor: zoom-in;
+    position:relative;
     border-radius:2rem;
+    margin-bottom:1.5rem;
     // align-items: start;
     // overflow:hidden;
     // grid-row-end: ${props => props.row ? `span ${props.row}` : "span 3"};
@@ -100,7 +119,11 @@ export const Gallery__item = styled.div`
     // grid-column:${props => props.column ? `${((props.index % SIZE) * SIZE) + 1} / span ${props.column}` : "1 / 2"};
     // grid-row:${props => props.row ? `1 / span ${props.row}` : "1 / 2"};
     // grid-column:${props => props.type === "HorizontalRectangle" ? `1 / span ${column}` : props.type === "VerticalRectangle" ? " 1 / span 2" :"1 / 2"};
-    // grid-row:${props => props.type === "HorizontalRectangle" ? " 1 / 3" : props.type === "VerticalRectangle" ? "1 / span 3" :"1 / 2"};
+    // grid-row:${props => props.type === "HorizontalRectangle" ? " 1 / 3" : props.type === "VerticalRectangle" ? "1 / span 3" :"1 / 2"}; 
+
+    &:hover ${SavedBoxContainer}{
+        display:block;
+    }
 `;
 
 export const Gallery__item_1 = styled.div`

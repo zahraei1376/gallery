@@ -1,17 +1,39 @@
 import { useState } from 'react';
-import { GallerySecion,Gallery__item ,ImageWrapper,TitleContainer,Title, GalleryColumn} from './gallery.styles';
+import { GallerySecion,Gallery__item ,ImageWrapper,TitleContainer,Title,SavedBoxContainer, GalleryColumn,} from './gallery.styles';
 import ImageGallery from './imageGallery.cmponent';
 import ShowImage from '../../component/imageShow/showImage.component';
+import SavedImages from '../../component/savedImage/savedImage.component';
+import CardSaved from '../../component/sevedBox/savedBox.component';
 //////////////////////////////////////////////
 const row = [1,2,3];
-const images = [{title:'حیوانات دوست داشتنی'},{title:'حیوانات دوست داشتنی'},{title:'حیوانات دوست داشتنی'},{title:'حیوانات دوست داشتنی'},
-{title:'حیوانات دوست داشتنی'},{title:'حیوانات دوست داشتنی'},{title:'حیوانات دوست داشتنی'},{title:'حیوانات دوست داشتنی'},
-{title:'حیوانات دوست داشتنی'},{title:'حیوانات دوست داشتنی'},{title:'حیوانات دوست داشتنی'},{title:'حیوانات دوست داشتنی'}];
+const images = [
+    {title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-1.jpg'},
+    {title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-2.jpg'},
+    {title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-3.jpg'},
+    {title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-4.jpg'},
+    {title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-5.jpg'},
+    {title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-6.jpg'},
+    {title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-7.jpg'},
+    {title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-8.jpg'},
+    {title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-9.jpg'},
+    {title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-10.jpg'},
+    {title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-11.jpg'},
+    {title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-12.jpg'},
+    {title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-13.jpg'},
+    {title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-14.jpg'},
+    {title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-15.jpg'},
+    {title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-16.jpg'},
+    {title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-17.jpg'},
+    {title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-18.jpg'},
+    {title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-19.jpg'},
+    {title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-20.jpg'},
+];
 //////////////////////////////////////////////
 const Gallery = () =>{
     //////////////////////////////////////////////
     const [showComponent , setShowComponent] = useState(false);
     const [srcImage , setSrcImage] = useState('');
+    const [ location, setLocation] = useState({coordinates:{}})
     //////////////////////////////////////////////
     const handleShowImage = (src) => {
         setSrcImage(src);
@@ -33,12 +55,17 @@ const Gallery = () =>{
                                 return (topIndex + 1) * (index + 1) < images.length ?
                                 (
                                         <Gallery__item key={index}>
-                                            <ImageWrapper onClick = {() => handleShowImage(`/img/gal-${(topIndex + 1) * (index + 1)}.jpg`)}>
+                                            <ImageWrapper onClick = {() => handleShowImage(`/img/bunny/bunny-${(topIndex + 1) * (index + 1)}.jpg`)}>
                                                 <ImageGallery index = {(topIndex + 1) * (index + 1)} />
                                             </ImageWrapper>
-                                            <TitleContainer>
+                                            <SavedBoxContainer>
+                                                <SavedImages setLocation={setLocation} />
+                                            </SavedBoxContainer>
+                                            
+                                            
+                                            {/* <TitleContainer>
                                                 <Title>{image.title}</Title>
-                                            </TitleContainer>
+                                            </TitleContainer> */}
                                         </Gallery__item>
                                         
                                 ): ''
@@ -70,6 +97,7 @@ const Gallery = () =>{
             {/* /////////////////////////////////////////////// */}
             {showComponent ? <ShowImage imageSrc = {srcImage} close = {toggleShowImage} caption = "" /> : ""}
             {/* /////////////////////////////////////////////// */}
+            <CardSaved location={location}/>
         </GallerySecion>
     )
 };
