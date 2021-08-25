@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState , useEffect } from 'react';
 import { GallerySecion,Gallery__item ,ImageWrapper,TitleContainer,Title,SavedBoxContainer, GalleryColumn,} from './gallery.styles';
 import ImageGallery from './imageGallery.cmponent';
 import ShowImage from '../../component/imageShow/showImage.component';
@@ -33,8 +33,11 @@ const Gallery = () =>{
     //////////////////////////////////////////////
     const [showComponent , setShowComponent] = useState(false);
     const [srcImage , setSrcImage] = useState('');
-    const [ location, setLocation] = useState({coordinates:{}})
+    const [ location, setLocation] = useState({})
     //////////////////////////////////////////////
+    useEffect( () => {
+        console.log('locationlocationlocation',location);
+    },[location]);
     const handleShowImage = (src) => {
         setSrcImage(src);
         toggleShowImage();
@@ -97,7 +100,7 @@ const Gallery = () =>{
             {/* /////////////////////////////////////////////// */}
             {showComponent ? <ShowImage imageSrc = {srcImage} close = {toggleShowImage} caption = "" /> : ""}
             {/* /////////////////////////////////////////////// */}
-            <CardSaved location={location}/>
+            <CardSaved location={location} setLocation = {setLocation} />
         </GallerySecion>
     )
 };

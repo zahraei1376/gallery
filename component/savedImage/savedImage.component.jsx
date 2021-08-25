@@ -7,7 +7,7 @@ const SavedImages = ({setLocation}) =>{
     const handleLoaction = (e) =>{
     //     cursorX = e.pageX;
     // cursorY = e.pageY;
-        console.log('e.pageYe.pageY',e.pageY);
+        // console.log('e.pageYe.pageY',e.pageY);
         setLocation({x:e.pageX , y:e.pageY});
     }
     return(
