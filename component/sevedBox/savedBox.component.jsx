@@ -1,5 +1,10 @@
 import { useState , useEffect } from 'react';
-import {MyTypography , MySaveButton,MySaveIcon ,CloseButtonContainer,SaveBoxContainer,ImageSaveBox,ImageSaveBoxContainer,SaveBoxImage,TiTleSaveBox, SeeAllButton,SaveCloseButton,SaveCloseIcon,SavedBoxContainer, SavedBox, SavedImage, SavedTitle} from './savedBox.styles';
+import {connect } from 'react-redux';
+import { createStructuredSelector} from 'reselect';
+import {MyTypography , MySaveButton,MySaveIcon ,P,CloseButtonContainer,SaveBoxContainer,ImageSaveBox,ImageSaveBoxContainer,SaveBoxImage,TiTleSaveBox, SeeAllButton,SaveCloseButton,SaveCloseIcon,SavedBoxContainer, SavedBox, SavedImage, SavedTitle} from './savedBox.styles';
+import {limitRecipeTitle} from '../../generalMethod/limitRecipeTitle';
+import {selectCartItem} from '../../redux/cart/cart.selectors';
+
 const savedImages = [
   {src : "/img/bunny/bunny-1.jpg" , title: 'سلاممم'},
    {src : "/img/bunny/bunny-1.jpg" , title: 'سلاممم'},
@@ -9,11 +14,15 @@ const savedImages = [
    {src : "/img/bunny/bunny-1.jpg" , title: 'سلاممم'}
   ]
 
-const CardSaved = ({location , setLocation}) => {
+const CardSaved = ({location , setLocation ,saveCartItem}) => {
   const [width, setWidth] = useState(0);
+
   useEffect(() => {
     setWidth(window.innerWidth);
   });
+
+
+
   return(
     <SavedBoxContainer location={location} width = {width} >
         <CloseButtonContainer>
@@ -22,12 +31,12 @@ const CardSaved = ({location , setLocation}) => {
           </SaveCloseButton>
         </CloseButtonContainer>
         
-        <ImageSaveBoxContainer>
+        {saveCartItem.length > 0 ? <ImageSaveBoxContainer>
           <ImageSaveBox>
             {
-              savedImages.map((image , index) =>(
+              saveCartItem.map((image , index) =>(
                 <SaveBoxContainer key={index}>
-                    <TiTleSaveBox>{image.title}</TiTleSaveBox>
+                    <TiTleSaveBox>{limitRecipeTitle(image.title)}</TiTleSaveBox>
                     <SaveBoxImage src = {image.src} />
                 </SaveBoxContainer>
               ))
@@ -35,10 +44,14 @@ const CardSaved = ({location , setLocation}) => {
           </ImageSaveBox>
           
           <SeeAllButton>نمایش</SeeAllButton>
-        </ImageSaveBoxContainer>
+        </ImageSaveBoxContainer> : <P>موردی ذخیره نشده است</P>}
         
     </SavedBoxContainer>
   )
 };
 
-export default CardSaved;
+const mapStateToProps = createStructuredSelector({
+   saveCartItem : selectCartItem,
+});
+
+export default connect(mapStateToProps)(CardSaved);

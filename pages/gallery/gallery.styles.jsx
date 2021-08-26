@@ -91,6 +91,10 @@ export const GalleryColumn = styled.div`
 
 export const SavedBoxContainer = styled.div`
     display:none;
+    // display:${props => props.location.x ? 'block' :'none'};
+    &:focus-within{
+        display:block;
+    }
     // width:100%;
     // padding:2rem;
     // display:none;

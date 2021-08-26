@@ -30,20 +30,37 @@ const fade = keyframes`
   }
 `;
 
+export const P = styled.p`
+  width:100%;
+  color:#999;
+  font-size:2rem;
+  font-family:Bnazanin;
+  display:flex;
+  align-items:Center;
+  justify-content:Center;
+`;
+
+export const SaveCloseIcon = styled(CloseIcon)`
+    font-size:2rem !important;
+    transition:all .3s !important;
+`;
+
 export const SaveCloseButton = styled(IconButton)`
     margin:1rem !important;
     // display:inline !important;
     background-color:rgba(0,0,0,.4) !important;
     color:#fff !important;
+
+    &:hover ${SaveCloseIcon}{
+      color:#D84315 !important;
+    }
 `;
 export const CloseButtonContainer = styled.div`
   width:100%;
   height:20%;
 `;
 
-export const SaveCloseIcon = styled(CloseIcon)`
-    font-size:2rem !important;
-`;
+
 
 export const ImageSaveBoxContainer = styled.div`
     width:100%;
@@ -51,12 +68,13 @@ export const ImageSaveBoxContainer = styled.div`
     display:flex;
     align-items:center;
     flex-direction:column;
+    justify-content: space-between;
     // overflow:auto;
 `;
 
 export const ImageSaveBox = styled.div`
   width:100%;
-  height: 80%;
+  height: 70%;
   display:flex;
   align-items:center;
   flex-direction:column;
@@ -84,7 +102,7 @@ export const TiTleSaveBox = styled.p`
 export const SeeAllButton = styled.button`
   width:100%;
   height:20%;
-  border:none;
+  border:1px solid transparent;
   font-size:2.5rem;
   font-family:Bnazanin;
   background-color:rgba(0,0,0,.8);
@@ -92,16 +110,23 @@ export const SeeAllButton = styled.button`
   // bottom:0;
   cursor:pointer;
   // align-self:flex-end;
+  transition:all .3s;
+
+  &:hover {
+    border:1px solid #000;
+    background-color:#fff;
+    color:#000;
+  }
 `;
 
 export const SavedBoxContainer = styled.div`
     position:absolute;
-    ${props => props.location && 25 * 16  + props.location.x < props.width ?
+    ${props => props.location && 28 * 16  + props.location.x < props.width ?
       css`left: ${props.location.x}px;
       display:flex;
       flex-direction:column;
       align-items:flex-start;
-    ` : props.location && 25 * 16  + props.location.x > props.width ?
+    ` : props.location && 28 * 16  + props.location.x > props.width ?
       css`left: ${props.location.x}px;
           transform: translate(-100%,0);
           display:flex;
@@ -112,7 +137,7 @@ export const SavedBoxContainer = styled.div`
     }
 
     ${props => props.location.y  ?
-      css`top: ${props.location.y}px;`: css`display:none;`
+      css`top: ${props.location.y + 15}px;`: css`display:none;`
       // :css`left:-60rem;`
     }
     // left:${props => props.location && props.location.x ? `${props.location.x}px` : "-60rem"};
@@ -122,12 +147,14 @@ export const SavedBoxContainer = styled.div`
     // display:flex;
     // flex-direction:column;
     // align-items:flex-end;
-    width:25rem;
+    width:28rem;
     height:40rem;
-    background-color:#fff;
-    border-radius:1rem;
+    background-color:#eee;
+    // border-radius:1rem;
     transition:all .5s;
     overflow:hidden;
+    border:1px solid #777;
+    padding:0 1.5rem 1.5rem 1.5rem;
 `;
 
 export const SavedBox = styled.div`
