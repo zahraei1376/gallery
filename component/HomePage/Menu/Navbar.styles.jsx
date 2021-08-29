@@ -122,7 +122,7 @@ export const LoginButton = styled.button`
 export const LogoContainer = styled.div`
   height:100%;
   z-index:2;
-  width:7rem;
+  width:10rem;
   display:flex;
   justify-content:Center;
   align-items:center;
@@ -134,7 +134,8 @@ export const LogoContainer = styled.div`
 
 export const LogoImg = styled.img`
   width:90%;
-  height:80%;
+  height:auto;
+  // height:80%;
   cursor:pointer;
   // border:1px solid #fff;
   // color:#fff;

@@ -8,6 +8,7 @@ import CardSaved from '../../component/sevedBox/savedBox.component';
 import {RemoveItem} from '../../redux/cart/cart.action';
 import {connect } from 'react-redux';
 import { createStructuredSelector} from 'reselect';
+import axios from 'axios';
 const row = [1,2,3];
 const images = [
     {id: "1",title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-1.jpg'},
@@ -39,7 +40,67 @@ const Gallery = ({RemoveItem}) =>{
     const [ location, setLocation] = useState({})
     //////////////////////////////////////////////
     useEffect(() =>{
-        RemoveItem();
+        // RemoveItem();
+
+        // fetch("https://nijikokun-random-cats.p.rapidapi.com/random/kitten", {
+        //     "method": "GET",
+        //     "headers": {
+        //         "x-rapidapi-host": "nijikokun-random-cats.p.rapidapi.com",
+        //         "x-rapidapi-key": "4dc52e988bmsh84a87edcff12eb0p148fb2jsn48d292c20ffc"
+        //     }
+        // })
+        // .then(response => {
+        //     return response.json();
+            
+        // })
+        // .then(res =>{
+        //     console.log('response' , res);
+        // })
+        // .catch(err => {
+        //     console.error(err);
+        // });
+
+        // fetch("https://cors-anywhere.herokuapp.com/https://slashtheapidog.com/api/bones")
+        // .then(response => {
+        //     return response.json();
+            
+        // })
+        // .then(res =>{
+        //     console.log('response' , res);
+        // })
+        // .catch(err => {
+        //     console.error(err);
+        // });
+
+        var formdata = new FormData();
+        formdata.append('username', 'Chris');
+
+        var requestOptions = {
+        method: 'GET',
+        body: formdata,
+        redirect: 'follow'
+        };
+
+        fetch("https://cors-anywhere.herokuapp.com/https://slashtheapidog.com/api/bones", {
+            method: 'GET',
+            // body: formdata, 
+            // headers: {
+            //   'Content-Type': 'application/x-www-form-urlencoded',
+            // },
+            redirect: 'follow', 
+            
+          }).then(response =>{ 
+            console.log("result",response)
+              return response.text();
+            })
+          .then(result => console.log("result",result))
+          .catch(error => console.log('error', error));
+
+        // fetch("https://cors-anywhere.herokuapp.com/https://slashtheapidog.com/api/bones", requestOptions)
+        // .then(response => response.text())
+        // .then(result => console.log("result",result))
+        // .catch(error => console.log('error', error));
+        
     },[]);
     useEffect( () => {
         console.log('locationlocationlocation',location);

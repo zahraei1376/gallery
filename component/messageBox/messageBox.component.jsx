@@ -1,7 +1,7 @@
 import React from 'react';
-import MuiAlert from '@material-ui/lab/Alert';
 import { makeStyles } from '@material-ui/core/styles';
 import {MySnackbarDiv} from './messageBox.styles';
+import MuiAlert from '@material-ui/lab/Alert';
 
 function Alert(props) {
   return <MuiAlert style={{fontSize: '3.25rem', marginLeft:'2rem'}} elevation={6} variant="filled" {...props} />;

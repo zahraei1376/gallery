@@ -26,7 +26,7 @@ export const MyLockOutlinedIcon = styled(LockOutlinedIcon)`
 
 export const LogoContainer = styled.div`
   z-index:2;
-  width:7rem;
+  width:12rem;
   height:7rem;
   display:flex;
   justify-content:Center;
@@ -38,7 +38,8 @@ export const LogoContainer = styled.div`
 
 export const Logo = styled(Image)`
   width:100%;
-  height:100%;
+  height:auto;
+//   height:100%;
   cursor:pointer;
 `;
 // $color-primary: #55c57a;
@@ -92,9 +93,8 @@ export const TitleLogin = styled.h1`
 export const SectionLogin = styled.div`
 
     // background: rgb(218,161,103);
-    background: radial-gradient(circle, rgba(218,161,103,1) 20%,rgba(102,187,106 , 0.5) 60%, rgba(148,187,233,1) 100%);
+    // background: radial-gradient(circle, rgba(218,161,103,1) 20%,rgba(102,187,106 , 0.5) 60%, rgba(148,187,233,1) 100%);
     // background-image: linear-gradient(to bottom ,rgb(218,160,103),#bf4f7b,#191e3e);
-    // background: rgb(218,161,103);
     // background: radial-gradient(circle, rgba(218,161,103,1) 10%,rgba(102,187,106 , 0.5) 50%, rgba(148,187,233,1) 100%);
     padding: 15rem 0;
     width:100%;
@@ -105,6 +105,7 @@ export const SectionLogin = styled.div`
     align-items:center;
     // background-image: linear-gradient(to right ,#191e3e,#242d64,#bf4f7b,#fc8d6d);
     // background-image: linear-gradient(to bottom ,#fc8d6d,#bf4f7b,#242d64,#191e3e);
+    background-image: radial-gradient(ellipse at top ,#fc8d6d,#bf4f7b,#242d64 80%,#191e3e 100%);
     // background-image: linear-gradient(105deg, 
     // #3f87a6 0%,
     // #3f87a6 50%,

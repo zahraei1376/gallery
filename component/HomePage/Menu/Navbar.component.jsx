@@ -5,11 +5,12 @@ import PopoverPopupState from './profileBox/propfileBox.component';
 import {NavberContainer,UserIconButton ,MyUserIcon ,ProfileBox,
     LoginButtonContainer,LoginButton,LogoImg ,InfoContainer,
     LogoContainer,Logo} from './Navbar.styles';
-import logo from '../../../assets/img/logo1.png';
+import logo from '../../../assets/img/galleryLg.png';
 import { useRouter } from 'next/router';
 import ToolbarItems from './Toolbar/ToolbarItem.component';
 
 const MyNavbar = ({currentUser , scrolling}) =>{
+    /////////////////////////////
     const [clicked,setClicked] = useState(false);
     /////////////////////////////
     const router = useRouter()

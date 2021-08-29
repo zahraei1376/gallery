@@ -208,7 +208,7 @@ export const ListItem = styled.div`
         right: 0;
         width:0;
         height: 0;
-        background-color:rgba(157, 198, 218, 1);
+        background-color:#242d64;
         z-index: -1;
         // transition:all .3s;
         transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.1s;

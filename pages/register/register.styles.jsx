@@ -83,7 +83,7 @@ export const TitleRegister = styled.h1`
 
 export const LogoContainer = styled.div`
   z-index:2;
-  width:7rem;
+  width:12rem;
   height:7rem;
   display:flex;
   justify-content:Center;
@@ -95,12 +95,13 @@ export const LogoContainer = styled.div`
 
 export const Logo = styled(Image)`
   width:100%;
-  height:100%;
+  height:auto;
   cursor:pointer;
 `;
 
 export const SectionRegister = styled.div`
-background: radial-gradient(circle, rgba(218,161,103,1) 20%,rgba(102,187,106 , 0.5) 60%, rgba(148,187,233,1) 100%);
+background-image: radial-gradient(ellipse at top ,#fc8d6d,#bf4f7b,#242d64 80%,#191e3e 100%);
+// background: radial-gradient(circle, rgba(218,161,103,1) 20%,rgba(102,187,106 , 0.5) 60%, rgba(148,187,233,1) 100%);
 // background-image: linear-gradient(to bottom ,rgb(218,160,103),#bf4f7b,#191e3e);
     padding: 15rem 0;
     width:100%;
