@@ -64,6 +64,11 @@ export const ToolbarInfoContainer = styled.div`
     justify-content:center;
     align-items:center;
     color:#fff;
+
+    @media only screen and (max-width: 540px){
+        flex-direction:column;
+        padding-top:3rem;
+    }
 `;
 
 export const ToolbarInfo = styled.div`
@@ -281,6 +286,14 @@ export const ConnectionBox = styled.div`
     display:flex;
     justify-content:flex-end;
     align-items:center;
+    @media only screen and (max-width: 540px){
+        border-top:1px solid rgb(218,160,103);
+        border-bottom:none;
+        text-align:center;
+        justify-content:center;
+        padding-top:2rem;
+        margin-top:1rem;
+    }
 `;
 
 export const TitleBox = styled.div`
@@ -288,5 +301,9 @@ export const TitleBox = styled.div`
     flex-direction:column;
     justify-content:center;
     align-items:center;
+
+    @media only screen and (max-width: 540px){
+        display:none;
+    }
 `;
 

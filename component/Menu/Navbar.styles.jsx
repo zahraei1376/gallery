@@ -19,6 +19,11 @@ const fade = keyframes`
   }
 `;
 
+export const SearchBoxContaiber = styled.div`
+  flex-grow: 1;
+  display:${props => props.scroll ? 'block' : 'none'};
+`;
+
 export const Logo = styled(Image)`
   width:100%;
   height:100%;
@@ -31,8 +36,10 @@ export const NavberContainer = styled.div`
     display:flex;
     justify-content:space-between;
     align-items:center;
-    height: ${props => props.scroll ? '7rem' : '5rem'};
-    position:${props => props.scroll ? 'fixed' : 'absolute'};
+    height:7rem;
+    position:fixed;
+    // height: ${props => props.scroll ? '7rem' : '7rem'};
+    // position:${props => props.scroll ? 'fixed' : 'relative'};
     background-color:${props => props.scroll ? 'rgba(29, 29, 29, 1)' : 'transparent'};
     top: 0;
     // left: 50%;
@@ -43,7 +50,8 @@ export const NavberContainer = styled.div`
     // top: 0;
     // left: 50%;
     padding:0 10%;
-    padding-top: ${props => props.scroll ? '0' : '3rem'};
+    // margin: ${props => props.scroll ? '0 0 4rem 0' : '2rem 0 4rem 0'};
+    // padding-top: ${props => props.scroll ? '0' : '3rem'};
     box-shadow: ${props => props.scroll ? '0 0 13px 1px rgba(0,0,0,.5)' : '0'};
     // margin-top:3rem;
     // background-color : ${props => props.scroll ? '#1d1d1d' : 'transparent'}; 

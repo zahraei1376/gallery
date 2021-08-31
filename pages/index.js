@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
-import MyNavbar from '../component/HomePage/Menu/Navbar.component';
+import MyNavbar from '../component/Menu/Navbar.component';
+import Gallery from '../component/galleryComponent/gallery.component';
+import Header from '../component/header/header.component';
 export default function Home() {
   ////////////////////////////////////////////
   const [scrolling,setScrolling] = useState(false);
@@ -11,7 +13,8 @@ export default function Home() {
   ////////////////////////////////////////////
   const scrollFunction = () => {
     var y = window.scrollY;
-    if ( y >= 61) {
+    // if ( y >= 61) {
+    if ( y >= 170) {
         if(!scrolling){
             setScrolling(true);
         }
@@ -26,6 +29,8 @@ export default function Home() {
   return (
     <div onScroll = {()=> scrollFunction()} id="navbar">
       <MyNavbar scrolling = {scrolling} />
+      <Header/>
+      <Gallery/>
     </div>
   )
 }

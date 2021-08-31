@@ -1,12 +1,36 @@
-import styled ,{css} from "styled-components";
+import styled ,{css , keyframes} from "styled-components";
 import Image from 'next/image';
 
-const SIZE = 3;
 const rowGutter = '30px';
 
-// export const CartDropDown = styled.div`
-//     width:100%
-// `;
+const fade = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(10rem);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+const fadeRight = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(10rem);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+export const SpinnerContainer = styled.div`
+    width:100%;
+    height:80vh;
+`;
 
 export const GallerySecion = styled.div`
     width:100%;
@@ -16,7 +40,8 @@ export const GallerySecion = styled.div`
     // background-color: #1d1d1d;
     // grid-column: 1 / 7;
     display: grid;
-    grid-template-columns: repeat(${SIZE},minmax(0,1fr));
+    grid-template-columns: ${props => props.size ? `repeat(${props.size},minmax(0,1fr))` : `repeat(4,minmax(0,1fr))`};
+    // grid-template-columns: repeat(${SIZE},minmax(0,1fr));
     // grid-auto-rows: 1fr;
     // grid-template-columns: repeat(9, 1fr);
     // grid-auto-columns: 10rem;
@@ -27,10 +52,7 @@ export const GallerySecion = styled.div`
     // grid-template-rows: repeat(7, 5vw);
     grid-gap: 1.5rem;
     padding: 2rem 4rem;
-
-    // @media only screen and (max-width: 868px){
-    //     grid-template-columns: repeat(5, 1fr);
-    // }
+    margin-top:7rem;
 `;
 
 export const MyImage = styled(Image)`
@@ -42,13 +64,39 @@ export const MyImage = styled(Image)`
 
 export const TitleContainer = styled.div`
     // height:20%;
+    width:100%;
     text-align:right;
     padding:1rem 5px;
+    display:none;
+    position:absolute;
+    bottom:0;
+    background-color:rgba(0,0,0,.8);
+    transition:all .3s;
+    animation-name:${fade};
+    animation-iteration-count: 1;
+    animation-fill-mode:both;
+    animation-duration: 1s;
+
+    @media only screen and (max-width: 540px){
+        display:block;
+        position:relative;
+        background-color:transparent;
+    }
 `;
 
 export const Title = styled.h1`
     font-size:1.5rem;
     font-family:Bnazanin;
+    text-align:right;
+    color:#fff;
+    animation-name:${fadeRight};
+    animation-iteration-count: 1;
+    animation-fill-mode:both;
+    animation-duration: 1.5s;
+    @media only screen and (max-width: 540px){
+        color:#999;
+        font-size:2rem;
+    }
 `;
 
 const ImageContainer = css`
@@ -95,6 +143,10 @@ export const SavedBoxContainer = styled.div`
     &:focus-within{
         display:block;
     }
+
+    @media only screen and (max-width: 540px){
+        display:block;
+    }
     // width:100%;
     // padding:2rem;
     // display:none;
@@ -104,28 +156,15 @@ export const SavedBoxContainer = styled.div`
 `;
 
 export const Gallery__item = styled.div`
-    // position:relative;
-    // cursor: -webkit-zoom-in;
-    // cursor: zoom-in;
     position:relative;
     border-radius:2rem;
     margin-bottom:1.5rem;
-    // align-items: start;
-    // overflow:hidden;
-    // grid-row-end: ${props => props.row ? `span ${props.row}` : "span 3"};
-    // grid-column-end: ${props => props.column ? `span ${props.column}` : "span 1"};
-
-    // grid-row-end: ${props => props.row ? `span ${props.row}` : "span 3"};
-    // grid-column-end: ${props => props.column ? `span ${props.column}` : "span 3"};
-
-
-    // grid-column:${props => props.index ? `${((props.index % SIZE) * SIZE) + 1} / span ${SIZE}` : "1 / 2"};
-    // grid-column:${props => props.column ? `${((props.index % SIZE) * SIZE) + 1} / span ${props.column}` : "1 / 2"};
-    // grid-row:${props => props.row ? `1 / span ${props.row}` : "1 / 2"};
-    // grid-column:${props => props.type === "HorizontalRectangle" ? `1 / span ${column}` : props.type === "VerticalRectangle" ? " 1 / span 2" :"1 / 2"};
-    // grid-row:${props => props.type === "HorizontalRectangle" ? " 1 / 3" : props.type === "VerticalRectangle" ? "1 / span 3" :"1 / 2"}; 
-
+    overflow:hidden;
     &:hover ${SavedBoxContainer}{
+        display:block;
+    }
+
+    &:hover ${TitleContainer}{
         display:block;
     }
 `;

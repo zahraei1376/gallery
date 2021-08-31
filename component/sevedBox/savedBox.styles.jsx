@@ -137,7 +137,8 @@ export const SavedBoxContainer = styled.div`
     }
 
     ${props => props.location.y  ?
-      css`top: ${props.location.y + 15}px;`: css`display:none;`
+      // css`top: ${props.location.y + 15}px;`: css`display:none;`
+      css`top: ${props.location.y - 4 * 16}px;`: css`display:none;`
       // :css`left:-60rem;`
     }
     // left:${props => props.location && props.location.x ? `${props.location.x}px` : "-60rem"};

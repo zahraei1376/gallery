@@ -5,21 +5,15 @@ import {MyTypography , MySaveButton,MySaveIcon ,P,CloseButtonContainer,SaveBoxCo
 import {limitRecipeTitle} from '../../generalMethod/limitRecipeTitle';
 import {selectCartItem} from '../../redux/cart/cart.selectors';
 
-const savedImages = [
-  {src : "/img/bunny/bunny-1.jpg" , title: 'سلاممم'},
-   {src : "/img/bunny/bunny-1.jpg" , title: 'سلاممم'},
-   {src : "/img/bunny/bunny-1.jpg" , title: 'سلاممم'},
-   {src : "/img/bunny/bunny-1.jpg" , title: 'سلاممم'},
-   {src : "/img/bunny/bunny-1.jpg" , title: 'سلاممم'},
-   {src : "/img/bunny/bunny-1.jpg" , title: 'سلاممم'}
-  ]
+const CardSaved = ({location , setLocation ,saveCartItem ,width}) => {
+  // const [width, setWidth] = useState(0);
 
-const CardSaved = ({location , setLocation ,saveCartItem}) => {
-  const [width, setWidth] = useState(0);
-
-  useEffect(() => {
-    setWidth(window.innerWidth);
-  });
+  // useEffect(() =>{
+  //   window.addEventListener('resize', () =>{
+  //     console.log('width' , window.innerWidth);
+  //     setWidth(window.innerWidth)
+  //   });
+  // },[]);
 
 
 
