@@ -1,30 +1,24 @@
 import { useState } from "react";
-import {SearchBoxContainer , SearchBoxInput ,MySearchIcon ,SearchButton ,ClearIcon} from './searchBox.styles';
+import SegestionSearch from "../segestionSearch/segestionSearch.component";
+import {SearchBoxContainer , SearchBoxInput ,MySearchIcon ,SearchButton ,ClearIcon , BackDrop} from './searchBox.styles';
 
 const SearchBox = () =>{
     const [searchText , setSearchText] = useState('');
-    const handleGetData = () => {
-        fetch('https://api.unsplash.com/search/photos?page=1&query=office')
-        .then(response =>{
-            console.log('response1', response);
-            return response.json();
-        }).then(res =>{
-            console.log('response2', res);
-        }).catch(err =>{
-            console.log('errrrr' , err);
-        })
-    }
+    const [showSegesion, setShowSegestion] = useState(false);
     return(
-        <SearchBoxContainer>
-            {/* <MySearchIcon /> */}
-            {searchText ? 
-            <SearchButton 
-            // onClick={handleGetData}
-            >
-                <ClearIcon onClick={() => {setSearchText('')}} />
-            </SearchButton> : ''}
-            <SearchBoxInput type="text" placeholder="جستجو &#x1F50E;" value = {searchText}  onChange = {(e) => setSearchText(e.target.value)} />
-        </SearchBoxContainer>
+        <>
+            <SearchBoxContainer>
+                {/* <MySearchIcon /> */}
+                {searchText ? 
+                <SearchButton onClick={() => {setSearchText('')}} >
+                    <ClearIcon />
+                </SearchButton> : ''}
+                <SearchBoxInput onFocus={() =>setShowSegestion(true)} type="text" placeholder="جستجو &#x1F50E;" value = {searchText}  onChange = {(e) => setSearchText(e.target.value)} />
+                <SegestionSearch showSegesion = {showSegesion} setShowSegestion = {setShowSegestion} />
+                <BackDrop show = {showSegesion ? showSegesion :null} onClick = {() =>setShowSegestion(false)} />
+            </SearchBoxContainer>
+            
+        </>
     )
 }
 

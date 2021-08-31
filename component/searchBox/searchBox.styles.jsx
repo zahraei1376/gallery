@@ -40,6 +40,7 @@ export const SearchBoxContainer = styled.div`
     -ms-flex-pack: center;
     justify-content: center;
     z-index:2;
+    height:100%;
 `;
 
 export const SearchBoxInput = styled.input`
@@ -56,4 +57,15 @@ export const SearchBoxInput = styled.input`
         border:3px solid #242d64;
         outline:none;
     }
+`;
+
+export const BackDrop = styled.div`
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color:rgba(0,0,0,.4);
+    display:${props => props.show ? 'block' : 'none'};
+    z-index:5;
 `;

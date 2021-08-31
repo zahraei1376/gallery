@@ -3,9 +3,9 @@ import Image from 'next/image';
 
 export const HeaderContainer = styled.div`
     width:100%;
-    height:100vh;
-    position:realtive;
-    clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
+    height:90vh;
+    position: relative;
+    // clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
 `;
 
 export const MyImage = styled(Image)`
