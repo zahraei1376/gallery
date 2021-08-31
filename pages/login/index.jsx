@@ -11,7 +11,7 @@ import { useRouter } from 'next/router';
 import {Title ,MarginBottomRightMedium ,Btn} from '../../generalCss/generalCss.styles';
 import MySpinner from '../../component/MySpinner/MySpinner.component';
 import Link from 'next/link';
-import logo from '../../assets/img/logo.png';
+import logo from '../../assets/img/galleryLg.png';
 const LoginPage = (props) =>{
     /////////////////////////////
     const router = useRouter()

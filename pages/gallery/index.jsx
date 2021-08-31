@@ -1,77 +1,35 @@
-import { useState } from 'react';
-import { GallerySecion,Gallery__item ,ImageWrapper,TitleContainer,Title, GalleryColumn} from './gallery.styles';
-import ImageGallery from './imageGallery.cmponent';
-import ShowImage from '../../component/imageShow/showImage.component';
-//////////////////////////////////////////////
-const row = [1,2,3];
-const images = [{title:'حیوانات دوست داشتنی'},{title:'حیوانات دوست داشتنی'},{title:'حیوانات دوست داشتنی'},{title:'حیوانات دوست داشتنی'},
-{title:'حیوانات دوست داشتنی'},{title:'حیوانات دوست داشتنی'},{title:'حیوانات دوست داشتنی'},{title:'حیوانات دوست داشتنی'},
-{title:'حیوانات دوست داشتنی'},{title:'حیوانات دوست داشتنی'},{title:'حیوانات دوست داشتنی'},{title:'حیوانات دوست داشتنی'}];
-//////////////////////////////////////////////
-const Gallery = () =>{
-    //////////////////////////////////////////////
-    const [showComponent , setShowComponent] = useState(false);
-    const [srcImage , setSrcImage] = useState('');
-    //////////////////////////////////////////////
-    const handleShowImage = (src) => {
-        setSrcImage(src);
-        toggleShowImage();
-    }
+import { GalleryPageSecion} from './galleryPage.styles';
 
-    const toggleShowImage = () => {
-        setShowComponent(pre => !pre);
-    }
+const images = [
+    {id: "1",title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-1.jpg'},
+    {id: "2",title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-2.jpg'},
+    {id: "3",title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-3.jpg'},
+    {id: "4",title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-4.jpg'},
+    {id: "5",title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-5.jpg'},
+    {id: "6",title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-6.jpg'},
+    {id: "7",title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-7.jpg'},
+    {id: "8",title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-8.jpg'},
+    {id: "9",title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-9.jpg'},
+    {id: "10",title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-10.jpg'},
+    {id: "11",title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-11.jpg'},
+    {id: "12",title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-12.jpg'},
+    {id: "13",title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-13.jpg'},
+    {id: "14",title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-14.jpg'},
+    {id: "15",title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-15.jpg'},
+    {id: "16",title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-16.jpg'},
+    {id: "17",title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-17.jpg'},
+    {id: "18",title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-18.jpg'},
+    {id: "19",title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-19.jpg'},
+    {id: "20",title:'حیوانات دوست داشتنی' , sunTitle :'خرگوش در طبیعت' , src :'/img/bunny/bunny-20.jpg'},
+];
+//////////////////////////////////////////////
+const GalleryPage = ({RemoveItem}) =>{
     //////////////////////////////////////////////
     return(
-        <GallerySecion>
-            {
-                row.map((cul , topIndex) =>(
-                    <GalleryColumn key={topIndex}>
-                        {
-                             images.map((image , index) =>{
-                                console.log('topIndex * index < images.length',(topIndex + 1) * (index + 1 ) , images.length);
-                                return (topIndex + 1) * (index + 1) < images.length ?
-                                (
-                                        <Gallery__item key={index}>
-                                            <ImageWrapper onClick = {() => handleShowImage(`/img/gal-${(topIndex + 1) * (index + 1)}.jpg`)}>
-                                                <ImageGallery index = {(topIndex + 1) * (index + 1)} />
-                                            </ImageWrapper>
-                                            <TitleContainer>
-                                                <Title>{image.title}</Title>
-                                            </TitleContainer>
-                                        </Gallery__item>
-                                        
-                                ): ''
-                            })
-                        }
-                    </GalleryColumn>
-                ))
-            }
-            {/* /////////////////////////////////////////////// */}
-            {/* {
-                images.map((image , index) =>(
-                    <GalleryColumn key = {index}>
-                        <Gallery__item key = {index} id={`animal${index}`} row = {state && state[index] ? state[index] : null} >
-                            <Gallery__item>
-                                <ImageWrapper>
-                                    <ImageGallery index = {index} handleRowImages = {handleRowImages} />
-                                </ImageWrapper>
-                                <TitleContainer>
-                                    <Title>{image.title}</Title>
-                                </TitleContainer>
-                            </Gallery__item>
-                            
-                            
-                            <Image  src={`/img/gal-${index + 1}.jpg`} layout='fill' alt={`Gallery image ${index + 1}`} /> 
-                        </Gallery__item>
-                    </GalleryColumn>
-                ))
-            } */}
-            {/* /////////////////////////////////////////////// */}
-            {showComponent ? <ShowImage imageSrc = {srcImage} close = {toggleShowImage} caption = "" /> : ""}
-            {/* /////////////////////////////////////////////// */}
-        </GallerySecion>
+        <GalleryPageSecion>
+            <Gallery images = {images}/>
+        </GalleryPageSecion>
     )
 };
 
-export default Gallery;
+export default GalleryPage;

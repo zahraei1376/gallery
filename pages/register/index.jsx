@@ -9,7 +9,7 @@ import MyDropDown from '../../component/Register-Login/myDropDown.component';
 import MySnackbar from '../../component/messageBox/messageBox.component';
 import { useHistory } from "react-router-dom";
 import MySpinner from '../../component/MySpinner/MySpinner.component';
-import logo from '../../assets/img/logo.png';
+import logo from '../../assets/img/galleryLg.png';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 const RegisterPage = (props) =>{

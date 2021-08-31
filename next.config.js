@@ -1,7 +1,7 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['https://newevolutiondesigns.com/images/freebies'],
+    domains: ['images.unsplash.com'],
   },
   // disableStaticImages: true,
   // future: {
