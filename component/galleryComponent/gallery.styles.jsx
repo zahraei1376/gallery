@@ -53,7 +53,7 @@ export const GallerySecion = styled.div`
     grid-gap: 1.5rem;
     padding: 2rem 4rem;
     margin-top:7rem;
-    z-index:-1;
+    z-index:1;
 `;
 
 export const MyImage = styled(Image)`

@@ -55,7 +55,7 @@ export const DescriptionContainer = styled.div`
 	left: 50%;
 	transform: translate(-50%, -50%);
 	padding:2rem;
-	background-color: rgba(0,0,0, 0.5);
+	background-color: rgba(0,0,0, 0.8);
 	z-index: 99999;
 	transition: all 0.3s;
 	animation-name: ${Load};
@@ -63,10 +63,10 @@ export const DescriptionContainer = styled.div`
 	direction: rtl;
 	overflow-y: auto;
 
-	@supports (-webkit-backdrop-filter: blur(2rem)) or (backdrop-filter: blur(2rem)) {
-		-webkit-backdrop-filter: blur(2rem);
-		backdrop-filter: blur(2rem);
-	}
+	// @supports (-webkit-backdrop-filter: blur(2rem)) or (backdrop-filter: blur(2rem)) {
+	// 	-webkit-backdrop-filter: blur(2rem);
+	// 	backdrop-filter: blur(2rem);
+	// }
 `;
 
 export const DescriptionBody = styled.div`

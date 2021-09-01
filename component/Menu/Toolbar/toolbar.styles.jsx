@@ -75,6 +75,14 @@ export const ToolbarInfo = styled.div`
     display: ${props => props.show ? 'block' : 'none'};
     opacity:${props => props.show ? '1' : '0'};
     width:${props => props.show ? '50%' : '0'};
+
+    @media only screen and (max-width: 540px){
+        width:${props => props.show ? '80%' : '0'};
+    }
+
+    @media only screen and (max-width: 411px){
+        width:${props => props.show ? '90%' : '0'};
+    }
 `;
 
 export const ToolbarInfoText = styled.div`
@@ -85,6 +93,14 @@ export const ToolbarInfoText = styled.div`
     justify-content:center;
     text-align:right;
     padding:0 10rem 0 3rem;
+    
+    @media only screen and (max-width: 540px){
+        width:${props => props.show ? '80%' : '0'};
+    }
+
+    @media only screen and (max-width: 411px){
+        width:${props => props.show ? '90%' : '0'};
+    }
 `;
 
 export const ListContainer = styled.div`

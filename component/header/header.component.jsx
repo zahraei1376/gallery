@@ -1,5 +1,5 @@
 import {HeaderContainer , MyImage , HeaderContent , SearchBoxContaiber , HeaderTitle} from './header.styles';
-import header from '../../assets/img/back4.jpg';
+import header from '../../assets/img/wallpaper/1 (173).jpg';
 import SearchBox from '../searchBox/searchBox.component';
 
 const Header = () => {
@@ -15,8 +15,6 @@ const Header = () => {
                 <SearchBoxContaiber>
                     <SearchBox/>
                 </SearchBoxContaiber>
-
-                
             </HeaderContent>
             
         </HeaderContainer>
