@@ -36,7 +36,7 @@ export const GallerySecion = styled.div`
     width:100%;
     position:relative;
     min-height:100vh;
-    background-color: #f9f7f6;
+    // background-color: #f9f7f6;
     // background-color: #1d1d1d;
     // grid-column: 1 / 7;
     display: grid;
@@ -51,8 +51,9 @@ export const GallerySecion = styled.div`
     // grid-template-rows: repeat(5, 1fr);
     // grid-template-rows: repeat(7, 5vw);
     grid-gap: 1.5rem;
-    padding: 2rem 4rem;
-    margin-top:7rem;
+    padding: 4rem 4rem 2rem 4rem;
+    // margin: 0 4rem;
+    box-sizing:border-box;
     z-index:1;
 `;
 

@@ -1,31 +1,26 @@
 import styled from 'styled-components';
 import { IconButton } from '@material-ui/core';
+import Image from 'next/image';
 
 export const FooterContainer = styled.div`
     width:100%;
-    height:60rem;
-    // background-color:#CEA176;
-    // background-image: linear-gradient(to bottom right, #777, #eee);
-    // background-color:#777;
-    // background-color:rgba(206, 161, 118, .8);
-    // filter: blur(8px);
-    // position: relative;
-    // display: block;
-    // background: #1d1d1d;
-    background-color:#E0E0E0;
+    min-height:60rem;
+    position: relative;
+    background: #1d1d1d;
     margin:0;
 
-    // &::before{
-    //     content: "";
-    //     position: absolute;
-    //     display: block;
-    //     top: 0;
-    //     bottom: 0;
-    //     right: 0;
-    //     width: calc(50vw - 365px);
-    //     background: #fff;
-    //     z-index: 0;
-    // }
+    &::before{
+        content: "";
+        position: absolute;
+        display: block;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 25%;
+        height:100%;
+        background: #eee;
+        z-index: 0;
+    }
 `;
 
 export const FooterTitle = styled.h1`
@@ -38,7 +33,7 @@ export const FooterTitle = styled.h1`
 `;
 
 export const FooterInfo = styled.div`
-    width:70%;
+    width:100%;
     min-height:40rem;
     // background-color:#843910;
     // background-color:rgba(132, 57, 16, .6);
@@ -86,7 +81,7 @@ export const FooterUl = styled.ul`
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    width:50%;
+    width:40%;
     // position: relative;
     // display: table;
     `;
@@ -157,7 +152,9 @@ export const FooterItem = styled.li`
 
     &:hover {
         padding-left: 22px;
-    color: #fec303;
+        color: #bf4f7b;
+        // color: #191e3e;
+        // #fc8d6d,#bf4f7b,#242d64 80%,#191e3e
     }
 
     // &:hover &::before{
@@ -267,6 +264,53 @@ export const SocialMediadisc = styled.p`
     font-size:1rem;
     font-family:Bnazanin;
     color:#fff;
+`;
+
+export const LogoContainer = styled.div`
+  width:20rem;
+  height:20rem;
+  display:flex;
+  justify-content:Center;
+  align-items:center;
+`;
+
+export const Logo = styled(Image)`
+  width:100%;
+  height:100%;
+  cursor:pointer;
+`;
+
+export const ButtonContainer = styled.div`
+  z-index:2;
+  height:100%;
+  width:100%;
+  display:flex;
+//   justify-content:flex-end;
+  justify-content:center;
+  align-items:center;
+  margin-top:8rem;
+`;
+
+export const Button = styled.button`
+    color:#1d1d1d;
+    border-radius:1rem;
+    cursor:pointer;
+    font-family:Bnazanin;
+    border:none;
+    display: inline-block;
+    font-size: 3rem;
+    font-weight: 300;
+    padding: 2rem 4rem;
+    background-image:${props => props.color ? `linear-gradient(-120deg, ${props.color} 0%, ${props.color} 50%, #fff 50%)` : "linear-gradient(-120deg, #191e3e 0%, #191e3e 50%, #eee 50%)"};
+    background-size: 200%;
+    transition: all .4s;
+  // linear-gradient(to bottom ,rgb(218,160,103),#bf4f7b);
+
+  &:hover{
+      background-position: 100%;
+      color: #fff;
+      transform: translateX(-1rem);
+  }
 `;
 
 

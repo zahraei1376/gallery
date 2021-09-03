@@ -31,7 +31,7 @@ const SegestionSearch = ({showSegesion, setShowSegestion}) =>{
             <SegestionContent>
                 {
                     result && result.length> 0 ? result.map((res , index) =>(
-                        <SegestionBox onClick={()=> handleSearch()}>
+                        <SegestionBox onClick={()=> handleSearch()} key={index}>
                                 {res.name}
                         </SegestionBox>
                     )) : ""
@@ -40,7 +40,7 @@ const SegestionSearch = ({showSegesion, setShowSegestion}) =>{
             <NewestSection>
                 {
                     newestCategory && newestCategory.length> 0 ? newestCategory.map((res , index) =>(
-                        <NewestBox onClick={()=> handleSearch()}>
+                        <NewestBox onClick={()=> handleSearch()} key={index}>
                             <NewestTitle>
                                 {res.name}
                             </NewestTitle>

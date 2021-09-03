@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import MyNavbar from '../component/Menu/Navbar.component';
 import Gallery from '../component/galleryComponent/gallery.component';
 import Header from '../component/header/header.component';
+import ShowTopics from '../component/showTopics/showTopics.component';
 export default function Home() {
   ////////////////////////////////////////////
   const [scrolling,setScrolling] = useState(false);
@@ -30,6 +31,7 @@ export default function Home() {
     <div onScroll = {()=> scrollFunction()} id="navbar">
       <MyNavbar scrolling = {scrolling} />
       <Header/>
+      <ShowTopics/>
       <Gallery/>
     </div>
   )
