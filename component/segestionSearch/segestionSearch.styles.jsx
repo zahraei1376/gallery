@@ -18,7 +18,7 @@ export const SegeestionContainer = styled.div`
 
 export const SegestionContent = styled.ul`
     list-style:persian;
-    border-bottom:1px solid #eee;
+    border-bottom:3px solid #eee;
     direction:rtl;
     padding-bottom:2rem;
 `;
@@ -30,22 +30,44 @@ export const SegestionBox = styled.li`
     font-size:2rem;
     text-align:right;
     font-family:Bnazanin;
+    position:relative;
+    z-index: 1;
 
     &:hover{
-        background-color:#eee;
+        color:#eee;
+    }
+
+    &::before{
+        content: "";
+        position: absolute;
+        display: block;
+        top: 0;
+        right: 0;
+        width:0;
+        height: 0;
+        background-color:#242d64;
+        z-index: -1;
+        // transition:all .3s;
+        transition: transform 0.2s, width 0.4s, background-color 0.1s;
+        // transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.1s;
+    }
+
+    &:hover::before{
+        width:100%;
+        height: 100%;
     }
 `;
 
 export const NewestSection = styled.div`
     display:grid;
     grid-template-columns:repeat(3 , minmax(0,1fr));
-    grid-gap: 5rem;
+    grid-gap: 2rem;
     padding:2rem 1rem;
 `;
 
 export const NewestBox = styled.div`
-    padding:0 5px;
-    border-radius:2rem;
+    padding:5px;
+    border-radius:5rem;
     text-align:right;
     box-shadow:0 0 4px 1px rgba(0,0,0,.4);
     display:flex;
@@ -54,7 +76,7 @@ export const NewestBox = styled.div`
     cursor:pointer;
     transition:all .3s;
     &:hover{
-        transform:scale(1.1);
+        transform:scale(1.05);
         background-color:#eee;
     }
 `;
@@ -68,13 +90,14 @@ export const NewestTitle = styled.h3`
 
 export const NewestImageContainer = styled.div`
     position:relative;
-    width:6rem;
-    height:6rem;
+    width:5rem;
+    height:5rem;
     border-radius:50%;
     overflow:hidden;
     display:flex;
     justify-content:center;
     align-items:center;
+    margin:0 5px;
 `;
 
 export const NewestImage = styled(Image)`

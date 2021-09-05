@@ -31,7 +31,7 @@ export default function Home() {
     <div onScroll = {()=> scrollFunction()} id="navbar">
       <MyNavbar scrolling = {scrolling} />
       <Header/>
-      <ShowTopics/>
+      {/* <ShowTopics/> */}
       <Gallery/>
     </div>
   )

@@ -17,7 +17,8 @@ export const HeaderContent = styled.div`
     position:absolute;
     top:50%;
     left:50%;
-    transform: translate(-50%,-60%);
+    // transform: translate(-50%,-60%);
+    transform: translate(-50%,-40%);
 `;
 
 export const SearchBoxContaiber = styled.div`
@@ -25,8 +26,9 @@ export const SearchBoxContaiber = styled.div`
 `;
 
 export const HeaderTitle = styled.h1`
-    text-align:center;
-    font-size:4rem;
+    text-align:right;
+    font-size:3.5rem;
+    line-height:6rem;
     // font-weight:400;
     font-family:Bnazanin;
     color:#fff;

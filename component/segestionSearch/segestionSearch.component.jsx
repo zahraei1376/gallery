@@ -1,27 +1,19 @@
 import {SegeestionContainer, SegestionContent , SegestionBox , NewestSection ,
      NewestBox , NewestTitle ,NewestImageContainer , NewestImage} from './segestionSearch.styles';
 import pic from '../../assets/img/logo.png';
+import {newestCategory} from '../../generalMethod/topics';
 import { BackDrop } from '../searchBox/searchBox.styles';
 
-const result = [
-    {name:'سلام',},
-    {name:'خوبی',},
-    {name:'چطوری',},
-    {name:'احوال شما',},
-    {name:'برو بابا',},
-    {name:'الو الووو',},
-];
+// const result = [
+//     {name:'سلام',},
+//     {name:'خوبی',},
+//     {name:'چطوری',},
+//     {name:'احوال شما',},
+//     {name:'برو بابا',},
+//     {name:'الو الووو',},
+// ];
 
-const newestCategory = [
-    {name:'سلام',},
-    {name:'خوبی',},
-    {name:'چطوری',},
-    {name:'احوال شما',},
-    {name:'برو بابا',},
-    {name:'الو الووو',},
-]
-
-const SegestionSearch = ({showSegesion, setShowSegestion}) =>{
+const SegestionSearch = ({showSegesion, setShowSegestion , result}) =>{
 
     const handleSearch = () =>{
         setShowSegestion(false);
@@ -32,7 +24,7 @@ const SegestionSearch = ({showSegesion, setShowSegestion}) =>{
                 {
                     result && result.length> 0 ? result.map((res , index) =>(
                         <SegestionBox onClick={()=> handleSearch()} key={index}>
-                                {res.name}
+                                {res.title}
                         </SegestionBox>
                     )) : ""
                 }
@@ -40,12 +32,12 @@ const SegestionSearch = ({showSegesion, setShowSegestion}) =>{
             <NewestSection>
                 {
                     newestCategory && newestCategory.length> 0 ? newestCategory.map((res , index) =>(
-                        <NewestBox onClick={()=> handleSearch()} key={index}>
+                        <NewestBox onClick={()=> handleSearch()} key={index} onClick = {() => history.push(res.url)}>
                             <NewestTitle>
-                                {res.name}
+                                {res.title}
                             </NewestTitle>
                             <NewestImageContainer>
-                                <NewestImage src={pic} layout="intrinsic"></NewestImage>
+                                <NewestImage src={res.src} layout="fill"></NewestImage>
                             </NewestImageContainer>
                         </NewestBox>
                     )) : ""

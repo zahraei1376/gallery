@@ -1,5 +1,5 @@
 import { useState , useEffect } from 'react';
-import {SpinnerContainer, GallerySecion,Gallery__item ,ImageWrapper,TitleContainer,Title,SavedBoxContainer, GalleryColumn,} from './gallery.styles';
+import {GalleryTitle,SpinnerContainer, GallerySecion,Gallery__item ,ImageWrapper,TitleContainer,Title,SavedBoxContainer, GalleryColumn,} from './gallery.styles';
 import ImageGallery from './imageGallery.cmponent';
 import ShowImage from '../../component/imageShow/showImage.component';
 import SavedImages from '../../component/savedImage/savedImage.component';
@@ -229,8 +229,10 @@ const Gallery = ({RemoveItem}) =>{
     //////////////////////////////////////////////
     return(
         <>
+            <GalleryTitle>عکس های رایگان ما</GalleryTitle>
             {!loading ? 
                 <GallerySecion size = {size}>
+                   
                     {converterImages.map((CVI , topIndex) =>(
                         <GalleryColumn key={topIndex}>
                             {

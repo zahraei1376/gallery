@@ -27,6 +27,16 @@ const fadeRight = keyframes`
   }
 `;
 
+export const GalleryTitle = styled.h5`
+    font-size:2rem;
+    font-family:Bnazanin;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    margin:4rem 4rem 0 0;
+    padding:0;
+`;
+
 export const SpinnerContainer = styled.div`
     width:100%;
     height:80vh;
@@ -51,7 +61,7 @@ export const GallerySecion = styled.div`
     // grid-template-rows: repeat(5, 1fr);
     // grid-template-rows: repeat(7, 5vw);
     grid-gap: 1.5rem;
-    padding: 4rem 4rem 2rem 4rem;
+    padding: 1rem 4rem 2rem 4rem;
     // margin: 0 4rem;
     box-sizing:border-box;
     z-index:1;
