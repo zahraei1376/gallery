@@ -8,10 +8,6 @@ import Divider from '@material-ui/core/Divider';
 
 function PopoverPopupState({userInfo}) {
 
-  useEffect(()=>{
-      console.log('userInfo',userInfo);
-  },[]);
-
   return (
     <PopupState variant="popover" popupId="demo-popup-popover">
       {(popupState) => (

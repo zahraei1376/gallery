@@ -5,22 +5,23 @@ import "slick-carousel/slick/slick-theme.css";
 import {Card, Title , Container ,TitleShowAll,ShowAllContainer,ImageContainer ,Image} from './showTopics.styles';
 import Slider from "react-slick";
 import { useRouter } from 'next/router';
+import {animals} from '../../generalMethod/topics';
 
 const ShowTopics = () => {
   const [topics,setTopics] = useState([]);
   const router = useRouter()
   useEffect(() => {
     setTopics([
-        { name:'حیوانات اهلی' , photographer:'زهرا علیپور',title:"غروب دل انگیز", discription:'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است' , picture:'/img/user.png' , topicImage:'/img/topics/topic6.jpg'},
-        { name:'حیوانات وحشی' , photographer:'زهرا علیپور',title:"مکان های زیبا", discription:'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است' , picture:'/img/user.png' , topicImage:'/img/topics/topic7.jpg'},
-        { name:'حیوانات' , photographer:'زهرا علیپور',title:"عاشقانه", discription:'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است' , picture:'/img/user.png' , topicImage:'/img/topics/topic8.jpg'},
-        { name:'پوشاک' , photographer:'زهرا علیپور',title:"آلات موسیقی", discription:'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است' , picture:'/img/user.png' , topicImage:'/img/topics/topic1.jpg'},
-        { name:'طراحی داخلی' , photographer:'زهرا علیپور',title:"حشرات", discription:'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است' , picture:'/img/user.png' , topicImage:'/img/topics/topic2.jpg'},
-        { name:'مردم' , photographer:'زهرا علیپور',title:"زیبایی روی آب", discription:'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است' , picture:'/img/user.png' , topicImage:'/img/topics/topic3.jpg'},
-        { name:'طبیعت' , photographer:'زهرا علیپور',title:"گل های زیبا", discription:'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است' , picture:'/img/user.png' , topicImage:'/img/topics/topic4.jpg'},
-        { name:'فیلم' , photographer:'زهرا علیپور',title:"شکوفه های بهاری", discription:'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است' , picture:'/img/user.png' , topicImage:'/img/topics/topic5.jpg'},
-        { name:'ماشین' , photographer:'زهرا علیپور',title:"شکوفه های بهاری", discription:'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است' , picture:'/img/user.png' , topicImage:'/img/topics/topic5.jpg'},
-        { name:'خیابان' , photographer:'زهرا علیپور',title:"شکوفه های بهاری", discription:'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است' , picture:'/img/user.png' , topicImage:'/img/topics/topic5.jpg'},
+        { name:'حیوانات اهلی' , photographer:'زهرا علیپور',title:"غروب دل انگیز", discription:'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است' , picture:'/img/user.png' , topicImage:'/img/topics/topic6.jpg' , images: [...animals]},
+        { name:'حیوانات وحشی' , photographer:'زهرا علیپور',title:"مکان های زیبا", discription:'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است' , picture:'/img/user.png' , topicImage:'/img/topics/topic7.jpg' , images: [...animals]},
+        { name:'حیوانات' , photographer:'زهرا علیپور',title:"عاشقانه", discription:'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است' , picture:'/img/user.png' , topicImage:'/img/topics/topic8.jpg' , images: [...animals]},
+        { name:'پوشاک' , photographer:'زهرا علیپور',title:"آلات موسیقی", discription:'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است' , picture:'/img/user.png' , topicImage:'/img/topics/topic1.jpg' , images: [...animals]},
+        { name:'طراحی داخلی' , photographer:'زهرا علیپور',title:"حشرات", discription:'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است' , picture:'/img/user.png' , topicImage:'/img/topics/topic2.jpg' , images: [...animals]},
+        { name:'مردم' , photographer:'زهرا علیپور',title:"زیبایی روی آب", discription:'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است' , picture:'/img/user.png' , topicImage:'/img/topics/topic3.jpg' , images: [...animals]},
+        { name:'طبیعت' , photographer:'زهرا علیپور',title:"گل های زیبا", discription:'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است' , picture:'/img/user.png' , topicImage:'/img/topics/topic4.jpg', images: [...animals]},
+        { name:'فیلم' , photographer:'زهرا علیپور',title:"شکوفه های بهاری", discription:'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است' , picture:'/img/user.png' , topicImage:'/img/topics/topic5.jpg' , images: [...animals]},
+        { name:'ماشین' , photographer:'زهرا علیپور',title:"شکوفه های بهاری", discription:'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است' , picture:'/img/user.png' , topicImage:'/img/topics/topic5.jpg' , images: [...animals]},
+        { name:'خیابان' , photographer:'زهرا علیپور',title:"شکوفه های بهاری", discription:'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است' , picture:'/img/user.png' , topicImage:'/img/topics/topic5.jpg' , images: [...animals]},
      ]);
   }, []);
 
@@ -64,9 +65,15 @@ const ShowTopics = () => {
             ) : (
                 //   <div>
                     <Slider {...settings}>
-                        {topics.map((current , index) => (
+                        {topics.map((current , index) => {
+                          return(
                             // <div className="out" key={index}>
-                            <Card key={index}>
+                            <Card key={index} onClick={() => router.push({
+                              pathname: '/gallery',
+                              // state: { images:  current.images  },
+                              query: { images: current.images},
+                              // query: { images: 'zahar'},
+                              })}>
                                 <ImageContainer>
                                     <Image src = {current.topicImage}/>
                                 </ImageContainer>
@@ -75,7 +82,7 @@ const ShowTopics = () => {
                                 </Title>
                             </Card>
                             // </div>
-                        ))}
+                        )})}
                     </Slider>
                 // </div>
             )}

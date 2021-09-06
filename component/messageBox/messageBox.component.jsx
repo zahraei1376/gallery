@@ -37,7 +37,7 @@ function MySnackbar({message ,status,showMessage,setShowMessage}) {
   return (
     <div className={classes.root}>
       <MySnackbarDiv open={open} 
-      autoHideDuration={6000}
+      autoHideDuration={1000}
       onClick={handleClose}
        onClose={handleClose}>
         <Alert style={{

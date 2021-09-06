@@ -44,7 +44,7 @@ export const SpinnerContainer = styled.div`
 
 export const GallerySecion = styled.div`
     width:100%;
-    position:relative;
+    // position:relative;
     min-height:100vh;
     // background-color: #f9f7f6;
     // background-color: #1d1d1d;
@@ -151,7 +151,6 @@ export const GalleryColumn = styled.div`
 
 export const SavedBoxContainer = styled.div`
     display:none;
-    // display:${props => props.location.x ? 'block' :'none'};
     &:focus-within{
         display:block;
     }
@@ -159,12 +158,6 @@ export const SavedBoxContainer = styled.div`
     @media only screen and (max-width: 540px){
         display:block;
     }
-    // width:100%;
-    // padding:2rem;
-    // display:none;
-    // position:absolute;
-    // top:0;
-    // left:0;
 `;
 
 export const Gallery__item = styled.div`

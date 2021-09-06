@@ -8,7 +8,6 @@ const INITIAL_STATE={
 const CartReducer=(state=INITIAL_STATE,action)=>{
     switch(action.type){
         case CartActionType.ADD_ITEM:
-            console.log(state.CartItems);
             return{
                 ...state,
                 CartItems: AddItemToCart(state.CartItems , action.payload)
