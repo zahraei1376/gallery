@@ -94,8 +94,8 @@ const Gallery = ({RemoveItem , images}) =>{
     }
     
 
-    const handleShowImage = (src) => {
-        setSrcImage(src);
+    const handleShowImage = (imageInfo) => {
+        setSrcImage(imageInfo);
         toggleShowImage();
     }
 
@@ -115,7 +115,7 @@ const Gallery = ({RemoveItem , images}) =>{
                                 CVI.map((image , index) =>{
                                     return(
                                             <Gallery__item key={index}>
-                                                <ImageWrapper onClick = {() => handleShowImage(image.src)}>
+                                                <ImageWrapper onClick = {() => handleShowImage(image)}>
                                                     <ImageGallery imageSrc = {image.src} />
                                                 </ImageWrapper>
                                                 <TitleContainer>
@@ -132,7 +132,7 @@ const Gallery = ({RemoveItem , images}) =>{
                         </GalleryColumn>
                     ))}
                     {/* /////////////////////////////////////////////// */}
-                    {showComponent ? <ShowImage imageSrc = {srcImage} close = {toggleShowImage} caption = "" /> : ""}
+                    {showComponent ? <ShowImage data = {srcImage} close = {toggleShowImage} caption = "" /> : ""}
                     {/* /////////////////////////////////////////////// */}
                     <CardSaved location={location} setLocation = {setLocation} width={width} />
                 </GallerySecion>

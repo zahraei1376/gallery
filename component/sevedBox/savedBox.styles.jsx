@@ -86,11 +86,12 @@ export const SaveBoxContainer = styled.div`
     display:flex;
     align-items:center;
     justify-content:flex-end;
+    margin:1rem 0;
 `;
 
 export const SaveBoxImage = styled.img`
-    width:20%;
-    height:auto;
+    width:6rem;
+    height:6rem;
 `;
 
 export const TiTleSaveBox = styled.p`

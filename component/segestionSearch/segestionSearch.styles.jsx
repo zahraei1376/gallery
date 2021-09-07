@@ -60,14 +60,17 @@ export const SegestionBox = styled.li`
 
 export const NewestSection = styled.div`
     display:grid;
-    grid-template-columns:repeat(3 , minmax(0,1fr));
+    grid-template-columns:auto auto auto;
+    // grid-template-columns:repeat(3 , minmax(0,1fr));
     grid-gap: 2rem;
     padding:2rem 1rem;
 `;
 
 export const NewestBox = styled.div`
-    padding:5px;
-    border-radius:5rem;
+    // max-width:100%;
+    padding: 0 0 0 5px;
+    border-radius:5px;
+    // border-radius:5rem;
     text-align:right;
     box-shadow:0 0 4px 1px rgba(0,0,0,.4);
     display:flex;
@@ -75,6 +78,7 @@ export const NewestBox = styled.div`
     align-items:center;
     cursor:pointer;
     transition:all .3s;
+    overflow:hidden;
     &:hover{
         transform:scale(1.05);
         background-color:#eee;
@@ -86,18 +90,22 @@ export const NewestTitle = styled.h3`
     text-align:right;
     font-family:Bnazanin;
     display:inline;
+    word-break: break-all;
+    line-height:3rem;
 `;
 
 export const NewestImageContainer = styled.div`
     position:relative;
     width:5rem;
     height:5rem;
-    border-radius:50%;
+    // border-radius:50%;
     overflow:hidden;
     display:flex;
     justify-content:center;
     align-items:center;
-    margin:0 5px;
+    margin:0 0 0 5px;
+    // border-radius:5px;
+    // overflow:hidden;
 `;
 
 export const NewestImage = styled(Image)`

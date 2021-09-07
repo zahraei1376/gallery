@@ -42,7 +42,7 @@ export const SaveIcon = styled(BookmarkIcon)`
     font-size:3rem !important;
     transition:all .4s !important;
     // color:${props => props.bookmark ? "red !important" : "#fff"};
-    color: ${props => props.seved ? 'red' : '#999'} !important;
+    color: ${props => props.seved ? 'red' : '#fff'} !important;
 
 `;
 
