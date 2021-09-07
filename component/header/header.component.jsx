@@ -1,13 +1,15 @@
 import { useEffect , useState } from 'react';
-import {HeaderContainer , MyImage , HeaderContent , SearchBoxContaiber , HeaderTitle} from './header.styles';
+import {HeaderContainer , MyImage , HeaderContent , SearchBoxContaiber , HeaderTitle , MyProfileContainer} from './header.styles';
 import header from '../../assets/img/wallpaper/1 (173).jpg';
 import SearchBox from '../searchBox/searchBox.component';
 import ShowTopics from '../showTopics/showTopics.component';
+import PopupMyProfile from './myProfile.component';
 
 const Header = () => {
     const [src , setSrc] = useState(header);
     useEffect(() => {
-        setSrc(`/img/header/header-${Math.ceil(Math.random() * 10) + 1}.jpg`);
+        // setSrc(`/img/header/header-${Math.ceil(Math.random() * 10) + 1}.jpg`);
+        setSrc(`/img/header/header-12.jpg`);
     } , []);
 
     return(
@@ -24,6 +26,9 @@ const Header = () => {
                 </SearchBoxContaiber>
                 <ShowTopics/>
             </HeaderContent>
+            <MyProfileContainer>
+                <PopupMyProfile/>
+            </MyProfileContainer>
             
         </HeaderContainer>
     )

@@ -32,4 +32,14 @@ export const HeaderTitle = styled.h1`
     // font-weight:400;
     font-family:Bnazanin;
     color:#fff;
+    // background-image: linear-gradient(to right,#000 , #fff);
+    // // background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    // -webkit-background-clip: text;
+    // color: transparent;
+`;
+
+export const MyProfileContainer = styled.div`
+    position:absolute;
+    bottom:0;
+    left:3rem;
 `;

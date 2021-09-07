@@ -70,7 +70,7 @@ const ToolbarItems = ({clicked}) =>{
             </ConnectionBox>
             <TitleBox>
                 <Title>طبیعت ، دنیای ما</Title>
-                <SubTitle>دنیای حیوانات</SubTitle>
+                <SubTitle>زیبایی های دنیا از دوربین ما</SubTitle>
             </TitleBox>
           </ToolbarInfoText>
         </ToolbarInfoContainer>

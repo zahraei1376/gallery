@@ -64,6 +64,9 @@ export const NewestSection = styled.div`
     // grid-template-columns:repeat(3 , minmax(0,1fr));
     grid-gap: 2rem;
     padding:2rem 1rem;
+    @media only screen and (max-width: 414px){
+        grid-template-columns:auto auto;
+    }
 `;
 
 export const NewestBox = styled.div`

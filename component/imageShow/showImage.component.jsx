@@ -65,7 +65,7 @@ const ShowImage = (props) => {
                         <WriterImageContainer>
                           <WriterImage src="/img/user.png"/>
                         </WriterImageContainer>
-                        <WriterName>زهرا علیپور نوایی</WriterName>
+                        <WriterName>{props.data.photographer}</WriterName>
                       </DescriptionCaption>
 
                       <HeaderButtons>

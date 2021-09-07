@@ -31,10 +31,10 @@ const iconsStyle = css`
 `;
 
 export const ArrowButton = styled(IconButton)`
-	position: absolute !important;
-	top: 1rem !important;
-	right: 5rem !important;
-	z-index:10 !important;
+	// position: absolute !important;
+	// top: 1rem !important;
+	// right: 5rem !important;
+	// z-index:10 !important;
 	// transition:all 0.3s;
 	background-color: rgba(256,256,256,.7) !important;
 	// &:hover{
@@ -183,9 +183,9 @@ export const DescriptionBody = styled.div`
 
 export const ContentContainer = styled.div`
 	// padding: 0 3rem;
-	width: 80%;
+	width: 100%;
 	// height: 90%;
-	background-color: #000;
+	// background-color: #000;
 	box-shadow: 0 2rem 6rem 0.5rem rgba(101, 90, 86, 0.2);
 	position: relative;
 	z-index: 1;
@@ -195,7 +195,7 @@ export const ContentContainer = styled.div`
 	transform-style: preserve-3D;
 	overflow:auto;
 	display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 `;
 
@@ -208,7 +208,7 @@ export const ContentBackContainer = styled.div`
 	background-color: #fff;
 	position: absolute;
 	top:0;
-	// left:0;
+	left:0;
 	z-index: -1;
 	box-shadow: 0 2rem 6rem 0.5rem rgba(101, 90, 86, 0.2);
 	transition: all 5s;
@@ -227,7 +227,7 @@ export const DescriptionContent = styled.div`
 
 export const DescriptionImageContainer = styled.div`
 	align-self: flex-start;
-	width:100%;
+	width:80%;
 `;
 
 export const DescriptionImg = styled.img`
