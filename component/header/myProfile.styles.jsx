@@ -51,3 +51,9 @@ export const ImageContainer = styled.div`
 export const MyImage = styled(Image)`
     
 `;
+
+export const MainContentInfo = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items:Center;
+`;

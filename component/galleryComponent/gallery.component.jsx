@@ -103,9 +103,10 @@ const Gallery = ({RemoveItem , images}) =>{
         setShowComponent(pre => !pre);
     }
     //////////////////////////////////////////////
+
     return(
         <>
-            <GalleryTitle>عکس های رایگان ما</GalleryTitle>
+            {/* <GalleryTitle>عکس های رایگان ما</GalleryTitle> */}
             {!loading ? 
                 <GallerySecion size = {size}>
                    

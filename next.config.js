@@ -1,7 +1,19 @@
+// const withPlugins = require('next-compose-plugins');
+// const withImages = require('next-images');
+
+// const nextConfig = {
+//   // reactStrictMode: true,
+//   images: {
+//     domains: ['www.pinterest.com']
+//   }
+// }
+
+// module.exports = withPlugins([[withImages]], nextConfig)
+
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['images.unsplash.com'],
+    domains: ['www.pinterest.com','www.pinterest.com/pin' ,'unsplash.com/photos','unsplash.com'],
   },
   // disableStaticImages: true,
   // future: {

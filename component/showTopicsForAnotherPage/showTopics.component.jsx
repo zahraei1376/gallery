@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {Card, Title , Container ,TitleShowAll,ShowAllContainer,ImageContainer ,Image} from './showTopics.styles';
+import {Card, Title , Container ,ImageContainer,Image,TitleShowAll,ShowAllContainer} from './showTopics.styles';
 import Slider from "react-slick";
 import { useRouter } from 'next/router';
-import {animals} from '../../generalMethod/topics';
+import {animals , colors} from '../../generalMethod/topics';
 
-const ShowTopics = () => {
+const ShowTopicsForGallery = () => {
   const [topics,setTopics] = useState([]);
   const router = useRouter()
   useEffect(() => {
@@ -29,21 +29,21 @@ const ShowTopics = () => {
     infinite: false,
     speed: 500,
     arrows: true,
-    slidesToShow: 4,
+    slidesToShow: 6,
     slidesToScroll: 1,
 
     responsive: [
       {
         breakpoint: 960,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 4,
           slidesToScroll: 1,
         },
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
@@ -51,14 +51,14 @@ const ShowTopics = () => {
   };
   return (
     <div className="container">
-       <ShowAllContainer 
+       {/* <ShowAllContainer 
         // onClick={()=> router.push('/showAllTopic')}
          >
             <TitleShowAll onClick={() => router.push({
               pathname: '/showAllTopic',
               query: { topics: topics },
             })}>نمایش همه</TitleShowAll>
-        </ShowAllContainer>
+        </ShowAllContainer> */}
         <Container>
             {topics.length === 0 ? (
                 ""
@@ -66,21 +66,23 @@ const ShowTopics = () => {
                 //   <div>
                     <Slider {...settings}>
                         {topics.map((current , index) => {
+                          
                           return(
                             // <div className="out" key={index}>
-                            <Card key={index} onClick={() => router.push({
+                            <Card key={index}  bg = {colors[index] && colors[index].bg ? colors[index].bg : '#fff'} onClick={() => router.push({
                               pathname: '/gallery',
                               // state: { images:  current.images  },
                               query: { images: JSON.stringify(current.images) } 
                               // query: { images: current.images},
                               // query: { images: 'zahar'},
                               })}>
+                                <Title color = {colors[index] && colors[index].color ? colors[index].color : '#000' }>
+                                    {current.name}
+                                </Title>
                                 <ImageContainer>
                                     <Image src = {current.topicImage}/>
                                 </ImageContainer>
-                                <Title>
-                                    {current.name}
-                                </Title>
+                                
                             </Card>
                             // </div>
                         )})}
@@ -93,5 +95,5 @@ const ShowTopics = () => {
   );
 }
 
-export default ShowTopics;
+export default ShowTopicsForGallery;
 

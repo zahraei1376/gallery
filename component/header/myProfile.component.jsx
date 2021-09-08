@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '@material-ui/core/Box';
 import Popover from '@material-ui/core/Popover';
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
-import {MyTypography ,FooterHeader,FooterHeaderText,FooterHeaderLink, ImageContainer, MyImage,} from './myProfile.styles';
+import {MyTypography ,FooterHeader,FooterHeaderText,FooterHeaderLink, ImageContainer, MyImage,MainContentInfo,} from './myProfile.styles';
 import Divider from '@material-ui/core/Divider';
 import myPic from '../../assets/img/myPic.jpg';
 
@@ -30,12 +30,12 @@ function PopupMyProfile() {
             }}
           >
             <Box p={2}>
-                <div>
-                    <ImageContainer>
-                        <MyImage src={myPic} layout="fill" objectFit="cover"/>
-                    </ImageContainer>
+              <MainContentInfo>
                 <MyTypography>طراحی سایت با زهرا علیپور</MyTypography>
-              </div>
+                <ImageContainer>
+                    <MyImage src={myPic} layout="fill" objectFit="cover"/>
+                </ImageContainer>
+              </MainContentInfo>
               <Divider />
               <MyTypography>متولد 1376/05/17</MyTypography>
             </Box>
