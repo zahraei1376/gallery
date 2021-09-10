@@ -13,7 +13,7 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['www.pinterest.com','www.pinterest.com/pin' ,'unsplash.com/photos','unsplash.com'],
+    domains: ['i.pinimg.com','www.pinterest.com'],
   },
   // disableStaticImages: true,
   // future: {
@@ -24,3 +24,11 @@ module.exports = {
   //   return config;
   // },
 }
+
+
+// module.exports = {
+//   images: {
+//     loader: 'imgix',
+//     path: 'https://i.pinimg.com/',
+//   },
+// }

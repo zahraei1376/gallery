@@ -44,13 +44,14 @@ const Gallery = ({RemoveItem , images}) =>{
     }
 
     useEffect(() => {
+        RemoveItem();
+        console.log('imagesimages',images);
         window.addEventListener('resize', () =>{
             ResizeWindows();
         });
     }, []);
 
     useEffect(() =>{
-        // RemoveItem();
         ResizeWindows();
     },[images]);
     //////////////////////////////////////////////
@@ -112,7 +113,7 @@ const Gallery = ({RemoveItem , images}) =>{
                    
                     {converterImages.map((CVI , topIndex) =>(
                         <GalleryColumn key={topIndex}>
-                            {
+                            {CVI && CVI.length > 0 ?
                                 CVI.map((image , index) =>{
                                     return(
                                             <Gallery__item key={index}>
@@ -129,7 +130,7 @@ const Gallery = ({RemoveItem , images}) =>{
                                             
                                     )}
                                 )
-                            }
+                            : ''}
                         </GalleryColumn>
                     ))}
                     {/* /////////////////////////////////////////////// */}

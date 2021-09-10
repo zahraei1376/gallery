@@ -177,7 +177,7 @@ export const DescriptionBody = styled.div`
 	position: absolute;
 	top: 0;
 	left: 50%;
-	transform: translate(-50%, 0);
+	transform: translate(-28%, 0);
 	margin-top:5rem;
 `;
 

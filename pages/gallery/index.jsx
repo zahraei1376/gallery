@@ -1,33 +1,75 @@
 import { useEffect , useState } from 'react';
 import MyNavbar from '../../component/Menu/Navbar.component';
 import Gallery from '../../component/galleryComponent/gallery.component';
-import { useRouter } from 'next/router';
 import { withRouter } from 'next/router'
 import { GalleryPageSecion ,TitleContainer,Title , SunTitle} from './galleryPage.styles';
 import ShowTopicsForGallery from '../../component/showTopicsForAnotherPage/showTopics.component';
+import {animals , waterfall , cars ,people} from '../../generalMethod/topics';
 //////////////////////////////////////////////
 const GalleryPage = (props) =>{
     //////////////////////////////////////////
-    const router = useRouter()
-    // const { images } = router.query;
+    const [topic,setTopic] = useState(props.router.query.images);
     const [pics , setPics] = useState([]);
     /////////////////////////////////////////////
+    const handleImage = () => {
+        switch (topic) {
+            case 'حیوانات اهلی':
+                setPics(animals);
+                break;
+            case 'حیوانات وحشی':
+                setPics(animals);
+                break;
+            case 'حیوانات':
+                setPics(animals);
+                break;
+            case 'پوشاک':
+                setPics(animals);
+                break;
+            case 'طراحی داخلی':
+                setPics(animals);
+                break;
+            case 'مردم':
+                setPics(people);
+                break;
+            case 'طبیعت':
+                setPics(waterfall);
+                break;
+            case 'فیلم':
+                setPics(people);
+                break;
+
+            case 'ماشین':
+                setPics(cars);
+                break;
+
+            case 'خیابان':
+                setPics(animals);
+                break;
+        
+            default:
+                setPics(animals);
+                break;
+        }
+    }
+    /////////////////////////////////////////////
     useEffect(() =>{
-        // RemoveItem();
-        setPics(JSON.parse(props.router.query.images));
+        // setPics(JSON.parse(props.router.query.images));
+        // setPics(props.router.query.images);
+        handleImage();
     },[props.router.query.images]);
     //////////////////////////
-    var name = 'طبیعت';
     return(
         <GalleryPageSecion>
             <MyNavbar scrolling = {true} />
             <TitleContainer>
-            <Title>{name}</Title>
-            <SunTitle>{`یافتن بهترین و جذاب ترین عکس های رایگان  از ${name} را از لنز دوربین 'گالری' ببینید با ما دنیای اطراف خود را زیباتر و با دقت تر ببینید`}</SunTitle>
+            <Title>{props.router.query.images}</Title>
+            <SunTitle>{`یافتن بهترین و جذاب ترین عکس های رایگان  از ${props.router.query.images} را از لنز دوربین 'گالری' ببینید با ما دنیای اطراف خود را زیباتر و با دقت تر ببینید`}</SunTitle>
             </TitleContainer>
             
             <ShowTopicsForGallery/>
-            <Gallery images = {pics} />
+            <Gallery 
+            images = {pics}
+            />
         </GalleryPageSecion>
     )
 };

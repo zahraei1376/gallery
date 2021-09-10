@@ -75,6 +75,11 @@ export const Card = styled.div`
     padding:5px;
     // border: 1px solid #000;
     // margin:0 1rem;
+    transition:all .3s;
+
+    &:hover{
+        background-color:#eee;
+    }
 `;
 
 export const ImageContainer = styled.div`

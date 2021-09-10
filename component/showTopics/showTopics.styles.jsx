@@ -7,7 +7,7 @@ export const Container = styled.div`
 
 export const TitleShowAll = styled.h3`
     // color: #191e3e;
-    color: #888;
+    color: #fff;
     font-size:1.8rem;
     font-weight:800;
     font-family:Bnazanin;
