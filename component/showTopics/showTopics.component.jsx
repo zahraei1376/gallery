@@ -56,7 +56,7 @@ const ShowTopics = () => {
          >
             <TitleShowAll onClick={() => router.push({
               pathname: '/showAllTopic',
-              query: { topics: topics },
+              // query: { topics: topics },
             })}>نمایش همه</TitleShowAll>
         </ShowAllContainer>
         <Container>

@@ -14,3 +14,8 @@ export const RemoveItem = () =>({
     type:CartActionType.REMOVE_ITEM,
     // payload:item
 });
+
+export const RemoveItems = (IDS) =>({
+    type:CartActionType.REMOVE_ITEMS,
+    payload:IDS
+});

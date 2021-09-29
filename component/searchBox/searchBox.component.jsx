@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SegestionSearch from "../segestionSearch/segestionSearch.component";
 import {SearchBoxContainer , SearchBoxInput ,MySearchIcon ,SearchButton ,ClearIcon , BackDrop} from './searchBox.styles';
-import {topics} from '../../generalMethod/topics';
+import {Topics} from '../../generalMethod/topics';
 
 const SearchBox = () =>{
     const [searchText , setSearchText] = useState('');
@@ -11,8 +11,8 @@ const SearchBox = () =>{
 
     const handleSearchText = (value) => {
         setSearchText(value);
-        if(topics && topics.length > 0){
-            var res = topics.filter(title => {
+        if(Topics && Topics.length > 0){
+            var res = Topics.filter(title => {
                 if(value && value != " "){
                     return title.title.includes(value);
                 }

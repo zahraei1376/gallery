@@ -76,17 +76,20 @@ export const ImageSaveBox = styled.div`
   width:100%;
   height: 70%;
   display:flex;
-  align-items:center;
+  align-items:flex-end;
   flex-direction:column;
   overflow:auto;
 `;
 
 
 export const SaveBoxContainer = styled.div`
+width: 100%;
     display:flex;
     align-items:center;
     justify-content:flex-end;
     margin:1rem 0;
+    padding-bottom:1rem;
+    border-bottom:1px solid #999;
 `;
 
 export const SaveBoxImage = styled.img`

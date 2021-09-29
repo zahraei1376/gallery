@@ -3,8 +3,10 @@ import { createStructuredSelector} from 'reselect';
 import {MyTypography , MySaveButton,MySaveIcon ,P,CloseButtonContainer,SaveBoxContainer,ImageSaveBox,ImageSaveBoxContainer,SaveBoxImage,TiTleSaveBox, SeeAllButton,SaveCloseButton,SaveCloseIcon,SavedBoxContainer, SavedBox, SavedImage, SavedTitle} from './savedBox.styles';
 import {limitRecipeTitle} from '../../generalMethod/limitRecipeTitle';
 import {selectCartItem} from '../../redux/cart/cart.selectors';
+import { useRouter } from 'next/router';
 
 const CardSaved = ({location , setLocation ,saveCartItem ,width}) => {
+  const router = useRouter()
   return(
     <SavedBoxContainer location={location} width = {width} >
         <CloseButtonContainer>
@@ -25,7 +27,10 @@ const CardSaved = ({location , setLocation ,saveCartItem ,width}) => {
             }
           </ImageSaveBox>
           
-          <SeeAllButton>نمایش</SeeAllButton>
+          <SeeAllButton onClick={() => router.push({
+              pathname: '/mySaved',
+              // query: { images: 'ذخیره'} 
+            })}>نمایش</SeeAllButton>
         </ImageSaveBoxContainer> : <P>موردی ذخیره نشده است</P>}
         
     </SavedBoxContainer>

@@ -26,11 +26,19 @@ export const selectedCart = (state, id) => createSelector(
 
 export const selectCartItemsCount = createSelector(
     [selectCartItem],
-    (CartItems) => CartItems.reduce(
-        (accumalateQuantity,CartItem)=>accumalateQuantity + CartItem.quantity,
-    0
-    )
+    (CartItems) => {
+        console.log('CartItems',CartItems,CartItems.length);
+        return CartItems.length
+    }
 );
+
+// export const selectCartItemsCount = createSelector(
+//     [selectCartItem],
+//     (CartItems) => CartItems.reduce(
+//         (accumalateQuantity,CartItem)=>accumalateQuantity + CartItem.quantity,
+//     0
+//     )
+// );
 
 export const selectCartTotal = createSelector(
     [selectCartItem],

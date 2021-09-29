@@ -1,6 +1,9 @@
 import styled ,{css , keyframes} from "styled-components";
 import Image from 'next/image';
-
+import { IconButton } from '@material-ui/core';
+import DownloadIcon from '@mui/icons-material/Download';
+import BeenhereIcon from '@mui/icons-material/Beenhere';
+import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 const rowGutter = '30px';
 
 const fade = keyframes`
@@ -25,6 +28,36 @@ const fadeRight = keyframes`
     opacity: 1;
     transform: translateY(0);
   }
+`;
+
+const IconStyle = css`
+    font-size:2.5rem !important;
+    color:#fff !important;
+
+    @media only screen and (max-width: 540px){
+        color:#000 !important;
+    }
+`;
+
+export const CheckIcon = styled(BeenhereIcon)`
+    transition:all .2s;
+    font-size:3rem !important;
+    display: ${props => props.selected ? 'block' : 'none'} !important;
+    position:absolute;
+    top:5px;
+    right:1rem;
+`;
+
+export const DownloadContainer = styled(IconButton)`
+//   width:20%;
+`;
+
+export const Download = styled(DownloadIcon)`
+  ${IconStyle};
+`;
+
+export const InfoIcon = styled(PermIdentityIcon)`
+    ${IconStyle};
 `;
 
 export const GalleryTitle = styled.h5`
@@ -60,7 +93,7 @@ export const GallerySecion = styled.div`
     // grid-template-columns: repeat(auto-fill, 100px);
     // grid-template-rows: repeat(5, 1fr);
     // grid-template-rows: repeat(7, 5vw);
-    grid-gap: 1.5rem;
+    grid-gap: 3rem;
     padding: 1rem 4rem 2rem 4rem;
     // margin: 0 4rem;
     box-sizing:border-box;
@@ -88,15 +121,22 @@ export const TitleContainer = styled.div`
     animation-iteration-count: 1;
     animation-fill-mode:both;
     animation-duration: 1s;
+    // display:flex;
+    // justify-content:space-evenly;
+    // align-items:center;
 
     @media only screen and (max-width: 540px){
-        display:block;
+        // display:block;
         position:relative;
         background-color:transparent;
+        display:flex;
+        justify-content:space-evenly;
+        align-items:center;
     }
 `;
 
 export const Title = styled.h1`
+    width:80%;
     font-size:1.5rem;
     font-family:Bnazanin;
     text-align:right;
@@ -111,22 +151,15 @@ export const Title = styled.h1`
     }
 `;
 
-const ImageContainer = css`
-    position:relative;
-    cursor: -webkit-zoom-in;
-    cursor: zoom-in;
-    border-radius:2rem;
-    overflow:hidden;
-    // grid-column: auto;
-    grid-row: auto;
-`;
+
 
 export const ImageWrapper = styled.div`
     width: 100%;
     align-items: start;
     // position:relative;
-    cursor: -webkit-zoom-in;
-    cursor: zoom-in;
+    // cursor: -webkit-zoom-in;
+    // cursor: zoom-in;
+    cursor: pointer;
     border-radius:2rem;
     overflow:hidden;
     // width:100%;
@@ -163,105 +196,21 @@ export const SavedBoxContainer = styled.div`
 export const Gallery__item = styled.div`
     position:relative;
     border-radius:2rem;
-    margin-bottom:1.5rem;
+    margin-bottom: 3.5rem;
     overflow:hidden;
-    // outline : 3px solid #000;
-    // outline-offset : 5px;
+    // border : ${props => props.selected ? '2px solid #000': 'none'};
+    outline : ${props => props.selected ? '3px solid #000': 'none'};
+    outline-offset : ${props => props.selected ? '5px': '0'};
+    transition:all .2s;
     &:hover ${SavedBoxContainer}{
         display:block;
     }
 
     &:hover ${TitleContainer}{
-        display:block;
+        // display:block;
+        display:flex;
+        justify-content:space-evenly;
+        align-items:center;
     }
 `;
 
-export const Gallery__item_1 = styled.div`
-    ${ImageContainer}
-    // grid-row: 1 / span 2;
-    grid-column: 1 / span 2;
-`;
-
-export const Gallery__item_2 = styled.div`
-    ${ImageContainer}
-    // grid-row: 1 / span 3;
-    grid-column: 3 / span 3;
-    // @media only screen and (max-width: 868px){
-    //     grid-column: 3 / span 2;
-    // }
-`;
-
-export const Gallery__item_3 = styled.div`
-    ${ImageContainer}
-    // grid-row: 1 / span 2;
-    grid-column: 6 / 7;
-    // @media only screen and (max-width: 868px){
-    //     grid-column: 1 / span 2;
-    // }
-`;
-
-export const Gallery__item_4 = styled.div`
-    ${ImageContainer}
-    // grid-row: 1 / span 2;
-    grid-column: 7 / -1;
-`;
-
-export const Gallery__item_5 = styled.div`
-    ${ImageContainer}
-    // grid-row: 3 / span 3;
-    grid-column: 1 / span 2;
-`;
-
-export const Gallery__item_6 = styled.div`
-    ${ImageContainer}
-    // // grid-row: 4 / span 2;
-    grid-column: 3 / span 2;
-`;
-
-export const Gallery__item_7 = styled.div`
-    ${ImageContainer}
-    // // grid-row: 4 / 5;
-    grid-column: 5 / 6;
-`;
-
-export const Gallery__item_8 = styled.div`
-    ${ImageContainer}
-    // grid-row: 3 / span 2;
-    grid-column: 6 / span 2;
-`;
-
-export const Gallery__item_9 = styled.div`
-    ${ImageContainer}
-    // grid-row: 3 / span 3;
-    grid-column: 8 / -1;
-`;
-
-export const Gallery__item_10 = styled.div`
-    ${ImageContainer}
-    // grid-row: 6 / span 2;
-    grid-column: 1 / 2;
-`;
-
-export const Gallery__item_11 = styled.div`
-    ${ImageContainer}
-    // grid-row: 6 / span 2;
-    grid-column: 2 / span 2;
-`;
-
-export const Gallery__item_12 = styled.div`
-    ${ImageContainer}
-    // grid-row: 6 / span 2;
-    // grid-column: 4 / 5;
-`;
-
-export const Gallery__item_13 = styled.div`
-    ${ImageContainer}
-    // grid-row: 5 / span 3;
-    grid-column: 5 / span 3;
-`;
-
-export const Gallery__item_14 = styled.div`
-    ${ImageContainer}
-    // grid-row: 6 / span 2;
-    // grid-column: 8 / -1;
-`;

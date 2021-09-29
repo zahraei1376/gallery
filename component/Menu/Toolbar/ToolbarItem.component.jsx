@@ -5,11 +5,11 @@ import {ToolbarContainer,ToolbarInfoContainer,ToolbarInfo,DrawerContainer,Toolba
     MyInstagramIcon,MyTelegramIcon,MyFacebookIcon,MyMailOutlineIcon,
   } from './toolbar.styles';
 
-const ToolbarItems = ({clicked}) =>{
+const ToolbarItems = ({clicked , position}) =>{
     return(
-        <ToolbarInfoBack show = {clicked ? true : null}>
-        <ToolbarInfoContainer show = {clicked ? true : null}>
-          <ToolbarInfo show = {clicked ? true : null}>
+        <ToolbarInfoBack show = {clicked ? "true" : null} position={position ? position : null}>
+        <ToolbarInfoContainer show = {clicked ? "true" : null}>
+          <ToolbarInfo show = {clicked ? "true" : null}>
             <ListContainer>
               <ListItem onClick={()=>handleUrl('/managerTextWeblog')}>
                 <MyNavLink href ='/managerTextWeblog'>مدیریت منابع</MyNavLink>
@@ -45,7 +45,7 @@ const ToolbarItems = ({clicked}) =>{
             </ListContainer>
           </ToolbarInfo>
           
-          <ToolbarInfoText show = {clicked ? true : null}>
+          <ToolbarInfoText show = {clicked ? "true" : null}>
             <ConnectionBox>
               <IconBox>
                 <MyInstagramIcon />

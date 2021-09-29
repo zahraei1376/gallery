@@ -32,12 +32,12 @@ export const Logo = styled(Image)`
 
 export const Container = styled.div`
     width:100%;
-    // position:fixed;
-    // top: 0;
+    position:absolute;
+    top: 0;
     z-index:2;
     // box-shadow: ${props => props.scroll ? '0 0 13px 1px rgba(0,0,0,.5)' : '0'};
-    background-color:#fff;
-    box-shadow: 0 4px 12px rgb(0 ,0 , 0 ,0.08), 0 0 1px rgba(1, 0, 0 ,0.1);
+    // background-color:#eee;
+    // box-shadow: 0 4px 12px rgb(0 ,0 , 0 ,0.08), 0 0 1px rgba(1, 0, 0 ,0.1);
 `;
 
 export const NavberContainer = styled.div`

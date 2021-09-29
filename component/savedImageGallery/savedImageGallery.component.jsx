@@ -1,27 +1,30 @@
 import { useState , useEffect } from 'react';
-import {GalleryTitle,SpinnerContainer, GallerySecion,Gallery__item ,ImageWrapper,TitleContainer,Title,SavedBoxContainer, GalleryColumn,} from './gallery.styles';
-import ImageGallery from './imageGallery.cmponent';
-import ShowImage from '../../component/imageShow/showImage.component';
-import SavedImages from '../../component/savedImage/savedImage.component';
-import CardSaved from '../../component/sevedBox/savedBox.component';
+import {GalleryTitle,SpinnerContainer, GallerySecion,Gallery__item ,CheckIcon,
+    ImageWrapper,TitleContainer,Title,SavedBoxContainer, GalleryColumn,DownloadContainer,Download , InfoIcon} from './savedImageGallery.styles';
+import ImageGallery from '../galleryComponent/imageGallery.cmponent';
 //////////////////////////////////////////////
-import {RemoveItem} from '../../redux/cart/cart.action';
-import {connect } from 'react-redux';
 import MySpinner from '../MySpinner/MySpinner.component';
-import { limitRecipeTitle } from '../../generalMethod/limitRecipeTitle';
+import { limitRecipeTitle ,downloadFile } from '../../generalMethod/limitRecipeTitle';
+import ShowImage from '../../component/imageShow/showImage.component';
 
-const Gallery = ({RemoveItem , images}) =>{
+const SavedGallery = ({RemoveItem ,RemoveItems, images ,imageForDelete, setImageForDelete}) =>{
     //////////////////////////////////////////////
-    const [showComponent , setShowComponent] = useState(false);
     const [loading , setLoading] = useState(false);
-    const [srcImage , setSrcImage] = useState('');
-    const [ location, setLocation] = useState({});
     const [converterImages , setConverterImages] = useState([]);
-    const [width, setWidth] = useState(0);
     const [size, setSize] = useState(0);
+    const [showComponent , setShowComponent] = useState(false);
+    const [srcImage , setSrcImage] = useState('');
+    ///////////////////////////////////////////////
+    const handleShowImage = (imageInfo) => {
+        setSrcImage(imageInfo);
+        toggleShowImage();
+    }
+
+    const toggleShowImage = () => {
+        setShowComponent(pre => !pre);
+    }
     //////////////////////////////////////////////
     function ResizeWindows(){
-        setWidth(window.innerWidth);
         var SIZE = 4;
         if(images && images.length > 0 && images[0]){
             if(window.innerWidth < 540){
@@ -39,13 +42,13 @@ const Gallery = ({RemoveItem , images}) =>{
             }
     
             setSize(SIZE);
+        }else{
+            setConverterImages([]);
         }
         
     }
 
     useEffect(() => {
-        // RemoveItem();
-        console.log('imagesimages',images);
         window.addEventListener('resize', () =>{
             ResizeWindows();
         });
@@ -94,57 +97,74 @@ const Gallery = ({RemoveItem , images}) =>{
         return out;
     }
     
-
-    const handleShowImage = (imageInfo) => {
-        setSrcImage(imageInfo);
-        toggleShowImage();
-    }
-
-    const toggleShowImage = () => {
-        setShowComponent(pre => !pre);
+    const handleSelectImage = (imageInfo) => {
+        const existingCartItem = imageForDelete.find(
+            cartItem => cartItem === imageInfo.id
+        );
+        var temp = [...imageForDelete];
+        if(existingCartItem){
+            for( var i = 0; i < temp.length; i++){ 
+                if ( temp[i] === imageInfo.id) { 
+                    temp.splice(i, 1); 
+                    break;
+                }
+            }
+        }else{
+            temp.push(imageInfo.id);
+            
+        }
+        setImageForDelete(temp);
     }
     //////////////////////////////////////////////
 
+    const foundSelectedOrNot = (id) =>{
+        const existingCartItem = imageForDelete.find(
+            cartItem => cartItem === id
+        );
+        if(existingCartItem) return true;
+        return null
+
+    }
+
     return(
         <>
-            {/* <GalleryTitle>عکس های رایگان ما</GalleryTitle> */}
             {!loading ? 
                 <GallerySecion size = {size}>
-                   
                     {converterImages.map((CVI , topIndex) =>(
                         <GalleryColumn key={topIndex}>
                             {CVI && CVI.length > 0 ?
                                 CVI.map((image , index) =>{
+                                    var selected = foundSelectedOrNot(image.id);
                                     return(
-                                        <Gallery__item key={index}>
-                                            <ImageWrapper onClick = {() => handleShowImage(image)}>
+                                        <Gallery__item key={index} selected = {selected}>
+                                            <ImageWrapper onClick = {() => handleSelectImage(image)}>
                                                 <ImageGallery imageSrc = {image.src} />
                                             </ImageWrapper>
                                             <TitleContainer>
+                                                <DownloadContainer onClick={() => downloadFile(image.src , 0)} >
+                                                    <Download/>
+                                                </DownloadContainer>
+                                                <DownloadContainer onClick = {() => handleShowImage(image)} >
+                                                    <InfoIcon/>
+                                                </DownloadContainer>
                                                 <Title>{limitRecipeTitle(image.title , 25)}</Title>
+                                                
                                             </TitleContainer>
-                                            <SavedBoxContainer >
-                                                <SavedImages setLocation={setLocation} imageInfo = {image}/>
-                                            </SavedBoxContainer>
+                                            <CheckIcon selected = {selected} />
                                         </Gallery__item>
-                                            
                                     )}
                                 )
                             : ''}
+
+                            
                         </GalleryColumn>
                     ))}
                     {/* /////////////////////////////////////////////// */}
-                    {showComponent ? <ShowImage data = {srcImage} close = {toggleShowImage} caption = "" /> : ""}
-                    {/* /////////////////////////////////////////////// */}
-                    <CardSaved location={location} setLocation = {setLocation} width={width} />
                 </GallerySecion>
             : <SpinnerContainer><MySpinner /></SpinnerContainer>}
+            {showComponent ? <ShowImage data = {srcImage} close = {toggleShowImage} caption = "" /> : ""}
         </>
     )
 };
 
-const mapDispatchToProps = dispatch =>({
-    RemoveItem: () => dispatch(RemoveItem()),
-});
-
-export default connect(null , mapDispatchToProps)(Gallery);
+export default SavedGallery;

@@ -5,6 +5,9 @@ import { withRouter } from 'next/router'
 import { GalleryPageSecion ,TitleContainer,Title , SunTitle} from './galleryPage.styles';
 import ShowTopicsForGallery from '../../component/showTopicsForAnotherPage/showTopics.component';
 import {animals , waterfall , cars ,people} from '../../generalMethod/topics';
+// import { selectCartItem } from '../../redux/cart/cart.selectors';
+// import { createStructuredSelector } from 'reselect';
+// import { connect } from 'react-redux';
 //////////////////////////////////////////////
 const GalleryPage = (props) =>{
     //////////////////////////////////////////
@@ -45,6 +48,10 @@ const GalleryPage = (props) =>{
             case 'خیابان':
                 setPics(animals);
                 break;
+
+            // case 'ذخیره':
+            //     setPics(saveCartItem);
+            //     break;
         
             default:
                 setPics(animals);
@@ -74,4 +81,11 @@ const GalleryPage = (props) =>{
     )
 };
 
+// const mapStateToProps = createStructuredSelector({
+//     saveCartItem : selectCartItem,
+//  });
+
+
 export default withRouter(GalleryPage);
+
+// export default withRouter(connect(mapStateToProps)(GalleryPage));

@@ -1,3 +1,4 @@
+
 html,
 body {
   padding: 0;
@@ -68,3 +69,43 @@ body {
 /* .slick-prev:before {
   margin: 0 4rem 0 0;
 } */
+
+@font-face {
+  font-family: 'Arshia';
+  src: url(../assets/fonts/Arshia/Arshia.ttf) format('ttf');
+}
+
+@font-face {
+  font-family: 'Bnazanin';
+  src: url(../assets/fonts/B_NAZANIN/B-NAZANIN.TTF) format('ttf');
+}
+
+@font-face {
+  font-family: 'Helal';
+  src: url(../assets/fonts/B-Helal/B-Helal.ttf) format('ttf');
+}
+
+@font-face {
+  font-family: 'Abdoullah';
+  src: url(../assets/fonts/Far_Abdoullah/Far_Abdoullah.ttf) format('ttf');
+}
+
+@font-face {
+  font-family: 'Nazanin';
+  src: url(../assets/fonts/Far_Nazanin/Far_Nazanin.ttf) format('ttf');
+}
+
+@font-face {
+  font-family: 'tabssom';
+  src: url(../assets/fonts/Far_Tabssom/Far_Tabssom.ttf) format('ttf');
+}
+
+@font-face {
+  font-family: 'gol';
+  src: url(../assets/fonts/gol/gol.ttf) format('ttf');
+}
+
+@font-face {
+  font-family: 'Nastaliq';
+  src: url(../assets/fonts/IranNastaliq.ttf) format('ttf');
+}

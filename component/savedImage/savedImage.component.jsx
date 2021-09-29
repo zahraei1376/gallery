@@ -17,15 +17,16 @@ const SavedImages = ({setLocation , addItemToSave,selectedCart,imageInfo}) =>{
         setLocation({x:e.pageX , y:e.pageY});
     }
 
-    useEffect(() => {
-        console.log('selectedCart',selectedCart);
-    });
-
     const handleAddItemToCard = (info) => {
-        setMessage('عکس ذخیره شد');
-        setStatus('1');
-        setShowMessage(true);
         addItemToSave(info);
+        if(!selectedCart){
+            setMessage('عکس مورد نظر ذخیره شد');
+            setStatus('1');
+        }else{
+            setMessage('عکس از حالت ذخیره خارج شد');
+            setStatus('0');
+        }
+        setShowMessage(true);
         setLocation({});
     }
 

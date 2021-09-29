@@ -18,14 +18,14 @@ const MyNavbar = ({currentUser , scrolling}) =>{
     const router = useRouter()
     /////////////////////////////
     return (
-        <Container scroll = {scrolling === true ? true : null}>
-        <NavberContainer scroll = {scrolling === true ? true : null}>
+        <Container scroll = {scrolling === true ? "true" : null}>
+        <NavberContainer scroll = {scrolling === true ? "true" : null}>
             <LogoContainer>
                 <Logo src={logo}
                 onClick={()=> router.push('/')} 
                 />
             </LogoContainer>
-            <SearchBoxContaiber  scroll = {scrolling === true ? true : null}>
+            <SearchBoxContaiber  scroll = {scrolling === true ? "true" : null}>
                 <SearchBox/>
             </SearchBoxContaiber>
             
@@ -44,7 +44,7 @@ const MyNavbar = ({currentUser , scrolling}) =>{
                 }
                 
                 <Toolbar clicked={clicked} setClicked={setClicked} />
-                <ToolbarItems clicked={clicked} />
+                <ToolbarItems clicked={clicked} position = {true} />
                 
                 
             </InfoContainer>

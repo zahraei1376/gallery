@@ -45,7 +45,8 @@ export const ToolbarInfoBack = styled.div`
     background-color: #1d1d1d;
     transition:all .3s;
     height:${props => props.show ? '40rem' : '0'};
-    position:fixed;
+    position:${props => props.position ? 'absolute' : 'fixed'};
+    // position:fixed;
     top:0;
     left:0;
     z-index:1;
