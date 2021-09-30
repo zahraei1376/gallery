@@ -9,7 +9,7 @@ export const AllTopicContainer = styled.div`
     // padding:5rem 10rem 2rem 10rem;
     padding:10rem 5rem;
     position:relative;
-    z-index:5;
+    z-index:1;
 `;
 
 export const TitleContainer = styled.div`

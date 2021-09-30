@@ -34,12 +34,14 @@ export const InfoContainer = styled.div`
     top:${props => props.fixed ? '7rem' : '0'};
     left:${props => props.fixed ? '0' : '0'};
     z-index:1;
-    box-shadow: 0 11px 13px -12px rgba(0,0,0,.4);
+    box-shadow:${props => props.fixed ? '0 11px 13px -12px rgba(0,0,0,.4)' : '0'};
+    // box-shadow: 0 11px 13px -12px rgba(0,0,0,.4);
 `;
 
 export const InfoSelectContainer = styled.div`
     display:flex;
     align-items:center;
+    // justify-content: center;
     justify-content: flex-end;
 `;
 
@@ -82,7 +84,9 @@ export const Title = styled.h1`
     // justify-content:center;
     font-size:3.5rem;
     font-family:Bnazanin;
-    margin-top:15rem;
+    margin-top:12rem;
+    padding:0 3rem 3rem;
+    box-shadow: 0 11px 13px -12px rgba(0,0,0,.4);
 `;
 
 export const SunTitle = styled.h5`

@@ -6,7 +6,7 @@ import {Container} from './showAllTopic.styles';
 const ShowAllTopic = () =>
     (
         <Container>
-            {/* <MyNavbar scrolling = {true} /> */}
+            <MyNavbar scrolling = {true} />
             <HeaderPage/>
             <ShowAllTopicComponent/>
             <Footer/>

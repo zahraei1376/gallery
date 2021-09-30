@@ -7,7 +7,7 @@ import {Span,DescriptionContainer , DescriptionBody ,DescriptionContent,
   Header,TextContainer, HeaderButton,DownloadButtonsContainer,DownloadButtonIcon,DownloadButton,ArrowBottom, HeaderDownloadIcon,CloseButton ,HeaderButtons,HeaderSaveIcon, MyCloseIcon,
   ContentContainer,ContentBackContainer , ArrowButton , NextArrowIcon , PrevArrowIcon} from './showImage.styles';
 import DownloadCard from './downloadBoxContainer.component';
-import wait from '../../assets/img/wait.jpg';
+import wait from '../../public/img/wait.jpg';
 import {addItem} from '../../redux/cart/cart.action';
 import { connect } from 'react-redux';
 import MySnackbar from '../messageBox/messageBox.component';
@@ -27,6 +27,7 @@ const ShowImage = ({addItemToSave,selectedCart,...props}) => {
     const [showMessage,setShowMessage] = useState(false);
     const [message,setMessage] =useState('');
     const [status,setStatus] = useState('0');
+    const [load , setLoad] = useState(false);
     /////////////////////////////////////////////////////////////
      var content = document.getElementById("menu__content");
      var contentBack = document.getElementById("menu__contentBack");
@@ -76,6 +77,10 @@ const ShowImage = ({addItemToSave,selectedCart,...props}) => {
    const handleDownloadFile = (size) =>{
       downloadFile(props.data.src , size)
    }
+
+   const onLoad = () =>{
+    setLoad(true);
+}
     ////////////////////////////////////////////////////////////////
     return (
         <DescriptionContainer>
@@ -86,19 +91,22 @@ const ShowImage = ({addItemToSave,selectedCart,...props}) => {
               <DescriptionImageContainer >
                   <DescriptionImg
                     src = {props.data.src}
+                    onLoad={onLoad} 
                     onerror = {wait}
                     // onClick = {props.close}
                   />
               </DescriptionImageContainer>
               
             </ContentContainer>
-            <ContentBackContainer id="menu__contentBack">
+            <ContentBackContainer id="menu__contentBack" load={load ? "true" : null}>
               <DescriptionContent>
                     <Header>
                       
                       <DescriptionCaption>
                         <WriterImageContainer>
-                          <WriterImage src={props.data.photographerPicture}/>
+                          <WriterImage 
+                           src={props.data.photographerPicture}
+                           />
                         </WriterImageContainer>
                         <WriterName>{props.data.photographer}</WriterName>
                         

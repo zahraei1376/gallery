@@ -1,15 +1,20 @@
-import {useState} from 'react';
+import {useState , useEffect} from 'react';
 import {TopicBoxContainer , TopicImageContainer ,TopicImage,TopicPhotographerContainer,
     TopicPhotographerImageContainer,TopicPhotographerImage, TopicPhotographerName,
      TopicBoxSubTitle ,PhotographerInfo ,PhotographerTitle , TopicLayerBack , AttachContainer ,AttachIcon } from './topicBox.styles';
-
+import { useRouter } from 'next/router';
 const TopicBox = ({topic}) =>{
     const [location , setLocation] = useState(null);
     const handleLoaction = (e) =>{
         setLocation({x: e.screenX, y: e.screenY});
-    }
+    };
+    const router = useRouter();
+
     return(
-        <TopicBoxContainer onMouseEnter = {e => handleLoaction(e)} location={location}>
+        <TopicBoxContainer onMouseEnter = {e => handleLoaction(e)} location={location} onClick={() => router.push({
+            pathname: '/gallery',
+            query: { images: topic.name} 
+            })}>
             <TopicLayerBack />
             <AttachContainer>
                 <AttachIcon/>

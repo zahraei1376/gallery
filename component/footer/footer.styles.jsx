@@ -70,7 +70,7 @@ export const FooterContainer = styled.div`
 export const FooterTitle = styled.h1`
     color:#843910;
     font-size:3rem;
-    font-family:gol;
+    font-family:ir_sans;
     text-align:center;
     padding:3rem;
     margin:0;
@@ -139,14 +139,31 @@ export const FooterUl = styled.ul`
     `;
 
 export const FooterUlTitle = styled.h2`
-width:100%;
-    font-size:2rem;
-    font-family:Abdoullah;
-    text-align:center;
-    padding-bottom:1rem;
+    width:100%;
+    font-size:2.5rem;
+    font-family:ir_sans;
     color:#fff;
-    border-bottom:1px solid #fff;
+    // border-bottom:1px solid #fff;
     text-align: right;
+    margin-right: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    position: relative;
+    padding: 0 3rem 1rem 0;
+
+    &:before{
+        content: "";
+        width: 12px;
+        height: 12px;
+        border: 3px solid #fff;
+        display: block;
+        border-radius: 50%;
+        position: absolute;
+        right: 0;
+        // top: 50%;
+        // margin-left: 6px;
+    }
 `;
 
 export const FooterItem = styled.li`
@@ -171,7 +188,7 @@ export const FooterItem = styled.li`
 export const FooterLink = styled.a`
     text-decoration:none;
     font-size:1.7rem;
-    font-family:Bnazanin;
+    font-family:ir_sans;
     /////////////////////////
     position: relative;
     display: inline;
@@ -216,7 +233,7 @@ export const FooterImage = styled.img`
 
 export const FooterText = styled.p`
     font-size:1.7rem;
-    font-family:Bnazanin;
+    font-family:ir_sans;
     color: #999;
     padding: 0;
     margin: 0;
@@ -268,7 +285,7 @@ export const SocialMediaLinksIcon = styled(IconButton)`
 export const SocialMediadisc = styled.p`
     width:50%;
     font-size:1rem;
-    font-family:Bnazanin;
+    font-family:ir_sans;
     color:#fff;
 `;
 
@@ -316,7 +333,7 @@ export const Button = styled.button`
     color:#fff;
     border-radius:1rem;
     cursor:pointer;
-    font-family:Bnazanin;
+    font-family:ir_sans;
     border:none;
     display: inline-block;
     font-size: 3rem;

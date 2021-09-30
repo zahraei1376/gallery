@@ -314,6 +314,7 @@ export const ContentBackContainer = styled.div`
 	z-index: -1;
 	box-shadow: 0 2rem 6rem 0.5rem rgba(101, 90, 86, 0.2);
 	transition: all 5s;
+	display:${props => props.load ? 'block' : 'none'};
 
 	@media only screen and (max-width: 540px) {
 		width:90%;

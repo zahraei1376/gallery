@@ -90,6 +90,7 @@ export const TopicImageContainer = styled.div`
     overflow:hidden;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    background-color:#fff;
 `;
 
 
@@ -108,6 +109,7 @@ export const TopicBoxContainer = styled.div`
     position:relative;
     z-index:1;
     padding-bottom:3rem;
+    cursor:pointer;
 
     &:after {
         transition: all 1s ease-in-out;
