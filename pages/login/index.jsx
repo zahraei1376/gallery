@@ -50,7 +50,6 @@ const LoginPage = (props) =>{
                 return response.json();   
             })
             .then((dataRes)=>{ 
-                console.log('dataRes',dataRes);
                 if(dataRes.isSuccess){
                     setStatus('1')
                     setMessage('ورود موفقیت آمیز بود میتوانید به بخش های مدیریتی بروید');

@@ -14,13 +14,30 @@ const SavedPage = ({saveCartItem , count , RemoveItems , RemoveItem}) =>{
     const [imageForDelete, setImageForDelete] = useState([]);
     const [textBtn , setTextBtn] = useState(0);
     const [fixed , setFixed] = useState(null);
-    const [selected , setSelected] = useState(0);
     //////////////////////////////////////////
-    useEffect(()=>{
-        // RemoveItem();
-        setSelected(imageForDelete.length)
-    },[imageForDelete]);
-    //////////////////////////////////////////
+    useEffect(() => {
+        const onScroll = e => {
+            var y = e.target.documentElement.scrollTop;
+            if ( y >= 70) {
+                if(!fixed){
+                    setFixed(true);
+                }
+            }else{
+                setFixed(false);
+            }
+        };
+
+        
+        window.addEventListener("scroll", onScroll);
+
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []);
+      /////////////////////////////////////
+    const handleRemoveItem = () =>{
+        RemoveItems(imageForDelete);
+        setImageForDelete([]);
+    }
+
     const handleSelectAll = () =>{
         if(textBtn === 0) {
             setTextBtn(1);
@@ -37,37 +54,24 @@ const SavedPage = ({saveCartItem , count , RemoveItems , RemoveItem}) =>{
         
     }
     //////////////////////////////////////////
-    const scrollFunction = () => {
-        console.log('yyyyyyyy',window.scrollY);
-        var y = window.scrollY;
-        console.log('yyyyyyyy',y);
-        // if ( y >= 61) {
-        if ( y >= 10) {
-            if(!fixed){
-                setFixed(true);
-            }
-        }else{
-            // if(scrolling){
-              // console.log('scrolling', scrolling);
-              setFixed(false);
-            // }
-        }
-      } 
     //////////////////////////////////////////
     return(
-        <GalleryPageSecion onScroll = {() => scrollFunction()} id="fixed">
-            <MyNavbar scrolling = {true} />
+        <GalleryPageSecion >
+            <MyNavbar 
+            scrolling = {true} 
+            // scrolling = {!fixed ? "true" : null} 
+            />
             <TitleContainer>
                 <Title>عکس های ذخیره شده من</Title>
             </TitleContainer>
             <InfoContainer fixed={fixed ? "true" : null}>
                 <SunTitle>{`تعداد عکس های ذخیره شده ${count} عدد`}</SunTitle>
                 <SelectAllContainer>
-                    <SelectAll disabled={selected === 0} onClick={handleSelectAll}>{textBtn === 0 ? 'انتخاب همه' : 'لغو انتخاب ها'}</SelectAll>
+                    <SelectAll disabled={count === 0} onClick={handleSelectAll}>{textBtn === 0 ? 'انتخاب همه' : 'لغو انتخاب ها'}</SelectAll>
                     <Tooltip title="حذف"  aria-label="حذف">
                         <DeleteContainer>
-                            <DeleteButton disabled={selected === 0} onClick = {() => {RemoveItems(imageForDelete)}}>
-                                <MyDeleteIcon disable={selected === 0 ? true : null} />
+                            <DeleteButton disabled={imageForDelete.length === 0} onClick = {() => {handleRemoveItem(imageForDelete)}}>
+                                <MyDeleteIcon disable={imageForDelete.length === 0 ? true : null} />
                             </DeleteButton>
                         </DeleteContainer>
                     </Tooltip>
@@ -75,11 +79,10 @@ const SavedPage = ({saveCartItem , count , RemoveItems , RemoveItem}) =>{
             </InfoContainer>
 
             <InfoSelectContainer>
-                <SunTitleSelect>{`تعداد عکس های انتخاب شده ${selected} عدد`}</SunTitleSelect>
+                <SunTitleSelect>{`تعداد عکس های انتخاب شده ${imageForDelete.length} عدد`}</SunTitleSelect>
             </InfoSelectContainer>
 
             <SavedGallery images = {saveCartItem} imageForDelete = {imageForDelete} setImageForDelete ={setImageForDelete} />
-            
         </GalleryPageSecion>
     )
 };

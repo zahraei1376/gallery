@@ -17,13 +17,13 @@ const MyNavbar = ({currentUser , scrolling}) =>{
     const router = useRouter()
     /////////////////////////////
     return (
-        <NavberContainer scroll = {scrolling === true ? "true" : null}>
+        <NavberContainer scroll = {scrolling ? "true" : null}>
             <LogoContainer>
                 <Logo src={logo}
                 onClick={()=> router.push('/')} 
                 />
             </LogoContainer>
-            <SearchBoxContaiber  scroll = {scrolling === true ? "true" : null}>
+            <SearchBoxContaiber  scroll = {scrolling ? "true" : null}>
                 <SearchBox/>
             </SearchBoxContaiber>
             

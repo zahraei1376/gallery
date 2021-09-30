@@ -38,7 +38,6 @@ export const scrollFunction = (size ,value , setValue) => {
         }
     }else{
         // if(scrolling){
-          // console.log('scrolling', scrolling);
           setValue(false);
         // }
     }

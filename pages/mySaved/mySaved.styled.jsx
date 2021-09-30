@@ -22,15 +22,19 @@ export const SelectAll = styled.button`
     }
 `;
 export const InfoContainer = styled.div`
+    // transition:all 0.2s;
     width:100%;
     display:flex;
     align-items:center;
     justify-content: space-evenly;
     // border-bottom: 1px solid #999;
-    margin: 0 2rem;
+    // margin: 0 2rem;
     position:${props => props.fixed ? 'fixed' : 'relative'};
     background-color:${props => props.fixed ? '#fff' : 'transparent'};
-    top:${props => props.fixed ? '6rem' : '0'};
+    top:${props => props.fixed ? '7rem' : '0'};
+    left:${props => props.fixed ? '0' : '0'};
+    z-index:1;
+    box-shadow: 0 11px 13px -12px rgba(0,0,0,.4);
 `;
 
 export const InfoSelectContainer = styled.div`

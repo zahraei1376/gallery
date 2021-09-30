@@ -45,7 +45,6 @@ const Gallery = ({RemoveItem , images}) =>{
 
     useEffect(() => {
         // RemoveItem();
-        console.log('imagesimages',images);
         window.addEventListener('resize', () =>{
             ResizeWindows();
         });

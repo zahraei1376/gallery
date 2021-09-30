@@ -41,6 +41,7 @@ export const NavberContainer = styled.div`
     // height: ${props => props.scroll ? '7rem' : '7rem'};
     // position:${props => props.scroll ? 'fixed' : 'relative'};
     // background-color:${props => props.scroll ? 'rgba(29, 29, 29, 1)' : 'transparent'};
+    // background-color:${props => props.scroll ? '#191e3e' : 'transparent'};
     background-color:${props => props.scroll ? '#191e3e' : 'transparent'};
     top: 0;
     // left: 50%;

@@ -41,14 +41,6 @@ const RegisterPage = (props) =>{
     const submitRegister = async(e)=>{
         e.preventDefault();
         setLoading(true);
-        console.log('data',{
-            username: fiels.username,
-            password:fiels.pass,
-            email:fiels.email,
-            fullName:fiels.fullName,
-            age:fiels.age,
-            gender:fiels.gender,
-        });
         if(fiels.username !=""  && fiels.pass !="" && fiels.email !=""  && fiels.fullName !=""){
             const data = {
                 username: fiels.username,
@@ -70,7 +62,6 @@ const RegisterPage = (props) =>{
                 return response.json();   
             })
             .then((dataRes)=>{ 
-                console.log(dataRes);
                 if(dataRes.isSuccess){
                     setStatus('1')
                     setMessage('موفقیت آمیز بود');

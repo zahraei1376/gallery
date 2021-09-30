@@ -14,6 +14,7 @@ const SavedGallery = ({RemoveItem ,RemoveItems, images ,imageForDelete, setImage
     const [size, setSize] = useState(0);
     const [showComponent , setShowComponent] = useState(false);
     const [srcImage , setSrcImage] = useState('');
+    // const [loading , setLoading] = useState(images);
     ///////////////////////////////////////////////
     const handleShowImage = (imageInfo) => {
         setSrcImage(imageInfo);
@@ -26,6 +27,7 @@ const SavedGallery = ({RemoveItem ,RemoveItems, images ,imageForDelete, setImage
     //////////////////////////////////////////////
     function ResizeWindows(){
         var SIZE = 4;
+        console.log('imagesimages',images);
         if(images && images.length > 0 && images[0]){
             if(window.innerWidth < 540){
                 SIZE = 1;
@@ -52,7 +54,8 @@ const SavedGallery = ({RemoveItem ,RemoveItems, images ,imageForDelete, setImage
         window.addEventListener('resize', () =>{
             ResizeWindows();
         });
-    }, []);
+        return () => window.removeEventListener("resize", ResizeWindows);
+    }, [images]);
 
     useEffect(() =>{
         ResizeWindows();

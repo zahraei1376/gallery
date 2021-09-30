@@ -26,10 +26,8 @@ export const RemoveItemsFromCart = (cartItems,CartItemsToRemove)=>{
 
     //     if(flag) return cartItem;
     // })
-    console.log('cartItems',cartItems,CartItemsToRemove);
     var myCartItems = cartItems.filter( ( el ) => !CartItemsToRemove.includes( el.id ) );
     return myCartItems;
-    // console.log('myCartItems',myCartItems);
     // return [];
 }
 

@@ -22,7 +22,6 @@ export default function Home() {
         }
     }else{
         // if(scrolling){
-          // console.log('scrolling', scrolling);
             setScrolling(false);
         // }
     }

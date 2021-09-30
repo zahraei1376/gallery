@@ -3,7 +3,6 @@ import {DownloadContainer , DownloadTitle , Group , GroupLabel , GroupInput ,Dow
 const DownloadCard = ({setSize , size , handleDownloadFile}) =>{
 
     const handleChange = (e) =>{
-        console.log('e.target.value',e.target.value);
         setSize(e.target.value);
     }
     return(

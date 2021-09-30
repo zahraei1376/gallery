@@ -6,7 +6,6 @@ import {TopicBoxContainer , TopicImageContainer ,TopicImage,TopicPhotographerCon
 const TopicBox = ({topic}) =>{
     const [location , setLocation] = useState(null);
     const handleLoaction = (e) =>{
-        console.log('dddddddddd' , e , {x: e.screenX, y: e.screenY})
         setLocation({x: e.screenX, y: e.screenY});
     }
     return(

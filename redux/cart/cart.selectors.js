@@ -10,7 +10,6 @@ export const selectCartItem = createSelector(
 export const selectedCart = (state, id) => createSelector(
     [selectCartItem],
     (CartItems) => {
-        // console.log('iddddddd', id);
         var flag = false;
         for (let index = 0; index < CartItems.length; index++) {
             if(CartItems[index].id ===  id) {
@@ -27,7 +26,6 @@ export const selectedCart = (state, id) => createSelector(
 export const selectCartItemsCount = createSelector(
     [selectCartItem],
     (CartItems) => {
-        console.log('CartItems',CartItems,CartItems.length);
         return CartItems.length
     }
 );
