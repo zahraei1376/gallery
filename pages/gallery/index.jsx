@@ -15,7 +15,7 @@ const GalleryPage = (props) =>{
     const [pics , setPics] = useState([]);
     /////////////////////////////////////////////
     const handleImage = () => {
-        switch (topic) {
+        switch (props.router.query.images) {
             case 'حیوانات اهلی':
                 setPics(animals);
                 break;

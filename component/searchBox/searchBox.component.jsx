@@ -22,6 +22,14 @@ const SearchBox = () =>{
         }
     }
 
+    const handleBlur = () =>{
+
+        setTimeout(()=>{
+            setShowSegestion(false);
+        },500);
+        
+    }
+
     return(
         <React.Fragment>
             <SearchBoxContainer>
@@ -29,7 +37,9 @@ const SearchBox = () =>{
                 <SearchButton onClick={() => {setSearchText('')}} >
                     <ClearIcon />
                 </SearchButton> : ''}
-                <SearchBoxInput onBlur  = {() => setShowSegestion(false)} onFocus = {() => setShowSegestion(true)} type="text" placeholder="جستجو &#x1F50E;" value = {searchText}  onChange = {(e) => handleSearchText(e.target.value)} />
+                <SearchBoxInput 
+                onBlur  = {() => handleBlur()}
+                 onFocus = {() => setShowSegestion(true)} type="text" placeholder="جستجو &#x1F50E;" value = {searchText}  onChange = {(e) => handleSearchText(e.target.value)} />
                 <SegestionSearch result = {result} showSegesion = {showSegesion} setShowSegestion = {setShowSegestion} />
             </SearchBoxContainer>
             {/* <BackDrop show = {showSegesion ? showSegesion :null} onClick = {() =>setShowSegestion(false)} /> */}
