@@ -30,7 +30,7 @@ export const HeaderTitle = styled.h1`
     font-size:3.5rem;
     line-height:6rem;
     // font-weight:400;
-    font-family: ir_sans;
+    font-family: Abdoullah;
     color:#fff;
     // background-image: linear-gradient(to right,#000 , #fff);
     // // background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);

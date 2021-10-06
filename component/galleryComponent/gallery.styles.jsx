@@ -29,7 +29,7 @@ const fadeRight = keyframes`
 
 export const GalleryTitle = styled.h5`
     font-size:2rem;
-    font-family: ir_sans;
+    font-family: Abdoullah;
     display:flex;
     justify-content:flex-end;
     align-items:center;
@@ -98,7 +98,7 @@ export const TitleContainer = styled.div`
 
 export const Title = styled.h1`
     font-size:1.5rem;
-    font-family: ir_sans;
+    font-family: Abdoullah;
     text-align:right;
     color:#fff;
     animation-name:${fadeRight};

@@ -11,12 +11,14 @@ function MyApp({ Component, pageProps }) {
     <div>
       <Head>
           <link
-            rel="preload"
+            // rel="preload"
             // href="/fonts/EBGaramond/EBGaramond-Regular.ttf"
-            as="font"
-            crossOrigin=""
-            href="/fonts/style.css"
+            // as="font"
+            // // crossOrigin=""
+            // href="/fonts/style.css"
             // rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Lobster"
+          rel="stylesheet"
           />
         </Head>
         <body>

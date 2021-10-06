@@ -8,6 +8,7 @@ import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { Tooltip } from '@material-ui/core';
+import TitleStyle from '../../component/title/title.component';
 // import { scrollFunction } from '../../generalMethod/limitRecipeTitle';
 //////////////////////////////////////////////
 const SavedPage = ({saveCartItem , count , RemoveItems , RemoveItem}) =>{
@@ -63,18 +64,19 @@ const SavedPage = ({saveCartItem , count , RemoveItems , RemoveItem}) =>{
             />
             <TitleContainer>
                 {/* <RightTitle/> */}
-                <TitleWrapper>
+                <TitleStyle text="عکس های ذخیره شده من"/>
+                {/* <TitleWrapper>
                     <RightTitle/>
                     <Title>عکس های ذخیره شده من</Title>
                     <LeftTitle/>
-                </TitleWrapper>
+                </TitleWrapper> */}
                 {/* <LeftTitle/> */}
             </TitleContainer>
             <InfoContainer fixed={fixed ? "true" : null}>
                 <InfoWrapper fixed={fixed ? "true" : null}>
                 <SunTitle>{`تعداد عکس های ذخیره شده ${count} عدد`}</SunTitle>
                 <SelectAllContainer>
-                    <SelectAll select = {textBtn === 1 ? "true" : null} disabled={count === 0 ? true :false} onClick={handleSelectAll}>{textBtn === 0 ? 'انتخاب همه' : 'لغو انتخاب ها'}</SelectAll>
+                    <SelectAll dsl={count === 0 ? "true" : null}  select = {textBtn === 1 ? "true" : null} disabled={count === 0 ? true :false} onClick={handleSelectAll}>{textBtn === 0 ? 'انتخاب همه' : 'لغو انتخاب ها'}</SelectAll>
                     <Tooltip title="حذف"  aria-label="حذف">
                         <DeleteContainer>
                             <DeleteButton disabled={imageForDelete.length === 0} onClick = {() => {handleRemoveItem(imageForDelete)}}>

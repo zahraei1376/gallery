@@ -170,7 +170,7 @@ export const TopicPhotographerImage = styled(Image)`
 
 export const TopicPhotographerName = styled.h6`
     font-size:1.5rem;
-    font-family: ir_sans;
+    font-family: Abdoullah;
     padding: 0 1rem ;
     margin:0;
     color:#888;
@@ -179,7 +179,7 @@ export const TopicPhotographerName = styled.h6`
 
 export const TopicBoxSubTitle = styled.p`
     font-size:1.5rem;
-    font-family: ir_sans;
+    font-family: Abdoullah;
     text-align:right;
     line-height:4rem;
     padding:1rem;
@@ -188,7 +188,7 @@ export const TopicBoxSubTitle = styled.p`
 
 export const PhotographerTitle = styled.h1`
     font-size:2.5rem;
-    font-family: ir_sans;
+    font-family: Abdoullah;
     padding:2rem 1rem;
     margin:0;
     text-align: center;

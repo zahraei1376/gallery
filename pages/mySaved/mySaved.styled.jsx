@@ -16,7 +16,7 @@ export const LeftTitle = styled.div`
     position:absolute;
     // // top:12rem;
     // left:2rem;
-    top:3rem;
+    top:1rem;
     left:-4rem;
     clip-path: polygon(100% 0%, 100% 51%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
     background-image: linear-gradient(to right ,#fc8d6d,#bf4f7b,#242d64 80%,#191e3e 100%);
@@ -30,7 +30,7 @@ export const RightTitle = styled.div`
     position:absolute;
     // top:12rem;
     // right:2rem;
-    top:3rem;
+    top:1rem;
     right:-4rem;
     clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
     background-image: linear-gradient(to left ,#fc8d6d,#bf4f7b,#242d64 80%,#191e3e 100%);
@@ -40,20 +40,19 @@ export const RightTitle = styled.div`
 export const SelectAll = styled.button`
     padding:1rem 2rem;
     font-size:1.7rem;
-    font-family: ir_sans;
+    font-family: Abdoullah;
     border:1px solid #fff;
     background-color:#eee;
     border-radius:2rem;
-    cursor: pointer;
-    // border: ${props => props.select ? "2px solid #777" : "2px solid #eee"};
-    outline: ${props => props.select ? "2px solid #999" : "2px solid #eee"};
-    // outline: 2px double #eee;
+    cursor: ${props => props.dsl ? "not-allowed" : "pointer" };
+    // outline: ${props => props.select ? "2px solid #999" : "2px solid #eee"};
+    outline:2px solid #eee;
     outline-offset: 5px;
 
-    &:hover{
-        // border:1px solid #eee;
-        background-color:#d0d0d0;
-    }
+    // &:hover{
+    //     // border:1px solid #eee;
+    //     background-color:#d0d0d0;
+    // }
 `;
 export const InfoWrapper = styled.div`
     width:80%;
@@ -62,6 +61,7 @@ export const InfoWrapper = styled.div`
     justify-content: space-between;
     // border-bottom: 3px double #999;
     border-bottom:${props => props.fixed ? 'none' : '3px double #999'};
+    padding:2rem 0;
 `;
 export const InfoContainer = styled.div`
     width:100%;
@@ -132,7 +132,7 @@ export const Title = styled.h1`
     position: relative;
     z-index:1;
     font-size:3.5rem;
-    font-family: ir_sans;
+    font-family: Abdoullah;
     padding:1rem 3rem;
     box-shadow: 0 11px 13px -12px rgba(0,0,0,1);
     border-style: outset;
@@ -144,7 +144,7 @@ export const SunTitle = styled.h5`
     // width:50%;
     color:#777;
     font-size:2rem;
-    font-family: ir_sans;
+    font-family: Abdoullah;
     // margin-top:3rem;
     text-align:center;
     // line-height:4rem;
@@ -155,7 +155,7 @@ export const SunTitleSelect = styled.h5`
     // width:50%;
     color:#999;
     font-size:1.8rem;
-    font-family: ir_sans;
+    font-family: Abdoullah;
     margin:4rem 5rem 0 0;
     // text-align:center;
     line-height:3rem;

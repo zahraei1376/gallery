@@ -192,7 +192,7 @@ export const ArrowIconButton = styled(IconButton)`
 export const MyNavLink = styled.a`
     text-decoration: none;
     color:#fff;
-    font-family: ir_sans;
+    font-family: Abdoullah;
     font-size:2rem;
 
     &:hover{
