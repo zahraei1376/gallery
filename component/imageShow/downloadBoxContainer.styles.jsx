@@ -11,7 +11,7 @@ export const DownloadButton = styled.button`
     background-color:rgba(36, 45, 100, 0.9);
     color:#fff;
     font-size:2rem;
-    font-family:Bnazanin;
+    font-family: ir_sans;
     margin:0 auto;
     display: block;
     border:none;
@@ -50,7 +50,7 @@ export const DownloadContainer = styled.div`
 
 export const DownloadTitle = styled.h5`
     font-size:2rem;
-    font-family:Bnazanin;
+    font-family: ir_sans;
     padding:1rem 0;
     border-bottom:1px solid #eee;
 `;
@@ -58,7 +58,7 @@ export const DownloadTitle = styled.h5`
 export const Group = styled.div`
     width: 100%;
     font-size:2rem;
-    font-family:Bnazanin;
+    font-family: ir_sans;
     background-color:${props => props.size ? '#eee' : 'transparent'};
     border-bottom:1px solid #eee;
     padding:1rem 2rem;
@@ -67,7 +67,7 @@ export const Group = styled.div`
 
 export const GroupLabel = styled.label`
     font-size:1.8rem;
-    font-family:Bnazanin;
+    font-family: ir_sans;
 `;
 
 export const GroupInput = styled.input`

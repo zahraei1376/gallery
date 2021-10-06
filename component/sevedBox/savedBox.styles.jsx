@@ -34,7 +34,7 @@ export const P = styled.p`
   width:100%;
   color:#999;
   font-size:2rem;
-  font-family:Bnazanin;
+  font-family: ir_sans;
   display:flex;
   align-items:Center;
   justify-content:Center;
@@ -99,7 +99,7 @@ export const SaveBoxImage = styled.img`
 
 export const TiTleSaveBox = styled.p`
   font-size:2rem;
-  font-family:Bnazanin;
+  font-family: ir_sans;
   margin-right:1rem;
 `;
 
@@ -108,7 +108,7 @@ export const SeeAllButton = styled.button`
   height:20%;
   border:1px solid transparent;
   font-size:2.5rem;
-  font-family:Bnazanin;
+  font-family: ir_sans;
   background-color:rgba(0,0,0,.8);
   color:#fff;
   // bottom:0;
@@ -180,7 +180,7 @@ export const SavedImage = styled.img`
 
 export const SavedTitle = styled.pre`
     font-size:2rem;
-    font-family:Bnazanin;
+    font-family: ir_sans;
     text-align:right;
     white-space: pre-wrap;     
     white-space: -moz-pre-wrap;  

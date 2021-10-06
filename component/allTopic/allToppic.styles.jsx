@@ -48,7 +48,7 @@ export const AllTopicTitleContainer = styled.div`
 
 export const AllTopicTitle = styled.h1`
     font-size:3.5rem;
-    font-family:Bnazanin;
+    font-family: ir_sans;
     margin:2rem 0;
     color:#1d1d1d;
     display:flex;
@@ -57,7 +57,7 @@ export const AllTopicTitle = styled.h1`
 
 export const AllTopicSubTitle = styled.h5`
     font-size:3rem;
-    font-family:Bnazanin;
+    font-family: ir_sans;
     // margin:2rem 0;
     display: inline-block;
     // background-image:radial-gradient(ellipse at top ,#fc8d6d,#bf4f7b,#242d64 80%,#191e3e 100%);

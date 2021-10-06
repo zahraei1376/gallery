@@ -17,7 +17,7 @@ export const Title = styled.h1`
     // display:flex;
     // justify-content:center;
     font-size:3.5rem;
-    font-family:Bnazanin;
+    font-family: ir_sans;
     margin-top:15rem;
 `;
 
@@ -25,7 +25,7 @@ export const SunTitle = styled.h5`
     width:50%;
     color:#888;
     font-size:2rem;
-    font-family:Bnazanin;
+    font-family: ir_sans;
     margin-top:3rem;
     text-align:center;
     line-height:4rem;

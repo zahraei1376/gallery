@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const GalleryTitle = styled.h5`
     font-size:2rem;
-    font-family:Bnazanin;
+    font-family: ir_sans;
     display:flex;
     justify-content:flex-end;
     align-items:center;

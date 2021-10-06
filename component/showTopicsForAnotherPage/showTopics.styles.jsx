@@ -16,7 +16,7 @@ export const TitleShowAll = styled.h3`
     color: #888;
     font-size:1.8rem;
     font-weight:800;
-    font-family:Bnazanin;
+    font-family: ir_sans;
     display: block;
     overflow: hidden;
     line-height: 2rem;
@@ -47,7 +47,7 @@ export const Title = styled.h3`
     // color: #000;
     font-size:1.6rem;
     font-weight:800;
-    font-family:Bnazanin;
+    font-family: ir_sans;
     display: block;
     overflow: hidden;
     line-height: 2rem;

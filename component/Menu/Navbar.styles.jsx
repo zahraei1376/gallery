@@ -118,7 +118,7 @@ export const LoginButton = styled.button`
   background-size: 200%;
   transition:all .2s;
   font-size:1.5rem;
-  font-size:Bnazanin;
+  font-family: ir_sans;
   text-align:center;
   &:hover{
     background-position: 100%;
