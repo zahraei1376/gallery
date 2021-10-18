@@ -13,13 +13,13 @@ export const MyUserIconButton = styled(IconButton)`
 `;
 
 export const MyUserIcon = styled(AssignmentIndIcon)`
-    font-size:2.5rem !important;
+    font-size:3.5rem !important;
     color:#fff;
 `;
 
 export const MyTypography = styled(Typography)`
     font-size:2rem !important;
-    font-family:Bnazanin !important;
+    font-family:ir_sans !important;
     color:#999;
     text-align:right;
     padding:1rem !important;

@@ -40,7 +40,7 @@ export const RightTitle = styled.div`
 export const SelectAll = styled.button`
     padding:1rem 2rem;
     font-size:1.7rem;
-    font-family: Abdoullah;
+    font-family:ir_sans;
     border:1px solid #fff;
     background-color:#eee;
     border-radius:2rem;
@@ -132,7 +132,7 @@ export const Title = styled.h1`
     position: relative;
     z-index:1;
     font-size:3.5rem;
-    font-family: Abdoullah;
+    font-family:ir_sans;
     padding:1rem 3rem;
     box-shadow: 0 11px 13px -12px rgba(0,0,0,1);
     border-style: outset;
@@ -144,7 +144,7 @@ export const SunTitle = styled.h5`
     // width:50%;
     color:#777;
     font-size:2rem;
-    font-family: Abdoullah;
+    font-family:ir_sans;
     // margin-top:3rem;
     text-align:center;
     // line-height:4rem;
@@ -155,7 +155,7 @@ export const SunTitleSelect = styled.h5`
     // width:50%;
     color:#999;
     font-size:1.8rem;
-    font-family: Abdoullah;
+    font-family:ir_sans;
     margin:4rem 5rem 0 0;
     // text-align:center;
     line-height:3rem;

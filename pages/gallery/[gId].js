@@ -20,57 +20,57 @@ const GalleryPage = (props) =>{
     const [customPics , setCustomPics] = useState([]);
     const [text , setText] = useState('');
     /////////////////////////////////////////////
-    const handleImage = () => {
-        switch (props.router.query.images) {
-            case 'حیوانات اهلی':
-                setPics(animals);
-                setCustomPics(animals);
-                break;
-            case 'حیوانات وحشی':
-                setPics(animals);
-                setCustomPics(animals);
-                break;
-            case 'حیوانات':
-                setPics(animals);
-                setCustomPics(animals);
-                break;
-            case 'پوشاک':
-                setPics(dress);
-                setCustomPics(dress);
-                break;
-            case 'طراحی داخلی':
-                setPics(animals);
-                setCustomPics(animals);
-                break;
-            case 'مردم':
-                setPics(people);
-                setCustomPics(people);
-                break;
-            case 'طبیعت':
-                setPics(waterfall);
-                setCustomPics(waterfall);
-                break;
-            case 'فیلم':
-                setPics(people);
-                setCustomPics(people);
-                break;
+    // const handleImage = () => {
+    //     switch (props.router.query.images) {
+    //         case 'حیوانات اهلی':
+    //             setPics(animals);
+    //             setCustomPics(animals);
+    //             break;
+    //         case 'حیوانات وحشی':
+    //             setPics(animals);
+    //             setCustomPics(animals);
+    //             break;
+    //         case 'حیوانات':
+    //             setPics(animals);
+    //             setCustomPics(animals);
+    //             break;
+    //         case 'پوشاک':
+    //             setPics(dress);
+    //             setCustomPics(dress);
+    //             break;
+    //         case 'طراحی داخلی':
+    //             setPics(animals);
+    //             setCustomPics(animals);
+    //             break;
+    //         case 'مردم':
+    //             setPics(people);
+    //             setCustomPics(people);
+    //             break;
+    //         case 'طبیعت':
+    //             setPics(waterfall);
+    //             setCustomPics(waterfall);
+    //             break;
+    //         case 'فیلم':
+    //             setPics(people);
+    //             setCustomPics(people);
+    //             break;
 
-            case 'ماشین':
-                setPics(cars);
-                setCustomPics(cars);
-                break;
+    //         case 'ماشین':
+    //             setPics(cars);
+    //             setCustomPics(cars);
+    //             break;
 
-            case 'خیابان':
-                setPics(animals);
-                setCustomPics(animals);
-                break;
+    //         case 'خیابان':
+    //             setPics(animals);
+    //             setCustomPics(animals);
+    //             break;
         
-            default:
-                setPics(animals);
-                setCustomPics(animals);
-                break;
-        }
-    }
+    //         default:
+    //             setPics(animals);
+    //             setCustomPics(animals);
+    //             break;
+    //     }
+    // }
     /////////////////////////////////////////////
     useEffect(() =>{
         // handleImage();
@@ -130,12 +130,11 @@ export async function getStaticProps(context){
     //         data:data,
     //     }
     // }
-    console.log('context', context.params);
 
-    // const {params} = context;
-    // const galleryId = params.gId;
+    const {params} = context;
+    const galleryId = params.gId;
     var pics;
-    switch ("1") {
+    switch (galleryId) {
         case 'حیوانات اهلی':
             pics = animals;
             break;

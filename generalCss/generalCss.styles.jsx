@@ -57,11 +57,11 @@ export const Title = styled.h1`
 `;
 
 export const Btn = styled(Button)`
-    background-color:${props => props.bgColor ? props.bgColor : '#084159'} !important;
-    color:${props => props.color ? props.color : '#fff'} !important;
-    font-size:1.7rem !important;
-    font-family:Bnazanin !important;
-    
+    background-color:${props => props.bgcolor ? props.bgcolor : '#084159'} !important;
+    color:${props => props.clr ? props.clr : '#fff'} !important;
+    font-size:1.8rem !important;
+    // font-family:ir_sans !important;
+    font-family:ir_sans !important;
     direction:rtl;
     transition:all 0.2s;
     // margin-bottom: 1.5rem !important;

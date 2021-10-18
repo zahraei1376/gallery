@@ -17,18 +17,19 @@ export const Title = styled.h1`
     // display:flex;
     // justify-content:center;
     font-size:3.5rem;
-    font-family: Abdoullah;
+    font-family:ir_sans;
     margin-top:15rem;
 `;
 
 export const SunTitle = styled.h5`
-    width:72%;
+    // width:72%;
+    width:50%;
     color:#888;
     font-size:2rem;
-    font-family: Abdoullah;
+    font-family:ir_sans;
     margin: 6rem 0 3rem 0;
     // margin-top:3rem;
     text-align:center;
     line-height:4rem;
-    border-bottom:3px double #999;
+    // border-bottom:3px double #999;
 `;

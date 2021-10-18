@@ -11,7 +11,7 @@ export const MySelect = styled(Select)`
     height:100% !important;
     text-align:center;
     font-size:1.5rem !important;
-    font-family:Bnazanin !important;
+    font-family:ir_sans !important;
     
     &:focus{
         border:none !important;
@@ -31,5 +31,5 @@ export const MyMenuItem = styled(MenuItem)`
     width:100% !important;
     font-size:1.5rem !important;
     text-align:right !important;
-    font-family:Bnazanin !important;
+    font-family:ir_sans !important;
 `;

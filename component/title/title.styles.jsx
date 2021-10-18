@@ -29,7 +29,7 @@ export const RightTitle = styled.div`
     box-shadow: 0 11px 13px -12px rgba(0,0,0,1);
 `;
 export const TitleWrapper = styled.div`
-    min-width:30rem;
+    min-width:43rem;
     position:relative;
     margin-top:9rem;
     text-align:center;
@@ -40,7 +40,7 @@ export const Title = styled.h1`
     position: relative;
     z-index:1;
     font-size:3.5rem;
-    font-family: Abdoullah;
+    font-family:ir_sans;
     padding:1rem 3rem;
     box-shadow: 0 11px 13px -12px rgba(0,0,0,1);
     border-style: outset;

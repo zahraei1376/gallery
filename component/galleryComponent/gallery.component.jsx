@@ -37,7 +37,7 @@ const Gallery = ({RemoveItem , images}) =>{
                 SIZE = 4;
                 setConverterImages(chunkify(images, SIZE , true));
             }
-    
+            console.log('SIZESIZE', SIZE);
             setSize(SIZE);
         }
         

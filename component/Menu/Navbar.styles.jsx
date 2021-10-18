@@ -109,7 +109,7 @@ export const LoginButtonContainer = styled.div`
 export const LoginButton = styled.button`
   // width:6rem;
   // height:4rem;
-  padding: 5px 3rem 1rem 3rem;
+  padding: 2px 2rem 5px 2rem;
   border-radius:5px;
   border:1px solid #fff;
   color:#fff;
@@ -117,8 +117,8 @@ export const LoginButton = styled.button`
   background-image: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgb(218,160,103) 50%);
   background-size: 200%;
   transition:all .2s;
-  font-size:1.5rem;
-  font-family: Abdoullah;
+  font-size:1.9rem;
+  font-family:ir_sans;
   text-align:center;
   &:hover{
     background-position: 100%;

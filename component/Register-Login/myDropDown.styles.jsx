@@ -10,8 +10,9 @@ export const MySelect = styled(Select)`
     padding: 8px 2rem;
     background-color:rgba(256,256,256,.9)!important;
     height:100% !important;
-    text-align:right;
-    font-size:1.4rem !important;
+    font-size:1.7rem !important;
+    text-align:right !important;
+    font-family:ir_sans !important; 
     
     &:focus{
         border:none !important;
@@ -48,6 +49,7 @@ export const MySelect = styled(Select)`
 
 export const MyMenuItem = styled(MenuItem)`
     width:100% !important;
-    font-size:1.4rem !important;
+    font-size:1.7rem !important;
     text-align:right !important;
+    font-family:ir_sans !important;                   
 `;

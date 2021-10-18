@@ -80,7 +80,7 @@ const SavedPage = ({saveCartItem , count , RemoveItems , RemoveItem}) =>{
                     <Tooltip title="حذف"  aria-label="حذف">
                         <DeleteContainer>
                             <DeleteButton disabled={imageForDelete.length === 0} onClick = {() => {handleRemoveItem(imageForDelete)}}>
-                                <MyDeleteIcon disable={imageForDelete.length === 0 ? true : null} />
+                                <MyDeleteIcon disable={imageForDelete.length === 0 ? 'true' : null} />
                             </DeleteButton>
                         </DeleteContainer>
                     </Tooltip>

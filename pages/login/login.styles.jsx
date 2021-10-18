@@ -218,8 +218,9 @@ export const FormLabel = styled.label`
 `;
 
 export const FormInput = styled.input`
-    font-size: 1.5rem;
-    font-family: inherit;
+    font-size: 1.7rem;
+    // font-family: inherit;
+    font-family:ir_sans;
     color: inherit;
     padding: 1rem 2rem;
     border-radius: 2px;
@@ -286,6 +287,7 @@ export const StyledLink = styled.a`
     font-size:1.8rem;
     margin:2rem 0 4rem 0;
     transition:all .3s;
+    font-family:ir_sans;
 
     &:hover{
         color:#000;

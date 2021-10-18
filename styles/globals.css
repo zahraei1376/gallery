@@ -3,8 +3,9 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: ir_sans;
+  /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
 }
 
 a {
@@ -59,7 +60,7 @@ body {
 }
 
 .slick-prev {
-  left: -6rem !important;
+  left: -5rem !important;
 
   /* @media only screen and (max-width: 768px){
     left: -40px !important;

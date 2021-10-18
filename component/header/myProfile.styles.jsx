@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export const MyTypography = styled(Typography)`
     font-size:2rem !important;
-    font-family:Bnazanin !important;
+    font-family:ir_sans !important;
     color:#999;
     text-align:right;
     padding:1rem !important;

@@ -29,7 +29,7 @@ const fadeRight = keyframes`
 
 export const GalleryTitle = styled.h5`
     font-size:2rem;
-    font-family: Abdoullah;
+    font-family:ir_sans;
     display:flex;
     justify-content:flex-end;
     align-items:center;
@@ -43,7 +43,7 @@ export const SpinnerContainer = styled.div`
 `;
 
 export const GallerySecion = styled.div`
-    width:100%;
+    // width:100%;
     // position:relative;
     // min-height:100vh;
     // background-color: #f9f7f6;
@@ -98,7 +98,7 @@ export const TitleContainer = styled.div`
 
 export const Title = styled.h1`
     font-size:1.5rem;
-    font-family: Abdoullah;
+    font-family:ir_sans;
     text-align:right;
     color:#fff;
     animation-name:${fadeRight};

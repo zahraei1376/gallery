@@ -130,7 +130,7 @@ export const MainTitleContainer = styled.div`
 
 export const MainTitle = styled.h1`
     font-size:3.8rem;
-    font-family: Abdoullah;
+    font-family:ir_sans;
 `; 
 
 // .MainTitleContainer{

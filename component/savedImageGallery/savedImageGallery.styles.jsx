@@ -62,7 +62,7 @@ export const InfoIcon = styled(PermIdentityIcon)`
 
 export const GalleryTitle = styled.h5`
     font-size:2rem;
-    font-family: Abdoullah;
+    font-family:ir_sans;
     display:flex;
     justify-content:flex-end;
     align-items:center;
@@ -138,7 +138,7 @@ export const TitleContainer = styled.div`
 export const Title = styled.h1`
     width:80%;
     font-size:1.5rem;
-    font-family: Abdoullah;
+    font-family:ir_sans;
     text-align:right;
     color:#fff;
     animation-name:${fadeRight};

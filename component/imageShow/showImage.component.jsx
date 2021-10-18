@@ -14,6 +14,7 @@ import MySnackbar from '../messageBox/messageBox.component';
 import { createStructuredSelector } from 'reselect';
 import { selectedCart } from '../../redux/cart/cart.selectors';
 import {downloadFile} from '../../generalMethod/limitRecipeTitle';
+import Link from "next/link";
 const ShowImage = ({addItemToSave,selectedCart,...props}) => {
     /////////////////////////////////////////////////////
     const [state,setState] = useState({
@@ -108,7 +109,7 @@ const ShowImage = ({addItemToSave,selectedCart,...props}) => {
                            src={props.data.photographerPicture}
                            />
                         </WriterImageContainer>
-                        <WriterName>{props.data.photographer}</WriterName>
+                        <Link href = "/"><WriterName>{props.data.photographer}</WriterName></Link>
                         
                       </DescriptionCaption>
 

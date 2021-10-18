@@ -36,7 +36,7 @@ const ButtonDownloadStyle = css`
 	background-color:rgba(36, 45, 100, 1);
 	transition:all .3s;
 	font-size:2rem;
-	font-family: Abdoullah;
+	font-family:ir_sans;
 	color:#fff;
 	height:100%;
 
@@ -149,7 +149,7 @@ export const DownloadButton = styled.button`
 	// // border-radius:5px;
 	// transition:all .3s;
 	// font-size:2rem;
-	// font-family: Abdoullah;
+	// font-family:ir_sans;
 	// color:#fff;
 
 	// &:hover ${HeaderDownloadIcon}{
@@ -207,13 +207,13 @@ export const Span = styled.span`
 
 export const ImageTitle = styled.h1`
 	font-size:3rem;
-	font-family: Abdoullah;
+	font-family:ir_sans;
 	margin-bottom: 3rem;
 `;
 
 export const ImageSubTitle = styled.h5`
 	font-size:2rem;
-	font-family: Abdoullah;
+	font-family:ir_sans;
 	color:#999;
 	margin-top:2rem;
 	line-height: 4rem;
@@ -400,10 +400,13 @@ export const WriterImage = styled.img`
 	height:100%;
 `;
 
-export const WriterName = styled.span`
+export const WriterName = styled.a`
 	font-size:2rem;
-	font-family: Abdoullah;
+	font-family:ir_sans;
 	margin-right:2rem;
+	text-decoration:none;
+	cursor:pointer;
+	color:#000;
 `;
 
 export const BtnClose = styled.button`
@@ -419,7 +422,7 @@ export const BtnClose = styled.button`
 	top: 1rem;
 	right: 5rem;
 	font-size:2rem;
-	font-family: Abdoullah;
+	font-family:ir_sans;
 	cursor:pointer;
 	transition:all 0.3s;
 	&:hover{

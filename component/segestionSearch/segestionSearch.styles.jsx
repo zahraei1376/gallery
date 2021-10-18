@@ -29,7 +29,7 @@ export const SegestionBox = styled.li`
     cursor:pointer;
     font-size:2rem;
     text-align:right;
-    font-family: Abdoullah;
+    font-family:ir_sans;
     position:relative;
     z-index: 1;
 
@@ -91,7 +91,7 @@ export const NewestBox = styled.div`
 export const NewestTitle = styled.h3`
     font-size:2rem;
     text-align:right;
-    font-family: Abdoullah;
+    font-family:ir_sans;
     display:inline;
     word-break: break-all;
     line-height:3rem;

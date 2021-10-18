@@ -39,10 +39,10 @@ const LoginPage = (props) =>{
                 password:fiels.pass,
             }
 
-            await fetch("http://185.165.118.211:9074/api/v1/Users/Login", {
+            await fetch("/api/login", {
                 headers: {
                     'Content-Type': 'application/json'
-                    },
+                },
                 method:"POST",
                 body: JSON.stringify(data)
             })
@@ -50,14 +50,16 @@ const LoginPage = (props) =>{
                 return response.json();   
             })
             .then((dataRes)=>{ 
-                if(dataRes.isSuccess){
+                if(dataRes.seccess){
                     setStatus('1')
-                    setMessage('ورود موفقیت آمیز بود میتوانید به بخش های مدیریتی بروید');
+                    setMessage('ورود موفقیت آمیز بود');
                     setShowMessage(true);
-                    props.setCurrentUser(dataRes.data ? dataRes.data.token : null);
-                    props.setUserInfo(dataRes.data);
+                    props.setCurrentUser(dataRes.token ? dataRes.token : null);
+                    // props.setUserInfo(dataRes.userInfo);
                     setLoading(false);
-                    
+                    setTimeout(()=>{
+                        router.push('/');
+                    },1000);
                 }else{
                     setStatus('0')
                     setMessage(dataRes.message)
@@ -106,7 +108,7 @@ const LoginPage = (props) =>{
                         </FormGroup>
 
                         <FormGroupBtn>
-                            <Btn variant="contained" bgColor="rgba(0,0,0,.6)" color="#fff" onClick={e => submitLogin(e)}>
+                            <Btn variant="contained" bgcolor="rgba(0,0,0,.6)" clr="#fff" onClick={e => submitLogin(e)}>
                             &rarr; ورود 
                             </Btn>
                         </FormGroupBtn>
@@ -122,10 +124,10 @@ const LoginPage = (props) =>{
                 </FooterLoginText>
             </FooterLogin>
             {
-                showMessage ? <MySnackbar message={message} status={status} showMessage={showMessage} setShowMessage={setShowMessage} /> : ''
+                showMessage && <MySnackbar message={message} status={status} showMessage={showMessage} setShowMessage={setShowMessage} /> 
             }
             {
-                loading ? <MySpinner/> : ''
+                loading && <MySpinner/> 
             }
         </SectionLogin>
     )
@@ -134,7 +136,7 @@ const LoginPage = (props) =>{
 
 const mapDispatchToProps = (dispatch) => ({
     setCurrentUser: (user) => dispatch(setCurrentUser(user)),
-    setUserInfo : (user) => dispatch(setUserInfo(user)),
+    // setUserInfo : (user) => dispatch(setUserInfo(user)),
 });
 
 export default connect(null , mapDispatchToProps)(LoginPage);

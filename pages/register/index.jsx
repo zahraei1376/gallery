@@ -12,6 +12,7 @@ import MySpinner from '../../component/MySpinner/MySpinner.component';
 import logo from '../../assets/img/galleryLg.png';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import {fixNumbers} from '../../generalMethod/fixedNumber';
 const RegisterPage = (props) =>{
     /////////////////////////////
     const router = useRouter()
@@ -48,10 +49,10 @@ const RegisterPage = (props) =>{
                 email:fiels.email,
                 fullName:fiels.fullName,
                 age:fiels.age,
-                gender:fiels.gender,
+                // gender:fiels.gender,
             }
             
-            await fetch("http://185.165.118.211:9074/api/v1/Users", {
+            await fetch("/api/register", {
                 headers: {
                     'Content-Type': 'application/json'
                     },
@@ -62,17 +63,17 @@ const RegisterPage = (props) =>{
                 return response.json();   
             })
             .then((dataRes)=>{ 
-                if(dataRes.isSuccess){
+                if(dataRes.seccess){
                     setStatus('1')
-                    setMessage('موفقیت آمیز بود');
+                    setMessage('با موفقیت ثبت نام شدید!!!');
                     setShowMessage(true);
                     setLoading(false);
                     setTimeout(()=>{
-                        history.push('/');
+                        router.push('/login');
                     },1000);
                 }else{
                     setStatus('0')
-                    setMessage(dataRes.Message)
+                    setMessage(dataRes.message)
                     setShowMessage(true);
                     setLoading(false);
                 }
@@ -80,7 +81,7 @@ const RegisterPage = (props) =>{
             })
             .catch(err => {
                 setStatus('0')
-                setMessage(err.Message)
+                setMessage(err.message)
                 setShowMessage(true);
                 setLoading(false);
             });
@@ -110,17 +111,17 @@ const RegisterPage = (props) =>{
                     <RegisterForm action="#">
                         <FormGroupContainer>
                             <FormGroup>
-                                <FormInput type="text"  placeholder="نام کاربری" id="username" required onChange={e => handleSetFeild(e.target.value , 'username')} />
-                                <IconContainer>
-                                    <MyPersonOutlineIcon/>
-                                </IconContainer>   
-                            </FormGroup>
-
-                            <FormGroup>
                                 <FormInput type="password" placeholder="پسورد" id="pass" required onChange={e => handleSetFeild(e.target.value , 'pass')} />
                                 <IconContainer>
                                     <MyLockOutlinedIcon/>
                                 </IconContainer>
+                            </FormGroup>
+
+                            <FormGroup>
+                                <FormInput type="text"  placeholder="نام کاربری" id="username" required onChange={e => handleSetFeild(e.target.value , 'username')} />
+                                <IconContainer>
+                                    <MyPersonOutlineIcon/>
+                                </IconContainer>   
                             </FormGroup>
                         </FormGroupContainer>
 
@@ -159,9 +160,9 @@ const RegisterPage = (props) =>{
                 
                         <FormGroupBtn>
                             <Btn variant="contained"
-                                bgColor="rgba(0,0,0,.6)" color="#fff"
+                              bgcolor="rgba(0,0,0,.6)" clr="#fff"
                               onClick={e => submitRegister(e)}>
-                            &rarr; ورود 
+                            &rarr; ثبت نام 
                             </Btn>
                         </FormGroupBtn>
                         <Link href ='/login' ><StyledLink href ='/login'>برای ورود کلیک کنید</StyledLink></Link>

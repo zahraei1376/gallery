@@ -38,7 +38,7 @@ export const Filters = [
 
 export const newestCategory = [
     {title:'حیوانات', url:'/', src :'/img/newest/animals.jpg'},
-    {title:'آبشار', url:'/' , src :'/img/newest/Waterfall.jpg'},
+    // {title:'آبشار', url:'/' , src :'/img/newest/Waterfall.jpg'},
     {title:'ماشین', url:'/' , src :'/img/newest/car.jpg'},
     {title:'حیوانات اهلی', url:'/' , src :'/img/newest/domesticAnimals.jpg'},
 ];

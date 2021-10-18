@@ -10,7 +10,7 @@ export const TitleShowAll = styled.h3`
     color: #fff;
     font-size:1.8rem;
     font-weight:800;
-    font-family: Abdoullah;
+    font-family:ir_sans;
     display: block;
     overflow: hidden;
     line-height: 2rem;
@@ -18,6 +18,7 @@ export const TitleShowAll = styled.h3`
     white-space: nowrap;
     text-align: center;
     transition:all .3s;
+    cursor:pointer;
 
     &:hover{
         font-size:2rem;
@@ -27,7 +28,6 @@ export const TitleShowAll = styled.h3`
 `;
 
 export const ShowAllContainer = styled.div`
-    cursor:pointer;
     transition:all .3s;
     padding:1rem 0;
     // border-bottom:1px solid #fff;
@@ -43,7 +43,7 @@ export const Title = styled.h3`
     color: #191e3e;
     font-size:1.8rem;
     font-weight:800;
-    font-family: Abdoullah;
+    font-family:ir_sans;
     display: block;
     overflow: hidden;
     line-height: 2rem;

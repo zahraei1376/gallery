@@ -27,6 +27,7 @@ export const Title = styled.h1`
     color:#fff;
     font-size:4rem;
     text-align:right;
+    font-family:ir_sans;
 `;
 
 export const SubTitle = styled.h4`
@@ -35,6 +36,7 @@ export const SubTitle = styled.h4`
     text-align:right;
     width:100%;
     margin-top:3rem;
+    font-family:ir_sans;
 `;
 
 export const ToolbarContainer = styled.div`
@@ -192,7 +194,7 @@ export const ArrowIconButton = styled(IconButton)`
 export const MyNavLink = styled.a`
     text-decoration: none;
     color:#fff;
-    font-family: Abdoullah;
+    font-family:ir_sans;
     font-size:2rem;
 
     &:hover{
