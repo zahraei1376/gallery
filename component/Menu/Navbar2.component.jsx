@@ -5,11 +5,10 @@ import SearchBox from '../searchBox/searchBox.component';
 import PopoverPopupState from './profileBox/propfileBox.component';
 import {NavberContainer,UserIconButton ,MyUserIcon ,ProfileBox,
     LoginButtonContainer,LoginButton,LogoImg ,InfoContainer,
-    LogoContainer,Logo , SearchBoxContaiber,Container} from './Navbar2.styles';
+    LogoContainer,Logo , SearchBoxContaiber} from './Navbar2.styles';
 import logo from '../../assets/img/galleryLg.png';
 import { useRouter } from 'next/router';
 import ToolbarItems from './Toolbar/ToolbarItem.component';
-import ShowTopicsForGallery from '../showTopicsForAnotherPage/showTopics.component';
 
 const MyNavbar = ({currentUser , scrolling}) =>{
     /////////////////////////////
@@ -18,14 +17,13 @@ const MyNavbar = ({currentUser , scrolling}) =>{
     const router = useRouter()
     /////////////////////////////
     return (
-        <Container scroll = {scrolling === true ? "true" : null}>
-        <NavberContainer scroll = {scrolling === true ? "true" : null}>
+        <NavberContainer scroll = {scrolling ? "true" : null}>
             <LogoContainer>
                 <Logo src={logo}
                 onClick={()=> router.push('/')} 
                 />
             </LogoContainer>
-            <SearchBoxContaiber  scroll = {scrolling === true ? "true" : null}>
+            <SearchBoxContaiber  scroll = {scrolling ? "true" : null}>
                 <SearchBox/>
             </SearchBoxContaiber>
             
@@ -44,14 +42,11 @@ const MyNavbar = ({currentUser , scrolling}) =>{
                 }
                 
                 <Toolbar clicked={clicked} setClicked={setClicked} />
-                <ToolbarItems clicked={clicked} position = {true} />
+                <ToolbarItems clicked={clicked} />
                 
                 
             </InfoContainer>
-            
         </NavberContainer>
-        {/* <ShowTopicsForGallery/> */}
-        </Container>
     )
 };
 

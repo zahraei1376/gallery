@@ -30,31 +30,35 @@ export const Logo = styled(Image)`
   cursor:pointer;
 `;
 
-export const Container = styled.div`
-    width:100%;
-    position:absolute;
-    top: 0;
-    z-index:2;
-    // box-shadow: ${props => props.scroll ? '0 0 13px 1px rgba(0,0,0,.5)' : '0'};
-    // background-color:#eee;
-    // box-shadow: 0 4px 12px rgb(0 ,0 , 0 ,0.08), 0 0 1px rgba(1, 0, 0 ,0.1);
-`;
-
 export const NavberContainer = styled.div`
+    // height: 5rem;
     width: 100%;
     display:flex;
     justify-content:space-between;
     align-items:center;
     height:7rem;
-    // position:fixed;
-    // background-color:${props => props.scroll ? '#fff' : 'transparent'};
+    position:absolute;
+    // height: ${props => props.scroll ? '7rem' : '7rem'};
+    // position:${props => props.scroll ? 'fixed' : 'relative'};
+    // background-color:${props => props.scroll ? 'rgba(29, 29, 29, 1)' : 'transparent'};
+    // background-color:${props => props.scroll ? '#191e3e' : 'transparent'};
+    // background-color:${props => props.scroll ? '#191e3e' : 'transparent'};
+    top: 0;
+    // left: 50%;
+    z-index:2;
+    left: ${props => props.scroll ? '0' : '50%'};
+    transform: ${props => props.scroll ? 'translate(0,0)' : 'translate(-50%,0)'};
+    // transform:translate(-50%,0);
     // top: 0;
-    // z-index:2;
-    // left: ${props => props.scroll ? '0' : '50%'};
-    // transform: ${props => props.scroll ? 'translate(0,0)' : 'translate(-50%,0)'};
-    padding:0 5%;
+    // left: 50%;
+    padding:0 10%;
+    // margin: ${props => props.scroll ? '0 0 4rem 0' : '2rem 0 4rem 0'};
+    // padding-top: ${props => props.scroll ? '0' : '3rem'};
     // box-shadow: ${props => props.scroll ? '0 0 13px 1px rgba(0,0,0,.5)' : '0'};
+    // margin-top:3rem;
+    // background-color : ${props => props.scroll ? '#1d1d1d' : 'transparent'}; 
     transition : height .3s , background-color .6s;
+    // transition : cubic-bezier(.35,.53,.78,.82) .3s;
 `;
 
 export const UserIconButton = styled(IconButton)`
@@ -105,7 +109,7 @@ export const LoginButtonContainer = styled.div`
 export const LoginButton = styled.button`
   // width:6rem;
   // height:4rem;
-  padding: 5px 1rem;
+  padding: 2px 2rem 5px 2rem;
   border-radius:5px;
   border:1px solid #fff;
   color:#fff;
@@ -113,8 +117,8 @@ export const LoginButton = styled.button`
   background-image: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgb(218,160,103) 50%);
   background-size: 200%;
   transition:all .2s;
-  font-size:1.7rem;
-  font-family:Bnazanin;
+  font-size:1.9rem;
+  font-family:ir_sans;
   text-align:center;
   &:hover{
     background-position: 100%;

@@ -48,6 +48,7 @@ export const SearchBoxInput = styled.input`
     height:5rem;
     border-radius:1rem;
     border:2px solid #777;
+    // background-color:transparent;
     z-index:2;
     padding:0 2rem;
     text-align:right;

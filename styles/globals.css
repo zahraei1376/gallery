@@ -75,7 +75,7 @@ body {
 @font-face {
   font-family: 'ir_sans';
   /* src: url(../assets/fonts/ir_sans.ttf) format('ttf'); */
-  src: url(../public/fonts/ir_sans.ttf) format('ttf');
+  src: url(../public/fonts/IranSans/iransansXfamily/IRANSansX-Black.ttf) format('ttf');
 }
 
 @font-face {
