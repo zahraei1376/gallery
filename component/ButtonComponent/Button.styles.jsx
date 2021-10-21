@@ -1,9 +1,10 @@
 import styled from "styled-components";
 export const ButtonContainer = styled.div`
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  margin-top:1rem;
+  // display:flex;
+  // justify-content:center;
+  // align-items:center;
+  margin-top:${props => props.mg ? `${props.mg}rem`:"1rem"};
+  display:grid;
 `;
 
 export const Button = styled.button`

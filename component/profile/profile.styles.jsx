@@ -7,6 +7,11 @@ const iconStyle = css`
     color:#1d1d1d;
 `;
 
+export const ButtonsContainer = styled.div`
+    display:flex;
+    align-items:center;
+`;
+
 export const ProfileBox = styled.div`
     width:20%;
     display:flex;
@@ -87,7 +92,7 @@ export const ProfileHeader = styled.div`
 export const ProfileInfoContainer = styled.div`
     position:absolute;
     // top:29rem;
-    top:12rem;
+    top:11rem;
     left:50%;
     // transform:translate(-50%,0);
     width:50%;
@@ -98,6 +103,15 @@ export const ProfileInfoContainer = styled.div`
     // flex-direction:column;
     justify-content:center;
     align-items:center;
+
+    @media only screen and (max-width: 1061px){
+        top:9rem;
+    }
+
+    @media only screen and (max-width: 760px){
+        left:30%;
+        width:70%;
+    }
 `;
 
 export const ProfileInfo = styled.div`
@@ -126,7 +140,7 @@ export const ProfileInfoName = styled.h1`
     // align-items:center;
     color:#efedef;
     font-size:3rem;
-    margin: 0;
+    margin: 0 2rem 0;
     padding:0;
 `;
 
@@ -137,8 +151,8 @@ export const ProfileInfoGroup = styled.div`
 `;
 
 export const ProfileImageContainer = styled.div`
-    width:14rem;
-    height:14rem;
+    width:7rem;
+    height:7rem;
     position:relative;
     border-radius:50%;
     // border:2px solid #1d1d1d;

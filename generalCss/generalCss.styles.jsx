@@ -81,13 +81,13 @@ export const SubTitle =  styled.h1`
     // font-family: ir_sans;
     font-size:1.5rem;
     transition:all .3s;
-    margin-top:${props => props.value === "1" ? "16rem":"1rem"};
+    margin-top:${props => props.value && props.value === "1" ? "16rem":"1rem"};
     text-align:center;
     font-family: ir_sans;
-    // background-image:${props => props.showBox === props.value ? 'radial-gradient(ellipse at top ,rgba(252,141,109,.8),rgba(191,79,123,.8),rgba(36,45,100,.8) 80%,rgba(25,30,62,.8) 100%)': 'radial-gradient(ellipse at top ,#1d1d1d,#1d1d1d)'};
+    // background-image:${props => props.value && props.showBox && props.showBox === props.value ? 'radial-gradient(ellipse at top ,rgba(252,141,109,.8),rgba(191,79,123,.8),rgba(36,45,100,.8) 80%,rgba(25,30,62,.8) 100%)': 'radial-gradient(ellipse at top ,#1d1d1d,#1d1d1d)'};
     // -webkit-background-clip: text;
     // color: transparent;
-    color:${props => props.showBox === props.value ? "rgba(36,45,100,.8)":"#1d1d1d"};
+    color:${props => props.value && props.showBox && props.showBox === props.value ? "rgba(36,45,100,.8)":"#1d1d1d"};
     padding-bottom:1rem;
-    border-bottom:${props => props.showBox === props.value ? "2px solid rgba(36,45,100,.8)":"2px solid transparent"};
+    border-bottom:${props => props.value && props.showBox && props.showBox === props.value ? "2px solid rgba(36,45,100,.8)":"2px solid transparent"};
 `;

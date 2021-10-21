@@ -1,10 +1,10 @@
 import { Button, ButtonContainer } from "./Button.styles"
 
-const MyButton = ({text}) =>{
+const MyButton = ({mg,text , onClick}) =>{
     return(
-        <ButtonContainer>
+        <ButtonContainer mg={mg}>
             <Button
-            onClick={()=> router.push('/login')} 
+                onClick={()=> onClick()} 
             >{text}</Button>
         </ButtonContainer>
     )

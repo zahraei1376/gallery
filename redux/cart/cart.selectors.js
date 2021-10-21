@@ -7,6 +7,14 @@ export const selectCartItem = createSelector(
     cart=>cart.CartItems
 );
 
+export const LatestPhotos = createSelector(
+    [selectCartItem],
+    (CartItems)=> {
+        const lastThree = CartItems.slice(-3);
+        return lastThree;
+    }
+)
+
 export const selectedCart = (state, id) => createSelector(
     [selectCartItem],
     (CartItems) => {
