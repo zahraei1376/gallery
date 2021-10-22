@@ -11,7 +11,7 @@ import { Tooltip } from '@material-ui/core';
 import TitleStyle from '../../component/title/title.component';
 // import { scrollFunction } from '../../generalMethod/limitRecipeTitle';
 //////////////////////////////////////////////
-const SavedBoxesComponent = ({saveCartItem , count , RemoveItems , RemoveItem}) =>{
+const SavedBoxesComponent = ({saveCartItem , count , RemoveItems , RemoveItem , type}) =>{
     const [imageForDelete, setImageForDelete] = useState([]);
     const [textBtn , setTextBtn] = useState(0);
     const [fixed , setFixed] = useState(null);
@@ -33,9 +33,54 @@ const SavedBoxesComponent = ({saveCartItem , count , RemoveItems , RemoveItem}) 
 
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
+
+
+    // useEffect(() =>{
+
+    //     if(type === 2){
+    //         fetch("/api/myUpload", {
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //                 },
+    //             method:"POST",
+    //             body: JSON.stringify(data)
+    //         })
+    //         .then((response)=>{ 
+    //             return response.json();   
+    //         })
+    //         .then((dataRes)=>{ 
+    //             if(dataRes.seccess){
+    //                 setStatus('1')
+    //                 setMessage('با موفقیت ثبت نام شدید!!!');
+    //                 setShowMessage(true);
+    //                 setLoading(false);
+    //                 setTimeout(()=>{
+    //                     router.push('/login');
+    //                 },1000);
+    //             }else{
+    //                 setStatus('0')
+    //                 setMessage(dataRes.message)
+    //                 setShowMessage(true);
+    //                 setLoading(false);
+    //             }
+
+    //         })
+    //         .catch(err => {
+    //             setStatus('0')
+    //             setMessage(err.message)
+    //             setShowMessage(true);
+    //             setLoading(false);
+    //         });
+    //     }
+    // },[]);
       /////////////////////////////////////
     const handleRemoveItem = () =>{
-        RemoveItems(imageForDelete);
+        if(type === 1){//عکسهای ذخیره شده
+            RemoveItems(imageForDelete);
+        }else if(type === 2){
+
+        }
+        
         setImageForDelete([]);
     }
 
@@ -58,25 +103,16 @@ const SavedBoxesComponent = ({saveCartItem , count , RemoveItems , RemoveItem}) 
     //////////////////////////////////////////
     return(
         <GalleryPageSecion >
-            {/* <MyNavbar 
-            scrolling = {true} 
-            // scrolling = {!fixed ? "true" : null} 
-            /> */}
             <TitleContainer>
-                {/* <RightTitle/> */}
-                <TitleStyle text="عکس های ذخیره شده من"/>
-                {/* <TitleWrapper>
-                    <RightTitle/>
-                    <Title>عکس های ذخیره شده من</Title>
-                    <LeftTitle/>
-                </TitleWrapper> */}
-                {/* <LeftTitle/> */}
+                <TitleStyle text={type === 1 ? "عکس های آپلود شده من" :"عکس های ذخیره شده من"}/>
             </TitleContainer>
             <InfoContainer fixed={fixed ? "true" : null}>
                 <InfoWrapper fixed={fixed ? "true" : null}>
-                <SunTitle>{`تعداد عکس های ذخیره شده ${count} عدد`}</SunTitle>
+                <SunTitle>{type === 1 ? `تعداد عکس های ذخیره شده ${count} عدد` : `تعداد عکس های ذخیره شده ${count} عدد`}</SunTitle>
                 <SelectAllContainer>
-                    <SelectAll dsl={count === 0 ? "true" : null}  select = {textBtn === 1 ? "true" : null} disabled={count === 0 ? true :false} onClick={handleSelectAll}>{textBtn === 0 ? 'انتخاب همه' : 'لغو انتخاب ها'}</SelectAll>
+                    <SelectAll dsl={type === 1 ? 
+                    count === 0 ? "true" : null :
+                    count === 0 ? "true" : null}  select = {textBtn === 1 ? "true" : null} disabled={type === 1 ? count === 0 ? true :false : count === 0 ? true :false} onClick={handleSelectAll}>{textBtn === 0 ? 'انتخاب همه' : 'لغو انتخاب ها'}</SelectAll>
                     <Tooltip title="حذف"  aria-label="حذف">
                         <DeleteContainer>
                             <DeleteButton disabled={imageForDelete.length === 0} onClick = {() => {handleRemoveItem(imageForDelete)}}>
@@ -92,7 +128,7 @@ const SavedBoxesComponent = ({saveCartItem , count , RemoveItems , RemoveItem}) 
                 <SunTitleSelect>{`تعداد عکس های انتخاب شده ${imageForDelete.length} عدد`}</SunTitleSelect>
             </InfoSelectContainer>
 
-            <SavedGallery images = {saveCartItem} imageForDelete = {imageForDelete} setImageForDelete ={setImageForDelete} />
+            <SavedGallery images = {type === 1 ? saveCartItem : saveCartItem} imageForDelete = {imageForDelete} setImageForDelete ={setImageForDelete} />
         </GalleryPageSecion>
     )
 };

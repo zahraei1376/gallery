@@ -31,15 +31,17 @@ export const MyCloseIcon = styled(CloseIcon)`
 
 export const SettingIcon = styled(SettingsIcon)`
 	${iconsStyle};
-    color:#777 !important;
+    color:#191e3e !important;
 	transition:all .3s;
     position:absolute;
-    bottom:0;
-    left:0;
+    bottom:1rem;
+    left:1rem;
 `;
 
 export const FileContainer = styled.div`
-    // position:relative;
+    position:relative;
+	// width:70%;
+	cursor:pointer;
 `;
 
 export const PopUpContainer = styled.div`
@@ -144,6 +146,18 @@ export const Input = styled.input`
     outline:none;
     border:none;
     background-color:#fff;
+	font-size:1.8rem;
+	font-family:ir_sans;
+`;
+
+export const TextArea = styled.textarea`
+	width:70%;
+	border-radius:5px;
+	outline:none;
+	border:none;
+	background-color:#fff;
+	font-size:1.8rem;
+	font-family:ir_sans;
 `;
 
 export const Logo = styled(Image)`
@@ -152,17 +166,16 @@ export const Logo = styled(Image)`
 `;
 
 export const LogoContainer = styled.div`
-  cursor:pointer;
-  position:relative;
-  width:11rem;
-  height:11rem;
-  display:flex;
-  justify-content:Center;
-  align-items:center;
+//   cursor:pointer;
+//   position:relative;
+  width:17rem;
+  height:17rem;
+  border:1px solid #191e3e;
   border-radius:50%;
   overflow:hidden;
-  background-color:#fff;
-  border:2px solid #191e3e;
+//   display:flex;
+//   justify-content:Center;
+//   align-items:center;
 `;
 
 export const BtnClose = styled.button`

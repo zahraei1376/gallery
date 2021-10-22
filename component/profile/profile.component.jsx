@@ -59,13 +59,13 @@ const Profile = () =>{
                 {(() => {
                 if (showBox === "1") {
                     return (
-                        <SavedBoxesComponent/>
+                        <SavedBoxesComponent type={1}/>
                     )
                 }
                 else if (showBox === "2") {
                     return (
                         // <div>H\g,n222222</div>
-                        <SavedBoxesComponent/>
+                        <SavedBoxesComponent type={2}/>
                     )
                 }else{
                     return ""
