@@ -4,7 +4,7 @@ const MyButton = ({mg,text , onClick}) =>{
     return(
         <ButtonContainer mg={mg}>
             <Button
-                onClick={()=> onClick()} 
+                onClick={(e)=> onClick(e)} 
             >{text}</Button>
         </ButtonContainer>
     )

@@ -3,18 +3,24 @@ import SavedGallery from '../../component/savedImageGallery/savedImageGallery.co
 import { TitleWrapper,LeftTitle , RightTitle,GalleryPageSecion ,TitleContainer,Title , SunTitle ,SunTitleSelect,InfoSelectContainer,
     DeleteContainer, DeleteButton, MyDeleteIcon ,InfoContainer,InfoWrapper,SelectAll ,SelectAllContainer} from './mySaved.styles';
 import { selectCartItem , selectCartItemsCount ,} from '../../redux/cart/cart.selectors';
+import {currentUser} from '../../redux/user/user.selector';
 import {RemoveItems , RemoveItem} from '../../redux/cart/cart.action';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { Tooltip } from '@material-ui/core';
 import TitleStyle from '../../component/title/title.component';
+import MySnackbar from '../messageBox/messageBox.component';
 // import { scrollFunction } from '../../generalMethod/limitRecipeTitle';
 //////////////////////////////////////////////
-const SavedBoxesComponent = ({saveCartItem , count , RemoveItems , RemoveItem , type}) =>{
+const SavedBoxesComponent = ({currentUser,saveCartItem , count , RemoveItems , RemoveItem , type}) =>{
     const [imageForDelete, setImageForDelete] = useState([]);
     const [textBtn , setTextBtn] = useState(0);
     const [fixed , setFixed] = useState(null);
+    const [showMessage,setShowMessage] = useState(false);
+    const [message,setMessage] =useState('');
+    const [status,setStatus] = useState('0');
+    const [uploadFiles , setUploadFiles] = useState([]);
     //////////////////////////////////////////
     useEffect(() => {
         const onScroll = e => {
@@ -35,49 +41,50 @@ const SavedBoxesComponent = ({saveCartItem , count , RemoveItems , RemoveItem , 
     }, []);
 
 
-    // useEffect(() =>{
+    useEffect(() =>{
+        console.log('type' , type);
+        if(type === 1){
+            console.log('22222222222' , currentUser);
+            const data = {
 
-    //     if(type === 2){
-    //         fetch("/api/myUpload", {
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //                 },
-    //             method:"POST",
-    //             body: JSON.stringify(data)
-    //         })
-    //         .then((response)=>{ 
-    //             return response.json();   
-    //         })
-    //         .then((dataRes)=>{ 
-    //             if(dataRes.seccess){
-    //                 setStatus('1')
-    //                 setMessage('با موفقیت ثبت نام شدید!!!');
-    //                 setShowMessage(true);
-    //                 setLoading(false);
-    //                 setTimeout(()=>{
-    //                     router.push('/login');
-    //                 },1000);
-    //             }else{
-    //                 setStatus('0')
-    //                 setMessage(dataRes.message)
-    //                 setShowMessage(true);
-    //                 setLoading(false);
-    //             }
+            }
 
-    //         })
-    //         .catch(err => {
-    //             setStatus('0')
-    //             setMessage(err.message)
-    //             setShowMessage(true);
-    //             setLoading(false);
-    //         });
-    //     }
-    // },[]);
+            fetch("/api/myUpload", {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': currentUser
+                    // 'Authorization': `Bearer ${currentUser} `
+                    },
+                method:"GET",
+                // body: JSON.stringify(data)
+            })
+            .then((response)=>{ 
+                return response.json();   
+            })
+            .then((dataRes)=>{ 
+                if(dataRes.seccess){
+                    setUploadFiles(dataRes.data);
+                }else{
+                    setStatus('0')
+                    setMessage(dataRes.message)
+                    setShowMessage(true);
+                    // setLoading(false);
+                }
+
+            })
+            .catch(err => {
+                setStatus('0')
+                setMessage(err.message)
+                setShowMessage(true);
+                // setLoading(false);
+            });
+        }
+    },[]);
       /////////////////////////////////////
     const handleRemoveItem = () =>{
-        if(type === 1){//عکسهای ذخیره شده
+        if(type === 2){//عکسهای ذخیره شده
             RemoveItems(imageForDelete);
-        }else if(type === 2){
+        }else if(type === 1){
 
         }
         
@@ -104,7 +111,7 @@ const SavedBoxesComponent = ({saveCartItem , count , RemoveItems , RemoveItem , 
     return(
         <GalleryPageSecion >
             <TitleContainer>
-                <TitleStyle text={type === 1 ? "عکس های آپلود شده من" :"عکس های ذخیره شده من"}/>
+                <TitleStyle text={type === 1 ? "عکس های آپلود شده من" : "عکس های ذخیره شده من"}/>
             </TitleContainer>
             <InfoContainer fixed={fixed ? "true" : null}>
                 <InfoWrapper fixed={fixed ? "true" : null}>
@@ -129,6 +136,9 @@ const SavedBoxesComponent = ({saveCartItem , count , RemoveItems , RemoveItem , 
             </InfoSelectContainer>
 
             <SavedGallery images = {type === 1 ? saveCartItem : saveCartItem} imageForDelete = {imageForDelete} setImageForDelete ={setImageForDelete} />
+            {
+                showMessage && <MySnackbar message={message} status={status} showMessage={showMessage} setShowMessage={setShowMessage} /> 
+            }
         </GalleryPageSecion>
     )
 };
@@ -136,6 +146,7 @@ const SavedBoxesComponent = ({saveCartItem , count , RemoveItems , RemoveItem , 
 const mapStateToProps = createStructuredSelector({
     saveCartItem : selectCartItem,
     count : selectCartItemsCount,
+    currentUser:currentUser,
  });
 
 

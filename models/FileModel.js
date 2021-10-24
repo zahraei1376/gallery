@@ -7,12 +7,12 @@ const FileSchema = mongoose.Schema({
         trim:true,
         maxlength:[40, 'نام شما حداکثر 40 کارکتر میتواند باشد'],
     },
-    photographer:{
-        type:String,
-    },
-    photographerPicture:{
-        type:String,
-    },
+    // photographer:{
+    //     type:String,
+    // },
+    // photographerPicture:{
+    //     type:String,
+    // },
     sunTitle:{
         type:String,
     },
@@ -22,7 +22,17 @@ const FileSchema = mongoose.Schema({
     properties:{
         type:String,
     },
+    // user:{
+    //      type:schema.Types.ObjectId , ref:'user'
+    // }
 });
+
+
+FileSchema.pre('remove',function(next){
+    const usermodel=mongoose.model('user');
+    usermodel.delete({_id:{$in:this.user}})
+    .then(()=>next());
+})
 
 // const User = mongoose.model('user', UserSchema);
 // module.exports = User;

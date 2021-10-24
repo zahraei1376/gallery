@@ -31,7 +31,6 @@ const RegisterPage = (props) =>{
     const [status,setStatus] = useState(0);
     const [loading,setLoading] = useState(false);
     /////////////////////////
-    let history = useHistory();
     /////////////////////////
 
     const handleSetFeild = (val , param) =>{
@@ -48,9 +47,18 @@ const RegisterPage = (props) =>{
                 password:fiels.pass,
                 email:fiels.email,
                 fullName:fiels.fullName,
-                age:fiels.age,
+                // age:fiels.age,
                 // gender:fiels.gender,
             }
+
+            console.log('daraaa', {
+                username: fiels.username,
+                password:fiels.pass,
+                email:fiels.email,
+                fullName:fiels.fullName,
+                // age:fiels.age,
+                // gender:fiels.gender,
+            });
             
             await fetch("/api/register", {
                 headers: {

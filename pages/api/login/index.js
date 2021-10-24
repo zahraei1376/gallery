@@ -15,7 +15,7 @@ export default async (req, res) =>{
                     let password = req.body.password;
                     console.log(username , password);
                     let loadedUser;
-                    User.findOne({username:username})
+                    await User.findOne({username:username})
                     .then((userlogin)=>{
                         if(!userlogin){
                             res.status(401).json({seccess:false,message:'کاربر با این نام کاربری وجود ندارد :('});
@@ -28,7 +28,8 @@ export default async (req, res) =>{
                             res.status(401).json({seccess:false,message:'پسورد اشتباه است :('});
                         }
                         const token= jwt.sign({
-                            userId:loadedUser._id.toString(),
+                            userId:loadedUser._id,
+                            // userId:loadedUser._id.toString(),
                             // isAdmin:loadedUser.isAdmin
                         },
                         'MySuperSecret',

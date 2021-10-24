@@ -8,8 +8,10 @@ import MyButton from '../../component/ButtonComponent/Button.component';
 import SavedBoxesComponent from '../mySaved/mySaved.component';
 import PopUpProfile from '../popupChangeProfile/popupChangeProfile.component';
 import PopUpUpload from '../popupUpload/popupUpload.component';
-
-const Profile = () =>{
+import {currentUser} from '../../redux/user/user.selector';
+import { createStructuredSelector } from 'reselect';
+import { connect } from 'react-redux';
+const Profile = ({currentUser}) =>{
     const [showBox , setShowBox] = useState("1");
     const [showProfile , setShowProfile] = useState(false);
     const [showUploadBox , setShowUploadBox] = useState(false);
@@ -73,9 +75,21 @@ const Profile = () =>{
             })()}
             </TabsContainer>
 
-            {showProfile && <PopUpProfile close={handleOnClick}/>}
-            {showUploadBox && <PopUpUpload close={handleUploadBox}/>}
+            {showProfile && <PopUpProfile currentUser = {currentUser} close={handleOnClick}/>}
+            {showUploadBox && <PopUpUpload currentUser = {currentUser} close={handleUploadBox}/>}
         </ProfileContainer>
     )
 };
-export default Profile;
+
+const mapStateToProps = createStructuredSelector({
+    currentUser:currentUser,
+ });
+
+
+//  const mapDispatchToProps = dispatch =>({
+//     RemoveItems: (IDS) => dispatch(RemoveItems(IDS)),
+//     RemoveItem: () => dispatch(RemoveItem()),
+// });
+
+// export default Profile;
+export default connect(mapStateToProps)(Profile);

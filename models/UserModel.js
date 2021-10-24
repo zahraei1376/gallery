@@ -1,11 +1,20 @@
 const mongoose = require('mongoose');
 
 const UserSchema = mongoose.Schema({
-    fullName:{
+    // fullName:{
+    //     type:String,
+    //     required:[true,'فیلد نام  را پر کنید!!!'],
+    //     trim:true,
+    //     maxlength:[40, 'نام شما حداکثر 40 کارکتر میتواند باشد'],
+    // },
+    photographer:{
         type:String,
         required:[true,'فیلد نام  را پر کنید!!!'],
         trim:true,
         maxlength:[40, 'نام شما حداکثر 40 کارکتر میتواند باشد'],
+    },
+    photographerPicture:{
+        type:String,
     },
     email:{
         type:String,
@@ -25,9 +34,13 @@ const UserSchema = mongoose.Schema({
         // },
         required:[true,'پسورد باید وارد شود'],
     },
-    age:{
+    location:{
         type:String,
     },
+    files:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'file'
+    }]
 });
 
 // const User = mongoose.model('user', UserSchema);

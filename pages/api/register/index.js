@@ -12,20 +12,20 @@ export default async (req, res) =>{
                 try {
                     
                     const username=req.body.username;
-                    const fullName = req.body.fullName;
+                    const photographer = req.body.fullName;
                     const email=req.body.email;
                     const password = req.body.password;
-                    const age = req.body.age;
-                    console.log('hashPw1111111111');
-                    bcrypt.hash(password,12)
+                    // const age = req.body.age;
+                    console.log('hashPw1111111111' , req.body);
+                    await bcrypt.hash(password,12)
                     .then(hashPw=>{
                         // const user = User.create({...req.body , password:hashPw});
                         const UserRegister = new User({
                             username:username,
                             password:hashPw,
-                            fullName:fullName,
+                            photographer:photographer,
                             email:email,
-                            age:age,
+                            // age:age,
                         });
                         UserRegister.save(); 
                         res.status(201).json({seccess:true,message:'کاربر تشکیل شد!!',});
