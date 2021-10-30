@@ -37,10 +37,10 @@ const UserSchema = mongoose.Schema({
     location:{
         type:String,
     },
-    files:[{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:'file'
-    }]
+    // files:[{
+    //     type:mongoose.Schema.Types.ObjectId,
+    //     ref:'file'
+    // }]
 });
 
 // const User = mongoose.model('user', UserSchema);

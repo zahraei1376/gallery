@@ -214,3 +214,16 @@ export const Gallery__item = styled.div`
     }
 `;
 
+
+export const NotFoundContainer = styled.div`
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:Center;
+`;
+
+export const ImageContainer = styled.div`
+    position:relative;
+    width:60rem;
+    height:30rem;
+`;

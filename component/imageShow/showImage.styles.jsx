@@ -6,6 +6,7 @@ import AddIcon from '@material-ui/icons/Add';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import Image from 'next/image';
 
 const Load = keyframes`
     0% {
@@ -387,15 +388,16 @@ export const DescriptionCaption = styled.div`
 `;
 
 export const WriterImageContainer = styled.div`
-	width:5rem;
-	height:5rem;
+	width:6rem;
+	height:6rem;
 	border-radius:50%;
 	overflow:hidden;
 	border:1px solid #1d1d1d;
 	padding:1rem;
+	position:relative;
 `;
 
-export const WriterImage = styled.img`
+export const WriterImage = styled(Image)`
 	width:100%;
 	height:100%;
 `;

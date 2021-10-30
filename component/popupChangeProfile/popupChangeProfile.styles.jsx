@@ -31,7 +31,7 @@ export const MyCloseIcon = styled(CloseIcon)`
 
 export const SettingIcon = styled(SettingsIcon)`
 	${iconsStyle};
-    color:#777 !important;
+    color:#191e3e !important;
 	transition:all .3s;
     position:absolute;
     bottom:0;

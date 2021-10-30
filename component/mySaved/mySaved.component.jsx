@@ -13,14 +13,14 @@ import TitleStyle from '../../component/title/title.component';
 import MySnackbar from '../messageBox/messageBox.component';
 // import { scrollFunction } from '../../generalMethod/limitRecipeTitle';
 //////////////////////////////////////////////
-const SavedBoxesComponent = ({currentUser,saveCartItem , count , RemoveItems , RemoveItem , type}) =>{
+const SavedBoxesComponent = ({currentUser,saveCartItem ,uploadFiles, count , RemoveItems , RemoveItem , type}) =>{
     const [imageForDelete, setImageForDelete] = useState([]);
     const [textBtn , setTextBtn] = useState(0);
     const [fixed , setFixed] = useState(null);
-    const [showMessage,setShowMessage] = useState(false);
-    const [message,setMessage] =useState('');
-    const [status,setStatus] = useState('0');
-    const [uploadFiles , setUploadFiles] = useState([]);
+    // const [showMessage,setShowMessage] = useState(false);
+    // const [message,setMessage] =useState('');
+    // const [status,setStatus] = useState('0');
+    // const [uploadFiles , setUploadFiles] = useState([]);
     //////////////////////////////////////////
     useEffect(() => {
         const onScroll = e => {
@@ -43,43 +43,8 @@ const SavedBoxesComponent = ({currentUser,saveCartItem , count , RemoveItems , R
 
     useEffect(() =>{
         console.log('type' , type);
-        if(type === 1){
-            console.log('22222222222' , currentUser);
-            const data = {
-
-            }
-
-            fetch("/api/myUpload", {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': currentUser
-                    // 'Authorization': `Bearer ${currentUser} `
-                    },
-                method:"GET",
-                // body: JSON.stringify(data)
-            })
-            .then((response)=>{ 
-                return response.json();   
-            })
-            .then((dataRes)=>{ 
-                if(dataRes.seccess){
-                    setUploadFiles(dataRes.data);
-                }else{
-                    setStatus('0')
-                    setMessage(dataRes.message)
-                    setShowMessage(true);
-                    // setLoading(false);
-                }
-
-            })
-            .catch(err => {
-                setStatus('0')
-                setMessage(err.message)
-                setShowMessage(true);
-                // setLoading(false);
-            });
-        }
-    },[]);
+        setTextBtn(0);
+    },[type]);
       /////////////////////////////////////
     const handleRemoveItem = () =>{
         if(type === 2){//عکسهای ذخیره شده
@@ -91,12 +56,12 @@ const SavedBoxesComponent = ({currentUser,saveCartItem , count , RemoveItems , R
         setImageForDelete([]);
     }
 
-    const handleSelectAll = () =>{
+    const handleSelectAll = (items) =>{
         if(textBtn === 0) {
             setTextBtn(1);
             var temp = [];
-            for (let index = 0; index < saveCartItem.length; index++) {
-                temp.push(saveCartItem[index].id);
+            for (let index = 0; index < items.length; index++) {
+                temp.push(items[index]._id);
             }
             setImageForDelete(temp);
         }
@@ -108,6 +73,8 @@ const SavedBoxesComponent = ({currentUser,saveCartItem , count , RemoveItems , R
     }
     //////////////////////////////////////////
     //////////////////////////////////////////
+    
+    
     return(
         <GalleryPageSecion >
             <TitleContainer>
@@ -115,11 +82,11 @@ const SavedBoxesComponent = ({currentUser,saveCartItem , count , RemoveItems , R
             </TitleContainer>
             <InfoContainer fixed={fixed ? "true" : null}>
                 <InfoWrapper fixed={fixed ? "true" : null}>
-                <SunTitle>{type === 1 ? `تعداد عکس های ذخیره شده ${count} عدد` : `تعداد عکس های ذخیره شده ${count} عدد`}</SunTitle>
+                <SunTitle>{type === 1 ? `تعداد عکس های آپلود شده ${uploadFiles.length} عدد` :  `تعداد عکس های ذخیره شده ${count} عدد`}</SunTitle>
                 <SelectAllContainer>
                     <SelectAll dsl={type === 1 ? 
-                    count === 0 ? "true" : null :
-                    count === 0 ? "true" : null}  select = {textBtn === 1 ? "true" : null} disabled={type === 1 ? count === 0 ? true :false : count === 0 ? true :false} onClick={handleSelectAll}>{textBtn === 0 ? 'انتخاب همه' : 'لغو انتخاب ها'}</SelectAll>
+                    uploadFiles.length === 0 ? "true" : null :
+                    count === 0 ? "true" : null}  select = {textBtn === 1 ? "true" : null} disabled={type === 1 ? uploadFiles.length === 0 ? true :false : count === 0 ? true :false} onClick={() => handleSelectAll(type === 1 ? uploadFiles : saveCartItem)}>{textBtn === 0 ? 'انتخاب همه' : 'لغو انتخاب ها'}</SelectAll>
                     <Tooltip title="حذف"  aria-label="حذف">
                         <DeleteContainer>
                             <DeleteButton disabled={imageForDelete.length === 0} onClick = {() => {handleRemoveItem(imageForDelete)}}>
@@ -135,10 +102,10 @@ const SavedBoxesComponent = ({currentUser,saveCartItem , count , RemoveItems , R
                 <SunTitleSelect>{`تعداد عکس های انتخاب شده ${imageForDelete.length} عدد`}</SunTitleSelect>
             </InfoSelectContainer>
 
-            <SavedGallery images = {type === 1 ? saveCartItem : saveCartItem} imageForDelete = {imageForDelete} setImageForDelete ={setImageForDelete} />
-            {
+            <SavedGallery images = {type === 1 ? uploadFiles : saveCartItem} imageForDelete = {imageForDelete} setImageForDelete ={setImageForDelete} />
+            {/* {
                 showMessage && <MySnackbar message={message} status={status} showMessage={showMessage} setShowMessage={setShowMessage} /> 
-            }
+            } */}
         </GalleryPageSecion>
     )
 };

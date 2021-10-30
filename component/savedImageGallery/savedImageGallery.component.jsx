@@ -1,11 +1,15 @@
 import { useState , useEffect } from 'react';
 import {GalleryTitle,SpinnerContainer, GallerySecion,Gallery__item ,CheckIcon,
-    ImageWrapper,TitleContainer,Title,SavedBoxContainer, GalleryColumn,DownloadContainer,Download , InfoIcon} from './savedImageGallery.styles';
+    ImageWrapper,TitleContainer,Title,SavedBoxContainer,
+     GalleryColumn,DownloadContainer,Download , InfoIcon,
+     NotFoundContainer,ImageContainer,} from './savedImageGallery.styles';
+import Image from 'next/image';
 import ImageGallery from '../galleryComponent/imageGallery.cmponent';
 //////////////////////////////////////////////
 import MySpinner from '../MySpinner/MySpinner.component';
 import { limitRecipeTitle ,downloadFile } from '../../generalMethod/limitRecipeTitle';
 import ShowImage from '../../component/imageShow/showImage.component';
+import notFound from '../../assets/img/notFound.png';
 
 const SavedGallery = ({RemoveItem ,RemoveItems, images ,imageForDelete, setImageForDelete}) =>{
     //////////////////////////////////////////////
@@ -102,18 +106,18 @@ const SavedGallery = ({RemoveItem ,RemoveItems, images ,imageForDelete, setImage
     
     const handleSelectImage = (imageInfo) => {
         const existingCartItem = imageForDelete.find(
-            cartItem => cartItem === imageInfo.id
+            cartItem => cartItem === imageInfo._id
         );
         var temp = [...imageForDelete];
         if(existingCartItem){
             for( var i = 0; i < temp.length; i++){ 
-                if ( temp[i] === imageInfo.id) { 
+                if ( temp[i] === imageInfo._id) { 
                     temp.splice(i, 1); 
                     break;
                 }
             }
         }else{
-            temp.push(imageInfo.id);
+            temp.push(imageInfo._id);
             
         }
         setImageForDelete(temp);
@@ -132,12 +136,13 @@ const SavedGallery = ({RemoveItem ,RemoveItems, images ,imageForDelete, setImage
     return(
         <>
             {!loading ? 
-                <GallerySecion size = {size}>
+
+               converterImages.length ?  <GallerySecion size = {size}>
                     {converterImages.map((CVI , topIndex) =>(
                         <GalleryColumn key={topIndex}>
                             {CVI && CVI.length > 0 ?
                                 CVI.map((image , index) =>{
-                                    var selected = foundSelectedOrNot(image.id);
+                                    var selected = foundSelectedOrNot(image._id);
                                     return(
                                         <Gallery__item key={index} selected = {selected}>
                                             <ImageWrapper onClick = {() => handleSelectImage(image)}>
@@ -157,13 +162,12 @@ const SavedGallery = ({RemoveItem ,RemoveItems, images ,imageForDelete, setImage
                                         </Gallery__item>
                                     )}
                                 )
-                            : ''}
+                            : ""}
 
                             
                         </GalleryColumn>
                     ))}
-                    {/* /////////////////////////////////////////////// */}
-                </GallerySecion>
+                </GallerySecion> : <NotFoundContainer><ImageContainer><Image src={notFound} layout layout="fill" /></ImageContainer></NotFoundContainer>
             : <SpinnerContainer><MySpinner /></SpinnerContainer>}
             {showComponent ? <ShowImage data = {srcImage} close = {toggleShowImage} caption = "" /> : ""}
         </>

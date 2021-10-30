@@ -22,17 +22,19 @@ const FileSchema = mongoose.Schema({
     properties:{
         type:String,
     },
-    // user:{
-    //      type:schema.Types.ObjectId , ref:'user'
-    // }
+    user:{
+        type:String,
+        // type:mongoose.Schema.Types.ObjectId,
+        // ref:'user'
+    }
 });
 
 
-FileSchema.pre('remove',function(next){
-    const usermodel=mongoose.model('user');
-    usermodel.delete({_id:{$in:this.user}})
-    .then(()=>next());
-})
+// FileSchema.pre('remove',function(next){
+//     const usermodel=mongoose.model('user');
+//     usermodel.delete({_id:{$in:this.user}})
+//     .then(()=>next());
+// })
 
 // const User = mongoose.model('user', UserSchema);
 // module.exports = User;

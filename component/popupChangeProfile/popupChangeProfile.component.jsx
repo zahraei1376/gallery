@@ -7,13 +7,13 @@ import MySnackbar from '../messageBox/messageBox.component';
 import { createStructuredSelector } from 'reselect';
 import { selectedCart } from '../../redux/cart/cart.selectors';
 import MyButton from '../ButtonComponent/Button.component';
-// import logo from '../../assets/img/galleryLg.png';
 import logo from '../../assets/img/user.png';
+import { useRouter } from 'next/router';
 const PopUpProfile = ({currentUser , close}) => {
     const [showMessage,setShowMessage] = useState(false);
     const [message,setMessage] =useState('');
     const [status,setStatus] = useState('0');
-    const [load , setLoad] = useState(false);
+    const [srcImage , setSrcImage] = useState('');
     const [state, setState] = useState({
         photographer : '',
         photographerPicture:'',
@@ -23,6 +23,8 @@ const PopUpProfile = ({currentUser , close}) => {
         location:'',
     })
     /////////////////////////////////////////////////////////////
+    const router = useRouter();
+    /////////////////////////////////////////////////////////////
     useEffect(() =>{
         fetch("/api/profile", {
             headers: {
@@ -30,65 +32,74 @@ const PopUpProfile = ({currentUser , close}) => {
                 'Authorization': currentUser
             },
             method:"GET",
-            // body: JSON.stringify(data)
         })
         .then((response)=>{ 
             return response.json();   
         })
         .then((dataRes)=>{ 
             if(dataRes.seccess){
-                console.log('dataRes.data',dataRes.data);
                 setState(dataRes.data);
+                setSrcImage(dataRes.data.photographerPicture ? dataRes.data.photographerPicture : logo);
             }else{
-                setStatus('0')
-                setMessage(dataRes.message)
-                setShowMessage(true);
-                // setLoading(false);
+                if(dataRes.reload){
+                    setStatus('0')
+                    setMessage(dataRes.message)
+                    setShowMessage(true);
+                    setTimeout(() => {
+                        router.push('/login')
+                    }, 3000);
+                }else{
+                    setStatus('0')
+                    setMessage(dataRes.message)
+                    setShowMessage(true);
+                }
             }
-
         })
         .catch(err => {
             setStatus('0')
             setMessage(err.message)
             setShowMessage(true);
-            // setLoading(false);
         });
     },[]);
 
     const handleOnClick = async(e) =>{
        e.preventDefault();
-        const data = {
-            photographer : state.photographer,
-            photographerPicture: state.photographerPicture,
-            email: state.email,
-            username: state.username,
-            password: state.password,
-            location:state.location,
-        }
-
-        await fetch("/api/profile", {
+        const formData = new FormData();
+        formData.append('photographer', state.photographer);
+        formData.append('email',state.email);
+        formData.append('location',state.location);
+        formData.append('myFile',state.photographerPicture);
+        await fetch("/api/profile/edit", {
             headers: {
-                'Content-Type': 'application/json',
                 'Authorization': currentUser
             },
             method:"POST",
-            body: JSON.stringify(data)
+            body:formData
         })
         .then((response)=>{ 
             return response.json();   
         })
-        .then((dataRes)=>{ 
+        .then((dataRes)=>{
+            console.log('1111111111'); 
             if(dataRes.seccess){
-                console.log('dataRes.data',dataRes.data);
-                setState(dataRes.data);
                 setStatus('1')
                 setMessage('اطلاعات شما با موفقیت ثبت شد');
                 setShowMessage(true);
             }else{
-                setStatus('0')
-                setMessage(dataRes.message)
-                setShowMessage(true);
-            //    setLoading(false);
+                if(dataRes.reload){
+                    console.log('1111111111');
+                    setStatus('0')
+                    setMessage(dataRes.message)
+                    setShowMessage(true);
+                    setTimeout(() => {
+                        router.push('/login')
+                    }, 1000);
+                }else{
+                    console.log('2222222222');
+                    setStatus('0')
+                    setMessage(dataRes.message)
+                    setShowMessage(true);
+                }
             }
 
         })
@@ -96,14 +107,19 @@ const PopUpProfile = ({currentUser , close}) => {
             setStatus('0')
             setMessage(err.message)
             setShowMessage(true);
-        //    setLoading(false);
         });
     }
 
 
     const handlefile = (event) => {
-        alert('selecttttttttttt');
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(event.target.files[0]);
 
+        oFReader.onload = function (oFREvent) {
+            setSrcImage(oFREvent.target.result);
+        };
+        setState({...state , photographerPicture:event.target.files[0]});
+        // setState({...state , photographerPicture:e.target.result});
         //////////////////////////////////
       };
 
@@ -116,7 +132,10 @@ const PopUpProfile = ({currentUser , close}) => {
                     <FileContainer>
                         <label htmlFor="upload" id="lable" style={{position:"relative" ,width:"16rem"}}>
                             <LogoContainer>
-                                <Logo layout="fill" src={state.photographerPicture ? state.photographerPicture: logo}/>
+                                {srcImage ? <Logo id="uploadImage" layout="fill" 
+                                src={srcImage}
+                                // src={state.photographerPicture ? state.photographerPicture: logo}
+                                /> :''}
                                 <SettingIcon/>
                             </LogoContainer>
                             

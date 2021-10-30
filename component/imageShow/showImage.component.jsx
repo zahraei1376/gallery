@@ -8,6 +8,7 @@ import {Span,DescriptionContainer , DescriptionBody ,DescriptionContent,
   ContentContainer,ContentBackContainer , ArrowButton , NextArrowIcon , PrevArrowIcon} from './showImage.styles';
 import DownloadCard from './downloadBoxContainer.component';
 import wait from '../../public/img/wait.jpg';
+import user from '../../public/img/user.png';
 import {addItem} from '../../redux/cart/cart.action';
 import { connect } from 'react-redux';
 import MySnackbar from '../messageBox/messageBox.component';
@@ -106,7 +107,8 @@ const ShowImage = ({addItemToSave,selectedCart,...props}) => {
                       <DescriptionCaption>
                         <WriterImageContainer>
                           <WriterImage 
-                           src={props.data.photographerPicture}
+                           src={props.data.photographerPicture ? props.data.photographerPicture : user}
+                           layout="fill"
                            />
                         </WriterImageContainer>
                         <Link href = "/"><WriterName>{props.data.photographer}</WriterName></Link>

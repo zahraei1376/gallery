@@ -1,23 +1,35 @@
 import dbConnec from '../../../utils/dbConnect';
 import verifyToken from '../../../utils/middleware/withValidation';
-import withUpload from '../../../utils/middleware/withUpload';
-import User from '../../../models/UserModel';
+import Files from '../../../models/FileModel';
+import deletefile from '../../../utils/deleteFile';
 
 dbConnec();
 
 const handler = async (req, res) =>{
     const {method} = req;
     switch (method) {
-        case 'GET':
+        case 'POST':
             {
                 try {
                     var decoded = req.auth;
-                    await User.findById({ _id : decoded.userId })
-                    .then((existUser)=>{
-                        res.status(200).send({seccess:true , data: existUser});
-                    }).catch(err =>{
-                        res.status(401).json({seccess:false,message:'مشکلی رخ داده است !'});
-                    })
+                    const arrayId = req.body.arrayId;
+                    var id = mongoose.Types.ObjectId(decoded.userId);
+                    console.log('ididid',id);
+                    for (let index = 0; index < arrayId.length; index++) {
+                        const element = arrayId[index];
+                        Files.find({ user : id , _id:element }).exec((err, fileUser) => {
+                            if(err){
+                              res.status(401).json({seccess:false,message:'مشکلی رخ داده است !'});
+                            }else{
+                              deletefile()
+                              res.status(200).send({seccess:true , data: fileUser});
+                            }
+                            // statements
+                        });
+                        
+                    }
+                    
+                    
                 } catch (err) {
                     res.status(401).json({seccess:false,message:'مشکلی رخ داده است !!!'});
                 }
