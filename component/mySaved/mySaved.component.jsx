@@ -13,13 +13,13 @@ import TitleStyle from '../../component/title/title.component';
 import MySnackbar from '../messageBox/messageBox.component';
 // import { scrollFunction } from '../../generalMethod/limitRecipeTitle';
 //////////////////////////////////////////////
-const SavedBoxesComponent = ({currentUser,saveCartItem ,uploadFiles, count , RemoveItems , RemoveItem , type}) =>{
+const SavedBoxesComponent = ({currentUser,saveCartItem ,uploadFiles,setTriggerDeleteFile,triggerDeleteFile, count , RemoveItems , RemoveItem , type}) =>{
     const [imageForDelete, setImageForDelete] = useState([]);
     const [textBtn , setTextBtn] = useState(0);
     const [fixed , setFixed] = useState(null);
-    // const [showMessage,setShowMessage] = useState(false);
-    // const [message,setMessage] =useState('');
-    // const [status,setStatus] = useState('0');
+    const [showMessage,setShowMessage] = useState(false);
+    const [message,setMessage] =useState('');
+    const [status,setStatus] = useState('0');
     // const [uploadFiles , setUploadFiles] = useState([]);
     //////////////////////////////////////////
     useEffect(() => {
@@ -50,7 +50,52 @@ const SavedBoxesComponent = ({currentUser,saveCartItem ,uploadFiles, count , Rem
         if(type === 2){//عکسهای ذخیره شده
             RemoveItems(imageForDelete);
         }else if(type === 1){
-
+            const data = {
+                arrayId:imageForDelete,
+              }
+        
+              console.log('dataaaaaaaaa', data , data);
+              fetch("/api/profile/deleteImage", {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': currentUser,
+                    },
+                method:"POST",
+                body: JSON.stringify(data)
+              })
+              .then((response)=>{ 
+                  return response.json();   
+              })
+              .then((dataRes)=>{ 
+                  if(dataRes.seccess){
+                    console.log('dataRes.data',dataRes.data);
+                    setTriggerDeleteFile(!triggerDeleteFile);
+                    setStatus('0')
+                    setMessage('عکس موردنظر با موفقیت حذف شد!!!');
+                    setShowMessage(true);
+                      
+                  }else{
+                      if(dataRes.reload){
+                          setStatus('0')
+                          setMessage(dataRes.message)
+                          setShowMessage(true);
+                          setTimeout(() => {
+                              router.push('/login')
+                          }, 1000);
+                      }else{
+                          setStatus('0')
+                          setMessage(dataRes.message)
+                          setShowMessage(true);
+                      }
+                  }
+        
+              })
+              .catch(err => {
+                  setStatus('0')
+                  setMessage(err.message)
+                  setShowMessage(true);
+                  // setLoading(false);
+              });
         }
         
         setImageForDelete([]);
@@ -103,9 +148,9 @@ const SavedBoxesComponent = ({currentUser,saveCartItem ,uploadFiles, count , Rem
             </InfoSelectContainer>
 
             <SavedGallery images = {type === 1 ? uploadFiles : saveCartItem} imageForDelete = {imageForDelete} setImageForDelete ={setImageForDelete} />
-            {/* {
+            {
                 showMessage && <MySnackbar message={message} status={status} showMessage={showMessage} setShowMessage={setShowMessage} /> 
-            } */}
+            }
         </GalleryPageSecion>
     )
 };

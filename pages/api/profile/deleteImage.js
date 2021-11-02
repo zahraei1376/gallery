@@ -12,22 +12,41 @@ const handler = async (req, res) =>{
             {
                 try {
                     var decoded = req.auth;
+                    var id = decoded.userId;
                     const arrayId = req.body.arrayId;
-                    var id = mongoose.Types.ObjectId(decoded.userId);
                     console.log('ididid',id);
-                    for (let index = 0; index < arrayId.length; index++) {
-                        const element = arrayId[index];
-                        Files.find({ user : id , _id:element }).exec((err, fileUser) => {
+                    // for (let index = 0; index < arrayId.length; index++) {
+                    //     const element = arrayId[index];
+                    //     Files.findOneAndDelete({ user : id , _id:element }).exec((err, fileUser) => {
+                    //         if(err){
+                    //           res.status(401).json({seccess:false,message:'مشکلی رخ داده است !'});
+                    //         }
+                    //         // else{
+                    //         // //   deletefile()
+                    //         //   res.status(200).send({seccess:true , data: true});
+                    //         // }
+                    //         // statements
+                    //     });
+                        
+                    // }
+
+
+                    for await (const file of arrayId) {
+                        const element = file;
+                        Files.findOneAndDelete({ user : id , _id:element }).exec((err, fileUser) => {
                             if(err){
                               res.status(401).json({seccess:false,message:'مشکلی رخ داده است !'});
-                            }else{
-                              deletefile()
-                              res.status(200).send({seccess:true , data: fileUser});
                             }
+                            // else{
+                            // //   deletefile()
+                            //   res.status(200).send({seccess:true , data: true});
+                            // }
                             // statements
                         });
-                        
                     }
+
+                    res.status(200).send({seccess:true , data: true});
+                      
                     
                     
                 } catch (err) {

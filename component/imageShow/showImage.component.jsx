@@ -1,11 +1,11 @@
 import { Tooltip } from '@material-ui/core';
 import { useState , useEffect } from 'react';
 import { limitRecipeTitle } from '../../generalMethod/limitRecipeTitle';
-import {Span,DescriptionContainer , DescriptionBody ,DescriptionContent,
+import {Span,DescriptionContainer , DescriptionBody ,DescriptionContent,Group,
   DescriptionImageContainer ,DescriptionImg ,DescriptionCaption,BtnClose,
   ImageTitle,ImageSubTitle , WriterImageContainer,WriterImage,WriterName,
-  Header,TextContainer, HeaderButton,DownloadButtonsContainer,DownloadButtonIcon,DownloadButton,ArrowBottom, HeaderDownloadIcon,CloseButton ,HeaderButtons,HeaderSaveIcon, MyCloseIcon,
-  ContentContainer,ContentBackContainer , ArrowButton , NextArrowIcon , PrevArrowIcon} from './showImage.styles';
+  Header,TextContainer, HeaderButton,DownloadButtonsContainer,DownloadButtonIcon,ButtonsContainer,DownloadButton,ArrowBottom, HeaderDownloadIcon,CloseButton ,HeaderButtons,HeaderSaveIcon,HeaderEditIcon, MyCloseIcon,
+  ContentContainer,ContentBackContainer , ArrowButton , NextArrowIcon , PrevArrowIcon, TitleInput, DescriptionInput, Label, ImageType} from './showImage.styles';
 import DownloadCard from './downloadBoxContainer.component';
 import wait from '../../public/img/wait.jpg';
 import user from '../../public/img/user.png';
@@ -14,9 +14,13 @@ import { connect } from 'react-redux';
 import MySnackbar from '../messageBox/messageBox.component';
 import { createStructuredSelector } from 'reselect';
 import { selectedCart } from '../../redux/cart/cart.selectors';
+import { currentUser } from '../../redux/user/user.selector';
 import {downloadFile} from '../../generalMethod/limitRecipeTitle';
 import Link from "next/link";
-const ShowImage = ({addItemToSave,selectedCart,...props}) => {
+import MyButton from '../ButtonComponent/Button.component';
+import { useRouter } from 'next/router';
+import MyDropDown from '../dropDown/dropDown.component';
+const ShowImage = ({addItemToSave,selectedCart,currentUser,...props}) => {
     /////////////////////////////////////////////////////
     const [state,setState] = useState({
         showMore:false,
@@ -30,10 +34,20 @@ const ShowImage = ({addItemToSave,selectedCart,...props}) => {
     const [message,setMessage] =useState('');
     const [status,setStatus] = useState('0');
     const [load , setLoad] = useState(false);
+    const [own, setOwn] = useState(false);
+    const [editMode , setEditMode] = useState(false);
+    const [info , setInfo] = useState({
+      properties:'',
+      title:'',
+      sunTitle:'',
+      src:''
+    })
     /////////////////////////////////////////////////////////////
      var content = document.getElementById("menu__content");
      var contentBack = document.getElementById("menu__contentBack");
     /////////////////////////////////////////////////////////////
+    const router = useRouter();
+    ////////////////////////////////////////////////////////////
     useEffect(()=>{
         if(content && contentBack){
           content.style.transform= 'rotateY(130deg)';
@@ -49,6 +63,109 @@ const ShowImage = ({addItemToSave,selectedCart,...props}) => {
           contentBack.style.zIndex ='-1';
       }
     },[state.backward]);
+    ////////////////////////////////////////////////////////////////
+    useEffect(() =>{
+      const data = {
+        uploadId:props.data._id,
+      }
+
+      console.log('dataaaaaaaaa', data , props.data._id);
+      fetch("/api/profile/canEditUploadImage", {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': currentUser,
+            },
+        method:"POST",
+        body: JSON.stringify(data)
+      })
+      .then((response)=>{ 
+          return response.json();   
+      })
+      .then((dataRes)=>{ 
+          if(dataRes.seccess){
+              console.log('dataRes.data',dataRes.data);
+              setInfo(dataRes.data)
+              if(dataRes.can){
+                setOwn(true);
+              }else{
+                setOwn(false);
+              }
+          }else{
+              if(dataRes.reload){
+                  setStatus('0')
+                  setMessage(dataRes.message)
+                  setShowMessage(true);
+                  setTimeout(() => {
+                      router.push('/login')
+                  }, 1000);
+              }else{
+                  setStatus('0')
+                  setMessage(dataRes.message)
+                  setShowMessage(true);
+              }
+          }
+
+      })
+      .catch(err => {
+          setStatus('0')
+          setMessage(err.message)
+          setShowMessage(true);
+          // setLoading(false);
+      });
+    }, []);
+    ////////////////////////////////////////////////////////////////
+    const handleValue = (val) =>{
+      console.log('valllllllllllllll' , val);
+      setInfo({...info , properties: val});
+    }
+    ////////////////////////////////////////////////////////////////
+    const EditInfo = () => {
+      const data = {
+        uploadId:props.data._id,
+        properties: info.properties,
+        sunTitle:info.sunTitle,
+        title:info.title,
+      }
+
+      console.log('dataaaaaaaaa', data , props.data._id);
+      fetch("/api/profile/editUploadImageInfo", {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': currentUser,
+            },
+        method:"POST",
+        body: JSON.stringify(data)
+      })
+      .then((response)=>{ 
+          return response.json();   
+      })
+      .then((dataRes)=>{ 
+          if(dataRes.seccess){
+              console.log('dataRes.data',dataRes.data);
+              
+          }else{
+              if(dataRes.reload){
+                  setStatus('0')
+                  setMessage(dataRes.message)
+                  setShowMessage(true);
+                  setTimeout(() => {
+                      router.push('/login')
+                  }, 1000);
+              }else{
+                  setStatus('0')
+                  setMessage(dataRes.message)
+                  setShowMessage(true);
+              }
+          }
+
+      })
+      .catch(err => {
+          setStatus('0')
+          setMessage(err.message)
+          setShowMessage(true);
+          // setLoading(false);
+      });
+    }
     ////////////////////////////////////////////////////////////////
   //  const downloadFile = (src , size) =>{
   //   var arraySrc = src.split('/');
@@ -123,25 +240,39 @@ const ShowImage = ({addItemToSave,selectedCart,...props}) => {
                             </DownloadButtonIcon>
                             <DownloadButton onClick={() => downloadFile(props.data.src , 0)}>
                               دانلود 
-                              {/* <HeaderDownloadIcon/> */}
                             </DownloadButton>
                           </DownloadButtonsContainer>
                         </Tooltip>
-                        {/* <div> */}
+                        {own ? <Tooltip title="ویرایش"  aria-label="ویرایش">
+                          <HeaderButton onClick={() =>{setEditMode(!editMode)}}>
+                            <HeaderEditIcon/>
+                          </HeaderButton>
+                        </Tooltip> : ''}
                         <Tooltip title="ذخیره"  aria-label="ذخیره">
                           <HeaderButton select ={selectedCart ? "true" : null} onClick={() => saveFile(props.data)}>
                             <HeaderSaveIcon select ={selectedCart ? "true" : null}/>
                           </HeaderButton>
                         </Tooltip>
                         <HeaderButton onClick={() => {setState({...state,showMore:false,backward:true})}}><PrevArrowIcon/></HeaderButton>
-                        {/* </div> */}
                       </HeaderButtons>
                     </Header>
                     {state.showDownloadBox ? <DownloadCard setSize={setSize} size={size} handleDownloadFile = {handleDownloadFile} /> : ''}
-                      <TextContainer>
-                    <ImageTitle>{props.data.title}</ImageTitle>
-                    <ImageSubTitle>{state.showAllSunTitle ? limitRecipeTitle(props.data.sunTitle , 251) :limitRecipeTitle(props.data.sunTitle , 150)}{!state.showAllSunTitle ? <Span onClick={() => setState({...state , showAllSunTitle: !state.showAllSunTitle})}>بیشتر</Span> : ''}</ImageSubTitle>
-                      </TextContainer>
+                    {!own || !editMode ? <TextContainer>
+                      <ImageTitle>{info.title}</ImageTitle>
+                      <ImageType>نوع : {info.properties}</ImageType>
+                      <ImageSubTitle>{state.showAllSunTitle ? limitRecipeTitle(info.sunTitle , 251) :limitRecipeTitle(info.sunTitle , 150)}{!state.showAllSunTitle ? <Span onClick={() => setState({...state , showAllSunTitle: !state.showAllSunTitle})}>بیشتر</Span> : ''}</ImageSubTitle>
+                    </TextContainer> : editMode ? <TextContainer>
+                      <Group><Label htmlFor="title">عنوان</Label><TitleInput id="title" type = "text" defaultValue ={info.title} onChange={e => setInfo({...info , title: e.target.value})} /></Group>
+                      <Group>
+                        <Label>انتخاب نوع</Label>
+                        <MyDropDown border="true" handleValue= {handleValue} val = {info.properties}/>
+                      </Group>
+                      <Group><Label htmlFor="description">توضیحات</Label><DescriptionInput id="description" rows="5" defaultValue ={info.sunTitle} onChange={e => setInfo({...info , description: e.target.value})}/></Group>
+                      <ButtonsContainer>
+                        <MyButton mg="3" text="ارسال" onClick = {EditInfo} />
+                        <MyButton mg="3" text="کنسل" onClick = {() =>{setEditMode(!editMode)}} />
+                      </ButtonsContainer>
+                    </TextContainer> : ''}
               </DescriptionContent>
             </ContentBackContainer>            
           </DescriptionBody>
@@ -156,6 +287,7 @@ const ShowImage = ({addItemToSave,selectedCart,...props}) => {
 const mapStateToProps = (state, props) => {
   return createStructuredSelector({
       selectedCart: selectedCart(state, props.data.id), 
+      currentUser:currentUser,
   });
 };
 

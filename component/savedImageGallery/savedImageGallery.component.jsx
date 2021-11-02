@@ -169,7 +169,7 @@ const SavedGallery = ({RemoveItem ,RemoveItems, images ,imageForDelete, setImage
                     ))}
                 </GallerySecion> : <NotFoundContainer><ImageContainer><Image src={notFound} layout layout="fill" /></ImageContainer></NotFoundContainer>
             : <SpinnerContainer><MySpinner /></SpinnerContainer>}
-            {showComponent ? <ShowImage data = {srcImage} close = {toggleShowImage} caption = "" /> : ""}
+            {showComponent && <ShowImage data = {srcImage} close = {toggleShowImage} caption = "" /> }
         </>
     )
 };

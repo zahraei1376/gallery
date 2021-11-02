@@ -20,6 +20,7 @@ const Profile = ({currentUser}) =>{
     const [showUploadBox , setShowUploadBox] = useState(false);
     const [uploadFiles , setUploadFiles] = useState([]);
     const [uploadFilesSelect , setUploadFilesSelect] = useState([]);
+    const [triggerDeleteFile , setTriggerDeleteFile] = useState(false);
     /////////////////////////////////////////////////////////
     const [showMessage,setShowMessage] = useState(false);
     const [message,setMessage] =useState('');
@@ -82,7 +83,7 @@ const Profile = ({currentUser}) =>{
                 // setLoading(false);
             });
         // }
-    },[]);
+    },[triggerDeleteFile]);
     ////////////////////////////////////////////////////////
 
     const handleOnClick = () =>{
@@ -130,7 +131,7 @@ const Profile = ({currentUser}) =>{
                 {(() => {
                 if (showBox === "1") {
                     return (
-                        <SavedBoxesComponent type={1} uploadFiles={uploadFiles}/>
+                        <SavedBoxesComponent type={1} uploadFiles={uploadFiles} setTriggerDeleteFile={setTriggerDeleteFile} triggerDeleteFile={triggerDeleteFile}/>
                     )
                 }
                 else if (showBox === "2") {

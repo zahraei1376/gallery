@@ -6,6 +6,7 @@ import AddIcon from '@material-ui/icons/Add';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import Image from 'next/image';
 
 const Load = keyframes`
@@ -44,6 +45,10 @@ const ButtonDownloadStyle = css`
 	&:hover {
 		background-color:rgba(36, 45, 100, 0.88);
 	}
+`;
+
+export const ButtonsContainer = styled.div`
+	display:flex;
 `;
 
 export const ArrowButton = styled(IconButton)`
@@ -117,6 +122,11 @@ export const HeaderSaveIcon = styled(AddIcon)`
 	color:${props => props.select ? '#fff': '#777' }!important;
 `;
 
+export const HeaderEditIcon = styled(ModeEditIcon)`
+	${iconsStyle};
+	color:${props => props.select ? '#fff': '#777' }!important;
+`;
+
 export const DownloadButtonsContainer = styled.div`
 	display:flex;
 	justify-content:center;
@@ -166,6 +176,7 @@ export const HeaderButton = styled.button`
 	margin-left:1rem;
 	border:1px solid #eee;
 	transition:all .3s;
+	cursor:pointer;
 
 	&:hover{
 		border:1px solid #000;
@@ -189,6 +200,7 @@ export const Header = styled.div`
 	margin-bottom:4rem;
 	// background-color:#1d1d1d;
 	padding:2rem 1rem;
+	border-bottom:1px solid #000;
 
 	@media only screen and (max-width: 960px) {
 		flex-direction: column-reverse;
@@ -207,16 +219,56 @@ export const Span = styled.span`
 `;
 
 export const ImageTitle = styled.h1`
-	font-size:3rem;
+	font-size:4rem;
 	font-family:ir_sans;
-	margin-bottom: 3rem;
+	margin: 2rem 0 0 0;
+`;
+
+export const Label = styled.label`
+	font-size:2rem;
+	font-family:ir_sans;
+	width:20%;
+`;
+
+export const Group = styled.div`
+// width:100%;
+	display:flex;
+	// justify-content:center;
+	align-items:center;
+	margin-top:2rem;
+	border-bottom:1px solid #eee;
+	padding-bottom:1rem;
+`;
+
+export const TitleInput = styled.input`
+	font-size:1.8rem;
+	font-family:ir_sans;
+	width:70%;
+	border:1px solid #000;
+	border-radius:5px;
+`;
+
+export const DescriptionInput = styled.textarea`
+	font-size:1.8rem;
+	font-family:ir_sans;
+	width:70%;
+	border:1px solid #000;
+	border-radius:5px;
+`;
+
+export const ImageType = styled.h6`
+	font-size:1.8rem;
+	font-family:ir_sans;
+	color:#999;
+	margin:0;
+	line-height: 4rem;
 `;
 
 export const ImageSubTitle = styled.h5`
-	font-size:2rem;
+	font-size:1.8rem;
 	font-family:ir_sans;
 	color:#999;
-	margin-top:2rem;
+	margin:2rem 0 0 0;
 	line-height: 4rem;
 `;
 
@@ -327,18 +379,26 @@ export const ContentBackContainer = styled.div`
 `;
 
 export const DescriptionContent = styled.div`
-	width:100%;
+	// width:100%;
 	// height:100%;
 	background-color:#fff;
 	border-top-right-radius:1rem;
 	border-bottom-right-radius:1rem;
 	align-self: flex-start;
+	margin:1rem;
 	// padding:3rem;
 	overflow:auto;
+	border:1px solid #000;
+	border-radius:5px;
+	padding-bottom:2rem;
+	// max-height:100%;
+	min-height:95%;
 `;
 
 export const TextContainer = styled.div`
 	padding: 0 3rem;
+	display:flex;
+	flex-direction:column;
 `;
 
 export const DescriptionImageContainer = styled.div`
