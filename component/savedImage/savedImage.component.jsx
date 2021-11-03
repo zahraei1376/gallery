@@ -51,7 +51,7 @@ const SavedImages = ({setLocation , addItemToSave,selectedCart,imageInfo}) =>{
 
  const mapStateToProps = (state, props) => {
     return createStructuredSelector({
-        selectedCart: selectedCart(state, props.imageInfo.id), 
+        selectedCart: selectedCart(state, props.imageInfo._id), 
     });
   };
 

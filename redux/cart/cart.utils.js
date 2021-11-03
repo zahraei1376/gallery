@@ -1,8 +1,9 @@
 export const AddItemToCart=(cartItems,cartItemToAdd)=>{
-
-    const findItem = cartItems.find(cardItem => cardItem.id === cartItemToAdd.id);
+    console.log('findItemfindItemfindItem1111', cartItemToAdd);
+    const findItem = cartItems.find(cardItem => cardItem._id === cartItemToAdd._id);
+    console.log('findItemfindItemfindItem2222', findItem);
     if(findItem){
-        return cartItems.filter(cartItem => cartItem.id !== cartItemToAdd.id)
+        return cartItems.filter(cartItem => cartItem._id !== cartItemToAdd._id)
         // return cartItems.map(cartItem =>
         //     cartItem.id === cartItemToAdd.id
         //         ? {...cartItem , quantity: cartItem.quantity + 1}
@@ -26,7 +27,7 @@ export const RemoveItemsFromCart = (cartItems,CartItemsToRemove)=>{
 
     //     if(flag) return cartItem;
     // })
-    var myCartItems = cartItems.filter( ( el ) => !CartItemsToRemove.includes( el.id ) );
+    var myCartItems = cartItems.filter( ( el ) => !CartItemsToRemove.includes( el._id ) );
     return myCartItems;
     // return [];
 }

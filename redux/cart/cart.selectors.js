@@ -20,7 +20,7 @@ export const selectedCart = (state, id) => createSelector(
     (CartItems) => {
         var flag = false;
         for (let index = 0; index < CartItems.length; index++) {
-            if(CartItems[index].id ===  id) {
+            if(CartItems[index]._id ===  id) {
                 flag = true;
                 break;
             }

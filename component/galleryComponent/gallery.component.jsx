@@ -133,7 +133,7 @@ const Gallery = ({RemoveItem , images}) =>{
                         </GalleryColumn>
                     ))}
                     {/* /////////////////////////////////////////////// */}
-                    {showComponent ? <ShowImage data = {srcImage} close = {toggleShowImage} caption = "" /> : ""}
+                    {showComponent && <ShowImage data = {srcImage} close = {toggleShowImage} caption = "" />}
                     {/* /////////////////////////////////////////////// */}
                     <CardSaved location={location} setLocation = {setLocation} width={width} />
                 </GallerySecion>

@@ -20,7 +20,7 @@ import Link from "next/link";
 import MyButton from '../ButtonComponent/Button.component';
 import { useRouter } from 'next/router';
 import MyDropDown from '../dropDown/dropDown.component';
-const ShowImage = ({addItemToSave,selectedCart,currentUser,...props}) => {
+const ShowImage = ({addItemToSave,selectedCart,currentUser,uploadedImage,...props}) => {
     /////////////////////////////////////////////////////
     const [state,setState] = useState({
         showMore:false,
@@ -37,10 +37,10 @@ const ShowImage = ({addItemToSave,selectedCart,currentUser,...props}) => {
     const [own, setOwn] = useState(false);
     const [editMode , setEditMode] = useState(false);
     const [info , setInfo] = useState({
-      properties:'',
-      title:'',
-      sunTitle:'',
-      src:''
+      properties:props.data.properties,
+      title:props.data.title,
+      sunTitle:props.data.sunTitle,
+      src:props.data.src,
     })
     /////////////////////////////////////////////////////////////
      var content = document.getElementById("menu__content");
@@ -65,53 +65,55 @@ const ShowImage = ({addItemToSave,selectedCart,currentUser,...props}) => {
     },[state.backward]);
     ////////////////////////////////////////////////////////////////
     useEffect(() =>{
-      const data = {
-        uploadId:props.data._id,
+      if(uploadedImage){
+        const data = {
+          uploadId:props.data._id,
+        }
+  
+        console.log('dataaaaaaaaa', data , props.data._id);
+        fetch("/api/profile/canEditUploadImage", {
+          headers: {
+              'Content-Type': 'application/json',
+              'Authorization': currentUser,
+              },
+          method:"POST",
+          body: JSON.stringify(data)
+        })
+        .then((response)=>{ 
+            return response.json();   
+        })
+        .then((dataRes)=>{ 
+            if(dataRes.seccess){
+                console.log('dataRes.data',dataRes.data);
+                setInfo(dataRes.data)
+                if(dataRes.can){
+                  setOwn(true);
+                }else{
+                  setOwn(false);
+                }
+            }else{
+                if(dataRes.reload){
+                    setStatus('0')
+                    setMessage(dataRes.message)
+                    setShowMessage(true);
+                    setTimeout(() => {
+                        router.push('/login')
+                    }, 1000);
+                }else{
+                    setStatus('0')
+                    setMessage(dataRes.message)
+                    setShowMessage(true);
+                }
+            }
+  
+        })
+        .catch(err => {
+            setStatus('0')
+            setMessage(err.message)
+            setShowMessage(true);
+            // setLoading(false);
+        });
       }
-
-      console.log('dataaaaaaaaa', data , props.data._id);
-      fetch("/api/profile/canEditUploadImage", {
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': currentUser,
-            },
-        method:"POST",
-        body: JSON.stringify(data)
-      })
-      .then((response)=>{ 
-          return response.json();   
-      })
-      .then((dataRes)=>{ 
-          if(dataRes.seccess){
-              console.log('dataRes.data',dataRes.data);
-              setInfo(dataRes.data)
-              if(dataRes.can){
-                setOwn(true);
-              }else{
-                setOwn(false);
-              }
-          }else{
-              if(dataRes.reload){
-                  setStatus('0')
-                  setMessage(dataRes.message)
-                  setShowMessage(true);
-                  setTimeout(() => {
-                      router.push('/login')
-                  }, 1000);
-              }else{
-                  setStatus('0')
-                  setMessage(dataRes.message)
-                  setShowMessage(true);
-              }
-          }
-
-      })
-      .catch(err => {
-          setStatus('0')
-          setMessage(err.message)
-          setShowMessage(true);
-          // setLoading(false);
-      });
     }, []);
     ////////////////////////////////////////////////////////////////
     const handleValue = (val) =>{
@@ -259,7 +261,7 @@ const ShowImage = ({addItemToSave,selectedCart,currentUser,...props}) => {
                     {state.showDownloadBox ? <DownloadCard setSize={setSize} size={size} handleDownloadFile = {handleDownloadFile} /> : ''}
                     {!own || !editMode ? <TextContainer>
                       <ImageTitle>{info.title}</ImageTitle>
-                      <ImageType>نوع : {info.properties}</ImageType>
+                      <ImageType>نوع : {info.properties ? info.properties : '-'}</ImageType>
                       <ImageSubTitle>{state.showAllSunTitle ? limitRecipeTitle(info.sunTitle , 251) :limitRecipeTitle(info.sunTitle , 150)}{!state.showAllSunTitle ? <Span onClick={() => setState({...state , showAllSunTitle: !state.showAllSunTitle})}>بیشتر</Span> : ''}</ImageSubTitle>
                     </TextContainer> : editMode ? <TextContainer>
                       <Group><Label htmlFor="title">عنوان</Label><TitleInput id="title" type = "text" defaultValue ={info.title} onChange={e => setInfo({...info , title: e.target.value})} /></Group>
