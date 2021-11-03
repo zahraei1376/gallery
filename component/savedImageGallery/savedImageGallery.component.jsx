@@ -11,7 +11,7 @@ import { limitRecipeTitle ,downloadFile } from '../../generalMethod/limitRecipeT
 import ShowImage from '../../component/imageShow/showImage.component';
 import notFound from '../../assets/img/notFound.png';
 
-const SavedGallery = ({RemoveItem ,RemoveItems, images ,imageForDelete, setImageForDelete}) =>{
+const SavedGallery = ({RemoveItem ,RemoveItems,uploadedImage, images ,imageForDelete, setImageForDelete}) =>{
     //////////////////////////////////////////////
     const [loading , setLoading] = useState(false);
     const [converterImages , setConverterImages] = useState([]);
@@ -169,7 +169,7 @@ const SavedGallery = ({RemoveItem ,RemoveItems, images ,imageForDelete, setImage
                     ))}
                 </GallerySecion> : <NotFoundContainer><ImageContainer><Image src={notFound} layout layout="fill" /></ImageContainer></NotFoundContainer>
             : <SpinnerContainer><MySpinner /></SpinnerContainer>}
-            {showComponent && <ShowImage data = {srcImage} close = {toggleShowImage} caption = "" /> }
+            {showComponent && <ShowImage uploadedImage={uploadedImage} data = {srcImage} close = {toggleShowImage} caption = "" /> }
         </>
     )
 };

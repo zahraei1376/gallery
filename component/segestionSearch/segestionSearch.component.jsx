@@ -14,7 +14,7 @@ import { useRouter } from 'next/router';
 //     {name:'الو الووو',},
 // ];
 
-const SegestionSearch = ({showSegesion, setShowSegestion , result}) =>{
+const SegestionSearch = ({showSegesion, setShowSegestion , result , segestion}) =>{
     const router = useRouter()
     const handleSearch = (name) =>{
         setShowSegestion(false);
@@ -35,7 +35,7 @@ const SegestionSearch = ({showSegesion, setShowSegestion , result}) =>{
                     )) : ""
                 }
             </SegestionContent>
-            <NewestSection>
+            <NewestSection segestion={segestion}>
                 {
                     newestCategory && newestCategory.length> 0 ? newestCategory.map((res , index) =>(
                         <NewestBox onClick={()=> handleSearch(res.title)} key={index} 

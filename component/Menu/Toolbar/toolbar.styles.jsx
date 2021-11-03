@@ -195,7 +195,7 @@ export const MyNavLink = styled.a`
     text-decoration: none;
     color:#fff;
     font-family:ir_sans;
-    font-size:2rem;
+    font-size:1.5rem;
 
     &:hover{
         text-decoration: none;
@@ -224,6 +224,7 @@ export const ListItem = styled.div`
     color:#fff;
     position:relative;
     z-index: 1;
+    cursor:pointer;
 
     &::before{
         content: "";

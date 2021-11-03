@@ -4,7 +4,7 @@ import Toolbar from './Toolbar/toolbar.component';
 import SearchBox from '../searchBox/searchBox.component';
 import PopoverPopupState from './profileBox/propfileBox.component';
 import {NavberContainer,UserIconButton ,MyUserIcon ,ProfileBox,
-    LoginButtonContainer,LoginButton,LogoImg ,InfoContainer,
+    LoginButtonContainer,LoginButton,LogoImg ,InfoContainer,SearchAndInfoContainer,
     LogoContainer,Logo , SearchBoxContaiber} from './Navbar2.styles';
 import logo from '../../assets/img/galleryLg.png';
 import { useRouter } from 'next/router';
@@ -23,15 +23,16 @@ const MyNavbar = ({currentUser , scrolling}) =>{
                 onClick={()=> router.push('/')} 
                 />
             </LogoContainer>
+            <SearchAndInfoContainer>
             <SearchBoxContaiber  scroll = {scrolling ? "true" : null}>
-                <SearchBox/>
+                <SearchBox segestion = "true" />
             </SearchBoxContaiber>
             
             <InfoContainer>
-                {currentUser ? <UserIconButton>
+                {/* {currentUser ? <UserIconButton>
                     <PopoverPopupState/>
                 </UserIconButton> : ''
-                }
+                } */}
                 {!currentUser ? 
                     <LoginButtonContainer>
                         <LoginButton 
@@ -46,6 +47,7 @@ const MyNavbar = ({currentUser , scrolling}) =>{
                 
                 
             </InfoContainer>
+            </SearchAndInfoContainer>
         </NavberContainer>
     )
 };

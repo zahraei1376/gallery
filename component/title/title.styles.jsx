@@ -39,8 +39,8 @@ export const Title = styled.h1`
     // margin-bottom: 3rem;
     position: relative;
     z-index:1;
-    font-size:3.5rem;
-    font-family:ir_sans;
+    font-size:3rem;
+    font-family:ir_sans_bold;
     padding:1rem 3rem;
     box-shadow: 0 11px 13px -12px rgba(0,0,0,1);
     border-style: outset;

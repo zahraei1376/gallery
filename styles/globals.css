@@ -74,46 +74,56 @@ body {
 
 @font-face {
   font-family: 'ir_sans';
+  src: url('/fonts/IranSans/Webfonts/fonts/woff/IRANSansX-Bold.woff');
+  /* src: url('/fonts/IranSans/NonEnglish/IRANSansXNoEn-Medium.ttf'); */
   /* src: url(../assets/fonts/ir_sans.ttf) format('ttf'); */
-  src: url(../public/fonts/IranSans/iransansXfamily/IRANSansX-Black.ttf) format('ttf');
+  /* src: url('/fonts/IranSans/NonEnglish/IRANSansXNoEn-Medium.ttf') format('ttf'); */
+}
+
+@font-face {
+  font-family: 'ir_sans_bold';
+  src: url('/fonts/IranSans/Webfonts/fonts/woff/IRANSansX-DemiBold.woff');
+  /* src: url('/fonts/IranSans/NonEnglish/IRANSansXNoEn-Medium.ttf'); */
+  /* src: url(../assets/fonts/ir_sans.ttf) format('ttf'); */
+  /* src: url('/fonts/IranSans/NonEnglish/IRANSansXNoEn-Medium.ttf') format('ttf'); */
 }
 
 @font-face {
   font-family: 'Arshia';
-  src: url(../public/fonts/Arshia/Arshia.ttf) format('ttf');
+  src: url('/fonts/Arshia/Arshia.ttf') format('ttf');
 }
 
 @font-face {
   font-family: 'Bnazanin';
-  src: url(../public/fonts/B_NAZANIN/B-NAZANIN.TTF) format('ttf');
+  src: url('/fonts/B_NAZANIN/B-NAZANIN.TTF') format('ttf');
 }
 
 @font-face {
   font-family: 'Helal';
-  src: url(../public/fonts/B-Helal/B-Helal.ttf) format('ttf');
+  src: url('/fonts/B-Helal/B-Helal.ttf') format('ttf');
 }
 
-@font-face {
+/* @font-face {
   font-family: 'Abdoullah';
-  src: url(../public/fonts/Far_Abdoullah/Far_Abdoullah.ttf) format('ttf');
+  src: url(/fonts/Far_Abdoullah/Far_Abdoullah.ttf) format('ttf');
 }
 
 @font-face {
   font-family: 'Nazanin';
-  src: url(../public/fonts/Far_Nazanin/Far_Nazanin.ttf) format('ttf');
+  src: url(/fonts/Far_Nazanin/Far_Nazanin.ttf) format('ttf');
 }
 
 @font-face {
   font-family: 'tabssom';
-  src: url(../public/fonts/Far_Tabssom/Far_Tabssom.ttf) format('ttf');
+  src: url(/fonts/Far_Tabssom/Far_Tabssom.ttf) format('ttf');
 }
 
 @font-face {
   font-family: 'gol';
-  src: url(../public/fonts/gol/gol.ttf) format('ttf');
+  src: url(/fonts/gol/gol.ttf) format('ttf');
 }
 
 @font-face {
   font-family: 'Nastaliq';
-  src: url(../public/fonts/IranNastaliq.ttf) format('ttf');
-}
+  src: url(/fonts/IranNastaliq.ttf) format('ttf');
+} */

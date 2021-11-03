@@ -44,18 +44,23 @@ export const SearchBoxContainer = styled.div`
 `;
 
 export const SearchBoxInput = styled.input`
-    width:100%;
-    height:5rem;
-    border-radius:1rem;
-    border:2px solid #777;
-    // background-color:transparent;
+    // width:100%;
+    height:4rem;
+    border-radius:5rem;
+    border:2px solid rgb(218,160,103);
+    color:#fff;
+    background-color:transparent;
     z-index:2;
     padding:0 2rem;
     text-align:right;
     // #fc8d6d,#bf4f7b,#242d64 80%,#191e3e
 
+    &::placeholder {
+      color: rgb(218,160,103);
+    }
+
     &:focus{
-        border:3px solid #242d64;
+        // border:3px solid rgb(218,160,103);
         outline:none;
     }
 `;

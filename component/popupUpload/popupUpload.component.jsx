@@ -15,17 +15,71 @@ const PopUpUpload = (props) => {
     const [message,setMessage] =useState('');
     const [status,setStatus] = useState('0');
     const [load , setLoad] = useState(false);
+    const [info , setInfo] = useState({
+        properties:'',
+        title:'',
+        sunTitle:'',
+        myFile:null,
+    });
     /////////////////////////////////////////////////////////////
-    const handleOnClick = () =>{
+    const handleOnClick = async() =>{
        alert('senddddd');
+       e.preventDefault();
+        const formData = new FormData();
+        formData.append('properties', info.properties);
+        formData.append('title',info.title);
+        formData.append('sunTitle',info.sunTitle);
+        formData.append('myFile',info.myFile);
+        await fetch("/api/profile/edit", {
+            headers: {
+                'Authorization': currentUser
+            },
+            method:"POST",
+            body:formData
+        })
+        .then((response)=>{ 
+            return response.json();   
+        })
+        .then((dataRes)=>{
+            console.log('1111111111'); 
+            if(dataRes.seccess){
+                setStatus('1')
+                setMessage('اطلاعات شما با موفقیت ثبت شد');
+                setShowMessage(true);
+            }else{
+                if(dataRes.reload){
+                    console.log('1111111111');
+                    setStatus('0')
+                    setMessage(dataRes.message)
+                    setShowMessage(true);
+                    setTimeout(() => {
+                        router.push('/login')
+                    }, 1000);
+                }else{
+                    console.log('2222222222');
+                    setStatus('0')
+                    setMessage(dataRes.message)
+                    setShowMessage(true);
+                }
+            }
+
+        })
+        .catch(err => {
+            setStatus('0')
+            setMessage(err.message)
+            setShowMessage(true);
+        });
     }
 
 
     const handlefile = (event) => {
-        alert('selecttttttttttt');
+        setInfo({...info , myFile:event.target.files[0]});
+    };
 
-        //////////////////////////////////
-      };
+    const handleValue = (val) =>{
+        console.log('valllllllllllllll' , val);
+        setInfo({...info , properties: val});
+    }
 
     return (
         <PopUpContainer>
@@ -56,15 +110,15 @@ const PopUpUpload = (props) => {
                     
                     <Group>
                         <Lable htmlFor="title" >عنوان</Lable>
-                        <Input id="title" type="text" />
+                        <Input id="title" type="text" onChange={e => setInfo({...info , title: e.target.value})} />
                     </Group>
                     <Group>
                         <Lable>انتخاب نوع</Lable>
-                        <MyDropDown/>
+                        <MyDropDown handleValue={handleValue} />
                     </Group>
                     <Group>
                         <Lable htmlFor="explain" >توضیحات</Lable>
-                        <TextArea rows="5" id="explain" />
+                        <TextArea rows="5" id="explain" onChange={e => setInfo({...info , sunTitle: e.target.value})} />
                     </Group>
                     <MyButton mg="3" text="ارسال" onClick = {handleOnClick} />
                 </Form>

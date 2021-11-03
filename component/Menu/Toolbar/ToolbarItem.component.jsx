@@ -6,40 +6,55 @@ import {ToolbarContainer,ToolbarInfoContainer,ToolbarInfo,DrawerContainer,Toolba
   } from './toolbar.styles';
 
 const ToolbarItems = ({clicked , position}) =>{
+  const handleUrl = () =>{
+
+  }
     return(
         <ToolbarInfoBack show = {clicked ? "true" : null} position={position ? position : null}>
         <ToolbarInfoContainer show = {clicked ? "true" : null}>
           <ToolbarInfo show = {clicked ? "true" : null}>
             <ListContainer>
-              <ListItem onClick={()=>handleUrl('/managerTextWeblog')}>
-                <MyNavLink href ='/managerTextWeblog'>مدیریت منابع</MyNavLink>
+              <ListItem onClick={()=>handleUrl('/')}>
+                <MyNavLink 
+                // href ='/managerTextWeblog'
+                >مدیریت منابع</MyNavLink>
                 <IconContainer><MyListIcon/></IconContainer> 
               </ListItem>
 
-              <ListItem onClick={()=>handleUrl('/managerTextWeblog')}>
-                <MyNavLink href ='/managerTextWeblog'>مدیریت منابع</MyNavLink>
+              <ListItem onClick={()=>handleUrl('/')}>
+                <MyNavLink 
+                // href ='/managerTextWeblog'
+                >مدیریت منابع</MyNavLink>
                 <IconContainer><MyListIcon/></IconContainer> 
               </ListItem>
             </ListContainer>
 
             <ListContainer>
-              <ListItem onClick={()=>handleUrl('/managerTextWeblog')}>
-                <MyNavLink href ='/managerTextWeblog'>مدیریت منابع</MyNavLink>
+              <ListItem onClick={()=>handleUrl('/')}>
+                <MyNavLink 
+                // href ='/managerTextWeblog'
+                >مدیریت منابع</MyNavLink>
                 <IconContainer><MyListIcon/></IconContainer> 
               </ListItem>
-              <ListItem onClick={()=>handleUrl('/managerTextWeblog')}>
-              <MyNavLink href ='/managerTextWeblog'>مدیریت منابع</MyNavLink>
+              <ListItem onClick={()=>handleUrl('/')}>
+              <MyNavLink 
+              // href ='/managerTextWeblog'
+              >مدیریت منابع</MyNavLink>
                 <IconContainer><MyListIcon/></IconContainer> 
               </ListItem>
             </ListContainer>
 
             <ListContainer>
-              <ListItem onClick={()=>handleUrl('/managerTextWeblog')}>
-                <MyNavLink href ='/managerTextWeblog'>مدیریت منابع</MyNavLink>
+              <ListItem onClick={()=>handleUrl('/')}>
+                <MyNavLink 
+                // href ='/managerTextWeblog'
+                >مدیریت منابع</MyNavLink>
                 <IconContainer><MyListIcon/></IconContainer> 
               </ListItem>
-              <ListItem onClick={()=>handleUrl('/managerTextWeblog')}>
-                <MyNavLink href ='/managerTextWeblog'>مدیریت منابع</MyNavLink>
+              <ListItem onClick={()=>handleUrl('/')}>
+                <MyNavLink 
+                // href ='/managerTextWeblog'
+                >مدیریت منابع</MyNavLink>
                 <IconContainer><MyListIcon/></IconContainer> 
               </ListItem>
             </ListContainer>

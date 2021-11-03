@@ -81,7 +81,7 @@ export const ProfileContainer = styled.div`
 
 export const ProfileHeader = styled.div`
     width:100%;
-    height:40rem;
+    height:42rem;
     background-size:cover;
     background-repeat:no-repeat;
     // background-image: repeating-linear-gradient(red, yellow 10%, green 20%) ,url(${"/img/3.jpg"});
@@ -92,8 +92,8 @@ export const ProfileHeader = styled.div`
 export const ProfileInfoContainer = styled.div`
     position:absolute;
     // top:29rem;
-    top:11rem;
-    left:50%;
+    top:10rem;
+    left:47%;
     // transform:translate(-50%,0);
     width:50%;
     // height:30rem;
@@ -127,11 +127,12 @@ export const ProfileInfoText = styled.h1`
     // justify-content:center;
     // align-items:center;
     color:#bcb6d7;
-    font-size:1.5rem;
+    font-size:1.3rem;
+    font-family:ir_sans;
     text-align:right;
     margin: 2rem 0 2rem 0;
     padding:0;
-    line-height:3rem;
+    line-height:3.5rem;
 `;
 
 export const ProfileInfoName = styled.h1`
@@ -140,6 +141,7 @@ export const ProfileInfoName = styled.h1`
     // align-items:center;
     color:#efedef;
     font-size:3rem;
+    font-family:ir_sans;
     margin: 0 2rem 0;
     padding:0;
 `;

@@ -59,8 +59,8 @@ export const SegestionBox = styled.li`
 `;
 
 export const NewestSection = styled.div`
-    display:grid;
-    grid-template-columns:auto auto auto;
+    display:${props => props.segestion ? "none" : "grid"};
+    grid-template-columns:${props => props.segestion ? "auto" : "auto auto auto"};
     // grid-template-columns:repeat(3 , minmax(0,1fr));
     grid-gap: 2rem;
     padding:2rem 1rem;

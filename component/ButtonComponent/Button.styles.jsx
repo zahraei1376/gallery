@@ -14,8 +14,8 @@ export const Button = styled.button`
     font-family:ir_sans;
     border:none;
     display: inline-block;
-    font-size: 2rem;
-    font-weight: 300;
+    font-size: 1.5rem;
+    // font-weight: 300;
     padding: 1rem 2rem;
     background-image:${props => props.color ? `linear-gradient(-120deg, ${props.color} 0%, ${props.color} 50%, #fff 50%)` : "linear-gradient(-120deg, #fff 0%,transparent 50%, #191e3e 50%)"};
     background-size: 200%;

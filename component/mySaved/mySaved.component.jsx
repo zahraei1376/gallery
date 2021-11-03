@@ -147,7 +147,7 @@ const SavedBoxesComponent = ({currentUser,saveCartItem ,uploadFiles,setTriggerDe
                 <SunTitleSelect>{`تعداد عکس های انتخاب شده ${imageForDelete.length} عدد`}</SunTitleSelect>
             </InfoSelectContainer>
 
-            <SavedGallery images = {type === 1 ? uploadFiles : saveCartItem} imageForDelete = {imageForDelete} setImageForDelete ={setImageForDelete} />
+            <SavedGallery uploadedImage = {type === 1 ? true : false} images = {type === 1 ? uploadFiles : saveCartItem} imageForDelete = {imageForDelete} setImageForDelete ={setImageForDelete} />
             {
                 showMessage && <MySnackbar message={message} status={status} showMessage={showMessage} setShowMessage={setShowMessage} /> 
             }

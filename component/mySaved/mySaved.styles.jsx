@@ -39,7 +39,7 @@ export const RightTitle = styled.div`
 
 export const SelectAll = styled.button`
     padding:1rem 2rem;
-    font-size:1.7rem;
+    font-size:1.5rem;
     font-family:ir_sans;
     border:1px solid #fff;
     background-color:#eee;
@@ -48,6 +48,7 @@ export const SelectAll = styled.button`
     // outline: ${props => props.select ? "2px solid #999" : "2px solid #eee"};
     outline:2px solid #eee;
     outline-offset: 5px;
+    color:#777;
 
     // &:hover{
     //     // border:1px solid #eee;
@@ -143,7 +144,7 @@ export const Title = styled.h1`
 export const SunTitle = styled.h5`
     // width:50%;
     color:#777;
-    font-size:2rem;
+    font-size:1.5rem;
     font-family:ir_sans;
     // margin-top:3rem;
     text-align:center;
@@ -154,7 +155,7 @@ export const SunTitle = styled.h5`
 export const SunTitleSelect = styled.h5`
     // width:50%;
     color:#999;
-    font-size:1.8rem;
+    font-size:1.5rem;
     font-family:ir_sans;
     margin:4rem 5rem 0 0;
     // text-align:center;
