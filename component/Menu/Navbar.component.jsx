@@ -9,6 +9,7 @@ import {NavberContainer,UserIconButton ,MyUserIcon ,ProfileBox,
 import logo from '../../assets/img/galleryLg.png';
 import { useRouter } from 'next/router';
 import ToolbarItems from './Toolbar/ToolbarItem.component';
+import { Tooltip } from '@material-ui/core';
 
 const MyNavbar = ({currentUser , scrolling}) =>{
     /////////////////////////////
@@ -28,10 +29,10 @@ const MyNavbar = ({currentUser , scrolling}) =>{
             </SearchBoxContaiber>
             
             <InfoContainer>
-                {currentUser ? <UserIconButton onClick={()=> router.push('/profile')} >
+                {currentUser ? <Tooltip  placement="bottom" title="پنل کاربری" ><UserIconButton onClick={()=> router.push('/profile')} >
                     {/* <PopoverPopupState/> */}
                     <MyUserIcon />
-                </UserIconButton> : ''
+                </UserIconButton></Tooltip> : ''
                 }
                 {!currentUser ? 
                     <LoginButtonContainer>

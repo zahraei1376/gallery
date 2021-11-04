@@ -52,6 +52,9 @@ const Gallery = ({RemoveItem , images}) =>{
 
     useEffect(() =>{
         ResizeWindows();
+        window.addEventListener('resize', () =>{
+            ResizeWindows();
+        });
     },[images]);
     //////////////////////////////////////////////
     function chunkify(a, n, balanced) {
@@ -115,7 +118,7 @@ const Gallery = ({RemoveItem , images}) =>{
                             {CVI && CVI.length > 0 ?
                                 CVI.map((image , index) =>{
                                     return(
-                                        <Gallery__item key={index}>
+                                        <Gallery__item key={image._id}>
                                             <ImageWrapper onClick = {() => handleShowImage(image)}>
                                                 <ImageGallery imageSrc = {image.src} />
                                             </ImageWrapper>

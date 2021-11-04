@@ -6,14 +6,23 @@ import { IconButton } from '@material-ui/core';
 export const SearchButton = styled(IconButton)`
     margin-right:-4rem !important;
     position:absolute !important;
-    top:-1px;
+    top:${props => props.segestion ? "-4px" : "-1px"};
     left:-5px;
+
+    @media only screen and (max-width: 899px){
+      top:${props => props.segestion ? "-5px" : "-1px"};
+    }
+
+    @media only screen and (max-width: 583px){
+      top:${props => props.segestion ? "-7px" : "-1px"};
+    }
 `;
 
 export const ClearIcon = styled(CloseIcon)`
   font-size:2.5rem !important;
 //   margin-right:-4rem ;
   z-index:3 !important;
+  color:${props => props.scroll ? "#fff" : "#000"} !important;
 `;
 
 export const MySearchIcon = styled(SearchIcon)`
@@ -49,7 +58,7 @@ export const SearchBoxInput = styled.input`
     border-radius:${props => props.segestion ? '5rem': '1rem'};
     // border:2px solid rgb(218,160,103);
     border: ${props => props.segestion ? '2px solid rgb(218,160,103)': '2px solid #eee'};
-    color:${props => props.segestion ? 'fff': '#000'};
+    color:${props => props.segestion && props.scroll ? '#fff': '#000'};
     // background-color:transparent;
     background-color: ${props => props.segestion ? 'transparent': '#eee'};
     z-index:2;

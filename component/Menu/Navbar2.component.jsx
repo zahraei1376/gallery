@@ -10,7 +10,7 @@ import logo from '../../assets/img/galleryLg.png';
 import { useRouter } from 'next/router';
 import ToolbarItems from './Toolbar/ToolbarItem.component';
 
-const MyNavbar = ({currentUser , scrolling}) =>{
+const MyNavbar = ({currentUser , scrolling , text}) =>{
     /////////////////////////////
     const [clicked,setClicked] = useState(false);
     /////////////////////////////
@@ -27,14 +27,15 @@ const MyNavbar = ({currentUser , scrolling}) =>{
             <SearchBoxContaiber 
             // segestion = "true" scroll = {scrolling ? true : null}
             >
-                <SearchBox segestion = "true" />
+                <SearchBox segestion = "true" text={text} scroll = {scrolling ? true : null} />
             </SearchBoxContaiber>
             
             <InfoContainer>
-                {/* {currentUser ? <UserIconButton>
-                    <PopoverPopupState/>
+                {currentUser ? <UserIconButton onClick={()=> router.push('/profile')} >
+                    {/* <PopoverPopupState/> */}
+                    <MyUserIcon />
                 </UserIconButton> : ''
-                } */}
+                }
                 {!currentUser ? 
                     <LoginButtonContainer>
                         <LoginButton 

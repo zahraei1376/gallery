@@ -1,5 +1,5 @@
 import { useEffect , useState } from 'react';
-import MyNavbar from '../../component/Menu/Navbar.component';
+import MyNavbar from '../../component/Menu/Navbar2.component';
 import Gallery from '../../component/galleryComponent/gallery.component';
 import { withRouter } from 'next/router'
 import { GalleryPageSecion ,TitleContainer,Title , SunTitle} from './galleryPage.styles';
@@ -19,6 +19,28 @@ const GalleryPage = (props) =>{
     const [pics , setPics] = useState([]);
     const [customPics , setCustomPics] = useState([]);
     const [text , setText] = useState('');
+    ////////////////////////////////////////////
+    const [scrolling,setScrolling] = useState(false);
+    ////////////////////////////////////////////
+    useEffect(()=>{
+        window.addEventListener('scroll', scrollFunction);
+        return () => window.removeEventListener('scroll', scrollFunction);
+    },[]);
+    ////////////////////////////////////////////
+    const scrollFunction = () => {
+        var y = window.scrollY;
+        // if ( y >= 61) {
+        if ( y >= 70) {
+            if(!scrolling){
+                setScrolling(true);
+            }
+        }else{
+            // if(scrolling){
+                setScrolling(false);
+            // }
+        }
+    } 
+    ////////////////////////////////////////////
     /////////////////////////////////////////////
     const handleImage = () => {
         switch (props.router.query.images) {
@@ -73,9 +95,9 @@ const GalleryPage = (props) =>{
     }
     /////////////////////////////////////////////
     useEffect(() =>{
-        // handleImage();
-        setPics(props.data);
-        setCustomPics(props.data);
+        handleImage();
+        // setPics(props.data);
+        // setCustomPics(props.data);
         setText(props.router.query.images);
     },[props.router.query.images]);
     //////////////////////////
@@ -89,11 +111,11 @@ const GalleryPage = (props) =>{
     //////////////////////////
     return(
         <GalleryPageSecion>
-            <MyNavbar scrolling = {true} />
+            <MyNavbar scrolling = {scrolling} text={text} />
             <TitleContainer>
             {/* <Title>{props.router.query.images}</Title> */}
-            <TitleStyle text={text}/>
-            <SunTitle>{`یافتن بهترین و جذاب ترین عکس های رایگان  از ${text} را از لنز دوربین 'گالری' ببینید با ما دنیای اطراف خود را زیباتر و با دقت تر ببینید`}</SunTitle>
+            {/* <TitleStyle text={text}/> */}
+            {/* <SunTitle>{`یافتن بهترین و جذاب ترین عکس های رایگان  از ${text} را از لنز دوربین 'گالری' ببینید با ما دنیای اطراف خود را زیباتر و با دقت تر ببینید`}</SunTitle> */}
             </TitleContainer>
             
             <ShowTopicsForGallery setTopic={setTopic}/>
@@ -108,66 +130,66 @@ const GalleryPage = (props) =>{
 //     saveCartItem : selectCartItem,
 //  });
 
-export async function getStaticProps(context){
-    // const filePath = path.join(process.cwd() , 'generalMethod' , 'topics.js');
-    // const fileData = await fs.readFile(filePath);
-    // const data = JSON.parse(fileData);
+// export async function getStaticProps(context){
+//     // const filePath = path.join(process.cwd() , 'generalMethod' , 'topics.js');
+//     // const fileData = await fs.readFile(filePath);
+//     // const data = JSON.parse(fileData);
 
-    // if(!data){
-    //     return {
-    //         redirect:{
-    //             destinaion:'/'
-    //         }
+//     // if(!data){
+//     //     return {
+//     //         redirect:{
+//     //             destinaion:'/'
+//     //         }
             
-    //     }
-    // }
+//     //     }
+//     // }
 
-    // if(!data.value){
-    //     return{notFound:true,}
-    // }
-    // return {
-    //     props : {
-    //         data:data,
-    //     }
-    // }
-    console.log('context', context.params);
+//     // if(!data.value){
+//     //     return{notFound:true,}
+//     // }
+//     // return {
+//     //     props : {
+//     //         data:data,
+//     //     }
+//     // }
+//     console.log('context', context.params);
 
-    // const {params} = context;
-    // const galleryId = params.gId;
-    var pics;
-    switch ("1") {
-        case 'حیوانات اهلی':
-            pics = animals;
-            break;
-        case 'حیوانات وحشی':
-            pics = animals;
-            break;
-        case 'حیوانات':
-            pics = animals;
-            break;
-        case 'پوشاک':
-            pics = dress;
-            break;
-        case 'مردم':
-            pics = people;
-            break;
-        case 'طبیعت':
-            pics = waterfall;
-            break;
-        case 'ماشین':
-            pics = cars;
-            break;
-        default:
-            pics = animals;
-            break;
-    }
+//     // const {params} = context;
+//     // const galleryId = params.gId;
+//     var pics;
+//     switch ("1") {
+//         case 'حیوانات اهلی':
+//             pics = animals;
+//             break;
+//         case 'حیوانات وحشی':
+//             pics = animals;
+//             break;
+//         case 'حیوانات':
+//             pics = animals;
+//             break;
+//         case 'پوشاک':
+//             pics = dress;
+//             break;
+//         case 'مردم':
+//             pics = people;
+//             break;
+//         case 'طبیعت':
+//             pics = waterfall;
+//             break;
+//         case 'ماشین':
+//             pics = cars;
+//             break;
+//         default:
+//             pics = animals;
+//             break;
+//     }
 
-    return {
-        props : {
-            data:pics,
-        }
-    }
-};
+//     return {
+//         props : {
+//             data:pics,
+//         }
+//     }
+// };
 
 export default withRouter(GalleryPage);
 

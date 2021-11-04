@@ -12,6 +12,12 @@ const SavedImages = ({setLocation , addItemToSave,selectedCart,imageInfo}) =>{
     const [showMessage,setShowMessage] = useState(false);
     const [message,setMessage] =useState('');
     const [status,setStatus] = useState('0');
+    const [seved , setSaved] = useState(null);
+    ///////////////////////////////////////////////
+    useEffect(() =>{
+        console.log('selectedCartselectedCart' ,selectedCart);
+        setSaved(selectedCart ? selectedCart : null);
+    },[imageInfo._id]);
 
     const handleLoaction = (e) =>{
         setLocation({x:e.pageX , y:e.pageY});
@@ -33,7 +39,10 @@ const SavedImages = ({setLocation , addItemToSave,selectedCart,imageInfo}) =>{
     return(
         <>
             <SaveContainer>
-                <SaveButton onClick = {() => handleAddItemToCard(imageInfo)}><SaveIcon seved = {selectedCart ? selectedCart : null}/></SaveButton>
+                <SaveButton onClick = {() => handleAddItemToCard(imageInfo)}><SaveIcon 
+                // seved = {seved}
+                seved = {selectedCart ? selectedCart : null}
+                /></SaveButton>
                 <MySaveButton onClick= {e => handleLoaction(e)}><MySaveIcon /></MySaveButton>
                 {/* <CardSaved fixed= {fixed ? fixed : null} /> */}
             

@@ -10,6 +10,7 @@ export const TitleContainer = styled.div`
     flex-direction:column;
     justify-content:center;
     align-items:center;
+    margin-top:5rem;
 `;
 
 export const Title = styled.h1`

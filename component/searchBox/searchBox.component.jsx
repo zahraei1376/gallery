@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import SegestionSearch from "../segestionSearch/segestionSearch.component";
 import {SearchBoxContainer , SearchBoxInput ,MySearchIcon ,SearchButton ,ClearIcon , BackDrop} from './searchBox.styles';
 import {Topics} from '../../generalMethod/topics';
 
-const SearchBox = ({segestion}) =>{
+const SearchBox = ({segestion , text , scroll}) =>{
     const [searchText , setSearchText] = useState('');
     const [showSegesion, setShowSegestion] = useState(false);
     const [result , setResult] = useState([]);
+    //////////////////////////////////////////////////
+    useEffect(() =>{
+        setSearchText(text);
+    },[text]);
     
 
     const handleSearchText = (value) => {
@@ -34,10 +38,10 @@ const SearchBox = ({segestion}) =>{
         <React.Fragment>
             <SearchBoxContainer>
                 {searchText ? 
-                <SearchButton onClick={() => {setSearchText('')}} >
-                    <ClearIcon />
+                <SearchButton segestion={segestion} onClick={() => {setSearchText('')}} >
+                    <ClearIcon scroll={scroll}/>
                 </SearchButton> : ''}
-                <SearchBoxInput segestion={segestion}
+                <SearchBoxInput segestion={segestion} scroll={scroll}
                 onBlur  = {() => handleBlur()}
                  onFocus = {() => setShowSegestion(true)} type="text" placeholder="جستجو &#x1F50E;" value = {searchText}  onChange = {(e) => handleSearchText(e.target.value)} />
                 <SegestionSearch segestion= {segestion} result = {result} showSegesion = {showSegesion} setShowSegestion = {setShowSegestion} />

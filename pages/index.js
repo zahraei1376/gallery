@@ -30,12 +30,6 @@ export default function Home() {
   ////////////////////////////////////////////
   return (
     <div onScroll = {()=> scrollFunction()} id="navbar">
-      <Head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter&display=optional"
-          rel="stylesheet"
-        />
-      </Head>
       <MyNavbar scrolling = {scrolling} />
       <Header/>
       <GalleryTitle>عکس های رایگان ما</GalleryTitle>

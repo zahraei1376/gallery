@@ -48,6 +48,7 @@ export const NavberContainer = styled.div`
     // background-color:${props => props.scroll ? 'rgba(29, 29, 29, 1)' : 'transparent'};
     // background-color:${props => props.scroll ? '#191e3e' : 'transparent'};
     background-color:${props => props.scroll ? '#333333' : 'transparent'};
+    // background: linear-gradient(rgba(0,0,0,.4), #fff 20%);
     top: 0;
     // left: 50%;
     z-index:2;
@@ -84,8 +85,8 @@ export const UserIconButton = styled(IconButton)`
 `;
 
 export const MyUserIcon = styled(AssignmentIndIcon)`
-    font-size:2.5rem !important;
-    color:#fff;
+    font-size:3.5rem !important;
+    color:rgb(218,160,103);;
 `;
 
 export const InfoContainer = styled.div`

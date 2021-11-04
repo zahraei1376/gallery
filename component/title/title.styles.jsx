@@ -8,7 +8,7 @@ export const LeftTitle = styled.div`
     position:absolute;
     // // top:12rem;
     // left:2rem;
-    top:1.8rem;
+    top:1.1rem;
     left:-4rem;
     clip-path: polygon(100% 0%, 100% 51%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
     background-image: linear-gradient(to right ,#fc8d6d,#bf4f7b,#242d64 80%,#191e3e 100%);
@@ -22,7 +22,7 @@ export const RightTitle = styled.div`
     position:absolute;
     // top:12rem;
     // right:2rem;
-    top:1.8rem;
+    top:1.1rem;
     right:-4rem;
     clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
     background-image: linear-gradient(to left ,#fc8d6d,#bf4f7b,#242d64 80%,#191e3e 100%);
