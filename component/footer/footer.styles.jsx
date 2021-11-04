@@ -8,8 +8,8 @@ import EmailIcon from '@material-ui/icons/Email';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 
 const Icons = css`
-    font-size:2.5rem !important;
-    color:#fff;
+    font-size:2rem !important;
+    color:#777;
     margin-left:2rem;
 `;
 
@@ -34,8 +34,15 @@ export const ArrowButton = styled(IconButton)`
 `;
 
 export const ArrowTop = styled(ArrowUpwardIcon)`
-    font-size:5rem !important;
+    font-size:3rem !important;
     color:#fff !important;
+`;
+
+export const FooterImageContainer = styled.div`
+    width:8rem;
+    height:8rem;
+    position:relative;
+    margin-left:1rem;
 `;
 
 export const FooterContainer = styled.div`
@@ -43,7 +50,9 @@ export const FooterContainer = styled.div`
     min-height:65rem;
     position: relative;
     // background:#bf4f7b;
-    background-image: radial-gradient(ellipse at top ,#bf4f7b,#242d64 80%,#191e3e 100%);
+    // background-image: radial-gradient(ellipse at top ,rgb(218,160,103) ,#191e3e);
+    background-image: linear-gradient(to right ,#bf4f7b, #191e3e);
+    // background-image: radial-gradient(ellipse at top ,#bf4f7b,#242d64 80%,#191e3e 100%);
     margin:0;
     // clip-path: polygon(0 11%, 100% 0, 100% 100%, 0% 100%);
 
@@ -140,7 +149,7 @@ export const FooterUl = styled.ul`
 
 export const FooterUlTitle = styled.h2`
     width:100%;
-    font-size:2.5rem;
+    font-size:1.7rem;
     font-family:ir_sans;
     color:#fff;
     // border-bottom:1px solid #fff;
@@ -173,7 +182,7 @@ export const FooterItem = styled.li`
     display: table-cell;
     font-weight: 600;
     line-height: 17px;
-    padding: 1rem 0;
+    padding: 5px 0;
     color: #fff;
     overflow: hidden;
     -webkit-transition: all .2s ease-in-out;
@@ -187,7 +196,7 @@ export const FooterItem = styled.li`
 
 export const FooterLink = styled.a`
     text-decoration:none;
-    font-size:1.7rem;
+    font-size:1.3rem;
     font-family:ir_sans;
     /////////////////////////
     position: relative;
@@ -232,8 +241,8 @@ export const FooterImage = styled.img`
 `;
 
 export const FooterText = styled.p`
-    font-size:1.7rem;
-    font-family:ir_sans;
+    font-size:1.3rem;
+    font-family:${props => props.number ? 'ir_sans_num' : 'ir_sans'};
     color: #999;
     padding: 0;
     margin: 0;
@@ -284,9 +293,9 @@ export const SocialMediaLinksIcon = styled(IconButton)`
 
 export const SocialMediadisc = styled.p`
     width:50%;
-    font-size:1rem;
+    font-size:1.2rem;
     font-family:ir_sans;
-    color:#fff;
+    color:#777;
 `;
 
 export const LogoContainer = styled.div`

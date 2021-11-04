@@ -288,7 +288,7 @@ const ShowImage = ({addItemToSave,selectedCart,currentUser,uploadedImage,...prop
 
 const mapStateToProps = (state, props) => {
   return createStructuredSelector({
-      selectedCart: selectedCart(state, props.data.id), 
+      selectedCart: selectedCart(state, props.data._id), 
       currentUser:currentUser,
   });
 };

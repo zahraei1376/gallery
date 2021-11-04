@@ -81,6 +81,17 @@ body {
 }
 
 @font-face {
+  font-family: 'ir_sans_num';
+  src: url('/fonts/IranSans/Webfonts/fonts/Farsi numerals/Webfonts/Woff/IRANSansXFaNum-Black.woff');
+  /* src: url('/fonts/IranSans/NonEnglish/IRANSansXNoEn-Medium.ttf'); */
+  /* src: url(../assets/fonts/ir_sans.ttf) format('ttf'); */
+  /* src: url('/fonts/IranSans/NonEnglish/IRANSansXNoEn-Medium.ttf') format('ttf'); */
+}
+
+
+
+
+@font-face {
   font-family: 'ir_sans_bold';
   src: url('/fonts/IranSans/Webfonts/fonts/woff/IRANSansX-DemiBold.woff');
   /* src: url('/fonts/IranSans/NonEnglish/IRANSansXNoEn-Medium.ttf'); */

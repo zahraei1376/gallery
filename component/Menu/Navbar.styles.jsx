@@ -61,6 +61,11 @@ export const NavberContainer = styled.div`
     // transition : cubic-bezier(.35,.53,.78,.82) .3s;
 `;
 
+export const MyUserIcon = styled(AssignmentIndIcon)`
+    font-size:3.5rem !important;
+    color:#fff;
+`;
+
 export const UserIconButton = styled(IconButton)`
     margin-left:1rem !important;
     z-index:2;
@@ -75,11 +80,6 @@ export const UserIconButton = styled(IconButton)`
     //   animation: ${fade} 1.1s linear;
     //   animation-iteration-count: 1;
     // }
-`;
-
-export const MyUserIcon = styled(AssignmentIndIcon)`
-    font-size:2.5rem !important;
-    color:#fff;
 `;
 
 export const InfoContainer = styled.div`

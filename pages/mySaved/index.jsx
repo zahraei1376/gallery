@@ -63,7 +63,7 @@ const SavedPage = ({saveCartItem , count , RemoveItems , RemoveItem}) =>{
             scrolling = {true} 
             // scrolling = {!fixed ? "true" : null} 
             />
-            <SavedBoxesComponent/>
+            <SavedBoxesComponent type ={2}/>
             {/* <TitleContainer>
                 <TitleStyle text="عکس های ذخیره شده من"/>
             </TitleContainer>

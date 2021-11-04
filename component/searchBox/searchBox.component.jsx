@@ -37,7 +37,7 @@ const SearchBox = ({segestion}) =>{
                 <SearchButton onClick={() => {setSearchText('')}} >
                     <ClearIcon />
                 </SearchButton> : ''}
-                <SearchBoxInput 
+                <SearchBoxInput segestion={segestion}
                 onBlur  = {() => handleBlur()}
                  onFocus = {() => setShowSegestion(true)} type="text" placeholder="جستجو &#x1F50E;" value = {searchText}  onChange = {(e) => handleSearchText(e.target.value)} />
                 <SegestionSearch segestion= {segestion} result = {result} showSegesion = {showSegesion} setShowSegestion = {setShowSegestion} />

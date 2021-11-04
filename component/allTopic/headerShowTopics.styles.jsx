@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export const Container = styled.div`
     width:100%;
-    height:40rem;
+    height:50rem;
     position:relative;
     z-index: 1;
 `;
@@ -11,6 +11,7 @@ export const HeaderContainer = styled.div`
     position:relative;
     width:100%;
     height:100%;
+    background: linear-gradient(rgba(0,0,0,.4), #fff 20%);
 `;
 
 
@@ -61,7 +62,7 @@ export const AllTopicTitle = styled.h1`
     font-size:3.5rem;
     font-family:ir_sans;
     margin:2rem 0;
-    color:#fff;
+    // color:#fff;
     display:flex;
     z-index:1;
 `;
@@ -76,7 +77,7 @@ export const AllTopicSubTitle = styled.h5`
     // background-image: linear-gradient(to right ,#fc8d6d,#bf4f7b,#242d64 80%,#191e3e 100%);
     // background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
     // -webkit-background-clip: text;
-    color: #fff;
+    color: #777;
     transition:all .3s;
     text-align:center;
     // padding-right:3rem;

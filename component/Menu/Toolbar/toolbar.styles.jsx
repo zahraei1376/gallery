@@ -25,7 +25,7 @@ const IconsConnectionCss = css`
 export const Title = styled.h1`
     width:100%;
     color:#fff;
-    font-size:4rem;
+    font-size:3.5rem;
     text-align:right;
     font-family:ir_sans;
 `;
@@ -35,7 +35,7 @@ export const SubTitle = styled.h4`
     font-size:2rem;
     text-align:right;
     width:100%;
-    margin-top:3rem;
+    margin-top:2.5rem;
     font-family:ir_sans;
 `;
 
@@ -96,10 +96,11 @@ export const ToolbarInfoText = styled.div`
     flex-direction:column;
     justify-content:center;
     text-align:right;
-    padding:0 10rem 0 3rem;
+    padding:0 4rem 0 3rem;
     
     @media only screen and (max-width: 540px){
         width:${props => props.show ? '80%' : '0'};
+        padding:0;
     }
 
     @media only screen and (max-width: 411px){
@@ -109,7 +110,8 @@ export const ToolbarInfoText = styled.div`
 
 export const ListContainer = styled.div`
     display:grid;
-    grid-template-columns: auto auto;
+    grid-template-columns:repeat(2, 1fr);
+    // grid-template-columns: auto auto;
     grid-column-gap: 50px;
     
     z-index:4;
@@ -196,6 +198,7 @@ export const MyNavLink = styled.a`
     color:#fff;
     font-family:ir_sans;
     font-size:1.5rem;
+    text-align:right;
 
     &:hover{
         text-decoration: none;
@@ -219,7 +222,7 @@ export const ListItem = styled.div`
     padding: 1.5rem 2rem;
     display:flex;
     align-items:center;
-    justify-content:center;
+    justify-content:flex-end;
     transition:all .3s;
     color:#fff;
     position:relative;
@@ -322,6 +325,7 @@ export const TitleBox = styled.div`
     flex-direction:column;
     justify-content:center;
     align-items:center;
+    margin-top: 3rem;
 
     @media only screen and (max-width: 540px){
         display:none;

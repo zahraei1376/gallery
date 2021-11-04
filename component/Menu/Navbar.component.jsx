@@ -28,8 +28,9 @@ const MyNavbar = ({currentUser , scrolling}) =>{
             </SearchBoxContaiber>
             
             <InfoContainer>
-                {currentUser ? <UserIconButton>
-                    <PopoverPopupState/>
+                {currentUser ? <UserIconButton onClick={()=> router.push('/profile')} >
+                    {/* <PopoverPopupState/> */}
+                    <MyUserIcon />
                 </UserIconButton> : ''
                 }
                 {!currentUser ? 

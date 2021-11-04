@@ -218,7 +218,7 @@ export const FormLabel = styled.label`
 `;
 
 export const FormInput = styled.input`
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     // font-family: inherit;
     font-family:ir_sans;
     color: inherit;
@@ -284,7 +284,7 @@ export const LoginDesc = styled.p`
 
 export const StyledLink = styled.a`
     color:#fff;
-    font-size:1.8rem;
+    font-size:1.4rem;
     margin:2rem 0 4rem 0;
     transition:all .3s;
     font-family:ir_sans;

@@ -1,6 +1,6 @@
 
 import {Container,AllTopicSubTitle, AllTopicTitle, AllTopicTitleContainer, Button, ButtonContainer, HeaderContainer , HeaderImage, TitleContainer} from './headerShowTopics.styles';
-import  image from '../../assets/img/header7.jpg';
+import  image from '../../assets/img/header11.png';
 import MyNavbar from '../Menu/Navbar2.component';
 const HeaderPage =  () => {
     return(

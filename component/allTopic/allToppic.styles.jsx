@@ -5,11 +5,12 @@ export const AllTopicContainer = styled.div`
     min-height:100vh;
     background-color:#fff;
     // margin-top:-10rem;
-    margin:-10rem 5rem 2rem 5rem;
+    margin:-17rem 5rem 2rem 5rem;
     // padding:5rem 10rem 2rem 10rem;
     padding:10rem 5rem;
     position:relative;
     z-index:1;
+    border-radius:2rem;
 `;
 
 export const TitleContainer = styled.div`

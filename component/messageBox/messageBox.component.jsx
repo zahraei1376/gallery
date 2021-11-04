@@ -9,7 +9,8 @@ function Alert(props) {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    fontSize: '2rem',
+    fontSize: '1.5rem !important',
+    fontFamily:'ir_sans !important',
     '& > * + *': {
       marginTop: theme.spacing(2),
       fontSize: '2rem',

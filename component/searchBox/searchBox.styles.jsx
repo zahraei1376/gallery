@@ -44,19 +44,23 @@ export const SearchBoxContainer = styled.div`
 `;
 
 export const SearchBoxInput = styled.input`
-    // width:100%;
-    height:4rem;
-    border-radius:5rem;
-    border:2px solid rgb(218,160,103);
-    color:#fff;
-    background-color:transparent;
+    width:${props => props.segestion ? 'auto': '100%'};
+    height:${props => props.segestion ? '4rem': '5rem'};
+    border-radius:${props => props.segestion ? '5rem': '1rem'};
+    // border:2px solid rgb(218,160,103);
+    border: ${props => props.segestion ? '2px solid rgb(218,160,103)': '2px solid #eee'};
+    color:${props => props.segestion ? 'fff': '#000'};
+    // background-color:transparent;
+    background-color: ${props => props.segestion ? 'transparent': '#eee'};
     z-index:2;
     padding:0 2rem;
     text-align:right;
+    font-family:ir_sans;
+    font-size:1.5rem;
     // #fc8d6d,#bf4f7b,#242d64 80%,#191e3e
 
     &::placeholder {
-      color: rgb(218,160,103);
+      color: ${props => props.segestion ? 'rgb(218,160,103)': '#999'};
     }
 
     &:focus{

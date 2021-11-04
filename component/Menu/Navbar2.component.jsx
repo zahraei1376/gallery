@@ -17,14 +17,16 @@ const MyNavbar = ({currentUser , scrolling}) =>{
     const router = useRouter()
     /////////////////////////////
     return (
-        <NavberContainer scroll = {scrolling ? "true" : null}>
+        <NavberContainer scroll = {scrolling ? true : null} id="navbar2">
             <LogoContainer>
                 <Logo src={logo}
                 onClick={()=> router.push('/')} 
                 />
             </LogoContainer>
             <SearchAndInfoContainer>
-            <SearchBoxContaiber  scroll = {scrolling ? "true" : null}>
+            <SearchBoxContaiber 
+            // segestion = "true" scroll = {scrolling ? true : null}
+            >
                 <SearchBox segestion = "true" />
             </SearchBoxContaiber>
             

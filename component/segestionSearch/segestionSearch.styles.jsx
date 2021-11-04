@@ -27,7 +27,7 @@ export const SegestionBox = styled.li`
     padding:1.5rem 1rem;
     transition:all .3s;
     cursor:pointer;
-    font-size:2rem;
+    font-size:1.5rem;
     text-align:right;
     font-family:ir_sans;
     position:relative;
@@ -89,7 +89,7 @@ export const NewestBox = styled.div`
 `;
 
 export const NewestTitle = styled.h3`
-    font-size:2rem;
+    font-size:1.5rem;
     text-align:right;
     font-family:ir_sans;
     display:inline;

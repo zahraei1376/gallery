@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import {ToolbarContainer,ToolbarInfoContainer,ToolbarInfo,DrawerContainer,ToolbarInfoBack,
     IconContainer,MyListIcon ,MyCloseIcon,ListContainer,ToolbarInfoText,List ,
     ListItem ,ListImg,ImgContainer,MyNavLink,ArrowIcon,ArrowIconButton,ListLink,
@@ -6,57 +7,62 @@ import {ToolbarContainer,ToolbarInfoContainer,ToolbarInfo,DrawerContainer,Toolba
   } from './toolbar.styles';
 
 const ToolbarItems = ({clicked , position}) =>{
-  const handleUrl = () =>{
-
+  /////////////////////////////////////////////////////////////
+  const router = useRouter();
+  ////////////////////////////////////////////////////////////
+  const handleUrl = (url) =>{
+    router.push(url);
   }
     return(
         <ToolbarInfoBack show = {clicked ? "true" : null} position={position ? position : null}>
         <ToolbarInfoContainer show = {clicked ? "true" : null}>
           <ToolbarInfo show = {clicked ? "true" : null}>
             <ListContainer>
-              <ListItem onClick={()=>handleUrl('/')}>
+              <ListItem onClick={()=>handleUrl('/register')}>
                 <MyNavLink 
-                // href ='/managerTextWeblog'
-                >مدیریت منابع</MyNavLink>
+                href ='/register'
+                >ثبت نام</MyNavLink>
                 <IconContainer><MyListIcon/></IconContainer> 
               </ListItem>
 
-              <ListItem onClick={()=>handleUrl('/')}>
+              <ListItem onClick={()=>handleUrl('/login')}>
                 <MyNavLink 
-                // href ='/managerTextWeblog'
-                >مدیریت منابع</MyNavLink>
+                href ='/login'
+                >ورود</MyNavLink>
                 <IconContainer><MyListIcon/></IconContainer> 
               </ListItem>
             </ListContainer>
 
             <ListContainer>
-              <ListItem onClick={()=>handleUrl('/')}>
-                <MyNavLink 
-                // href ='/managerTextWeblog'
-                >مدیریت منابع</MyNavLink>
-                <IconContainer><MyListIcon/></IconContainer> 
-              </ListItem>
-              <ListItem onClick={()=>handleUrl('/')}>
+              
+              <ListItem onClick={()=>handleUrl('/profile')}>
               <MyNavLink 
-              // href ='/managerTextWeblog'
-              >مدیریت منابع</MyNavLink>
+              href ='/profile'
+              >تغییر اطلاعات شخصی</MyNavLink>
+                <IconContainer><MyListIcon/></IconContainer> 
+              </ListItem>
+              <ListItem onClick={()=>handleUrl('/profile')}>
+                <MyNavLink 
+                href ='/profile'
+                >عکس های ذخیره شده</MyNavLink>
                 <IconContainer><MyListIcon/></IconContainer> 
               </ListItem>
             </ListContainer>
 
             <ListContainer>
-              <ListItem onClick={()=>handleUrl('/')}>
+              <ListItem onClick={()=>handleUrl('/profile')}>
                 <MyNavLink 
-                // href ='/managerTextWeblog'
-                >مدیریت منابع</MyNavLink>
+                href ='/profile'
+                >بارگزاری عکس</MyNavLink>
                 <IconContainer><MyListIcon/></IconContainer> 
               </ListItem>
-              <ListItem onClick={()=>handleUrl('/')}>
+              <ListItem onClick={()=>handleUrl('/profile')}>
                 <MyNavLink 
-                // href ='/managerTextWeblog'
-                >مدیریت منابع</MyNavLink>
+                href ='/profile'
+                >پنل کاربری</MyNavLink>
                 <IconContainer><MyListIcon/></IconContainer> 
               </ListItem>
+              
             </ListContainer>
           </ToolbarInfo>
           

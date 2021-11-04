@@ -98,7 +98,7 @@ export const SaveBoxImage = styled.img`
 `;
 
 export const TiTleSaveBox = styled.p`
-  font-size:2rem;
+  font-size:1.5rem;
   font-family:ir_sans;
   margin-right:1rem;
 `;
@@ -107,7 +107,7 @@ export const SeeAllButton = styled.button`
   width:100%;
   height:20%;
   border:1px solid transparent;
-  font-size:2.5rem;
+  font-size:1.7rem;
   font-family:ir_sans;
   background-color:rgba(0,0,0,.8);
   color:#fff;

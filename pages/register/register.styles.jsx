@@ -46,7 +46,7 @@ export const MyFullNameIcon = styled(PermIdentityIcon)`
 
 export const StyledLink = styled.a`
     color:#fff;
-    font-size:1.8rem;
+    font-size:1.4rem;
     margin:1rem 0 2rem 0;
     transition:all .3s;
     font-family:ir_sans;
@@ -232,7 +232,7 @@ export const FormLabel = styled.label`
 `;
 
 export const FormInput = styled.input`
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     // font-family: inherit;
     font-family:ir_sans;
     color: inherit;

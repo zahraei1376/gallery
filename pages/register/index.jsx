@@ -150,7 +150,7 @@ const RegisterPage = (props) =>{
                             </FormGroup>
                         </FormGroupContainer>
 
-                        <FormGroupContainer>
+                        {/* <FormGroupContainer>
                             <FormGroup>
                                 <FormInput type="number" min="0" placeholder="سن" id="age" required onChange={e => handleSetFeild(e.target.value , 'age')} />
                                 <IconContainer>
@@ -164,7 +164,7 @@ const RegisterPage = (props) =>{
                                     <MyGenderIcon/>
                                 </IconContainer>
                             </FormGroup>
-                        </FormGroupContainer>
+                        </FormGroupContainer> */}
                 
                         <FormGroupBtn>
                             <Btn variant="contained"

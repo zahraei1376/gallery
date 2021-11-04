@@ -57,9 +57,9 @@ export const Title = styled.h1`
 `;
 
 export const Btn = styled(Button)`
-    background-color:${props => props.bgcolor ? props.bgcolor : '#084159'} !important;
+    background-color:${props => props.bgcolor ? props.bgcolor : '#0b1b4e'} !important;
     color:${props => props.clr ? props.clr : '#fff'} !important;
-    font-size:1.8rem !important;
+    font-size:1.5rem !important;
     // font-family:ir_sans !important;
     font-family:ir_sans !important;
     direction:rtl;
