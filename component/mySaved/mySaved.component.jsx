@@ -25,7 +25,7 @@ const SavedBoxesComponent = ({currentUser,saveCartItem ,uploadFiles,setTriggerDe
     useEffect(() => {
         const onScroll = e => {
             var y = e.target.documentElement.scrollTop;
-            if ( y >= 70) {
+            if ( y >= 100) {
                 if(!fixed){
                     setFixed(true);
                 }

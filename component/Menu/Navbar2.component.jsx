@@ -27,7 +27,7 @@ const MyNavbar = ({currentUser , scrolling , text}) =>{
             <SearchBoxContaiber 
             // segestion = "true" scroll = {scrolling ? true : null}
             >
-                <SearchBox segestion = "true" text={text} scroll = {scrolling ? true : null} />
+                <SearchBox segestion = "true" clicked={clicked} text={text} scroll = {scrolling ? true : null} />
             </SearchBoxContaiber>
             
             <InfoContainer>

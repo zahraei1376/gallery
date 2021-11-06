@@ -93,7 +93,8 @@ export const GallerySecion = styled.div`
     // grid-template-columns: repeat(auto-fill, 100px);
     // grid-template-rows: repeat(5, 1fr);
     // grid-template-rows: repeat(7, 5vw);
-    grid-gap: 3rem;
+    grid-gap:3rem;
+    // grid-gap:${props => props.together ? "0": "3rem"};
     padding: 1rem 4rem 2rem 4rem;
     // margin: 0 4rem;
     box-sizing:border-box;
@@ -160,7 +161,8 @@ export const ImageWrapper = styled.div`
     // cursor: -webkit-zoom-in;
     // cursor: zoom-in;
     cursor: pointer;
-    border-radius:2rem;
+    // border-radius:2rem;
+    border-radius:${props =>props.together ? "0":"2rem"};
     overflow:hidden;
     // width:100%;
     // Height:70%;
@@ -195,12 +197,14 @@ export const SavedBoxContainer = styled.div`
 
 export const Gallery__item = styled.div`
     position:relative;
-    border-radius:2rem;
+    border-radius:${props => props.together ? '0': '2rem'};
+    border:${props => props.together ? '1rem solid #fff': 'none'};
     margin-bottom: 3.5rem;
+    // padding:${props => props.selected ? '8px': '0'};
     overflow:hidden;
     // border : ${props => props.selected ? '2px solid #000': 'none'};
     outline : ${props => props.selected ? '3px solid #000': 'none'};
-    outline-offset : ${props => props.selected ? '5px': '0'};
+    // outline-offset : ${props => props.selected ? '1px': '0'};
     transition:all .2s;
     &:hover ${SavedBoxContainer}{
         display:block;

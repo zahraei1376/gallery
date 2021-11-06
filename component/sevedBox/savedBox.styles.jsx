@@ -101,6 +101,8 @@ export const TiTleSaveBox = styled.p`
   font-size:1.5rem;
   font-family:ir_sans;
   margin-right:1rem;
+  text-align: right;
+  direction: rtl;
 `;
 
 export const SeeAllButton = styled.button`

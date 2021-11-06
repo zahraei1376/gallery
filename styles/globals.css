@@ -35,7 +35,8 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Bnazanin';
+  padding: 0;
+  /* font-family: Bnazanin'; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -75,6 +76,15 @@ body {
 @font-face {
   font-family: 'ir_sans';
   src: url('/fonts/IranSans/Webfonts/fonts/woff/IRANSansX-Bold.woff');
+  /* src: url('/fonts/IranSans/NonEnglish/IRANSansXNoEn-Medium.ttf'); */
+  /* src: url(../assets/fonts/ir_sans.ttf) format('ttf'); */
+  /* src: url('/fonts/IranSans/NonEnglish/IRANSansXNoEn-Medium.ttf') format('ttf'); */
+}
+
+
+@font-face {
+  font-family: 'classic';
+  src: url('/fonts/Far_Classic/Far_Classic.ttf');
   /* src: url('/fonts/IranSans/NonEnglish/IRANSansXNoEn-Medium.ttf'); */
   /* src: url(../assets/fonts/ir_sans.ttf) format('ttf'); */
   /* src: url('/fonts/IranSans/NonEnglish/IRANSansXNoEn-Medium.ttf') format('ttf'); */

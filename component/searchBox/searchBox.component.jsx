@@ -3,7 +3,7 @@ import SegestionSearch from "../segestionSearch/segestionSearch.component";
 import {SearchBoxContainer , SearchBoxInput ,MySearchIcon ,SearchButton ,ClearIcon , BackDrop} from './searchBox.styles';
 import {Topics} from '../../generalMethod/topics';
 
-const SearchBox = ({segestion , text , scroll}) =>{
+const SearchBox = ({segestion , text , scroll , clicked}) =>{
     const [searchText , setSearchText] = useState('');
     const [showSegesion, setShowSegestion] = useState(false);
     const [result , setResult] = useState([]);
@@ -39,9 +39,9 @@ const SearchBox = ({segestion , text , scroll}) =>{
             <SearchBoxContainer>
                 {searchText ? 
                 <SearchButton segestion={segestion} onClick={() => {setSearchText('')}} >
-                    <ClearIcon scroll={scroll}/>
+                    <ClearIcon scroll={scroll} clicked={clicked}/>
                 </SearchButton> : ''}
-                <SearchBoxInput segestion={segestion} scroll={scroll}
+                <SearchBoxInput segestion={segestion} scroll={scroll} clicked={clicked}
                 onBlur  = {() => handleBlur()}
                  onFocus = {() => setShowSegestion(true)} type="text" placeholder="جستجو &#x1F50E;" value = {searchText}  onChange = {(e) => handleSearchText(e.target.value)} />
                 <SegestionSearch segestion= {segestion} result = {result} showSegesion = {showSegesion} setShowSegestion = {setShowSegestion} />

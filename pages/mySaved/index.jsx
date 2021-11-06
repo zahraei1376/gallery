@@ -1,4 +1,4 @@
-import MyNavbar from '../../component/Menu/Navbar.component';
+import MyNavbar from '../../component/Menu/Navbar2.component';
 // import SavedGallery from '../../component/savedImageGallery/savedImageGallery.component';
 import { TitleWrapper,LeftTitle , RightTitle,GalleryPageSecion ,TitleContainer,Title , SunTitle ,SunTitleSelect,InfoSelectContainer,
     DeleteContainer, DeleteButton, MyDeleteIcon ,InfoContainer,InfoWrapper,SelectAll ,SelectAllContainer} from './mySaved.styled';
@@ -9,10 +9,33 @@ import { TitleWrapper,LeftTitle , RightTitle,GalleryPageSecion ,TitleContainer,T
 // import { useState, useEffect } from 'react';
 // import { Tooltip } from '@material-ui/core';
 // import TitleStyle from '../../component/title/title.component';
-import SavedBoxesComponent from '../../component/mySaved/mySaved.component';
+import SavedBoxesPageComponent from '../../component/mySaved/mySavedPage.component';
+import { useEffect, useState } from 'react';
 // import { scrollFunction } from '../../generalMethod/limitRecipeTitle';
 //////////////////////////////////////////////
 const SavedPage = ({saveCartItem , count , RemoveItems , RemoveItem}) =>{
+      ////////////////////////////////////////////
+  const [scrolling,setScrolling] = useState(false);
+  ////////////////////////////////////////////
+  useEffect(()=>{
+    window.addEventListener('scroll', scrollFunction);
+    return () => window.removeEventListener('scroll', scrollFunction);
+  },[]);
+  ////////////////////////////////////////////
+  const scrollFunction = () => {
+    var y = window.scrollY;
+    // if ( y >= 61) {
+    if ( y >= 70) {
+        if(!scrolling){
+            setScrolling(true);
+        }
+    }else{
+        // if(scrolling){
+            setScrolling(false);
+        // }
+    }
+  } 
+  ////////////////////////////////////////////
     // const [imageForDelete, setImageForDelete] = useState([]);
     // const [textBtn , setTextBtn] = useState(0);
     // const [fixed , setFixed] = useState(null);
@@ -60,10 +83,11 @@ const SavedPage = ({saveCartItem , count , RemoveItems , RemoveItem}) =>{
     return(
         <GalleryPageSecion >
             <MyNavbar 
-            scrolling = {true} 
+            scrolling = {scrolling} 
             // scrolling = {!fixed ? "true" : null} 
             />
-            <SavedBoxesComponent type ={2}/>
+            {/* <SavedBoxesComponent type ={2}/> */}
+            <SavedBoxesPageComponent/>
             {/* <TitleContainer>
                 <TitleStyle text="عکس های ذخیره شده من"/>
             </TitleContainer>

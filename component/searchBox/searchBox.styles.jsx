@@ -22,7 +22,7 @@ export const ClearIcon = styled(CloseIcon)`
   font-size:2.5rem !important;
 //   margin-right:-4rem ;
   z-index:3 !important;
-  color:${props => props.scroll ? "#fff" : "#000"} !important;
+  color:${props => props.scroll || props.clicked ? "#fff" : "#000"} !important;
 `;
 
 export const MySearchIcon = styled(SearchIcon)`
@@ -58,7 +58,7 @@ export const SearchBoxInput = styled.input`
     border-radius:${props => props.segestion ? '5rem': '1rem'};
     // border:2px solid rgb(218,160,103);
     border: ${props => props.segestion ? '2px solid rgb(218,160,103)': '2px solid #eee'};
-    color:${props => props.segestion && props.scroll ? '#fff': '#000'};
+    color:${props => props.segestion && props.scroll || props.clicked ? '#fff': '#000'};
     // background-color:transparent;
     background-color: ${props => props.segestion ? 'transparent': '#eee'};
     z-index:2;

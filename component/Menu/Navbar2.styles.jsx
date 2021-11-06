@@ -86,7 +86,7 @@ export const UserIconButton = styled(IconButton)`
 
 export const MyUserIcon = styled(AssignmentIndIcon)`
     font-size:3.5rem !important;
-    color:rgb(218,160,103);;
+    color:rgb(218,160,103);
 `;
 
 export const InfoContainer = styled.div`
