@@ -16,7 +16,6 @@ const handler = async (req, res) =>{
                     const title = req.body.title;
                     var decoded = req.auth;
                     var id = decoded.userId;
-                    console.log('uploadId' , uploadId , id);
                     // var id = mongoose.Types.ObjectId(decoded.userId);
                     Files.findOneAndUpdate({ user : id , _id:uploadId } ,{
                         properties,
@@ -27,7 +26,6 @@ const handler = async (req, res) =>{
                         if(err){
                           res.status(401).json({seccess:false,message:'مشکلی رخ داده است !'});
                         }else{
-                            console.log('fileUser' , file);
                             res.status(200).send({seccess:true , data: file});
                         }
                     });

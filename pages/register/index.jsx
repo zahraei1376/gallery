@@ -50,15 +50,6 @@ const RegisterPage = (props) =>{
                 // age:fiels.age,
                 // gender:fiels.gender,
             }
-
-            console.log('daraaa', {
-                username: fiels.username,
-                password:fiels.pass,
-                email:fiels.email,
-                fullName:fiels.fullName,
-                // age:fiels.age,
-                // gender:fiels.gender,
-            });
             
             await fetch("/api/register", {
                 headers: {

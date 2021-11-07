@@ -23,9 +23,9 @@ const FileSchema = mongoose.Schema({
         type:String,
     },
     user:{
-        type:String,
-        // type:mongoose.Schema.Types.ObjectId,
-        // ref:'user'
+        // type:String,
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'user'
     }
 });
 

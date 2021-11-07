@@ -1,7 +1,7 @@
 import {useState , useEffect} from 'react';
 import MyNavbar from '../../component/Menu/Navbar2.component';
 import {ProfileInfoName,ButtonsContainer,ProfileContainer ,ProfileHeader,TabsContainer,Tabs, ProfileImage, ProfileImageContainer,ProfileInfoContainer, ProfileInfo, ProfileInfoGroup, ProfileInfoText, YearIcon, LocationIcon } from './profile.styles';
-import user from '../../assets/img/user.png';
+import userPic from '../../assets/img/user.png';
 import ShowUploadBoxes from './showAllUpload.component';
 import ShowSaveBoxes from './showAllSave.component';
 import MyButton from '../../component/ButtonComponent/Button.component';
@@ -21,13 +21,36 @@ const Profile = ({currentUser}) =>{
     const [uploadFiles , setUploadFiles] = useState([]);
     const [uploadFilesSelect , setUploadFilesSelect] = useState([]);
     const [triggerDeleteFile , setTriggerDeleteFile] = useState(false);
+    const [user , setUser ] = useState('');
     /////////////////////////////////////////////////////////
     const [showMessage,setShowMessage] = useState(false);
     const [message,setMessage] =useState('');
     const [status,setStatus] = useState('0');
     ///////////////////////////////////////////////////////////
+    const [scrolling,setScrolling] = useState(false);
+    ///////////////////////////////////////////////////////////
     const router = useRouter();
     ////////////////////////////////////////////////////////////
+    useEffect(()=>{
+        window.addEventListener('scroll', scrollFunction);
+        return () => window.removeEventListener('scroll', scrollFunction);
+    },[]);
+    ////////////////////////////////////////////
+    const scrollFunction = () => {
+        var y = window.scrollY;
+        // if ( y >= 61) {
+        console.log('yyyyyyyyyy' , y);
+        if ( y >= 170) {
+            if(!scrolling){
+                setScrolling(true);
+            }
+        }else{
+            // if(scrolling){
+                setScrolling(false);
+            // }
+        }
+    } 
+    ////////////////////////////////////////////
     useEffect(() =>{
         // console.log('type' , type);
         // setTextBtn(0);
@@ -59,6 +82,7 @@ const Profile = ({currentUser}) =>{
                     }
                     setUploadFilesSelect(selected);
                     setUploadFiles(dataRes.data);
+                    // setUser(dataRes.data);
                     
                 }else{
                     if(dataRes.reload){
@@ -96,16 +120,16 @@ const Profile = ({currentUser}) =>{
 
     return(
         <ProfileContainer>
-            <MyNavbar scrolling = {true} />
+            <MyNavbar scrolling = {scrolling} />
             <ProfileHeader>
 
             </ProfileHeader>
             <ProfileInfoContainer>
                 <ProfileInfo>
                     <ProfileInfoGroup>
-                        <ProfileInfoName>زهرا علیپور نوایی</ProfileInfoName>
+                        <ProfileInfoName>{user}</ProfileInfoName>
                         <ProfileImageContainer>
-                            <ProfileImage src ={user} layout="fill" />
+                            <ProfileImage src ={userPic} layout="fill" />
                         </ProfileImageContainer>
                         
                     </ProfileInfoGroup>

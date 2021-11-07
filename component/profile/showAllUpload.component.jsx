@@ -1,4 +1,4 @@
-import user from '../../assets/img/myPic.jpg';
+import user from '../../assets/img/myPic2.jpg';
 import {SubTitle as Title} from '../../generalCss/generalCss.styles';
 import {Container,UploadBoxContainer,UploadImage, UploadImageContainer,} from './showAllUpload.styles';
 // const myArray = [1,2,3,4,5];

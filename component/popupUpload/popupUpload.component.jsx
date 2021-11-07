@@ -41,14 +41,12 @@ const PopUpUpload = (props) => {
             return response.json();   
         })
         .then((dataRes)=>{
-            console.log('1111111111'); 
             if(dataRes.seccess){
                 setStatus('1')
                 setMessage('اطلاعات شما با موفقیت ثبت شد');
                 setShowMessage(true);
             }else{
                 if(dataRes.reload){
-                    console.log('1111111111');
                     setStatus('0')
                     setMessage(dataRes.message)
                     setShowMessage(true);
@@ -56,7 +54,6 @@ const PopUpUpload = (props) => {
                         router.push('/login')
                     }, 1000);
                 }else{
-                    console.log('2222222222');
                     setStatus('0')
                     setMessage(dataRes.message)
                     setShowMessage(true);
@@ -77,7 +74,6 @@ const PopUpUpload = (props) => {
     };
 
     const handleValue = (val) =>{
-        console.log('valllllllllllllll' , val);
         setInfo({...info , properties: val});
     }
 
@@ -109,16 +105,16 @@ const PopUpUpload = (props) => {
                 <Form>
                     
                     <Group>
-                        <Lable htmlFor="title" >عنوان</Lable>
+                        <Lable shirink={info.title ? "true" : null} htmlFor="title" >عنوان</Lable>
                         <Input id="title" type="text" onChange={e => setInfo({...info , title: e.target.value})} />
                     </Group>
                     <Group>
-                        <Lable>انتخاب نوع</Lable>
-                        <MyDropDown handleValue={handleValue} />
+                        <Lable shirink={info.properties ? "true" : null}>انتخاب نوع</Lable>
+                        <MyDropDown borderBottom="true" handleValue={handleValue} />
                     </Group>
                     <Group>
-                        <Lable htmlFor="explain" >توضیحات</Lable>
-                        <TextArea rows="5" id="explain" onChange={e => setInfo({...info , sunTitle: e.target.value})} />
+                        <Lable shirink={info.sunTitle ? "true" : null} htmlFor="explain" >توضیحات</Lable>
+                        <TextArea shirink={info.sunTitle ? "true" : null} rows="1" id="explain" onChange={e => setInfo({...info , sunTitle: e.target.value})} />
                     </Group>
                     <MyButton mg="3" text="ارسال" onClick = {handleOnClick} />
                 </Form>

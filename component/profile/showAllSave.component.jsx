@@ -1,4 +1,4 @@
-import user from '../../assets/img/myPic.jpg';
+import user from '../../assets/img/myPic2.jpg';
 import {SubTitle as Title} from '../../generalCss/generalCss.styles';
 import {SaveContainer,Container,SaveBoxContainer,SaveImage,
     SaveImageBoxContainer, SaveImageContainer} from './showAllSave.styles';

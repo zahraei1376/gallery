@@ -9,11 +9,14 @@ import { selectedCart } from '../../redux/cart/cart.selectors';
 import MyButton from '../ButtonComponent/Button.component';
 import logo from '../../assets/img/user.png';
 import { useRouter } from 'next/router';
+import CropImage from './cropImage';
+/////////////////////////////////////////
 const PopUpProfile = ({currentUser , close}) => {
     const [showMessage,setShowMessage] = useState(false);
     const [message,setMessage] =useState('');
     const [status,setStatus] = useState('0');
     const [srcImage , setSrcImage] = useState('');
+    const [cropImage , setCropImage] = useState(null);
     const [state, setState] = useState({
         photographer : '',
         photographerPicture:'',
@@ -80,14 +83,12 @@ const PopUpProfile = ({currentUser , close}) => {
             return response.json();   
         })
         .then((dataRes)=>{
-            console.log('1111111111'); 
             if(dataRes.seccess){
                 setStatus('1')
                 setMessage('اطلاعات شما با موفقیت ثبت شد');
                 setShowMessage(true);
             }else{
                 if(dataRes.reload){
-                    console.log('1111111111');
                     setStatus('0')
                     setMessage(dataRes.message)
                     setShowMessage(true);
@@ -95,7 +96,6 @@ const PopUpProfile = ({currentUser , close}) => {
                         router.push('/login')
                     }, 1000);
                 }else{
-                    console.log('2222222222');
                     setStatus('0')
                     setMessage(dataRes.message)
                     setShowMessage(true);
@@ -108,6 +108,10 @@ const PopUpProfile = ({currentUser , close}) => {
             setMessage(err.message)
             setShowMessage(true);
         });
+    }
+    ///////////////////////////////
+    const handleCroup = () =>{
+
     }
 
 
@@ -150,33 +154,41 @@ const PopUpProfile = ({currentUser , close}) => {
                             // onClick={checkSendfile}
                         />
                     </FileContainer>
+                    {/* {srcImage && (
+                        <div>
+                            <CropImage
+                                setCropImage ={setCropImage}
+                                src={srcImage}
+                            />
+                        </div>
+                    )} */}
                     <Title>نمایش اطلاعات شما</Title>
                 </PopUpHeader>
                 <Form>
                     
                     <Group>
-                        <Lable htmlFor="name" >نام</Lable>
-                        <Input id="name" type="text" value={state.photographer} onChange = {e => setState({...state , photographer:e.target.value })} />
+                        <Lable shirink={state.photographer ? "true" : null} htmlFor="name" >نام</Lable>
+                        <Input placeholder=" " id="name" type="text" value={state.photographer} onChange = {e => setState({...state , photographer:e.target.value })} />
                     </Group>
                     {/* <Group>
                         <Lable htmlFor="pass" >پسورد</Lable>
                         <Input id="pass" type="password" value={state.password} onChange = {e => setState({...state , password:e.target.value })}/>
                     </Group> */}
                     <Group>
-                        <Lable htmlFor="email" >ایمیل</Lable>
-                        <Input id="email" type="text" value={state.email} onChange = {e => setState({...state , email:e.target.value })}/>
+                        <Lable shirink={state.email ? "true" : null} htmlFor="email" >ایمیل</Lable>
+                        <Input placeholder=" " id="email" type="text" value={state.email} onChange = {e => setState({...state , email:e.target.value })}/>
                     </Group>
                     {/* <Group>
                         <Lable htmlFor="phone" >تماس</Lable>
                         <Input id="phone" type="text" />
                     </Group> */}
                     <Group>
-                        <Lable htmlFor="location" >موقعیت مکانی</Lable>
-                        <Input id="location" type="text" value={state.location} onChange = {e => setState({...state , location:e.target.value })} />
+                        <Lable shirink={state.location ? "true" : null} htmlFor="location" >موقعیت مکانی</Lable>
+                        <Input placeholder=" " id="location" type="text" value={state.location} onChange = {e => setState({...state , location:e.target.value })} />
                     </Group>
-                    {/* <Group> */}
-                    <MyButton mg="3" text="ارسال" onClick = {e => handleOnClick(e)} />
-                    {/* </Group> */}
+                    <div>
+                        <MyButton mg="3" text="ارسال" onClick = {e => handleOnClick(e)} />
+                    </div>
                 </Form>
             </ContentContainer>          
           </PopUpBody>

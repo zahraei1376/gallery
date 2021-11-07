@@ -61,7 +61,7 @@ export const InfoWrapper = styled.div`
     align-items:center;
     justify-content: space-between;
     // border-bottom: 3px double #999;
-    border-bottom:${props => props.fixed ? 'none' : '3px double #999'};
+    border-bottom:${props => props.fixed ? 'none' : '3px double #000'};
     padding:2rem 0;
 `;
 

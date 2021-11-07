@@ -45,9 +45,7 @@ const myUpload = (req, res) =>{
                     name = 'zzzzzzzzzzzzzzzzzzzz';
                 }
 
-                console.log('req.body1111' , name);
                 req.fileName = name;
-                console.log('req.body2222' , req.fileName);
                 // return handler(req, res);
                 resolve(name);
             }

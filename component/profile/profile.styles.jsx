@@ -84,8 +84,9 @@ export const ProfileHeader = styled.div`
     height:42rem;
     background-size:cover;
     background-repeat:no-repeat;
+    background-image: linear-gradient(to bottom ,rgba(0,0,0,0.3), rgba(218,160,103 ,0.7),rgba(25,30,62,0.8)),url(${"/img/00.jpg"});
     // background-image: repeating-linear-gradient(red, yellow 10%, green 20%) ,url(${"/img/3.jpg"});
-    background-image: radial-gradient(ellipse at top ,rgba(252,141,109,.8),rgba(191,79,123,.8),rgba(36,45,100,.8) 80%,rgba(25,30,62,.8) 100%),url(${"/img/00.jpg"});
+    // background-image: radial-gradient(ellipse at top ,rgba(252,141,109,.8),rgba(191,79,123,.8),rgba(36,45,100,.8) 80%,rgba(25,30,62,.8) 100%),url(${"/img/00.jpg"});
     // background-image: url(${pic}),radial-gradient(ellipse at top ,#fc8d6d,#bf4f7b,#242d64 80%,#191e3e 100%);
 `;
 

@@ -24,7 +24,6 @@ const handler = async (req, res) =>{
                     const photographer = fields.photographer;
                     var decoded = req.auth;
                     var fileName = req.fileName;
-                    console.log('decoded' , decoded , fileName , photographer, email, location);
                     User.findByIdAndUpdate(decoded.userId , 
                     {
                         location:location,

@@ -14,7 +14,6 @@ const handler = async (req, res) =>{
                     var decoded = req.auth;
                     var id = decoded.userId;
                     const arrayId = req.body.arrayId;
-                    console.log('ididid',id);
                     // for (let index = 0; index < arrayId.length; index++) {
                     //     const element = arrayId[index];
                     //     Files.findOneAndDelete({ user : id , _id:element }).exec((err, fileUser) => {

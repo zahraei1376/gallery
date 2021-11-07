@@ -13,7 +13,6 @@ export default async (req, res) =>{
                 try {
                     let username = req.body.username;
                     let password = req.body.password;
-                    console.log(username , password);
                     let loadedUser;
                     await User.findOne({username:username})
                     .then((userlogin)=>{
@@ -33,10 +32,9 @@ export default async (req, res) =>{
                             // isAdmin:loadedUser.isAdmin
                         },
                         'MySuperSecret',
-                        {expiresIn:'1h'}
+                        // {expiresIn:'1h'}
                         );
 
-                        console.log('tokentokentoken' ,token);
                         // res.statusCode(200).json({token:token,userId:loadedUser._id.toString()})
                         res.json({seccess:true,token:token,userInfo:loadedUser})
                     })

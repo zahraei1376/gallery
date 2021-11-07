@@ -15,7 +15,6 @@ const SavedImages = ({setLocation , addItemToSave,selectedCart,imageInfo}) =>{
     const [seved , setSaved] = useState(null);
     ///////////////////////////////////////////////
     useEffect(() =>{
-        console.log('selectedCartselectedCart' ,selectedCart);
         setSaved(selectedCart ? selectedCart : null);
     },[imageInfo._id]);
 

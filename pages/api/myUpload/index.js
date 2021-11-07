@@ -17,9 +17,11 @@ const handler = async (req, res) =>{
                     var decoded = req.auth;
                     var id = decoded.userId;
                     // var id = mongoose.Types.ObjectId(decoded.userId);
-                    console.log('ididid',typeof id);
-                    Files.find({user : id }).exec((err, filesUser) => {
-                      console.log('filesUser',filesUser);
+                    Files.find({user : id }).populate().exec((err, filesUser) => {
+                      // const data = {};
+                      // data.files = filesUser;
+
+                      // data.user = ""
                       if(err){
                         res.status(401).json({seccess:false,message:'مشکلی رخ داده است !'});
                       }else{

@@ -54,7 +54,6 @@ const SavedBoxesComponent = ({currentUser,saveCartItem ,uploadFiles,setTriggerDe
                 arrayId:imageForDelete,
               }
         
-              console.log('dataaaaaaaaa', data , data);
               fetch("/api/profile/deleteImage", {
                 headers: {
                     'Content-Type': 'application/json',

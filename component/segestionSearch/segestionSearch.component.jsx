@@ -18,7 +18,6 @@ const SegestionSearch = ({showSegesion, setShowSegestion , result , segestion}) 
     const router = useRouter()
     const handleSearch = (name) =>{
         setShowSegestion(false);
-        console.log('name', name);
         router.push({
             pathname: '/gallery',
             query: { images: name} 

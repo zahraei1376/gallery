@@ -31,7 +31,6 @@ const SavedGallery = ({RemoveItem ,RemoveItems,together,uploadedImage, images ,i
     //////////////////////////////////////////////
     function ResizeWindows(){
         var SIZE = 4;
-        console.log('imagesimages',images);
         if(images && images.length > 0 && images[0]){
             if(window.innerWidth < 540){
                 SIZE = 1;

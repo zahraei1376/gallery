@@ -70,7 +70,6 @@ const ShowImage = ({addItemToSave,selectedCart,currentUser,uploadedImage,...prop
           uploadId:props.data._id,
         }
   
-        console.log('dataaaaaaaaa', data , props.data._id);
         fetch("/api/profile/canEditUploadImage", {
           headers: {
               'Content-Type': 'application/json',
@@ -84,7 +83,6 @@ const ShowImage = ({addItemToSave,selectedCart,currentUser,uploadedImage,...prop
         })
         .then((dataRes)=>{ 
             if(dataRes.seccess){
-                console.log('dataRes.data',dataRes.data);
                 setInfo(dataRes.data)
                 if(dataRes.can){
                   setOwn(true);
@@ -117,7 +115,6 @@ const ShowImage = ({addItemToSave,selectedCart,currentUser,uploadedImage,...prop
     }, []);
     ////////////////////////////////////////////////////////////////
     const handleValue = (val) =>{
-      console.log('valllllllllllllll' , val);
       setInfo({...info , properties: val});
     }
     ////////////////////////////////////////////////////////////////
@@ -129,7 +126,6 @@ const ShowImage = ({addItemToSave,selectedCart,currentUser,uploadedImage,...prop
         title:info.title,
       }
 
-      console.log('dataaaaaaaaa', data , props.data._id);
       fetch("/api/profile/editUploadImageInfo", {
         headers: {
             'Content-Type': 'application/json',
@@ -143,7 +139,7 @@ const ShowImage = ({addItemToSave,selectedCart,currentUser,uploadedImage,...prop
       })
       .then((dataRes)=>{ 
           if(dataRes.seccess){
-              console.log('dataRes.data',dataRes.data);
+              // console.log('dataRes.data',dataRes.data);
               
           }else{
               if(dataRes.reload){
