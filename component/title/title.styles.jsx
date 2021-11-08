@@ -14,7 +14,8 @@ export const LeftTitle = styled.div`
     // background-image: linear-gradient(to right ,rgba(218,160,103 ,0.7) 10%,#bf4f7b 50%,#191e3e 50%);
     // background-image: linear-gradient(to right ,rgba(252, 141, 109, 0.7),rgba(191, 79, 123, 0.7),rgba(36, 45, 100, 0.7) 80%,rgba(25, 30, 62, 0.7) 100%);
     box-shadow: 0 11px 13px -12px rgba(0,0,0,1);
-    background-color:rgba(22,40,88 ,1);
+    // background-color:#679186;
+    background-image:linear-gradient(to left ,#679186 ,#679186);
 `;
 
 export const RightTitle = styled.div`
@@ -27,7 +28,9 @@ export const RightTitle = styled.div`
     top:1.5rem;
     right:-4rem;
     clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
-    background-color:rgba(22,40,88 ,1);
+    // background-color:rgba(22,40,88 ,1);
+    // background-color:#679186;
+    background-image:linear-gradient(to right ,#679186 ,#679186);
     // background-image: linear-gradient(to left ,rgba(218,160,103 ,0.7) 10%,#bf4f7b 50%,#191e3e 50%);
     // background-image: linear-gradient(to left ,rgba(252, 141, 109, 0.7),rgba(191, 79, 123, 0.7),rgba(36, 45, 100, 0.7) 80%,rgba(25, 30, 62, 0.7) 100%);
     box-shadow: 0 11px 13px -12px rgba(0,0,0,1);
@@ -43,13 +46,14 @@ export const Title = styled.h1`
     // margin-bottom: 3rem;
     position: relative;
     z-index:1;
-    font-size:3rem;
-    font-family:ir_sans_bold;
+    font-size:3.5rem;
+    font-family:classic;
     padding:1rem 3rem;
     box-shadow: 0 11px 13px -12px rgba(0,0,0,1);
     border-style: outset;
-    color:#fff;
-    background-color:rgba(22,40,88 ,1);
+    color:rgba(25,30,62,1);
+    // background-color:rgba(22,40,88 ,1);
+    background-image:linear-gradient(to bottom ,#679186,#fff,#679186);
     // background-image: radial-gradient(ellipse at top ,rgba(218,160,103 ,0.7) 10%,#bf4f7b 50%,#191e3e 50%);
     // background-image: radial-gradient(ellipse at top ,rgba(252, 141, 109, 0.7),rgba(191, 79, 123, 0.7),rgba(36, 45, 100, 0.7) 80%,rgba(25, 30, 62, 0.7) 100%);
 `;

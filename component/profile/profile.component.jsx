@@ -72,7 +72,7 @@ const Profile = ({currentUser}) =>{
             .then((dataRes)=>{ 
                 if(dataRes.seccess){
                     console.log('dataRes.data',dataRes.data);
-                    var selected = dataRes.data.slice(- 5);
+                    var selected = dataRes.data.files.slice(- 5);
                     var count = 5 - selected.length ;
                     if(count !== 0){
                         for (let index = 0; index < count; index++) {
@@ -81,8 +81,8 @@ const Profile = ({currentUser}) =>{
                         // selected.push(undefined, undefined,)
                     }
                     setUploadFilesSelect(selected);
-                    setUploadFiles(dataRes.data);
-                    // setUser(dataRes.data);
+                    setUploadFiles(dataRes.data.files);
+                    setUser(dataRes.data.user);
                     
                 }else{
                     if(dataRes.reload){
@@ -127,9 +127,9 @@ const Profile = ({currentUser}) =>{
             <ProfileInfoContainer>
                 <ProfileInfo>
                     <ProfileInfoGroup>
-                        <ProfileInfoName>{user}</ProfileInfoName>
+                        <ProfileInfoName>{user && user.photographer ? user.photographer : ''}</ProfileInfoName>
                         <ProfileImageContainer>
-                            <ProfileImage src ={userPic} layout="fill" />
+                            <ProfileImage src ={user && user.photographerPicture ? user.photographerPicture : userPic} layout="fill" />
                         </ProfileImageContainer>
                         
                     </ProfileInfoGroup>
@@ -170,7 +170,7 @@ const Profile = ({currentUser}) =>{
             </TabsContainer>
 
             {showProfile && <PopUpProfile currentUser = {currentUser} close={handleOnClick}/>}
-            {showUploadBox && <PopUpUpload currentUser = {currentUser} close={handleUploadBox}/>}
+            {showUploadBox && <PopUpUpload setTriggerDeleteFile={setTriggerDeleteFile} triggerDeleteFile={triggerDeleteFile} currentUser = {currentUser} close={handleUploadBox}/>}
             {showMessage && <MySnackbar message={message} status={status} showMessage={showMessage} setShowMessage={setShowMessage} />  }
         </ProfileContainer>
     )

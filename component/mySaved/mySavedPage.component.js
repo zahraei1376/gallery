@@ -104,7 +104,7 @@ const SavedBoxesPageComponent = ({currentUser,saveCartItem ,uploadFiles,setTrigg
                 </InfoSavedSelectContainer>
                 
                 <div style={{marginTop:'5rem'}}>
-                <SavedGallery together = "true" images = {saveCartItem} imageForDelete = {imageForDelete} setImageForDelete ={setImageForDelete} />
+                <SavedGallery biger="true" together = "true" images = {saveCartItem} imageForDelete = {imageForDelete} setImageForDelete ={setImageForDelete} />
                 </div>
             </div>
             {

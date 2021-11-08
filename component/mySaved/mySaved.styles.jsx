@@ -56,7 +56,7 @@ export const SelectAll = styled.button`
     // }
 `;
 export const InfoWrapper = styled.div`
-    width:80%;
+    width:100%;
     display:flex;
     align-items:center;
     justify-content: space-between;
@@ -134,8 +134,9 @@ export const MyDeleteIcon = styled(DeleteIcon)`
 `;
 
 export const GalleryPageSecion = styled.div`
-    width:100%;
+    width:90%;
     position:relative;
+    margin:0 auto;
     // background-image:linear-gradient(to bottom right , #1E88E5 60%,#bf4f7b 60%);
     // margin: 6rem 2rem 2rem 2rem;
 `;

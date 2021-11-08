@@ -37,7 +37,7 @@ const ButtonDownloadStyle = css`
 	border:none;
 	background-color:rgba(36, 45, 100, 1);
 	transition:all .3s;
-	font-size:2rem;
+	font-size:1.8rem;
 	font-family:ir_sans;
 	color:#fff;
 	height:100%;
@@ -150,7 +150,7 @@ export const DownloadButtonIcon = styled.button`
 `;
 // #fc8d6d,#bf4f7b,#242d64 80%,#191e3e
 export const DownloadButton = styled.button`
-	padding:5px 1rem;
+	padding:5px 1.5rem;
 	${ButtonDownloadStyle};
 	border-top-left-radius:5px;
 	border-bottom-left-radius:5px;
@@ -200,7 +200,7 @@ export const Header = styled.div`
 	margin-bottom:4rem;
 	// background-color:#1d1d1d;
 	padding:2rem 1rem;
-	border-bottom:1px solid #000;
+	border-bottom:2px solid #777;
 
 	@media only screen and (max-width: 960px) {
 		flex-direction: column-reverse;
@@ -225,7 +225,7 @@ export const ImageTitle = styled.h1`
 `;
 
 export const Label = styled.label`
-	font-size:2rem;
+	font-size:1.5rem;
 	font-family:ir_sans;
 	width:20%;
 `;
@@ -241,7 +241,7 @@ export const Group = styled.div`
 `;
 
 export const TitleInput = styled.input`
-	font-size:1.8rem;
+	font-size:1.5rem;
 	font-family:ir_sans;
 	width:70%;
 	border:1px solid #000;
@@ -249,7 +249,7 @@ export const TitleInput = styled.input`
 `;
 
 export const DescriptionInput = styled.textarea`
-	font-size:1.8rem;
+	font-size:1.5rem;
 	font-family:ir_sans;
 	width:70%;
 	border:1px solid #000;
@@ -329,6 +329,12 @@ export const DescriptionBody = styled.div`
 	// 	transform: translate(-19%, 0);
 	// }
 
+	@media only screen and (max-width: 990px) {
+		left: 58%;
+		width: 60%;
+		// transform: translate(-50%, 0);
+	}
+
 	@media only screen and (max-width: 540px) {
 		left: 50%;
 		width: 100%;
@@ -388,7 +394,7 @@ export const DescriptionContent = styled.div`
 	margin:1rem;
 	// padding:3rem;
 	overflow:auto;
-	border:1px solid #000;
+	border:2px solid #777;
 	border-radius:5px;
 	padding-bottom:2rem;
 	// max-height:100%;
@@ -486,6 +492,9 @@ export const BtnClose = styled.button`
 	font-size:2rem;
 	font-family:ir_sans;
 	cursor:pointer;
+	display:flex; 
+	align-items:center;
+	justify-content:center;
 	transition:all 0.3s;
 	&:hover{
 		// background-color: #fff;

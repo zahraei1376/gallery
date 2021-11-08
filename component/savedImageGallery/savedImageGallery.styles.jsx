@@ -77,6 +77,7 @@ export const SpinnerContainer = styled.div`
 
 export const GallerySecion = styled.div`
     width:100%;
+    // width:${props => props.together ? "100%": "80%"};
     // position:relative;
     // min-height:100vh;
     // background-color: #f9f7f6;
@@ -95,7 +96,8 @@ export const GallerySecion = styled.div`
     // grid-template-rows: repeat(7, 5vw);
     grid-gap:3rem;
     // grid-gap:${props => props.together ? "0": "3rem"};
-    padding: 1rem 4rem 2rem 4rem;
+    // padding: 1rem 4rem 2rem 4rem;
+    padding:${props => props.together ? "1rem 4rem 2rem 4rem": "1rem 0"};
     // margin: 0 4rem;
     box-sizing:border-box;
     z-index:1;
@@ -204,7 +206,7 @@ export const Gallery__item = styled.div`
     overflow:hidden;
     // border : ${props => props.selected ? '2px solid #000': 'none'};
     outline : ${props => props.selected ? '3px solid #000': 'none'};
-    // outline-offset : ${props => props.selected ? '1px': '0'};
+    outline-offset : ${props => props.uploadedImage ? '6px': '0'};
     transition:all .2s;
     &:hover ${SavedBoxContainer}{
         display:block;

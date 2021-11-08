@@ -2,6 +2,7 @@ import dbConnec from '../../../utils/dbConnect';
 import verifyToken from '../../../utils/middleware/withValidation';
 import withUpload from '../../../utils/middleware/withUpload';
 import User from '../../../models/UserModel';
+import File from '../../../models/FileModel';
 import formParse from '../../../utils/formParse';
 
 dbConnec();
@@ -21,23 +22,29 @@ const handler = async (req, res) =>{
                 await withUpload(req, res);
                 console.log('after upload' , req.body);
                 console.log('formmmmmmmmmmmmmmm');
-                const location =  req.body.location;
-                const email = req.body.email;
-                const photographer = req.body.photographer;
+                const properties =  req.body.properties;
+                const title = req.body.title;
+                const sunTitle = req.body.sunTitle;
                 var decoded = req.auth;
                 var fileName = req.fileName;
-                User.findByIdAndUpdate(decoded.userId , 
-                {
-                    location:location,
-                    email:email,
-                    photographerPicture:fileName,
-                    photographer:photographer,
-                },
-                { returnOriginal: false },
-                )
+                User.findById(decoded.userId)
                 .then((existUser)=>{
-                    console.log('userrrrrrrrr' , existUser);
-                    res.status(200).send({seccess:true , data: existUser});
+                    console.log('existUser',existUser);
+                    if(!existUser){
+                        res.status(401).send({seccess:false , message:'اطلاعاتی یافت نشد'});
+                    }
+                    const FileModel = new File({
+                        properties,
+                        title,
+                        sunTitle,
+                        src:fileName,
+                        // user:decoded.userId,
+                        // age:age,
+                    });
+                    // FileModel.user.push(existUser);
+                    FileModel.user = existUser;
+                    FileModel.save(); 
+                    res.status(201).json({seccess:true,message:'فایل آپلود شد!!!',});
                 }).catch(err =>{
                     res.status(401).send({seccess:false , message:'مشکلی رخ داده است'});
                 })

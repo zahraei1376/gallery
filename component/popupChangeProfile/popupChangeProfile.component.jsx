@@ -1,6 +1,6 @@
 import { useState , useEffect } from 'react';
 import {PopUpContainer , PopUpBody ,Form, MyCloseIcon,Group,Lable,Input,SettingIcon,
-  ContentContainer,BtnClose,LogoContainer,Logo,Title, PopUpHeader,FileContainer,} from './popupChangeProfile.styles';
+  ContentContainer,BtnClose,LogoContainer,Logo,Title, PopUpHeader,FileContainer, ContentFile, ImageWrapper, MyImage,} from './popupChangeProfile.styles';
 import {addItem} from '../../redux/cart/cart.action';
 import { connect } from 'react-redux';
 import MySnackbar from '../messageBox/messageBox.component';
@@ -190,7 +190,12 @@ const PopUpProfile = ({currentUser , close}) => {
                         <MyButton mg="3" text="ارسال" onClick = {e => handleOnClick(e)} />
                     </div>
                 </Form>
-            </ContentContainer>          
+            </ContentContainer>
+            <ContentFile>
+                {srcImage && <ImageWrapper>
+                    <MyImage layout="fill" src = {srcImage} />
+                </ImageWrapper>}
+            </ContentFile>          
           </PopUpBody>
           <BtnClose onClick = {close}><MyCloseIcon/></BtnClose>
           {

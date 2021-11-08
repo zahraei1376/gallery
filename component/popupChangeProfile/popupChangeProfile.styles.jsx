@@ -61,34 +61,71 @@ export const PopUpContainer = styled.div`
 `;
 
 export const PopUpBody = styled.div`
-	width: 30%;
+	width: 60%;
+	background-color:#fff;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	
-    
+	display:flex;
+	justify-content:center;
+	align-items:center;
+
 	// margin-top:5rem;
 
-    @media only screen and (max-width: 980px) {
+	// @media only screen and (max-width: 750px) {
+	// 	// left: 50%;
+	// 	width: 70%;
+	// 	// transform: translate(-50%, 0);
+	// }
+
+	// @media only screen and (max-width: 540px) {
+	// 	// left: 50%;
+	// 	width: 100%;
+	// 	// transform: translate(-50%, 0);
+	// }
+
+	@media only screen and (max-width: 1000px) {
 		// left: 50%;
-		width: 50%;
+		width: 70%;
 		// transform: translate(-50%, 0);
 	}
 
-	@media only screen and (max-width: 411px) {
+	@media only screen and (max-width: 750px) {
 		// left: 50%;
 		width: 80%;
 		// transform: translate(-50%, 0);
 	}
+
+	@media only screen and (max-width: 540px) {
+		// flex-direction:column-reverse;
+		width: 95%;
+	}
 `;
 
 export const ContentContainer = styled.div`
-	width: 100%;
+	// width: 100%;
+	// // background-color: #eee;
+	// background-image: linear-gradient(to right ,rgba(218,160,103 ,0.5) 97%,#191e3e 97%),url(${"/img/sea3.jpg"});
+	// // background-image: radial-gradient(ellipse at top ,rgba(59,118,202,0.6),rgba(84,173,159,0.8)),url(${"/img/sea3.jpg"});
+	// // background-image : linear-gradient(to right , #3d7ccb ,#569ebb, #6bc0ad) ,url(${"/img/sea2.jpg"});
+    // // background-color:#E0E0E0;
+	// box-shadow: 0 2rem 6rem 0.5rem rgba(101, 90, 86, 0.2);
+	// position: relative;
+	// z-index: 1;
+	// transition: all 3s;
+	// overflow:auto;
+	// display: flex;
+    // flex-direction:column;
+    // justify-content: space-between;
+    // align-items: center;
+    // padding:2rem 5rem 3rem 5rem;
+	// // padding:2rem 3rem 3rem 5rem;
+    // // border-radius:2rem;
+    // // border:1px solid #191e3e;
+	width: 50%;
 	// background-color: #eee;
-	background-image: linear-gradient(to right ,rgba(218,160,103 ,0.5) 97%,#191e3e 97%),url(${"/img/sea3.jpg"});
-	// background-image: radial-gradient(ellipse at top ,rgba(59,118,202,0.6),rgba(84,173,159,0.8)),url(${"/img/sea3.jpg"});
-	// background-image : linear-gradient(to right , #3d7ccb ,#569ebb, #6bc0ad) ,url(${"/img/sea2.jpg"});
+	background-image: linear-gradient(to right ,rgba(25, 30, 62, 0.8) 3%,rgba(218,160,103 ,0.5) 3%),url(${"/img/sea3.jpg"});
     // background-color:#E0E0E0;
 	box-shadow: 0 2rem 6rem 0.5rem rgba(101, 90, 86, 0.2);
 	position: relative;
@@ -100,9 +137,12 @@ export const ContentContainer = styled.div`
     justify-content: space-between;
     align-items: center;
     padding:2rem 5rem 3rem 5rem;
-	// padding:2rem 3rem 3rem 5rem;
     // border-radius:2rem;
     // border:1px solid #191e3e;
+
+	@media only screen and (max-width: 540px) {
+		padding:2rem 2rem 3rem 3rem;
+	}
 `;
 
 export const PopUpHeader = styled.div`
@@ -168,33 +208,8 @@ export const Input = styled.input`
     border:none;
 	border-bottom:1px solid #fff;
 	background-color:transparent;
-
-	&:select:focus {
-		background: yellow
-	}
-    // background-color:#fff;
-
-	// &::focus + label{
-    //     border-bottom:1px solid #000;
-    // }
-
-	
-
-	// &:focus + input {
-	// 	// top:-10rem;
-	// }
-
-	// &:not(:placeholder-shown) + ${Lable}{
-	// 	// top:-1rem;
-	// }
-
-	// &:not(:placeholder-shown) {
-	// 	border-color: green;
-	//   }
-	  
-	  &:focus ~ ${Lable}  {
-		color: red;
-	  }
+	font-size:1.8rem;
+	font-family:ir_sans;
 `;
 
 export const Logo = styled(Image)`
@@ -245,4 +260,51 @@ export const BtnClose = styled.button`
         top: 0;
 		right: 1rem;
     }
+`;
+
+
+export const ContentFile = styled.div`
+	width:50%;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	// @media only screen and (max-width: 980px) {
+	// 	// left: 50%;
+	// 	width: 50%;
+	// 	// transform: translate(-50%, 0);
+	// }
+
+	// @media only screen and (max-width: 411px) {
+	// 	// left: 50%;
+	// 	width: 80%;
+	// 	// transform: translate(-50%, 0);
+	// }
+`;
+
+export const ImageContainer = styled.div`
+	position:relative;
+	width:100%;
+`;
+
+
+export const ImageWrapper = styled.div`
+	width: 90%;
+	align-items: start;
+	// position:relative;
+	// width:100%;
+	// Height:70%;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+
+	& > div {
+		position: unset !important;
+	}
+`;
+
+export const MyImage = styled(Image)`
+    object-fit: contain;
+    width: 100% !important;
+    position: relative !important;
+    height: unset !important;
 `;

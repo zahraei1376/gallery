@@ -62,11 +62,15 @@ export const PopUpContainer = styled.div`
 `;
 
 export const PopUpBody = styled.div`
-	width: 30%;
+	width: 60%;
+	background-color:#fff;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	display:flex;
+	justify-content:center;
+	align-items:center;
     
 	// margin-top:5rem;
 
@@ -78,25 +82,76 @@ export const PopUpBody = styled.div`
 
 	// @media only screen and (max-width: 540px) {
 	// 	// left: 50%;
-	// 	width: 90%;
+	// 	width: 100%;
 	// 	// transform: translate(-50%, 0);
 	// }
 
-	@media only screen and (max-width: 980px) {
+	@media only screen and (max-width: 1000px) {
 		// left: 50%;
-		width: 50%;
+		width: 70%;
 		// transform: translate(-50%, 0);
 	}
 
-	@media only screen and (max-width: 411px) {
+	@media only screen and (max-width: 750px) {
 		// left: 50%;
 		width: 80%;
 		// transform: translate(-50%, 0);
 	}
+
+	@media only screen and (max-width: 540px) {
+		// flex-direction:column-reverse;
+		width: 95%;
+	}
+`;
+
+export const ContentFile = styled.div`
+	width:50%;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	// @media only screen and (max-width: 980px) {
+	// 	// left: 50%;
+	// 	width: 50%;
+	// 	// transform: translate(-50%, 0);
+	// }
+
+	// @media only screen and (max-width: 411px) {
+	// 	// left: 50%;
+	// 	width: 80%;
+	// 	// transform: translate(-50%, 0);
+	// }
+`;
+
+export const ImageContainer = styled.div`
+	position:relative;
+	width:100%;
+`;
+
+
+export const ImageWrapper = styled.div`
+	width: 90%;
+	align-items: start;
+	// position:relative;
+	// width:100%;
+	// Height:70%;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+
+	& > div {
+		position: unset !important;
+	}
+`;
+
+export const MyImage = styled(Image)`
+    object-fit: contain;
+    width: 100% !important;
+    position: relative !important;
+    height: unset !important;
 `;
 
 export const ContentContainer = styled.div`
-	width: 100%;
+	width: 50%;
 	// background-color: #eee;
 	background-image: linear-gradient(to right ,rgba(25, 30, 62, 0.8) 3%,rgba(218,160,103 ,0.5) 3%),url(${"/img/sea3.jpg"});
     // background-color:#E0E0E0;
@@ -112,6 +167,22 @@ export const ContentContainer = styled.div`
     padding:2rem 5rem 3rem 5rem;
     // border-radius:2rem;
     // border:1px solid #191e3e;
+
+	@media only screen and (max-width: 540px) {
+		padding:2rem 2rem 3rem 3rem;
+	}
+
+	// @media only screen and (max-width: 980px) {
+	// 	// left: 50%;
+	// 	width: 50%;
+	// 	// transform: translate(-50%, 0);
+	// }
+
+	// @media only screen and (max-width: 411px) {
+	// 	// left: 50%;
+	// 	width: 80%;
+	// 	// transform: translate(-50%, 0);
+	// }
 `;
 
 export const PopUpHeader = styled.div`

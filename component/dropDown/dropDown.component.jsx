@@ -12,7 +12,7 @@ const MyDropDown = ({border , handleValue , val,shirink,borderBottom }) =>{
 
     return(
         <Select shirink={shirink} borderBottom={borderBottom} border={border} onChange={e => handleValue(e.target.value)}>
-            <Option borderBottom={borderBottom} value=""></Option>
+            <Option border={border} borderBottom={borderBottom} value=""></Option>
             {
                 
                 Filters.length > 0 ? (

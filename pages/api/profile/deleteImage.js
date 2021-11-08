@@ -36,11 +36,10 @@ const handler = async (req, res) =>{
                             if(err){
                               res.status(401).json({seccess:false,message:'مشکلی رخ داده است !'});
                             }
-                            // else{
-                            // //   deletefile()
-                            //   res.status(200).send({seccess:true , data: true});
-                            // }
-                            // statements
+                            else{
+                                console.log('fileUser',fileUser);
+                                deletefile(fileUser.src);
+                            }
                         });
                     }
 

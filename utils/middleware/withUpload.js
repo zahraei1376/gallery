@@ -33,21 +33,23 @@ const myUpload = (req, res) =>{
         var name = '';
         return upload.single("myFile")(req, {}, err => {
             if(err){
-                reject(err);
-                return;
+                return reject(err);
+                // return;
                 // return res.status(200).send({seccess:false, message : 'خطایی رخ داده است پس از مدتی مجددا تلاش کنید!!!'});
             }
             else{
                 if(req.file){
                     const { filename: image } = req.file;
                     name = image;
+                    req.fileName = `/upload/${name}`;
                 }else{
-                    name = 'zzzzzzzzzzzzzzzzzzzz';
+                    // name = 'zzzzzzzzzzzzzzzzzzzz';
+                    req.fileName = ``;
                 }
 
-                req.fileName = name;
+                // req.fileName = `/upload/${name}`;
                 // return handler(req, res);
-                resolve(name);
+                return resolve(name);
             }
             // return handler(req, res);
 
@@ -55,48 +57,72 @@ const myUpload = (req, res) =>{
         });
     })
 }
-const withUpload = (handler) =>{
-    return async(req , res) =>{
-        console.log('req.body4444');
-        return myUpload(req, res).then(data =>{
+// const withUpload = (handler) =>{
+//     return async(req , res) =>{
+//         console.log('req.body4444');
+//         return myUpload(req, res, handler).then(data =>{
+//             console.log('req.body333' ,data);
+//             // return res.status(401).send({seccess:false, message : 'خطایی رخ داده است پس از مدتی مجددا تلاش کنید!!!'});
+//             return handler(req, res);
+//         }).catch(err =>{
+//             return res.status(401).send({seccess:false, message : 'خطایی رخ داده است پس از مدتی مجددا تلاش کنید!!!'});
+//         })
+
+//         // return handler(req, res);
+//         /////////////////////////////////////
+//         // var name = '';
+//         // return upload.single("myFile")(req, {}, err => {
+//         //     if(err){
+//         //         return res.status(200).send({seccess:false, message : 'خطایی رخ داده است پس از مدتی مجددا تلاش کنید!!!'});
+//         //     }
+//         //     else{
+//         //         if(req.file){
+//         //             const { filename: image } = req.file;
+//         //             name = image;
+//         //         }else{
+//         //             name = 'zzzzzzzzzzzzzzzzzzzz';
+//         //         }
+
+//         //         console.log('req.body1111' , name);
+//         //         req.fileName = name;
+//         //         console.log('req.body2222' , req.fileName);
+                
+                
+//         //     }
+//         //     // return handler(req, res);
+//         //     console.log('req.body333' , req.fileName);
+//         //     return handler(req, res);
+
+            
+//         // });
+//         // console.log('req.body333' , req.fileName);
+//         // return handler(req, res);
+//     }
+// };
+// ///////////////////////////////////////////
+// export default withUpload;
+// //////////////////////////////////////////
+
+
+function withUpload(req, res) {
+    return new Promise(async(resolve, reject) => {
+        await myUpload(req, res).then(data =>{
             console.log('req.body333' ,data);
             // return res.status(401).send({seccess:false, message : 'خطایی رخ داده است پس از مدتی مجددا تلاش کنید!!!'});
-            return handler(req, res);
+            return;
         }).catch(err =>{
             return res.status(401).send({seccess:false, message : 'خطایی رخ داده است پس از مدتی مجددا تلاش کنید!!!'});
         })
+    //   fn(req, res, (result) => {
+    //     if (result instanceof Error) {
+    //       return reject(result)
+    //     }
+  
+    //     return resolve(result)
+    //   })
+        return resolve();
+    })
+  };
 
-        // return handler(req, res);
-        /////////////////////////////////////
-        // var name = '';
-        // return upload.single("myFile")(req, {}, err => {
-        //     if(err){
-        //         return res.status(200).send({seccess:false, message : 'خطایی رخ داده است پس از مدتی مجددا تلاش کنید!!!'});
-        //     }
-        //     else{
-        //         if(req.file){
-        //             const { filename: image } = req.file;
-        //             name = image;
-        //         }else{
-        //             name = 'zzzzzzzzzzzzzzzzzzzz';
-        //         }
 
-        //         console.log('req.body1111' , name);
-        //         req.fileName = name;
-        //         console.log('req.body2222' , req.fileName);
-                
-                
-        //     }
-        //     // return handler(req, res);
-        //     console.log('req.body333' , req.fileName);
-        //     return handler(req, res);
-
-            
-        // });
-        // console.log('req.body333' , req.fileName);
-        // return handler(req, res);
-    }
-};
-///////////////////////////////////////////
-export default withUpload;
-//////////////////////////////////////////
+  export default withUpload;

@@ -11,7 +11,7 @@ import { limitRecipeTitle ,downloadFile } from '../../generalMethod/limitRecipeT
 import ShowImage from '../../component/imageShow/showImage.component';
 import notFound from '../../assets/img/notFound.png';
 
-const SavedGallery = ({RemoveItem ,RemoveItems,together,uploadedImage, images ,imageForDelete, setImageForDelete}) =>{
+const SavedGallery = ({RemoveItem ,RemoveItems,biger,together,uploadedImage, images ,imageForDelete, setImageForDelete}) =>{
     //////////////////////////////////////////////
     const [loading , setLoading] = useState(false);
     const [converterImages , setConverterImages] = useState([]);
@@ -39,8 +39,19 @@ const SavedGallery = ({RemoveItem ,RemoveItems,together,uploadedImage, images ,i
                 SIZE = 2;
                 setConverterImages(chunkify(images, SIZE , true));
             }else{
-                SIZE = 3;
-                setConverterImages(chunkify(images, SIZE , true));
+                if(!biger){
+                    if(window.innerWidth < 1024){
+                        SIZE = 3;
+                        setConverterImages(chunkify(images, SIZE , true));
+                    }else{
+                        SIZE = 4;
+                        setConverterImages(chunkify(images, SIZE , true));
+                    }
+                }else{
+                    SIZE = 3;
+                    setConverterImages(chunkify(images, SIZE , true));
+                }
+                
             }
             // else if(window.innerWidth < 1024){
             //     SIZE = 3;
@@ -147,7 +158,7 @@ const SavedGallery = ({RemoveItem ,RemoveItems,together,uploadedImage, images ,i
                                 CVI.map((image , index) =>{
                                     var selected = foundSelectedOrNot(image._id);
                                     return(
-                                        <Gallery__item together={together} key={index} selected = {selected}>
+                                        <Gallery__item uploadedImage={uploadedImage} together={together} key={index} selected = {selected}>
                                             <ImageWrapper together={together} onClick = {() => handleSelectImage(image)}>
                                                 <ImageGallery imageSrc = {image.src} />
                                             </ImageWrapper>

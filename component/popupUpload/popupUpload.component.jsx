@@ -1,6 +1,6 @@
 import { useState , useEffect } from 'react';
-import {PopUpContainer ,TextArea, PopUpBody ,Form, MyCloseIcon,Group,Lable,Input,SettingIcon,
-  ContentContainer,BtnClose,LogoContainer,Logo,Title, PopUpHeader,FileContainer,} from './popupUpload.styles';
+import {PopUpContainer ,TextArea, PopUpBody,ContentFile ,Form, MyCloseIcon,Group,Lable,Input,SettingIcon,
+  ContentContainer,BtnClose,LogoContainer,Logo,Title, PopUpHeader,FileContainer, MyImage, ImageWrapper,} from './popupUpload.styles';
 import {addItem} from '../../redux/cart/cart.action';
 import { connect } from 'react-redux';
 import MySnackbar from '../messageBox/messageBox.component';
@@ -10,11 +10,12 @@ import MyButton from '../ButtonComponent/Button.component';
 // import logo from '../../assets/img/galleryLg.png';
 import logo from '../../assets/img/galleryLg2.png';
 import MyDropDown from '../dropDown/dropDown.component';
-const PopUpUpload = (props) => {
+const PopUpUpload = ({currentUser ,close ,setTriggerDeleteFile,triggerDeleteFile,}) => {
     const [showMessage,setShowMessage] = useState(false);
     const [message,setMessage] =useState('');
     const [status,setStatus] = useState('0');
     const [load , setLoad] = useState(false);
+    const [srcImage , setSrcImage] = useState('');
     const [info , setInfo] = useState({
         properties:'',
         title:'',
@@ -22,7 +23,7 @@ const PopUpUpload = (props) => {
         myFile:null,
     });
     /////////////////////////////////////////////////////////////
-    const handleOnClick = async() =>{
+    const handleOnClick = async(e) =>{
        alert('senddddd');
        e.preventDefault();
         const formData = new FormData();
@@ -30,7 +31,7 @@ const PopUpUpload = (props) => {
         formData.append('title',info.title);
         formData.append('sunTitle',info.sunTitle);
         formData.append('myFile',info.myFile);
-        await fetch("/api/profile/edit", {
+        await fetch("/api/profile/upload", {
             headers: {
                 'Authorization': currentUser
             },
@@ -43,8 +44,9 @@ const PopUpUpload = (props) => {
         .then((dataRes)=>{
             if(dataRes.seccess){
                 setStatus('1')
-                setMessage('اطلاعات شما با موفقیت ثبت شد');
+                setMessage('فایل مورد نظر ثبت شد');
                 setShowMessage(true);
+                setTriggerDeleteFile(!triggerDeleteFile);
             }else{
                 if(dataRes.reload){
                     setStatus('0')
@@ -70,6 +72,12 @@ const PopUpUpload = (props) => {
 
 
     const handlefile = (event) => {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(event.target.files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            setSrcImage(oFREvent.target.result);
+        };
         setInfo({...info , myFile:event.target.files[0]});
     };
 
@@ -79,8 +87,12 @@ const PopUpUpload = (props) => {
 
     return (
         <PopUpContainer>
-          <PopUpBody>
-            
+          <PopUpBody> 
+          <ContentFile>
+                {srcImage && <ImageWrapper>
+                    <MyImage layout="fill" src = {srcImage} />
+                </ImageWrapper>}
+            </ContentFile> 
             <ContentContainer>
                 <PopUpHeader>
                     <FileContainer>
@@ -116,11 +128,12 @@ const PopUpUpload = (props) => {
                         <Lable shirink={info.sunTitle ? "true" : null} htmlFor="explain" >توضیحات</Lable>
                         <TextArea shirink={info.sunTitle ? "true" : null} rows="1" id="explain" onChange={e => setInfo({...info , sunTitle: e.target.value})} />
                     </Group>
-                    <MyButton mg="3" text="ارسال" onClick = {handleOnClick} />
+                    <MyButton mg="3" text="ارسال" onClick = {(e)=>handleOnClick(e)} />
                 </Form>
-            </ContentContainer>          
+            </ContentContainer> 
+                    
           </PopUpBody>
-          <BtnClose onClick = {props.close}><MyCloseIcon/></BtnClose>
+          <BtnClose onClick = {close}><MyCloseIcon/></BtnClose>
           {
                 showMessage && <MySnackbar message={message} status={status} showMessage={showMessage} setShowMessage={setShowMessage} /> 
           }

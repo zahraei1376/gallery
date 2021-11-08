@@ -5,7 +5,7 @@ const formParse = (req, res) =>{
         
         form.parse(req, (err, fields, files) => {
             if (err) return reject(err)
-            resolve({ fields, files })
+            return resolve({ fields, files })
         })
     });
 };

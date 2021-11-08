@@ -18,10 +18,16 @@ const ToolbarItems = ({clicked , position}) =>{
         <ToolbarInfoContainer show = {clicked ? "true" : null}>
           <ToolbarInfo show = {clicked ? "true" : null}>
             <ListContainer>
-              <ListItem onClick={()=>handleUrl('/register')}>
+              {/* <ListItem onClick={()=>handleUrl('/register')}>
                 <MyNavLink 
                 href ='/register'
                 >ثبت نام</MyNavLink>
+                <IconContainer><MyListIcon/></IconContainer> 
+              </ListItem> */}
+               <ListItem onClick={()=>handleUrl('/profile')}>
+                <MyNavLink 
+                href ='/profile'
+                >پنل کاربری</MyNavLink>
                 <IconContainer><MyListIcon/></IconContainer> 
               </ListItem>
 
@@ -44,22 +50,24 @@ const ToolbarItems = ({clicked , position}) =>{
               <ListItem onClick={()=>handleUrl('/profile')}>
                 <MyNavLink 
                 href ='/profile'
-                >عکس های ذخیره شده</MyNavLink>
-                <IconContainer><MyListIcon/></IconContainer> 
-              </ListItem>
-            </ListContainer>
-
-            <ListContainer>
-              <ListItem onClick={()=>handleUrl('/profile')}>
-                <MyNavLink 
-                href ='/profile'
                 >بارگزاری عکس</MyNavLink>
                 <IconContainer><MyListIcon/></IconContainer> 
               </ListItem>
-              <ListItem onClick={()=>handleUrl('/profile')}>
+
+              
+            </ListContainer>
+
+            <ListContainer>
+            <ListItem onClick={()=>handleUrl('/mySaved')}>
                 <MyNavLink 
-                href ='/profile'
-                >پنل کاربری</MyNavLink>
+                href ='/mySaved'
+                >عکس های ذخیره شده</MyNavLink>
+                <IconContainer><MyListIcon/></IconContainer> 
+              </ListItem>
+              <ListItem onClick={()=>handleUrl('/showAllTopic')}>
+                <MyNavLink 
+                href ='/showAllTopic'
+                >همه عنوان ها</MyNavLink>
                 <IconContainer><MyListIcon/></IconContainer> 
               </ListItem>
               
