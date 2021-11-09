@@ -42,10 +42,6 @@ const Footer = () =>{
     const router = useRouter()
     /////////////////////////////
     const handleGo = () =>{
-        // const elmnt = document.getElementById("navbar2");
-        // console.log('elmntelmnt' , elmnt);
-        // elmnt.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
-        // window.scrollTo(0, document.getElementById('navbar2'));
         window.scrollTo({
             top: 0,
             behavior: 'smooth',
@@ -53,7 +49,6 @@ const Footer = () =>{
     }
     return (
         <FooterContainer>
-            {/* <FooterTitle>اسب های من</FooterTitle> */}
             <ButtonIconContainer>
                 <ArrowButton onClick={handleGo}>
                     <ArrowTop/>
@@ -65,14 +60,8 @@ const Footer = () =>{
                     onClick={()=> router.push('/')} 
                     />
                 </LogoContainer>
-                {/* <ButtonContainer>
-                    <Button
-                    onClick={()=> router.push('/login')} 
-                    >تماس با ما</Button>
-                </ButtonContainer> */}
             </LogoSection>
             <FooterInfo>
-                {/* <FooterImage src={FooterImg} /> */}
                 <FooterLinks>
                     <FooterUl>
                         <FooterUlTitle>ما را دنبال کنید</FooterUlTitle>
@@ -123,20 +112,6 @@ const Footer = () =>{
                     </FooterUl>
                 </FooterLinks>
                 <FooterBottom>
-                    {/* <SocialMediaLinks>
-                        <SocialMediaLinksIcon aria-label="تلگرام" style={{color:'#fff'}}>
-                            <SendIcon />
-                        </SocialMediaLinksIcon>
-                        <SocialMediaLinksIcon aria-label="اینستاگرام" style={{color:'#fff'}}>
-                            <InstagramIcon />
-                        </SocialMediaLinksIcon>
-                        <SocialMediaLinksIcon aria-label="ایمیل" style={{color:'#fff'}}>
-                            <MailOutlineIcon />
-                        </SocialMediaLinksIcon>
-                        <SocialMediaLinksIcon aria-label="فیس بوک" style={{color:'#fff'}}>
-                            <FacebookIcon />
-                        </SocialMediaLinksIcon>
-                    </SocialMediaLinks> */}
                     <SocialMediadisc>طراحی و تولید زهسان-ایران سال 1401-1400</SocialMediadisc>
                 </FooterBottom>
             </FooterInfo>

@@ -41,6 +41,10 @@ const ShowImage = ({addItemToSave,selectedCart,currentUser,uploadedImage,...prop
       title:props.data.title,
       sunTitle:props.data.sunTitle,
       src:props.data.src,
+      user:{
+        photographerPicture:props.data.photographerPicture,
+        photographer:props.data.photographer,
+      }
     })
     /////////////////////////////////////////////////////////////
      var content = document.getElementById("menu__content");
@@ -65,6 +69,7 @@ const ShowImage = ({addItemToSave,selectedCart,currentUser,uploadedImage,...prop
     },[state.backward]);
     ////////////////////////////////////////////////////////////////
     useEffect(() =>{
+      console.log('props.data' , props.data);
       if(uploadedImage){
         const data = {
           uploadId:props.data._id,
@@ -83,6 +88,7 @@ const ShowImage = ({addItemToSave,selectedCart,currentUser,uploadedImage,...prop
         })
         .then((dataRes)=>{ 
             if(dataRes.seccess){
+              console.log('props.data',props.data);
                 setInfo(dataRes.data)
                 if(dataRes.can){
                   setOwn(true);
@@ -139,7 +145,6 @@ const ShowImage = ({addItemToSave,selectedCart,currentUser,uploadedImage,...prop
       })
       .then((dataRes)=>{ 
           if(dataRes.seccess){
-              // console.log('dataRes.data',dataRes.data);
               
           }else{
               if(dataRes.reload){
@@ -165,20 +170,6 @@ const ShowImage = ({addItemToSave,selectedCart,currentUser,uploadedImage,...prop
       });
     }
     ////////////////////////////////////////////////////////////////
-  //  const downloadFile = (src , size) =>{
-  //   var arraySrc = src.split('/');
-  //   var a = document.createElement('a');
-  //   // a.style = 'display:none';
-  //   var fileName = arraySrc[arraySrc.length - 1] ? arraySrc[arraySrc.length - 1] : src;
-  //   a.href = src;
-  //   a.download = src;
-  //   // a.download = fileName;
-  //   a.target = "_blank"
-  //   document.body.appendChild(a);
-  //   a.click();
-    
-  //  }
-
     const saveFile = (info) => {
         addItemToSave(info);
         if(!selectedCart){
@@ -192,7 +183,7 @@ const ShowImage = ({addItemToSave,selectedCart,currentUser,uploadedImage,...prop
     }
 
    const handleDownloadFile = (size) =>{
-      downloadFile(props.data.src , size)
+      downloadFile(info.src , size)
    }
 
    const onLoad = () =>{
@@ -207,7 +198,7 @@ const ShowImage = ({addItemToSave,selectedCart,currentUser,uploadedImage,...prop
               <ArrowButton onClick={() => {setState({...state,backward:false,showMore:true})}}><NextArrowIcon/></ArrowButton>
               <DescriptionImageContainer >
                   <DescriptionImg
-                    src = {props.data.src}
+                    src = {info.src}
                     onLoad={onLoad} 
                     onerror = {wait}
                     // onClick = {props.close}
@@ -222,11 +213,11 @@ const ShowImage = ({addItemToSave,selectedCart,currentUser,uploadedImage,...prop
                       <DescriptionCaption>
                         <WriterImageContainer>
                           <WriterImage 
-                           src={props.data.photographerPicture ? props.data.photographerPicture : user}
+                           src={info.user && info.user.photographerPicture ? info.user.photographerPicture : user}
                            layout="fill"
                            />
                         </WriterImageContainer>
-                        <Link href = "/"><WriterName>{props.data.photographer}</WriterName></Link>
+                        <Link href = "/"><WriterName>{info.user && info.user.photographer}</WriterName></Link>
                         
                       </DescriptionCaption>
 
@@ -236,7 +227,7 @@ const ShowImage = ({addItemToSave,selectedCart,currentUser,uploadedImage,...prop
                             <DownloadButtonIcon onClick={()=> setState({...state,showDownloadBox:!state.showDownloadBox})}>
                               <ArrowBottom/>
                             </DownloadButtonIcon>
-                            <DownloadButton onClick={() => downloadFile(props.data.src , 0)}>
+                            <DownloadButton onClick={() => downloadFile(info.src , 0)}>
                               دانلود 
                             </DownloadButton>
                           </DownloadButtonsContainer>
@@ -247,7 +238,7 @@ const ShowImage = ({addItemToSave,selectedCart,currentUser,uploadedImage,...prop
                           </HeaderButton>
                         </Tooltip> : ''}
                         <Tooltip title="ذخیره"  aria-label="ذخیره">
-                          <HeaderButton select ={selectedCart ? "true" : null} onClick={() => saveFile(props.data)}>
+                          <HeaderButton select ={selectedCart ? "true" : null} onClick={() => saveFile(info)}>
                             <HeaderSaveIcon select ={selectedCart ? "true" : null}/>
                           </HeaderButton>
                         </Tooltip>

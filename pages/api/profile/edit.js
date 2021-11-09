@@ -19,8 +19,6 @@ const handler = async (req, res) =>{
         {
             try {
                 await withUpload(req, res);
-                console.log('after upload' , req.body);
-                console.log('formmmmmmmmmmmmmmm');
                 const location =  req.body.location;
                 const email = req.body.email;
                 const photographer = req.body.photographer;
@@ -36,13 +34,11 @@ const handler = async (req, res) =>{
                 { returnOriginal: false },
                 )
                 .then((existUser)=>{
-                    console.log('userrrrrrrrr' , existUser);
                     res.status(200).send({seccess:true , data: existUser});
                 }).catch(err =>{
                     res.status(401).send({seccess:false , message:'مشکلی رخ داده است'});
                 })
             //     await formParse(req, res).then(({ fields, files }) => {
-            //         console.log('formmmmmmmmmmmmmmm');
             //         const location =  fields.location;
             //         const email = fields.email;
             //         const photographer = fields.photographer;
@@ -58,7 +54,6 @@ const handler = async (req, res) =>{
             //         { returnOriginal: false },
             //         )
             //         .then((existUser)=>{
-            //             console.log('userrrrrrrrr' , existUser);
             //             res.status(200).send({seccess:true , data: existUser});
             //         }).catch(err =>{
             //             res.status(401).send({seccess:false , message:'مشکلی رخ داده است'});

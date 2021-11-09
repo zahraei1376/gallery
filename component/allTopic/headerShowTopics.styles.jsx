@@ -59,8 +59,8 @@ export const AllTopicTitleContainer = styled.div`
 `;
 
 export const AllTopicTitle = styled.h1`
-    font-size:3.5rem;
-    font-family:ir_sans;
+    font-size:4rem;
+    font-family:classic;
     margin:2rem 0;
     // color:#fff;
     display:flex;
@@ -69,8 +69,8 @@ export const AllTopicTitle = styled.h1`
 
 
 export const AllTopicSubTitle = styled.h5`
-    font-size:3rem;
-    font-family:ir_sans;
+    font-size:3.5rem;
+    font-family:classic;
     // margin:2rem 0;
     display: inline-block;
     // background-image:radial-gradient(ellipse at top ,#fc8d6d,#bf4f7b,#242d64 80%,#191e3e 100%);
@@ -82,6 +82,7 @@ export const AllTopicSubTitle = styled.h5`
     text-align:center;
     // padding-right:3rem;
     z-index:1;
+    margin:0;
 
     &:hover {
         transform: skewY(2deg) skewX(15deg) scale(1.1);

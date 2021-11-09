@@ -39,12 +39,6 @@ const SavedBoxesPageComponent = ({currentUser,saveCartItem ,uploadFiles,setTrigg
 
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
-
-
-    // useEffect(() =>{
-    //     console.log('type' , type);
-    //     setTextBtn(0);
-    // },[type]);
       /////////////////////////////////////
     const handleRemoveItem = () =>{
         RemoveItems(imageForDelete);        
@@ -75,13 +69,11 @@ const SavedBoxesPageComponent = ({currentUser,saveCartItem ,uploadFiles,setTrigg
             <TitleSavedContainer>
                 <TitleSaved>گالری کیهان </TitleSaved>
                 <SubTitleSaved> عکس های ذخیره شده من در کیهان گالری</SubTitleSaved>
-                {/* <TitleStyle text={  "عکس های ذخیره شده من"}/> */}
             </TitleSavedContainer>
             <div style={{margin:"3rem" ,
             backgroundColor:'#ececec',
             borderTopLeftRadius: "2rem",
             borderTopRightRadius: "2rem",
-            // backgroundColor:"rgba(256,256,256,0.3)",
             }}>
                 <InfoSavedContainer fixed={fixed ? "true" : null}>
                     <InfoSavedWrapper fixed={fixed ? "true" : null}>

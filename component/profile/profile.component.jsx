@@ -39,7 +39,6 @@ const Profile = ({currentUser}) =>{
     const scrollFunction = () => {
         var y = window.scrollY;
         // if ( y >= 61) {
-        console.log('yyyyyyyyyy' , y);
         if ( y >= 170) {
             if(!scrolling){
                 setScrolling(true);
@@ -52,33 +51,23 @@ const Profile = ({currentUser}) =>{
     } 
     ////////////////////////////////////////////
     useEffect(() =>{
-        // console.log('type' , type);
-        // setTextBtn(0);
-        // if(type === 1){
-            // console.log('22222222222' , currentUser);
-
             fetch("/api/myUpload", {
                 headers: {
-                    // 'Content-Type': 'application/json',
                     'Authorization': currentUser
-                    // 'Authorization': `Bearer ${currentUser} `
                     },
                 method:"GET",
-                // body: JSON.stringify(data)
             })
             .then((response)=>{ 
                 return response.json();   
             })
             .then((dataRes)=>{ 
                 if(dataRes.seccess){
-                    console.log('dataRes.data',dataRes.data);
                     var selected = dataRes.data.files.slice(- 5);
                     var count = 5 - selected.length ;
                     if(count !== 0){
                         for (let index = 0; index < count; index++) {
                             selected.unshift(undefined);
                         }
-                        // selected.push(undefined, undefined,)
                     }
                     setUploadFilesSelect(selected);
                     setUploadFiles(dataRes.data.files);
@@ -142,9 +131,6 @@ const Profile = ({currentUser}) =>{
                     </ButtonsContainer>
                     
                 </ProfileInfo>
-                {/* <ProfileImageContainer>
-                    <ProfileImage src ={user} layout="fill" />
-                </ProfileImageContainer> */}
             </ProfileInfoContainer>
             <TabsContainer>
                 <Tabs>
@@ -160,7 +146,6 @@ const Profile = ({currentUser}) =>{
                 }
                 else if (showBox === "2") {
                     return (
-                        // <div>H\g,n222222</div>
                         <SavedBoxesComponent type={2} />
                     )
                 }else{

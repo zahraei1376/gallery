@@ -24,50 +24,56 @@ const PopUpUpload = ({currentUser ,close ,setTriggerDeleteFile,triggerDeleteFile
     });
     /////////////////////////////////////////////////////////////
     const handleOnClick = async(e) =>{
-       alert('senddddd');
        e.preventDefault();
-        const formData = new FormData();
-        formData.append('properties', info.properties);
-        formData.append('title',info.title);
-        formData.append('sunTitle',info.sunTitle);
-        formData.append('myFile',info.myFile);
-        await fetch("/api/profile/upload", {
-            headers: {
-                'Authorization': currentUser
-            },
-            method:"POST",
-            body:formData
-        })
-        .then((response)=>{ 
-            return response.json();   
-        })
-        .then((dataRes)=>{
-            if(dataRes.seccess){
-                setStatus('1')
-                setMessage('فایل مورد نظر ثبت شد');
-                setShowMessage(true);
-                setTriggerDeleteFile(!triggerDeleteFile);
-            }else{
-                if(dataRes.reload){
-                    setStatus('0')
-                    setMessage(dataRes.message)
+       if(info.title && myFile){
+            const formData = new FormData();
+            formData.append('properties', info.properties);
+            formData.append('title',info.title);
+            formData.append('sunTitle',info.sunTitle);
+            formData.append('myFile',info.myFile);
+            await fetch("/api/profile/upload", {
+                headers: {
+                    'Authorization': currentUser
+                },
+                method:"POST",
+                body:formData
+            })
+            .then((response)=>{ 
+                return response.json();   
+            })
+            .then((dataRes)=>{
+                if(dataRes.seccess){
+                    setStatus('1')
+                    setMessage('فایل مورد نظر ثبت شد');
                     setShowMessage(true);
-                    setTimeout(() => {
-                        router.push('/login')
-                    }, 1000);
+                    setTriggerDeleteFile(!triggerDeleteFile);
                 }else{
-                    setStatus('0')
-                    setMessage(dataRes.message)
-                    setShowMessage(true);
+                    if(dataRes.reload){
+                        setStatus('0')
+                        setMessage(dataRes.message)
+                        setShowMessage(true);
+                        setTimeout(() => {
+                            router.push('/login')
+                        }, 1000);
+                    }else{
+                        setStatus('0')
+                        setMessage(dataRes.message)
+                        setShowMessage(true);
+                    }
                 }
-            }
 
-        })
-        .catch(err => {
+            })
+            .catch(err => {
+                setStatus('0')
+                setMessage(err.message)
+                setShowMessage(true);
+            });
+       }else{
             setStatus('0')
-            setMessage(err.message)
+            setMessage('انتخاب فایل و پر کردن عنوان الزامی است!!!');
             setShowMessage(true);
-        });
+       }
+        
     }
 
 

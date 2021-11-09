@@ -37,14 +37,12 @@ const Gallery = ({RemoveItem , images}) =>{
                 SIZE = 4;
                 setConverterImages(chunkify(images, SIZE , true));
             }
-            // console.log('SIZESIZE', SIZE);
             setSize(SIZE);
         }
         
     }
 
     useEffect(() => {
-        // RemoveItem();
         window.addEventListener('resize', () =>{
             ResizeWindows();
         });
@@ -109,7 +107,6 @@ const Gallery = ({RemoveItem , images}) =>{
 
     return(
         <>
-            {/* <GalleryTitle>عکس های رایگان ما</GalleryTitle> */}
             {!loading ? 
                 <GallerySecion size = {size}>
                    

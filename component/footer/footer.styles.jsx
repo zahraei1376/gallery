@@ -51,7 +51,9 @@ export const FooterContainer = styled.div`
     position: relative;
     // background:#bf4f7b;
     // background-image: radial-gradient(ellipse at top ,rgb(218,160,103) ,#191e3e);
-    background-image: linear-gradient(to right ,#bf4f7b, #191e3e);
+    // background-image: linear-gradient(to right ,#bf4f7b, #191e3e);
+    // background-image: linear-gradient(to right ,rgb(218,160,103) 30%,rgba(256,256,256,.6) 30% ,rgb(218,160,103) 60%);
+    background-color:rgb(218,160,103);
     // background-image: radial-gradient(ellipse at top ,#bf4f7b,#242d64 80%,#191e3e 100%);
     margin:0;
     // clip-path: polygon(0 11%, 100% 0, 100% 100%, 0% 100%);

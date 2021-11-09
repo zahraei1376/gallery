@@ -6,7 +6,6 @@ const MyDropDown = ({border , handleValue , val,shirink,borderBottom }) =>{
 
     // }
     useEffect(() =>{
-        console.log('shirinkshirink',shirink);
         handleValue(val ? val : '');
     },[]);
 

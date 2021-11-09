@@ -42,7 +42,6 @@ const SavedBoxesComponent = ({currentUser,saveCartItem ,uploadFiles,setTriggerDe
 
 
     useEffect(() =>{
-        console.log('type' , type);
         setTextBtn(0);
     },[type]);
       /////////////////////////////////////
@@ -67,7 +66,6 @@ const SavedBoxesComponent = ({currentUser,saveCartItem ,uploadFiles,setTriggerDe
               })
               .then((dataRes)=>{ 
                   if(dataRes.seccess){
-                    console.log('dataRes.data',dataRes.data);
                     setTriggerDeleteFile(!triggerDeleteFile);
                     setStatus('0')
                     setMessage('عکس موردنظر با موفقیت حذف شد!!!');

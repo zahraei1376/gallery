@@ -14,11 +14,12 @@ const handler = async (req, res) =>{
                     const uploadId = req.body.uploadId;
                     var id = decoded.userId;
                     // var id = mongoose.Types.ObjectId(decoded.userId);
-                    Files.findOne({ user : id , _id:uploadId }).exec((err, fileUser) => {
+                    Files.findOne({ user : id , _id:uploadId }).populate('user').exec((err, fileUser) => {
                         if(err){
                           res.status(401).json({seccess:false,message:'مشکلی رخ داده است !'});
                         }else{
                             if(fileUser){
+                                console.log('fileUser',fileUser);
                                 res.status(200).send({seccess:true ,can:true, data: fileUser});
                             }else{
                                 res.status(401).send({seccess:true , can: false , data: fileUser});
