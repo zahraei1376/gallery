@@ -154,7 +154,7 @@ const Profile = ({currentUser}) =>{
             })()}
             </TabsContainer>
 
-            {showProfile && <PopUpProfile currentUser = {currentUser} close={handleOnClick}/>}
+            {showProfile && <PopUpProfile currentUser = {currentUser} close={handleOnClick} setTriggerDeleteFile={setTriggerDeleteFile} triggerDeleteFile={triggerDeleteFile}/>}
             {showUploadBox && <PopUpUpload setTriggerDeleteFile={setTriggerDeleteFile} triggerDeleteFile={triggerDeleteFile} currentUser = {currentUser} close={handleUploadBox}/>}
             {showMessage && <MySnackbar message={message} status={status} showMessage={showMessage} setShowMessage={setShowMessage} />  }
         </ProfileContainer>

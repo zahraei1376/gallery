@@ -161,6 +161,7 @@ export const ProfileImageContainer = styled.div`
     // border:2px solid #1d1d1d;
     overflow:hidden;
     background-color:#fff;
+    border: 2px solid #fff;
 `;
 
 export const ProfileImage = styled(Image)`

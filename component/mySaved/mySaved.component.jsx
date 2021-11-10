@@ -124,25 +124,28 @@ const SavedBoxesComponent = ({currentUser,saveCartItem ,uploadFiles,setTriggerDe
             </TitleContainer>
             <InfoContainer fixed={fixed ? "true" : null}>
                 <InfoWrapper fixed={fixed ? "true" : null}>
-                <SunTitle>{type === 1 ? `تعداد عکس های آپلود شده ${uploadFiles.length} عدد` :  `تعداد عکس های ذخیره شده ${count} عدد`}</SunTitle>
-                <SelectAllContainer>
-                    <SelectAll dsl={type === 1 ? 
-                    uploadFiles.length === 0 ? "true" : null :
-                    count === 0 ? "true" : null}  select = {textBtn === 1 ? "true" : null} disabled={type === 1 ? uploadFiles.length === 0 ? true :false : count === 0 ? true :false} onClick={() => handleSelectAll(type === 1 ? uploadFiles : saveCartItem)}>{textBtn === 0 ? 'انتخاب همه' : 'لغو انتخاب ها'}</SelectAll>
-                    <Tooltip title="حذف"  aria-label="حذف">
-                        <DeleteContainer>
-                            <DeleteButton disabled={imageForDelete.length === 0} onClick = {() => {handleRemoveItem(imageForDelete)}}>
-                                <MyDeleteIcon disable={imageForDelete.length === 0 ? 'true' : null} />
-                            </DeleteButton>
-                        </DeleteContainer>
-                    </Tooltip>
-                </SelectAllContainer>
+                    <SunTitle>{type === 1 ? `تعداد عکس های آپلود شده ${uploadFiles.length} عدد` :  `تعداد عکس های ذخیره شده ${count} عدد`}</SunTitle>
+                    <InfoSelectContainer>
+                        <SunTitleSelect>{`تعداد عکس های انتخاب شده ${imageForDelete.length} عدد`}</SunTitleSelect>
+                    </InfoSelectContainer>
+                    <SelectAllContainer>
+                        <SelectAll dsl={type === 1 ? 
+                        uploadFiles.length === 0 ? "true" : null :
+                        count === 0 ? "true" : null}  select = {textBtn === 1 ? "true" : null} disabled={type === 1 ? uploadFiles.length === 0 ? true :false : count === 0 ? true :false} onClick={() => handleSelectAll(type === 1 ? uploadFiles : saveCartItem)}>{textBtn === 0 ? 'انتخاب همه' : 'لغو انتخاب ها'}</SelectAll>
+                        <Tooltip title="حذف"  aria-label="حذف">
+                            <DeleteContainer>
+                                <DeleteButton disabled={imageForDelete.length === 0} onClick = {() => {handleRemoveItem(imageForDelete)}}>
+                                    <MyDeleteIcon disable={imageForDelete.length === 0 ? 'true' : null} />
+                                </DeleteButton>
+                            </DeleteContainer>
+                        </Tooltip>
+                    </SelectAllContainer>
                 </InfoWrapper>
             </InfoContainer>
 
-            <InfoSelectContainer>
+            {/* <InfoSelectContainer>
                 <SunTitleSelect>{`تعداد عکس های انتخاب شده ${imageForDelete.length} عدد`}</SunTitleSelect>
-            </InfoSelectContainer>
+            </InfoSelectContainer> */}
 
             <SavedGallery uploadedImage = {type === 1 ? true : false} images = {type === 1 ? uploadFiles : saveCartItem} imageForDelete = {imageForDelete} setImageForDelete ={setImageForDelete} />
             {

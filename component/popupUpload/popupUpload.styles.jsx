@@ -294,6 +294,9 @@ export const LogoContainer = styled.div`
   border:1px solid #191e3e;
   border-radius:50%;
   overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 //   display:flex;
 //   justify-content:Center;
 //   align-items:center;

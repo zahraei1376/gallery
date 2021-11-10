@@ -58,11 +58,13 @@ export const SelectAll = styled.button`
 export const InfoWrapper = styled.div`
     width:100%;
     display:flex;
+    flex-wrap: wrap;
     align-items:center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     // border-bottom: 3px double #999;
-    border-bottom:${props => props.fixed ? 'none' : '3px double #000'};
+    // border-bottom:${props => props.fixed ? 'none' : '3px double #000'};
     padding:2rem 0;
+    margin-bottom: 2rem;
 `;
 
 export const InfoSavedWrapper = styled.div`
@@ -95,8 +97,8 @@ export const InfoContainer = styled.div`
 export const InfoSelectContainer = styled.div`
     display:flex;
     align-items:center;
-    // justify-content: center;
-    justify-content: flex-end;
+    justify-content: center;
+    // justify-content: flex-end;
 `;
 
 export const InfoSavedSelectContainer = styled.div`
@@ -252,7 +254,7 @@ export const SunTitleSelect = styled.h5`
     color:#999;
     font-size:1.5rem;
     font-family:ir_sans;
-    margin:4rem 5rem 0 0;
+    // margin:4rem 5rem 0 0;
     // text-align:center;
     line-height:3rem;
     // border-bottom: 1px solid #999;

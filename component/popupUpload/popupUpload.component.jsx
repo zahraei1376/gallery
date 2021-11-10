@@ -10,6 +10,8 @@ import MyButton from '../ButtonComponent/Button.component';
 // import logo from '../../assets/img/galleryLg.png';
 import logo from '../../assets/img/galleryLg2.png';
 import MyDropDown from '../dropDown/dropDown.component';
+// import CameraEnhanceOutlinedIcon from '@mui/icons-material/CameraEnhanceOutlined';
+import CameraIcon from '@mui/icons-material/Camera';
 const PopUpUpload = ({currentUser ,close ,setTriggerDeleteFile,triggerDeleteFile,}) => {
     const [showMessage,setShowMessage] = useState(false);
     const [message,setMessage] =useState('');
@@ -25,7 +27,7 @@ const PopUpUpload = ({currentUser ,close ,setTriggerDeleteFile,triggerDeleteFile
     /////////////////////////////////////////////////////////////
     const handleOnClick = async(e) =>{
        e.preventDefault();
-       if(info.title && myFile){
+       if(info.title && info.myFile){
             const formData = new FormData();
             formData.append('properties', info.properties);
             formData.append('title',info.title);
@@ -104,9 +106,10 @@ const PopUpUpload = ({currentUser ,close ,setTriggerDeleteFile,triggerDeleteFile
                     <FileContainer>
                         <label htmlFor="upload" id="lable" style={{cursor:"pointer"}}>
                             <LogoContainer>
-                                <Logo 
+                                <CameraIcon style={{fontSize:'9rem' , color:'#191e3e'}} />
+                                {/* <Logo 
                                 width="100%" height="100%"
-                                 layout="responsive" src={logo}/>
+                                 layout="responsive" src={logo}/> */}
                                 <SettingIcon/>
                             </LogoContainer>
                         </label>
@@ -114,7 +117,8 @@ const PopUpUpload = ({currentUser ,close ,setTriggerDeleteFile,triggerDeleteFile
                             style={{display:"none"}}
                             type="file"
                             id="upload"
-                            accept="image/png,image/jpeg"
+                            accept="image/*"
+                            // accept="image/png,image/jpeg"
                             onChange={e => handlefile(e)}
                         />
                     </FileContainer>

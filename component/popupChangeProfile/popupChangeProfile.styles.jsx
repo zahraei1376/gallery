@@ -212,7 +212,12 @@ export const Input = styled.input`
 	font-family:ir_sans;
 `;
 
-export const Logo = styled(Image)`
+// export const Logo = styled(Image)`
+//   width:100%;
+//   height:100%;
+// `;
+
+export const Logo = styled.img`
   width:100%;
   height:100%;
 `;
