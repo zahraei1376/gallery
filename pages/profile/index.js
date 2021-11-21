@@ -1,5 +1,5 @@
 // import axios from 'axios';
-import router from 'next/router';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import MySnackbar from '../../component/messageBox/messageBox.component';
 import Profile from '../../component/profile/profile.component';
@@ -7,12 +7,14 @@ import Profile from '../../component/profile/profile.component';
 import { parseCookies } from '../../utils/parseCookie';
 // import {connectToDataBase} from '../../lib/db';
 // import {handler} from '../api/profile/getData';
-const ProfilePage = ({selected,files,userInfo,error,data,reload,}) =>{
+const ProfilePage = ({selected,files,userInfo,error,reload,}) =>{
     /////////////////////////////////////////////////////////
     const [showMessage,setShowMessage] = useState(false);
     const [message,setMessage] = useState('');
     const [status,setStatus] = useState('0');
     ///////////////////////////////////////////////////////////
+    const router = useRouter();
+    //////////////////////////////////////////////////////////
     useEffect(() =>{
         if(error) {
             setStatus('0')
@@ -22,6 +24,8 @@ const ProfilePage = ({selected,files,userInfo,error,data,reload,}) =>{
     },[]);
 
     const refreshData = () => {
+        console.log('refteshhhhhhhhhhhhhhhhhhhhh' , router.asPath);
+        // router.reload(window.location.pathname)
         router.replace(router.asPath);
     }
 
@@ -74,6 +78,7 @@ export async function getServerSideProps({req, res}){
             }
             selected = filtered;
             data = dataRes.data.files;
+            console.log('dataRes.data.user' , dataRes.data.user);
             userInfo = dataRes.data.user;            
         }else{
             if(dataRes.reload){

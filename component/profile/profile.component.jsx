@@ -12,9 +12,9 @@ import {currentUser} from '../../redux/user/user.selector';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import MySnackbar from '../messageBox/messageBox.component';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 /////////////////////////////////////
-const Profile = ({currentUser , selected , files , userInfo , error , data , reload , refreshData}) =>{
+const Profile = ({currentUser , selected , files , userInfo , error , reload , refreshData}) =>{
     const [showBox , setShowBox] = useState("1");
     const [showProfile , setShowProfile] = useState(false);
     const [showUploadBox , setShowUploadBox] = useState(false);
@@ -27,8 +27,13 @@ const Profile = ({currentUser , selected , files , userInfo , error , data , rel
     const [message,setMessage] =useState('');
     const [status,setStatus] = useState('0');
     ///////////////////////////////////////////////////////////
-    const router = useRouter();
-    ///////////////////////////////////////////////////////////// 
+    // const router = useRouter();
+    /////////////////////////////////////////////////////////////
+    useEffect(() =>{
+        setUploadFiles(files);
+        setUploadFilesSelect(selected);
+        setUser(userInfo);
+    } , [userInfo , files , selected ]) 
     // const { data, error } = useSWR(['/api/myUpload', currentUser] , fetcher)
     // useEffect(() =>{
     //     if(data){
