@@ -16,12 +16,6 @@ const GalleryPage = (props) =>{
     const [customPics , setCustomPics] = useState(props.data);
     const [text , setText] = useState(props.textTopic);
     /////////////////////////////////////////////
-    // useEffect(() =>{
-    //     setPics(props.data);
-    //     setCustomPics(props.data);
-    //     setText(props.router.query.images);
-    // },[props.router.query.images]);
-    //////////////////////////
     useEffect(() =>{
         if(topic){
             setText(props.textTopic + " " + topic );

@@ -197,9 +197,7 @@ const PopUpProfile = ({currentUser , close ,refreshData, setTriggerDeleteFile ,t
                             <LogoContainer>
                                 {croppedImage || srcImage ? <Logo id="uploadImage" 
                                 layout="fill" 
-                                // src={srcImage}
                                 src={croppedImage ? croppedImage : srcImage}
-                                // src={state.photographerPicture ? state.photographerPicture: logo}
                                 /> :''}
                                 <SettingIcon/>
                             </LogoContainer>
@@ -209,11 +207,8 @@ const PopUpProfile = ({currentUser , close ,refreshData, setTriggerDeleteFile ,t
                             style={{display:"none"}}
                             type="file"
                             id="upload"
-                            // name="file"
-                            // accept="image/*"
                             accept="image/png,image/jpeg"
                             onChange={e => handlefile(e)}
-                            // onClick={checkSendfile}
                         />
                     </FileContainer>
                         
@@ -225,18 +220,10 @@ const PopUpProfile = ({currentUser , close ,refreshData, setTriggerDeleteFile ,t
                         <Lable shirink={state.photographer ? "true" : null} htmlFor="name" >نام</Lable>
                         <Input placeholder=" " id="name" type="text" value={state.photographer} onChange = {e => setState({...state , photographer:e.target.value })} />
                     </Group>
-                    {/* <Group>
-                        <Lable htmlFor="pass" >پسورد</Lable>
-                        <Input id="pass" type="password" value={state.password} onChange = {e => setState({...state , password:e.target.value })}/>
-                    </Group> */}
                     <Group>
                         <Lable shirink={state.email ? "true" : null} htmlFor="email" >ایمیل</Lable>
                         <Input placeholder=" " id="email" type="text" value={state.email} onChange = {e => setState({...state , email:e.target.value })}/>
                     </Group>
-                    {/* <Group>
-                        <Lable htmlFor="phone" >تماس</Lable>
-                        <Input id="phone" type="text" />
-                    </Group> */}
                     <Group>
                         <Lable shirink={state.location ? "true" : null} htmlFor="location" >موقعیت مکانی</Lable>
                         <Input placeholder=" " id="location" type="text" value={state.location} onChange = {e => setState({...state , location:e.target.value })} />

@@ -1,5 +1,4 @@
 import React from 'react';
-// import { makeStyles ,createMuiTheme } from '@material-ui/core/styles';
 import { makeStyles,createTheme, ThemeProvider,createMuiTheme ,MuiThemeProvider,CssBaseline} from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
@@ -26,10 +25,8 @@ const useStyles = makeStyles((theme) => ({
     width:'50% !important',
     color:'#000 !important',
     textAlign:'center',
-    // padding:'2rem 0 4rem 0',
     backgroundColor:'#eee',
     borderRadius:'5px',
-    // border:'1px solod #bf4f7b !important',
     select: {
       border:'1px solod #bf4f7b !important',
       "&$focused": {

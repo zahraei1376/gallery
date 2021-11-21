@@ -12,7 +12,6 @@ import {currentUser} from '../../redux/user/user.selector';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import MySnackbar from '../messageBox/messageBox.component';
-// import { useRouter } from 'next/router';
 /////////////////////////////////////
 const Profile = ({currentUser , selected , files , userInfo , error , reload , refreshData}) =>{
     const [showBox , setShowBox] = useState("1");
@@ -27,76 +26,12 @@ const Profile = ({currentUser , selected , files , userInfo , error , reload , r
     const [message,setMessage] =useState('');
     const [status,setStatus] = useState('0');
     ///////////////////////////////////////////////////////////
-    // const router = useRouter();
     /////////////////////////////////////////////////////////////
     useEffect(() =>{
         setUploadFiles(files);
         setUploadFilesSelect(selected);
         setUser(userInfo);
     } , [userInfo , files , selected ]) 
-    // const { data, error } = useSWR(['/api/myUpload', currentUser] , fetcher)
-    // useEffect(() =>{
-    //     if(data){
-    //         var selected = data.data.files.slice(- 5);
-    //         var count = 5 - selected.length ;
-    //         if(count !== 0){
-    //             for (let index = 0; index < count; index++) {
-    //                 selected.unshift(undefined);
-    //             }
-    //         }
-    //         setUploadFilesSelect(selected);
-    //         setUploadFiles(data.data.files);
-    //         setUser(data.data.user);
-    //     }
-    // } ,[data , triggerDeleteFile]);
-    /////////////////////////////////////////////////////////////
-    // useEffect(() =>{
-    //         fetch("/api/myUpload", {
-    //             headers: {
-    //                 'Authorization': currentUser
-    //                 },
-    //             method:"GET",
-    //         })
-    //         .then((response)=>{ 
-    //             return response.json();   
-    //         })
-    //         .then((dataRes)=>{ 
-    //             if(dataRes.seccess){
-    //                 var selected = dataRes.data.files.slice(- 5);
-    //                 var count = 5 - selected.length ;
-    //                 if(count !== 0){
-    //                     for (let index = 0; index < count; index++) {
-    //                         selected.unshift(undefined);
-    //                     }
-    //                 }
-    //                 setUploadFilesSelect(selected);
-    //                 setUploadFiles(dataRes.data.files);
-    //                 setUser(dataRes.data.user);
-                    
-    //             }else{
-    //                 if(dataRes.reload){
-    //                     setStatus('0')
-    //                     setMessage(dataRes.message)
-    //                     setShowMessage(true);
-    //                     setTimeout(() => {
-    //                         router.push('/login')
-    //                     }, 1000);
-    //                 }else{
-    //                     setStatus('0')
-    //                     setMessage(dataRes.message)
-    //                     setShowMessage(true);
-    //                 }
-    //             }
-
-    //         })
-    //         .catch(err => {
-    //             setStatus('0')
-    //             setMessage(err.message)
-    //             setShowMessage(true);
-    //             // setLoading(false);
-    //         });
-    //     // }
-    // },[triggerDeleteFile]);
     ////////////////////////////////////////////////////////
 
     const handleOnClick = () =>{
@@ -143,10 +78,7 @@ const Profile = ({currentUser , selected , files , userInfo , error , reload , r
                 {(() => {
                 if (showBox === "1") {
                     return (
-                        <SavedBoxesComponent type={1} uploadFiles={uploadFiles} 
-                        refreshData={refreshData}
-                        // setTriggerDeleteFile={setTriggerDeleteFile} triggerDeleteFile={triggerDeleteFile}
-                        />
+                        <SavedBoxesComponent type={1} uploadFiles={uploadFiles} refreshData={refreshData} />
                     )
                 }
                 else if (showBox === "2") {
@@ -159,12 +91,8 @@ const Profile = ({currentUser , selected , files , userInfo , error , reload , r
             })()}
             </TabsContainer>
 
-            {showProfile && <PopUpProfile currentUser = {currentUser} close={handleOnClick} 
-            refreshData={refreshData}
-            // setTriggerDeleteFile={setTriggerDeleteFile} triggerDeleteFile={triggerDeleteFile}
-            />}
+            {showProfile && <PopUpProfile currentUser = {currentUser} close={handleOnClick} refreshData={refreshData} />}
             {showUploadBox && <PopUpUpload refreshData={refreshData}
-            // setTriggerDeleteFile={setTriggerDeleteFile} triggerDeleteFile={triggerDeleteFile}
              currentUser = {currentUser} close={handleUploadBox}/>}
             {showMessage && <MySnackbar message={message} status={status} showMessage={showMessage} setShowMessage={setShowMessage} />  }
         </ProfileContainer>
@@ -174,26 +102,5 @@ const Profile = ({currentUser , selected , files , userInfo , error , reload , r
 const mapStateToProps = createStructuredSelector({
     currentUser:currentUser,
  });
-
-
-//  const withData = fn => ctx => {
-//     // Fetch data
-  
-//     return fn({ ...ctx, data })
-//   }
-
-
-//   export async const getServerSideProps = withData(({ data }) => {
-
-//     // ...
-  
-//     return {
-//       props: {
-//         data,
-//       }
-//     }
-//   })
-
-
 
 export default connect(mapStateToProps)(Profile);

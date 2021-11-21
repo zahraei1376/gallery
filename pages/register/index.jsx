@@ -1,8 +1,7 @@
 import React , {useState} from 'react';
-import {IconContainer,MyLockOutlinedIcon,MyPersonOutlineIcon,MyGenderIcon,MyAgeIcon,MyEmailIcon,MyFullNameIcon,SectionRegister ,RegisterBox ,TitleRegister,RegisterFormContainer,
+import {IconContainer,MyLockOutlinedIcon,MyPersonOutlineIcon,MyEmailIcon,MyFullNameIcon,SectionRegister ,RegisterBox ,TitleRegister,RegisterFormContainer,
     RegisterForm ,FormGroupContainer,FormGroup,FormGroupBtn,
-    FormInput,RegisterLink,FormLabel,RegisterDescContainer ,
-    RegisterDesc ,FooterRegister,FooterRegisterText ,FooterRegisterLink,
+    FormInput,FooterRegister,FooterRegisterText ,FooterRegisterLink,
     LogoContainer,Logo  , StyledLink} from '../../pagesStyles/register.styles';
 import {Btn} from '../../generalCss/generalCss.styles';
 import MySnackbar from '../../component/messageBox/messageBox.component';
@@ -10,7 +9,8 @@ import MySpinner from '../../component/MySpinner/MySpinner.component';
 import logo from '../../assets/img/galleryLg.png';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-const RegisterPage = (props) =>{
+
+const RegisterPage = () =>{
     /////////////////////////////
     const router = useRouter()
     /////////////////////////////
@@ -28,12 +28,10 @@ const RegisterPage = (props) =>{
     const [status,setStatus] = useState(0);
     const [loading,setLoading] = useState(false);
     /////////////////////////
-    /////////////////////////
 
     const handleSetFeild = (val , param) =>{
         setFiels({...fiels, [param] : val});
     }
-
 
     const submitRegister = async(e)=>{
         e.preventDefault();
@@ -44,8 +42,6 @@ const RegisterPage = (props) =>{
                 password:fiels.pass,
                 email:fiels.email,
                 fullName:fiels.fullName,
-                // age:fiels.age,
-                // gender:fiels.gender,
             }
             
             await fetch("/api/register", {
@@ -92,10 +88,6 @@ const RegisterPage = (props) =>{
 
     }
 
-    const handleOnChangeSelect = (val) =>{
-        setFiels({...fiels, ['gender'] : val});
-    }
-
     return(
         <SectionRegister>
             <LogoContainer>
@@ -138,22 +130,6 @@ const RegisterPage = (props) =>{
                             </FormGroup>
                         </FormGroupContainer>
 
-                        {/* <FormGroupContainer>
-                            <FormGroup>
-                                <FormInput type="number" min="0" placeholder="سن" id="age" required onChange={e => handleSetFeild(e.target.value , 'age')} />
-                                <IconContainer>
-                                    <MyAgeIcon/>
-                                </IconContainer>
-                            </FormGroup>
-
-                            <FormGroup>
-                                <MyDropDown handleOnChangeSelect={handleOnChangeSelect} />
-                                <IconContainer>
-                                    <MyGenderIcon/>
-                                </IconContainer>
-                            </FormGroup>
-                        </FormGroupContainer> */}
-                
                         <FormGroupBtn>
                             <Btn variant="contained"
                               bgcolor="rgba(0,0,0,.6)" clr="#fff"

@@ -1,18 +1,7 @@
 import {SegeestionContainer, SegestionContent , SegestionBox , NewestSection ,
      NewestBox , NewestTitle ,NewestImageContainer , NewestImage} from './segestionSearch.styles';
-import pic from '../../assets/img/logo.png';
 import {newestCategory} from '../../generalMethod/topics';
-import { BackDrop } from '../searchBox/searchBox.styles';
 import { useRouter } from 'next/router';
-
-// const result = [
-//     {name:'سلام',},
-//     {name:'خوبی',},
-//     {name:'چطوری',},
-//     {name:'احوال شما',},
-//     {name:'برو بابا',},
-//     {name:'الو الووو',},
-// ];
 
 const SegestionSearch = ({showSegesion, setShowSegestion , result , segestion}) =>{
     const router = useRouter()
@@ -37,9 +26,7 @@ const SegestionSearch = ({showSegesion, setShowSegestion , result , segestion}) 
             <NewestSection segestion={segestion}>
                 {
                     newestCategory && newestCategory.length> 0 ? newestCategory.map((res , index) =>(
-                        <NewestBox onClick={()=> handleSearch(res.title)} key={index} 
-                        // onClick = {() => history.push(res.url)}
-                        >
+                        <NewestBox onClick={()=> handleSearch(res.title)} key={index} >
                             <NewestTitle>
                                 {res.title}
                             </NewestTitle>

@@ -66,7 +66,6 @@ const LoginPage = (props) =>{
                     setMessage('ورود موفقیت آمیز بود');
                     setShowMessage(true);
                     props.setCurrentUser(dataRes.token ? dataRes.token : null);
-                    // props.setUserInfo(dataRes.userInfo);
                     setLoading(false);
                     setTimeout(()=>{
                         router.push('/');

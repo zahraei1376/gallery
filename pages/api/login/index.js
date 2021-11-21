@@ -28,21 +28,14 @@ export default async (req, res) =>{
                         }
                         const token= jwt.sign({
                             userId:loadedUser._id,
-                            // userId:loadedUser._id.toString(),
-                            // isAdmin:loadedUser.isAdmin
                         },
                         'MySuperSecret',
                         // {expiresIn:'1h'}
                         );
 
-                        // res.statusCode(200).json({token:token,userId:loadedUser._id.toString()})
                         res.json({seccess:true,token:token,userInfo:loadedUser})
                     })
                     .catch(err=>{
-                        // if(!err.statusCode){
-                        //     err.statusCode=500;
-                        // }
-                        // next(err);
                         res.status(200).json({seccess:false,message:'مشکلی رخ داده است !!!'});
                     })
                     

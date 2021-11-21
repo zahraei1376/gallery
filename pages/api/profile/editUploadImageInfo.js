@@ -16,7 +16,6 @@ const handler = async (req, res) =>{
                     const title = req.body.title;
                     var decoded = req.auth;
                     var id = decoded.userId;
-                    // var id = mongoose.Types.ObjectId(decoded.userId);
                     Files.findOneAndUpdate({ user : id , _id:uploadId } ,{
                         properties,
                         sunTitle,

@@ -39,12 +39,10 @@ const SavedImages = ({setLocation , addItemToSave,selectedCart,imageInfo , curre
     return(
         <>
             <SaveContainer>
-                <SaveButton onClick = {() => handleAddItemToCard(imageInfo)}><SaveIcon 
-                // seved = {seved}
-                seved = {selectedCart ? selectedCart : null}
-                /></SaveButton>
+                <SaveButton onClick = {() => handleAddItemToCard(imageInfo)}>
+                    <SaveIcon  seved = {selectedCart ? selectedCart : null}/>
+                </SaveButton>
                 <MySaveButton onClick= {e => handleLoaction(e)}><MySaveIcon /></MySaveButton>
-                {/* <CardSaved fixed= {fixed ? fixed : null} /> */}
             
             </SaveContainer>
             {

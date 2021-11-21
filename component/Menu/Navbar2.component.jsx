@@ -2,7 +2,6 @@ import  React , {useState ,useEffect} from 'react';
 import { connect } from 'react-redux';
 import Toolbar from './Toolbar/toolbar.component';
 import SearchBox from '../searchBox/searchBox.component';
-import PopoverPopupState from './profileBox/propfileBox.component';
 import {NavberContainer,UserIconButton ,MyUserIcon ,ProfileBox,
     LoginButtonContainer,LoginButton,LogoImg ,InfoContainer,SearchAndInfoContainer,
     LogoContainer,Logo , SearchBoxContaiber} from './Navbar2.styles';
@@ -42,15 +41,12 @@ const MyNavbar = ({currentUser , text}) =>{
                 />
             </LogoContainer>
             <SearchAndInfoContainer>
-            <SearchBoxContaiber 
-            // segestion = "true" scroll = {scrolling ? true : null}
-            >
+            <SearchBoxContaiber>
                 <SearchBox segestion = "true" clicked={clicked} text={text} scroll = {scrolling ? true : null} />
             </SearchBoxContaiber>
             
             <InfoContainer>
                 {currentUser ? <UserIconButton onClick={()=> router.push('/profile')} >
-                    {/* <PopoverPopupState/> */}
                     <MyUserIcon />
                 </UserIconButton> : ''
                 }

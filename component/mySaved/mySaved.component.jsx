@@ -1,6 +1,5 @@
-import MyNavbar from '../../component/Menu/Navbar.component';
 import SavedGallery from '../../component/savedImageGallery/savedImageGallery.component';
-import { TitleWrapper,LeftTitle , RightTitle,GalleryPageSecion ,TitleContainer,Title , SunTitle ,SunTitleSelect,InfoSelectContainer,
+import { GalleryPageSecion ,TitleContainer , SunTitle ,SunTitleSelect,InfoSelectContainer,
     DeleteContainer, DeleteButton, MyDeleteIcon ,InfoContainer,InfoWrapper,SelectAll ,SelectAllContainer} from './mySaved.styles';
 import { selectCartItem , selectCartItemsCount ,} from '../../redux/cart/cart.selectors';
 import {currentUser} from '../../redux/user/user.selector';
@@ -11,7 +10,6 @@ import { useState, useEffect } from 'react';
 import { Tooltip } from '@material-ui/core';
 import TitleStyle from '../../component/title/title.component';
 import MySnackbar from '../messageBox/messageBox.component';
-// import { scrollFunction } from '../../generalMethod/limitRecipeTitle';
 //////////////////////////////////////////////
 const SavedBoxesComponent = ({currentUser,saveCartItem ,uploadFiles,refreshData ,setTriggerDeleteFile,triggerDeleteFile, count , RemoveItems , RemoveItem , type}) =>{
     const [imageForDelete, setImageForDelete] = useState([]);
@@ -20,7 +18,6 @@ const SavedBoxesComponent = ({currentUser,saveCartItem ,uploadFiles,refreshData 
     const [showMessage,setShowMessage] = useState(false);
     const [message,setMessage] =useState('');
     const [status,setStatus] = useState('0');
-    // const [uploadFiles , setUploadFiles] = useState([]);
     //////////////////////////////////////////
     useEffect(() => {
         const onScroll = e => {
@@ -143,10 +140,6 @@ const SavedBoxesComponent = ({currentUser,saveCartItem ,uploadFiles,refreshData 
                     </SelectAllContainer>
                 </InfoWrapper>
             </InfoContainer>
-
-            {/* <InfoSelectContainer>
-                <SunTitleSelect>{`تعداد عکس های انتخاب شده ${imageForDelete.length} عدد`}</SunTitleSelect>
-            </InfoSelectContainer> */}
 
             <SavedGallery uploadedImage = {type === 1 ? true : false} images = {type === 1 ? uploadFiles : saveCartItem} imageForDelete = {imageForDelete} setImageForDelete ={setImageForDelete} />
             {

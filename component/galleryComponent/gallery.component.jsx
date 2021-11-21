@@ -10,8 +10,6 @@ import {connect } from 'react-redux';
 import MySpinner from '../MySpinner/MySpinner.component';
 import { limitRecipeTitle } from '../../generalMethod/limitRecipeTitle';
 //////////////////////////////////////////////
-// import useSWR from 'swr';
-//////////////////////////////////////////////
 const Gallery = ({RemoveItem , images}) =>{
     //////////////////////////////////////////////
     const [showComponent , setShowComponent] = useState(false);
@@ -49,8 +47,6 @@ const Gallery = ({RemoveItem , images}) =>{
             ResizeWindows();
         });
     }, []);
-
-    // useSWR()
 
     useEffect(() =>{
         ResizeWindows();

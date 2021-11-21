@@ -1,12 +1,8 @@
-// import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import MySnackbar from '../../component/messageBox/messageBox.component';
 import Profile from '../../component/profile/profile.component';
-// import { getApiRequest } from '../../utils/getDataOFServer';
 import { parseCookies } from '../../utils/parseCookie';
-// import {connectToDataBase} from '../../lib/db';
-// import {handler} from '../api/profile/getData';
 const ProfilePage = ({selected,files,userInfo,error,reload,}) =>{
     /////////////////////////////////////////////////////////
     const [showMessage,setShowMessage] = useState(false);
@@ -24,8 +20,6 @@ const ProfilePage = ({selected,files,userInfo,error,reload,}) =>{
     },[]);
 
     const refreshData = () => {
-        console.log('refteshhhhhhhhhhhhhhhhhhhhh' , router.asPath);
-        // router.reload(window.location.pathname)
         router.replace(router.asPath);
     }
 
@@ -36,7 +30,6 @@ const ProfilePage = ({selected,files,userInfo,error,reload,}) =>{
                 files ={files}
                 userInfo ={userInfo}
                 error = {error}
-                // data ={data}
                 reload ={reload}
                 refreshData={refreshData}
             />
@@ -78,7 +71,6 @@ export async function getServerSideProps({req, res}){
             }
             selected = filtered;
             data = dataRes.data.files;
-            console.log('dataRes.data.user' , dataRes.data.user);
             userInfo = dataRes.data.user;            
         }else{
             if(dataRes.reload){
@@ -92,7 +84,6 @@ export async function getServerSideProps({req, res}){
     .catch(err => {
         error = dataRes.message;
     });
-// }
 
     return {
         props : {
@@ -104,56 +95,5 @@ export async function getServerSideProps({req, res}){
     }
  
 }
-
-
-// export async function getServerSideProps({req, res}){
-    
-//     var data = [] , selected = [] , error =null , reload = false;
-//     const myCookie = await parseCookies(req);
-//     if(!myCookie.user){
-//         return {
-//             redirect:{
-//                 destination:'/login'
-//             }
-            
-//         }
-//     }
-//     /////////////////////////////////
-//     const myData = await handler(myCookie.user);
-    
-//     if(myData && !myData.seccess){
-//         error = myData.message; 
-//     }else if(myData && myData.seccess) {
-            
-//         data = myData.data;
-//         selected = data.files.slice(- 5);
-//         var count = 5 - selected.length ;
-//         if(count !== 0){
-//             for (let index = 0; index < count; index++) {
-//                 selected.unshift(undefined);
-//             }
-//     }
-//     }
-
-//     if(reload){
-//         return {
-//             redirect:{
-//                 destinaion:'/login'
-//             }
-            
-//         }
-//     }
-
-//     return {
-//         props : {
-//             selected : selected,
-//             files:data,
-//             user:"",
-//             error:error,
-//         },
-//     }
-// };
-
-
 
 export default ProfilePage;

@@ -1,4 +1,3 @@
-// import mongoose  from'mongoose';
 import dbConnec from '../../../utils/dbConnect';
 import verifyToken from '../../../utils/middleware/withValidation';
 import UserModel from '../../../models/UserModel';
