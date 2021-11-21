@@ -1,8 +1,7 @@
-import  React , {useState } from 'react';
+import  React , {useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import Toolbar from './Toolbar/toolbar.component';
 import SearchBox from '../searchBox/searchBox.component';
-import PopoverPopupState from './profileBox/propfileBox.component';
 import {NavberContainer,UserIconButton ,MyUserIcon ,ProfileBox,
     LoginButtonContainer,LoginButton,LogoImg ,InfoContainer,
     LogoContainer,Logo , SearchBoxContaiber} from './Navbar.styles';
@@ -11,12 +10,30 @@ import { useRouter } from 'next/router';
 import ToolbarItems from './Toolbar/ToolbarItem.component';
 import { Tooltip } from '@material-ui/core';
 
-const MyNavbar = ({currentUser , scrolling}) =>{
+const MyNavbar = ({currentUser}) =>{
     /////////////////////////////
     const [clicked,setClicked] = useState(false);
     /////////////////////////////
     const router = useRouter()
     /////////////////////////////
+    const [scrolling,setScrolling] = useState(false);
+    ////////////////////////////////////////////
+    useEffect(()=>{
+      window.addEventListener('scroll', scrollFunction);
+      return () => window.removeEventListener('scroll', scrollFunction);
+    },[]);
+    ////////////////////////////////////////////
+    const scrollFunction = () => {
+      var y = window.scrollY;
+      if ( y >= 170) {
+        if(!scrolling){
+            setScrolling(true);
+        }
+      }else{
+          setScrolling(false);
+      }
+    } 
+    //////////////////////////////////////////////
     return (
         <NavberContainer scroll = {scrolling ? "true" : null}>
             <LogoContainer>
@@ -30,7 +47,6 @@ const MyNavbar = ({currentUser , scrolling}) =>{
             
             <InfoContainer>
                 {currentUser ? <Tooltip  placement="bottom" title="پنل کاربری" ><UserIconButton onClick={()=> router.push('/profile')} >
-                    {/* <PopoverPopupState/> */}
                     <MyUserIcon />
                 </UserIconButton></Tooltip> : ''
                 }

@@ -11,38 +11,6 @@ export const Container = styled.div`
     // margin-left: 1rem;
 `;
 
-export const TitleShowAll = styled.h3`
-    // color: #191e3e;
-    color: #888;
-    font-size:1.8rem;
-    font-weight:800;
-    font-family:ir_sans;
-    display: block;
-    overflow: hidden;
-    line-height: 2rem;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    text-align: center;
-    transition:all .3s;
-
-    &:hover{
-        font-size:2rem;
-        color: #fff;
-        // border-bottom:1px solid #191e3e;
-    }
-`;
-
-export const ShowAllContainer = styled.div`
-    cursor:pointer;
-    transition:all .3s;
-    padding:1rem 0;
-    // border-bottom:1px solid #fff;
-    display:flex;
-    justify-content:flex-end;
-`
-
-
-
 export const Title = styled.h3`
     // color: #000;
     font-size:1.6rem;
@@ -101,6 +69,3 @@ export const Image = styled.img`
     height:100%;
     transition:all .3s;
 `;
-
-
-

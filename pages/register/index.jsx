@@ -1,18 +1,15 @@
-import React , {useState , useEffect} from 'react';
+import React , {useState} from 'react';
 import {IconContainer,MyLockOutlinedIcon,MyPersonOutlineIcon,MyGenderIcon,MyAgeIcon,MyEmailIcon,MyFullNameIcon,SectionRegister ,RegisterBox ,TitleRegister,RegisterFormContainer,
     RegisterForm ,FormGroupContainer,FormGroup,FormGroupBtn,
     FormInput,RegisterLink,FormLabel,RegisterDescContainer ,
     RegisterDesc ,FooterRegister,FooterRegisterText ,FooterRegisterLink,
-    LogoContainer,Logo  , StyledLink} from './register.styles';
+    LogoContainer,Logo  , StyledLink} from '../../pagesStyles/register.styles';
 import {Btn} from '../../generalCss/generalCss.styles';
-import MyDropDown from '../../component/Register-Login/myDropDown.component';
 import MySnackbar from '../../component/messageBox/messageBox.component';
-import { useHistory } from "react-router-dom";
 import MySpinner from '../../component/MySpinner/MySpinner.component';
 import logo from '../../assets/img/galleryLg.png';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import {fixNumbers} from '../../generalMethod/fixedNumber';
 const RegisterPage = (props) =>{
     /////////////////////////////
     const router = useRouter()

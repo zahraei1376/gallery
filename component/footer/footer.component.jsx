@@ -1,8 +1,6 @@
 import {
     FooterContainer , 
     FooterInfo ,
-    FooterImage ,
-    FooterTitle ,
     FooterLinks,
     FooterItem,
     FooterLink ,
@@ -16,9 +14,7 @@ import {
     FooterBottom,
     LogoContainer,
     Logo,
-    ButtonContainer,
     ButtonIconContainer,
-    Button,
     LocationIcon,
     PhoneIcon,
     MobileIcon,

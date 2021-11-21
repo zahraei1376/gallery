@@ -13,7 +13,7 @@ import TitleStyle from '../../component/title/title.component';
 import MySnackbar from '../messageBox/messageBox.component';
 // import { scrollFunction } from '../../generalMethod/limitRecipeTitle';
 //////////////////////////////////////////////
-const SavedBoxesComponent = ({currentUser,saveCartItem ,uploadFiles,setTriggerDeleteFile,triggerDeleteFile, count , RemoveItems , RemoveItem , type}) =>{
+const SavedBoxesComponent = ({currentUser,saveCartItem ,uploadFiles,refreshData ,setTriggerDeleteFile,triggerDeleteFile, count , RemoveItems , RemoveItem , type}) =>{
     const [imageForDelete, setImageForDelete] = useState([]);
     const [textBtn , setTextBtn] = useState(0);
     const [fixed , setFixed] = useState(null);
@@ -47,7 +47,7 @@ const SavedBoxesComponent = ({currentUser,saveCartItem ,uploadFiles,setTriggerDe
       /////////////////////////////////////
     const handleRemoveItem = () =>{
         if(type === 2){//عکسهای ذخیره شده
-            RemoveItems(imageForDelete);
+            RemoveItems({images : imageForDelete , user: currentUser});
         }else if(type === 1){
             const data = {
                 arrayId:imageForDelete,
@@ -66,7 +66,8 @@ const SavedBoxesComponent = ({currentUser,saveCartItem ,uploadFiles,setTriggerDe
               })
               .then((dataRes)=>{ 
                   if(dataRes.seccess){
-                    setTriggerDeleteFile(!triggerDeleteFile);
+                    // setTriggerDeleteFile(!triggerDeleteFile);
+                    refreshData();
                     setStatus('0')
                     setMessage('عکس موردنظر با موفقیت حذف شد!!!');
                     setShowMessage(true);

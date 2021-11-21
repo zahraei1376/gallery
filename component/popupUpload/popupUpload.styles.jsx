@@ -279,11 +279,6 @@ export const TextArea = styled.textarea`
 	font-family:ir_sans;
 `;
 
-export const Logo = styled(Image)`
-  width:100%;
-  height:100%;
-`;
-
 export const LogoContainer = styled.div`
 //   cursor:pointer;
 //   position:relative;

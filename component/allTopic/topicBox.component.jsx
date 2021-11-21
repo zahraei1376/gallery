@@ -1,4 +1,4 @@
-import {useState , useEffect} from 'react';
+import {useState} from 'react';
 import {TopicBoxContainer , TopicImageContainer ,TopicImage,TopicPhotographerContainer,
     TopicPhotographerImageContainer,TopicPhotographerImage, TopicPhotographerName,
      TopicBoxSubTitle ,PhotographerInfo ,PhotographerTitle , TopicLayerBack , AttachContainer ,AttachIcon } from './topicBox.styles';

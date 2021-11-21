@@ -49,14 +49,8 @@ export const FooterContainer = styled.div`
     width:100%;
     min-height:65rem;
     position: relative;
-    // background:#bf4f7b;
-    // background-image: radial-gradient(ellipse at top ,rgb(218,160,103) ,#191e3e);
-    // background-image: linear-gradient(to right ,#bf4f7b, #191e3e);
-    // background-image: linear-gradient(to right ,rgb(218,160,103) 30%,rgba(256,256,256,.6) 30% ,rgb(218,160,103) 60%);
     background-color:rgb(218,160,103);
-    // background-image: radial-gradient(ellipse at top ,#bf4f7b,#242d64 80%,#191e3e 100%);
     margin:0;
-    // clip-path: polygon(0 11%, 100% 0, 100% 100%, 0% 100%);
 
     &::before{
         margin-top: 10rem;
@@ -67,7 +61,6 @@ export const FooterContainer = styled.div`
         bottom: 0;
         left: 0;
         width: 100%;
-        // height:100%;
         background: #1d1d1d;
         z-index: 0;
         clip-path: polygon(0 0, 100% 25%, 100% 100%, 0% 100%);
@@ -78,25 +71,11 @@ export const FooterContainer = styled.div`
     }
 `;
 
-export const FooterTitle = styled.h1`
-    color:#843910;
-    font-size:3rem;
-    font-family:ir_sans;
-    text-align:center;
-    padding:3rem;
-    margin:0;
-`;
-
 export const FooterInfo = styled.div`
     width:100%;
     min-height:40rem;
-    // background-color:#843910;
-    // background-color:rgba(132, 57, 16, .6);
-    // background-color:rgba(206, 161, 118, 1);
-    // margin:3rem auto;
     border-radius:3rem;
     position:relative;
-    // box-shadow: 0 5px 7px 0 rgba(0, 0, 0, .2);
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -108,26 +87,9 @@ export const FooterLinks = styled.div`
     display:flex;
     justify-content:space-around;
     align-items:flex-start;
-    // border-bottom:1px solid #eee;
-    // padding:2rem 0 3rem 0;
     padding: 2rem;
     height:80%;
     box-sizing:border-box;
-    // position: relative;
-    // // display: block;
-    // // background: #1d1d1d;
-
-    // &::before{
-    //     content: "";
-    //     position: absolute;
-    //     display: block;
-    //     top: 0;
-    //     bottom: 0;
-    //     right: 0;
-    //     width: calc(30vw - 365px);
-    //     background: #fff;
-    //     z-index: 0;
-    // }
 
     @media only screen and (max-width: 411px){
         flex-direction:column;
@@ -140,9 +102,6 @@ export const FooterUl = styled.ul`
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    // width:50%;
-    // position: relative;
-    // display: table;
     @media only screen and (max-width: 411px){
         width:100%;
         padding:0 3rem;
@@ -154,7 +113,6 @@ export const FooterUlTitle = styled.h2`
     font-size:1.7rem;
     font-family:ir_sans;
     color:#fff;
-    // border-bottom:1px solid #fff;
     text-align: right;
     margin-right: 6px;
     display: flex;
@@ -172,8 +130,6 @@ export const FooterUlTitle = styled.h2`
         border-radius: 50%;
         position: absolute;
         right: 0;
-        // top: 50%;
-        // margin-left: 6px;
     }
 `;
 
@@ -200,7 +156,6 @@ export const FooterLink = styled.a`
     text-decoration:none;
     font-size:1.3rem;
     font-family:ir_sans;
-    /////////////////////////
     position: relative;
     display: inline;
     z-index: 1;
@@ -225,23 +180,6 @@ export const FooterLink = styled.a`
     
 `;
 
-export const FooterImage = styled.img`
-    width:30%;
-    height:auto;
-    position:absolute;
-    top:25%;
-    // left:10%;
-    left:3%;
-    transform:translate(-50%,-50%);
-    border-radius:3rem;
-    box-shadow: 5px 9px 17px 0 #000;
-    @media only screen and (max-width: 768px) {
-        top:15%;
-        left:3%;
-        // left:10%;
-    }
-`;
-
 export const FooterText = styled.p`
     font-size:1.3rem;
     font-family:${props => props.number ? 'ir_sans_num' : 'ir_sans'};
@@ -249,10 +187,6 @@ export const FooterText = styled.p`
     padding: 0;
     margin: 0;
     text-align:right;
-
-    // &:hover {
-    //     color:#fff;
-    // }
 `;
 
 export const SocialMediaContainer = styled.div`
@@ -328,40 +262,3 @@ export const LogoSection = styled.div`
     align-items:center;
     margin-left: 9rem;
 `;
-
-export const ButtonContainer = styled.div`
-  z-index:2;
-//   height:100%;
-//   width:100%;
-  display:flex;
-//   justify-content:flex-end;
-  justify-content:center;
-  align-items:center;
-//   margin-top:8rem;
-`;
-
-export const Button = styled.button`
-    color:#fff;
-    border-radius:1rem;
-    cursor:pointer;
-    font-family:ir_sans;
-    border:none;
-    display: inline-block;
-    font-size: 3rem;
-    font-weight: 300;
-    padding: 2rem 4rem;
-    background-image:${props => props.color ? `linear-gradient(-120deg, ${props.color} 0%, ${props.color} 50%, #fff 50%)` : "linear-gradient(-120deg, #191e3e 0%,transparent 50%, #191e3e 50%)"};
-    background-size: 225%;
-    transition: all .4s;
-    // border:1px solid transparen;
-  // linear-gradient(to bottom ,rgb(218,160,103),#bf4f7b);
-
-  &:hover{
-      background-position: 100%;
-      color: #1d1d1d;
-      transform: translateX(-1rem);
-    //   border:1px solid #191e3e;
-  }
-`;
-
-

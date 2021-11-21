@@ -20,6 +20,9 @@ import Link from "next/link";
 import MyButton from '../ButtonComponent/Button.component';
 import { useRouter } from 'next/router';
 import MyDropDown from '../dropDown/dropDown.component';
+import {setApiRequest , getApiRequest } from '../../utils/getDataOFServer';
+
+///////////////////////////////////////////////////////
 const ShowImage = ({addItemToSave,selectedCart,currentUser,uploadedImage,...props}) => {
     /////////////////////////////////////////////////////
     const [state,setState] = useState({
@@ -37,6 +40,7 @@ const ShowImage = ({addItemToSave,selectedCart,currentUser,uploadedImage,...prop
     const [own, setOwn] = useState(false);
     const [editMode , setEditMode] = useState(false);
     const [info , setInfo] = useState({
+      _id:props.data._id,
       properties:props.data.properties,
       title:props.data.title,
       sunTitle:props.data.sunTitle,
@@ -68,9 +72,34 @@ const ShowImage = ({addItemToSave,selectedCart,currentUser,uploadedImage,...prop
       }
     },[state.backward]);
     ////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////
     useEffect(() =>{
-      console.log('props.data' , props.data);
-      if(uploadedImage){
+      if(!!uploadedImage){
+        //////////////////////////
+        // const formData = {
+        //   uploadId:props.data._id,
+        // }
+        // const { error, isLoaded, data ,reload} = getApiRequest("/api/profile/editUploadImageInfo" , currentUser ,formData, false , "POST" )
+        // if(reload){
+        //   setStatus('0')
+        //   setMessage(error)
+        //   setShowMessage(true);
+        //   setTimeout(() => {
+        //       router.push('/login')
+        //   }, 1000);
+        // }else if(error){
+        //   setStatus('0')
+        //   setMessage(error)
+        //   setShowMessage(true);
+        // }else{
+        //     setInfo(data.data)
+        //     if(data.can){
+        //       setOwn(true);
+        //     }else{
+        //       setOwn(false);
+        //     }
+        // }
+      /////////////////////////////
         const data = {
           uploadId:props.data._id,
         }
@@ -88,7 +117,6 @@ const ShowImage = ({addItemToSave,selectedCart,currentUser,uploadedImage,...prop
         })
         .then((dataRes)=>{ 
             if(dataRes.seccess){
-              console.log('props.data',props.data);
                 setInfo(dataRes.data)
                 if(dataRes.can){
                   setOwn(true);
@@ -124,54 +152,74 @@ const ShowImage = ({addItemToSave,selectedCart,currentUser,uploadedImage,...prop
       setInfo({...info , properties: val});
     }
     ////////////////////////////////////////////////////////////////
-    const EditInfo = () => {
+    const EditInfo = async() => {
       const data = {
         uploadId:props.data._id,
         properties: info.properties,
         sunTitle:info.sunTitle,
         title:info.title,
       }
+      ////////////////////////////////////////
+      const { error, isLoaded, Info ,reload } = await setApiRequest("/api/profile/editUploadImageInfo" ,data, false , currentUser )
+      if(reload){
+        setStatus('0')
+        setMessage(error)
+        setShowMessage(true);
+        setTimeout(() => {
+            router.push('/login')
+        }, 1000);
+      }else if(error){
+        setStatus('0')
+        setMessage(error)
+        setShowMessage(true);
+      }else{
+        setStatus('1')
+        setMessage('اطلاعات شما با موفقیت ثبت شد');
+        setShowMessage(true);
+      }
+      //////////////////////////////////////
+      ////////////////////////////////////
 
-      fetch("/api/profile/editUploadImageInfo", {
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': currentUser,
-            },
-        method:"POST",
-        body: JSON.stringify(data)
-      })
-      .then((response)=>{ 
-          return response.json();   
-      })
-      .then((dataRes)=>{ 
-          if(dataRes.seccess){
+      // fetch("/api/profile/editUploadImageInfo", {
+      //   headers: {
+      //       'Content-Type': 'application/json',
+      //       'Authorization': currentUser,
+      //       },
+      //   method:"POST",
+      //   body: JSON.stringify(data)
+      // })
+      // .then((response)=>{ 
+      //     return response.json();   
+      // })
+      // .then((dataRes)=>{ 
+      //     if(dataRes.seccess){
               
-          }else{
-              if(dataRes.reload){
-                  setStatus('0')
-                  setMessage(dataRes.message)
-                  setShowMessage(true);
-                  setTimeout(() => {
-                      router.push('/login')
-                  }, 1000);
-              }else{
-                  setStatus('0')
-                  setMessage(dataRes.message)
-                  setShowMessage(true);
-              }
-          }
+      //     }else{
+      //         if(dataRes.reload){
+      //             setStatus('0')
+      //             setMessage(dataRes.message)
+      //             setShowMessage(true);
+      //             setTimeout(() => {
+      //                 router.push('/login')
+      //             }, 1000);
+      //         }else{
+      //             setStatus('0')
+      //             setMessage(dataRes.message)
+      //             setShowMessage(true);
+      //         }
+      //     }
 
-      })
-      .catch(err => {
-          setStatus('0')
-          setMessage(err.message)
-          setShowMessage(true);
-          // setLoading(false);
-      });
+      // })
+      // .catch(err => {
+      //     setStatus('0')
+      //     setMessage(err.message)
+      //     setShowMessage(true);
+      //     // setLoading(false);
+      // });
     }
     ////////////////////////////////////////////////////////////////
     const saveFile = (info) => {
-        addItemToSave(info);
+        addItemToSave({...info , user:currentUser});
         if(!selectedCart){
             setMessage('عکس مورد نظر ذخیره شد');
             setStatus('1');
@@ -217,7 +265,9 @@ const ShowImage = ({addItemToSave,selectedCart,currentUser,uploadedImage,...prop
                            layout="fill"
                            />
                         </WriterImageContainer>
-                        <Link href = "/"><WriterName>{info.user && info.user.photographer}</WriterName></Link>
+                        {/* <Link href = "/"> */}
+                          <WriterName>{info.user && info.user.photographer}</WriterName>
+                          {/* </Link> */}
                         
                       </DescriptionCaption>
 
@@ -283,5 +333,6 @@ const mapStateToProps = (state, props) => {
 const mapDispatchToProps = (dispatch) => ({
   addItemToSave : (id) => dispatch(addItem(id)),
 });
+////////////////////////////////////////////////
 
 export default connect(mapStateToProps , mapDispatchToProps)(ShowImage);

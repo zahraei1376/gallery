@@ -1,10 +1,9 @@
 import { useState ,useEffect} from 'react';
-import {AllTopicContainer ,AllTopicTitleContainer,TitleContainer, AllTopicTitle , AllTopicSubTitle  ,AllTopicContent} from './allToppic.styles';
+import {AllTopicContainer ,AllTopicContent} from './allToppic.styles';
 import TopicBox from './topicBox.component';
 import {Topics} from '../../generalMethod/topics';
 import { makeStyles } from '@material-ui/core/styles';
 import Pagination from '@material-ui/lab/Pagination';
-import { Button, ButtonContainer } from '../footer/footer.styles';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -21,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
 const ShowAllTopicComponent = () =>{
     const classes = useStyles();
     const number = 9;
-    // const [count , setCount] = useState(Math.ceil(Topics.length / number));
     const [page, setPage] = useState(1);
     const [showTopics , setShowTopics] = useState([]);
     useEffect(() =>{
@@ -35,19 +33,6 @@ const ShowAllTopicComponent = () =>{
     
     return (
         <AllTopicContainer>
-            {/* <AllTopicTitleContainer>
-            <ButtonContainer>
-                    <Button
-                    onClick={()=> router.push('/login')} 
-                    >تماس با ما</Button>
-                </ButtonContainer>
-                <TitleContainer>
-                
-                <AllTopicTitle>عنوان های ما</AllTopicTitle>
-                <AllTopicSubTitle>جهان را از دید ما و دریچه دوربین ما زیبا ببینید</AllTopicSubTitle>
-                </TitleContainer>
-                
-            </AllTopicTitleContainer> */}
             <AllTopicContent>
                 {
                     showTopics.map((topic , index) =>(

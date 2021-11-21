@@ -6,8 +6,6 @@ export const MySelect = styled(Select)`
     color:#000 !important;
     border:none !important;
     width:100% !important;
-    // padding: 1rem 2rem;
-    // background-color:rgba(256,256,256,.9)!important;
     height:100% !important;
     text-align:center;
     font-size:1.5rem !important;
@@ -20,11 +18,6 @@ export const MySelect = styled(Select)`
     &:focus:invalid {
         border-bottom: 3px solid #ff7730 !important;
     }
-
-    // @media only screen and (max-width: 56.25em){
-    //     width:100% !important;
-    // }
-
 `;
 
 export const MyMenuItem = styled(MenuItem)`

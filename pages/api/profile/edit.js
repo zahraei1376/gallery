@@ -24,13 +24,23 @@ const handler = async (req, res) =>{
                 const photographer = req.body.photographer;
                 var decoded = req.auth;
                 var fileName = req.fileName;
-                User.findByIdAndUpdate(decoded.userId , 
-                {
-                    location:location,
-                    email:email,
-                    photographerPicture:fileName,
-                    photographer:photographer,
-                },
+                var data = {} ;
+                if(fileName){
+                    data = {
+                        location:location,
+                        email:email,
+                        photographerPicture:fileName,
+                        photographer:photographer,
+                    }
+                }else{
+                    data = {
+                        location:location,
+                        email:email,
+                        // photographerPicture:fileName,
+                        photographer:photographer,
+                    }
+                }
+                User.findByIdAndUpdate(decoded.userId , data ,
                 { returnOriginal: false },
                 )
                 .then((existUser)=>{

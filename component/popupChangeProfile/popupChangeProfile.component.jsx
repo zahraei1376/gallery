@@ -1,18 +1,25 @@
 import { useState , useEffect , useRef } from 'react';
 import {PopUpContainer , PopUpBody ,Form, MyCloseIcon,Group,Lable,Input,SettingIcon,
   ContentContainer,BtnClose,LogoContainer,Logo,Title, PopUpHeader,FileContainer, ContentFile, ImageWrapper, MyImage,} from './popupChangeProfile.styles';
-import {addItem} from '../../redux/cart/cart.action';
-import { connect } from 'react-redux';
 import MySnackbar from '../messageBox/messageBox.component';
-import { createStructuredSelector } from 'reselect';
-import { selectedCart } from '../../redux/cart/cart.selectors';
 import MyButton from '../ButtonComponent/Button.component';
-import logo from '../../assets/img/user.png';
 import { useRouter } from 'next/router';
 import ImageCropper from './cropImage';
 import { v4 as uuidv4 } from 'uuid';
 /////////////////////////////////////////
-const PopUpProfile = ({currentUser , close , setTriggerDeleteFile ,triggerDeleteFile  }) => {
+import {setApiRequest} from '../../utils/getDataOFServer';
+
+import useSWR from 'swr'
+
+const fetcher = (url , user) => fetch(url , {
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': user
+    },
+    method:"GET",
+}).then((res) => res.json());
+/////////////////////////////////////////
+const PopUpProfile = ({currentUser , close ,refreshData, setTriggerDeleteFile ,triggerDeleteFile}) => {
     const [showMessage,setShowMessage] = useState(false);
     const [message,setMessage] =useState('');
     const [status,setStatus] = useState('0');
@@ -31,44 +38,14 @@ const PopUpProfile = ({currentUser , close , setTriggerDeleteFile ,triggerDelete
     })
     /////////////////////////////////////////////////////////////
     const router = useRouter();
-    /////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////// 
+    const { data, error } = useSWR(['/api/profile', currentUser] , fetcher)
     useEffect(() =>{
-        fetch("/api/profile", {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': currentUser
-            },
-            method:"GET",
-        })
-        .then((response)=>{ 
-            return response.json();   
-        })
-        .then((dataRes)=>{ 
-            if(dataRes.seccess){
-                setState(dataRes.data);
-                setSrcImage(dataRes.data.photographerPicture);
-                // setSrcImage(dataRes.data.photographerPicture ? dataRes.data.photographerPicture : logo);
-            }else{
-                if(dataRes.reload){
-                    setStatus('0')
-                    setMessage(dataRes.message)
-                    setShowMessage(true);
-                    setTimeout(() => {
-                        router.push('/login')
-                    }, 3000);
-                }else{
-                    setStatus('0')
-                    setMessage(dataRes.message)
-                    setShowMessage(true);
-                }
-            }
-        })
-        .catch(err => {
-            setStatus('0')
-            setMessage(err.message)
-            setShowMessage(true);
-        });
-    },[]);
+        if(data){
+            setState(data.data);
+            setSrcImage(data.data.photographerPicture);
+        }
+    } ,[data]);
     /////////////////////////////////////////////////////////////
     function generateDownload() {
         var fileIdL = state.photographerPicture.name.split('.');
@@ -123,48 +100,66 @@ const PopUpProfile = ({currentUser , close , setTriggerDeleteFile ,triggerDelete
        if(imageToCrop){
            var file = await generateDownload();
             formData.append('myFile',file);
-       }else{
-            formData.append('myFile',state.photographerPicture);
        }
 
       ///////////////////////////////
-        await fetch("/api/profile/edit", {
-            headers: {
-                'Authorization': currentUser
-            },
-            method:"POST",
-            body:formData
-        })
-        .then((response)=>{ 
-            return response.json();   
-        })
-        .then((dataRes)=>{
-            if(dataRes.seccess){
-                setStatus('1')
-                setMessage('اطلاعات شما با موفقیت ثبت شد');
-                setShowMessage(true);
-                setTriggerDeleteFile(!triggerDeleteFile);
-            }else{
-                if(dataRes.reload){
-                    setStatus('0')
-                    setMessage(dataRes.message)
-                    setShowMessage(true);
-                    setTimeout(() => {
-                        router.push('/login')
-                    }, 1000);
-                }else{
-                    setStatus('0')
-                    setMessage(dataRes.message)
-                    setShowMessage(true);
-                }
-            }
+      const { error, isLoaded, data ,reload } = await setApiRequest("/api/profile/edit" ,formData, true , currentUser )
+      if(reload){
+        setStatus('0')
+        setMessage(error)
+        setShowMessage(true);
+        setTimeout(() => {
+            router.push('/login')
+        }, 1000);
+      }else if(error){
+        setStatus('0')
+        setMessage(error)
+        setShowMessage(true);
+      }else{
+        setStatus('1')
+        setMessage('اطلاعات شما با موفقیت ثبت شد');
+        setShowMessage(true);
+        refreshData();
+        // setTriggerDeleteFile(!triggerDeleteFile);
+      }
+      
+    //   await fetch("/api/profile/edit", {
+    //         headers: {
+    //             'Authorization': currentUser
+    //         },
+    //         method:"POST",
+    //         body:formData
+    //     })
+    //     .then((response)=>{ 
+    //         return response.json();   
+    //     })
+    //     .then((dataRes)=>{
+    //         if(dataRes.seccess){
+    //             setStatus('1')
+    //             setMessage('اطلاعات شما با موفقیت ثبت شد');
+    //             setShowMessage(true);
+    //             setTriggerDeleteFile(!triggerDeleteFile);
+    //         }else{
+    //             if(dataRes.reload){
+    //                 setStatus('0')
+    //                 setMessage(dataRes.message)
+    //                 setShowMessage(true);
+    //                 setTimeout(() => {
+    //                     router.push('/login')
+    //                 }, 1000);
+    //             }else{
+    //                 setStatus('0')
+    //                 setMessage(dataRes.message)
+    //                 setShowMessage(true);
+    //             }
+    //         }
 
-        })
-        .catch(err => {
-            setStatus('0')
-            setMessage(err.message)
-            setShowMessage(true);
-        });
+    //     })
+    //     .catch(err => {
+    //         setStatus('0')
+    //         setMessage(err.message)
+    //         setShowMessage(true);
+    //     });
     }
     /////////////////////////////////////////////////////////////
     const handlefile = (event) => {
@@ -193,7 +188,7 @@ const PopUpProfile = ({currentUser , close , setTriggerDeleteFile ,triggerDelete
     /////////////////////////////////////////////////////////////
     return (
         <PopUpContainer>
-          <PopUpBody>
+            <PopUpBody>
             
             <ContentContainer>
                 <PopUpHeader>
@@ -215,8 +210,8 @@ const PopUpProfile = ({currentUser , close , setTriggerDeleteFile ,triggerDelete
                             type="file"
                             id="upload"
                             // name="file"
-                            accept="image/*"
-                            // accept="image/png,image/jpeg"
+                            // accept="image/*"
+                            accept="image/png,image/jpeg"
                             onChange={e => handlefile(e)}
                             // onClick={checkSendfile}
                         />
@@ -275,17 +270,5 @@ const PopUpProfile = ({currentUser , close , setTriggerDeleteFile ,triggerDelete
         </PopUpContainer>
       );
 };
-
-// const mapStateToProps = (state, props) => {
-//   return createStructuredSelector({
-//       selectedCart: selectedCart(state, props.data.id), 
-//   });
-// };
-
-// const mapDispatchToProps = (dispatch) => ({
-//   addItemToSave : (id) => dispatch(addItem(id)),
-// });
-
-// export default connect(mapStateToProps , mapDispatchToProps)(PopUpProfile);
 
 export default PopUpProfile;

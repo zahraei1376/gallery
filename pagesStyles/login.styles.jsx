@@ -207,16 +207,6 @@ export const FormGroupBtn = styled.div`
     // };
 `;
 
-export const FormLabel = styled.label`
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-left: 2rem;
-    margin-top: .7rem;
-    display: block;
-    transition: all .3s;
-    text-align:right;
-`;
-
 export const FormInput = styled.input`
     font-size: 1.5rem;
     // font-family: inherit;
@@ -249,37 +239,6 @@ export const FormInput = styled.input`
     &::-webkit-input-placeholder {
         color: #999;
     }
-
-    
-    &::placeholder-shown + ${FormLabel} {
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-4rem);
-    }
-`;
-
-export const LoginDescContainer = styled.div`
-    width: 50%;
-    padding: 4rem;
-    display:flex;
-    flex-direction:column;
-    // justify-content:flex-end;
-    @media only screen and (max-width: 75em) {
-        width: 35%;
-    }; 
-
-    @media only screen and (max-width: 56.25em) {
-        // width: 100%;
-        display:none;
-    };
-`;
-
-export const LoginDesc = styled.p`
-    font-size:1.6rem;
-    color:#fff;
-    white-space: pre-line;
-    text-align:right;
-    line-height: 3rem;
 `;
 
 export const StyledLink = styled.a`

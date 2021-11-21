@@ -1,20 +1,14 @@
-import { useEffect , useState } from 'react';
 import {HeaderContainer , MyImage , HeaderContent , SearchBoxContaiber , HeaderTitle , MyProfileContainer} from './header.styles';
 import SearchBox from '../searchBox/searchBox.component';
 import ShowTopics from '../showTopics/showTopics.component';
 import PopupMyProfile from './myProfile.component';
+import headerPic from '../../public//img/header/header-12.jpg';
 
 const Header = () => {
-    const [src , setSrc] = useState('/img/header/header-12.jpg');
-    useEffect(() => {
-        // setSrc(`/img/header/header-${Math.ceil(Math.random() * 10) + 1}.jpg`);
-        setSrc(`/img/header/header-12.jpg`);
-    } , []);
-
     return(
         <HeaderContainer>
             <MyImage 
-                src={src}
+                src={headerPic}
                 layout='fill'
                 alt={`Gallery image`} 
             />

@@ -1,6 +1,5 @@
-import MyNavbar from '../../component/Menu/Navbar.component';
 import SavedGallery from '../../component/savedImageGallery/savedImageGallery.component';
-import { TitleWrapper,LeftTitle , RightTitle,GallerySavedPageSecion ,SubTitleSaved,TitleSavedContainer,TitleSaved,Title ,SunTitleSaved, SunTitle ,SunTitleSavedSelect,InfoSavedSelectContainer,
+import { GallerySavedPageSecion ,SubTitleSaved,TitleSavedContainer,TitleSaved ,SunTitleSaved ,SunTitleSavedSelect,InfoSavedSelectContainer,
     DeleteContainer, DeleteButton, MyDeleteIcon ,InfoSavedContainer,InfoSavedWrapper,SelectAll ,SelectAllContainer} from './mySaved.styles';
 import { selectCartItem , selectCartItemsCount ,} from '../../redux/cart/cart.selectors';
 import {currentUser} from '../../redux/user/user.selector';
@@ -9,18 +8,11 @@ import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { Tooltip } from '@material-ui/core';
-import TitleStyle from '../../component/title/title.component';
-import MySnackbar from '../messageBox/messageBox.component';
-// import { scrollFunction } from '../../generalMethod/limitRecipeTitle';
 //////////////////////////////////////////////
-const SavedBoxesPageComponent = ({currentUser,saveCartItem ,uploadFiles,setTriggerDeleteFile,triggerDeleteFile, count , RemoveItems , RemoveItem , type}) =>{
+const SavedBoxesPageComponent = ({currentUser,saveCartItem , count , RemoveItems , RemoveItem }) =>{
     const [imageForDelete, setImageForDelete] = useState([]);
     const [textBtn , setTextBtn] = useState(0);
     const [fixed , setFixed] = useState(null);
-    const [showMessage,setShowMessage] = useState(false);
-    const [message,setMessage] =useState('');
-    const [status,setStatus] = useState('0');
-    // const [uploadFiles , setUploadFiles] = useState([]);
     //////////////////////////////////////////
     useEffect(() => {
         const onScroll = e => {
@@ -41,17 +33,15 @@ const SavedBoxesPageComponent = ({currentUser,saveCartItem ,uploadFiles,setTrigg
     }, []);
       /////////////////////////////////////
     const handleRemoveItem = () =>{
-        RemoveItems(imageForDelete);        
+        RemoveItems({images : imageForDelete , user: currentUser});
+        // RemoveItems(imageForDelete);        
         setImageForDelete([]);
     }
 
     const handleSelectAll = (items) =>{
         if(textBtn === 0) {
             setTextBtn(1);
-            var temp = [];
-            for (let index = 0; index < items.length; index++) {
-                temp.push(items[index]._id);
-            }
+            var temp = items.map(i => i._id);
             setImageForDelete(temp);
         }
         else {
@@ -61,9 +51,6 @@ const SavedBoxesPageComponent = ({currentUser,saveCartItem ,uploadFiles,setTrigg
         
     }
     //////////////////////////////////////////
-    //////////////////////////////////////////
-    
-    
     return(
         <GallerySavedPageSecion >
             <TitleSavedContainer>
@@ -99,9 +86,6 @@ const SavedBoxesPageComponent = ({currentUser,saveCartItem ,uploadFiles,setTrigg
                 <SavedGallery biger="true" together = "true" images = {saveCartItem} imageForDelete = {imageForDelete} setImageForDelete ={setImageForDelete} />
                 </div>
             </div>
-            {
-                showMessage && <MySnackbar message={message} status={status} showMessage={showMessage} setShowMessage={setShowMessage} /> 
-            }
         </GallerySavedPageSecion>
     )
 };

@@ -19,7 +19,6 @@ const handler = async (req, res) =>{
                           res.status(401).json({seccess:false,message:'مشکلی رخ داده است !'});
                         }else{
                             if(fileUser){
-                                console.log('fileUser',fileUser);
                                 res.status(200).send({seccess:true ,can:true, data: fileUser});
                             }else{
                                 res.status(401).send({seccess:true , can: false , data: fileUser});

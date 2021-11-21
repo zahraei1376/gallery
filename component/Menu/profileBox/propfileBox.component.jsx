@@ -1,4 +1,4 @@
-import React ,{ useEffect } from 'react';
+import React from 'react';
 import Box from '@material-ui/core/Box';
 import Popover from '@material-ui/core/Popover';
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';

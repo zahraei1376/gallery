@@ -6,8 +6,6 @@ export const MySelect = styled(Select)`
     color:#000 !important;
     border:none !important;
     width:100% !important;
-    // padding: 1rem 2rem;
-    // background-color:rgba(256,256,256,.9)!important;
     height:100% !important;
     text-align:center;
     font-size:1.5rem !important;

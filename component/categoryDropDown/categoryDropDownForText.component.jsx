@@ -1,4 +1,4 @@
-import React ,{useState,useEffect}from 'react';
+import React from 'react';
 // import { makeStyles ,createMuiTheme } from '@material-ui/core/styles';
 import { makeStyles,createTheme, ThemeProvider,createMuiTheme ,MuiThemeProvider,CssBaseline} from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -20,20 +20,6 @@ const theme = createMuiTheme({
     }
   }
 });
-
-// const styles = theme => ({
-//   select: {
-//       '&:before': {
-//           borderColor: color,
-//       },
-//       '&:after': {
-//           borderColor: color,
-//       }
-//   },
-//   icon: {
-//       fill: color,
-//   },
-// });
 ////////////////////////////////////////
 const useStyles = makeStyles((theme) => ({
   formControl: {

@@ -1,5 +1,5 @@
 import { useState , useEffect } from 'react';
-import {GalleryTitle,SpinnerContainer, GallerySecion,Gallery__item ,CheckIcon,
+import {SpinnerContainer, GallerySecion,Gallery__item ,CheckIcon,
     ImageWrapper,TitleContainer,Title,SavedBoxContainer,
      GalleryColumn,DownloadContainer,Download , InfoIcon,
      NotFoundContainer,ImageContainer,} from './savedImageGallery.styles';
@@ -11,14 +11,13 @@ import { limitRecipeTitle ,downloadFile } from '../../generalMethod/limitRecipeT
 import ShowImage from '../../component/imageShow/showImage.component';
 import notFound from '../../assets/img/notFound.png';
 
-const SavedGallery = ({RemoveItem ,RemoveItems,biger,together,uploadedImage, images ,imageForDelete, setImageForDelete}) =>{
+const SavedGallery = ({biger,together,uploadedImage, images ,imageForDelete, setImageForDelete}) =>{
     //////////////////////////////////////////////
     const [loading , setLoading] = useState(false);
     const [converterImages , setConverterImages] = useState([]);
     const [size, setSize] = useState(0);
     const [showComponent , setShowComponent] = useState(false);
     const [srcImage , setSrcImage] = useState('');
-    // const [loading , setLoading] = useState(images);
     ///////////////////////////////////////////////
     const handleShowImage = (imageInfo) => {
         setSrcImage(imageInfo);
@@ -53,13 +52,6 @@ const SavedGallery = ({RemoveItem ,RemoveItems,biger,together,uploadedImage, ima
                 }
                 
             }
-            // else if(window.innerWidth < 1024){
-            //     SIZE = 3;
-            //     setConverterImages(chunkify(images, SIZE , true));
-            // }else{
-            //     SIZE = 4;
-            //     setConverterImages(chunkify(images, SIZE , true));
-            // }
     
             setSize(SIZE);
         }else{

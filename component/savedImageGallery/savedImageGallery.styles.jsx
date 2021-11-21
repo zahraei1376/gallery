@@ -60,16 +60,6 @@ export const InfoIcon = styled(PermIdentityIcon)`
     ${IconStyle};
 `;
 
-export const GalleryTitle = styled.h5`
-    font-size:2rem;
-    font-family:ir_sans;
-    display:flex;
-    justify-content:flex-end;
-    align-items:center;
-    margin:4rem 4rem 0 0;
-    padding:0;
-`;
-
 export const SpinnerContainer = styled.div`
     width:100%;
     height:80vh;

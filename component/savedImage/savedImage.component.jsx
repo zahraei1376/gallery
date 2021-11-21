@@ -1,14 +1,14 @@
 
 import { useState, useEffect } from 'react';
 import {connect } from 'react-redux';
-import CardSaved from '../sevedBox/savedBox.component';
 import { SaveContainer, SaveButton , MySaveButton , MySaveIcon, SaveIcon} from './savedImage.styles';
 import {addItem} from '../../redux/cart/cart.action';
+import { currentUser } from '../../redux/user/user.selector';
 import {selectedCart} from '../../redux/cart/cart.selectors';
 import MySnackbar from '../messageBox/messageBox.component';
 import { createStructuredSelector } from 'reselect';
 
-const SavedImages = ({setLocation , addItemToSave,selectedCart,imageInfo}) =>{
+const SavedImages = ({setLocation , addItemToSave,selectedCart,imageInfo , currentUser}) =>{
     const [showMessage,setShowMessage] = useState(false);
     const [message,setMessage] =useState('');
     const [status,setStatus] = useState('0');
@@ -23,7 +23,8 @@ const SavedImages = ({setLocation , addItemToSave,selectedCart,imageInfo}) =>{
     }
 
     const handleAddItemToCard = (info) => {
-        addItemToSave(info);
+        // addItemToSave(info);
+        addItemToSave({...info , user:currentUser});
         if(!selectedCart){
             setMessage('عکس مورد نظر ذخیره شد');
             setStatus('1');
@@ -53,13 +54,10 @@ const SavedImages = ({setLocation , addItemToSave,selectedCart,imageInfo}) =>{
     )
 };
 
-// const mapStateToProps = createStructuredSelector({
-//     selectedCart : (id) => selectedCart(id),
-//  });
-
  const mapStateToProps = (state, props) => {
     return createStructuredSelector({
         selectedCart: selectedCart(state, props.imageInfo._id), 
+        currentUser:currentUser,
     });
   };
 

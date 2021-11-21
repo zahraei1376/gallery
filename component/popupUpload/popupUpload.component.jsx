@@ -1,22 +1,15 @@
-import { useState , useEffect } from 'react';
+import { useState } from 'react';
 import {PopUpContainer ,TextArea, PopUpBody,ContentFile ,Form, MyCloseIcon,Group,Lable,Input,SettingIcon,
-  ContentContainer,BtnClose,LogoContainer,Logo,Title, PopUpHeader,FileContainer, MyImage, ImageWrapper,} from './popupUpload.styles';
-import {addItem} from '../../redux/cart/cart.action';
-import { connect } from 'react-redux';
+  ContentContainer,BtnClose,LogoContainer,Title, PopUpHeader,FileContainer, MyImage, ImageWrapper,} from './popupUpload.styles';
 import MySnackbar from '../messageBox/messageBox.component';
-import { createStructuredSelector } from 'reselect';
-import { selectedCart } from '../../redux/cart/cart.selectors';
 import MyButton from '../ButtonComponent/Button.component';
-// import logo from '../../assets/img/galleryLg.png';
-import logo from '../../assets/img/galleryLg2.png';
 import MyDropDown from '../dropDown/dropDown.component';
-// import CameraEnhanceOutlinedIcon from '@mui/icons-material/CameraEnhanceOutlined';
 import CameraIcon from '@mui/icons-material/Camera';
-const PopUpUpload = ({currentUser ,close ,setTriggerDeleteFile,triggerDeleteFile,}) => {
+import { setApiRequest } from '../../utils/getDataOFServer';
+const PopUpUpload = ({currentUser ,close ,refreshData,setTriggerDeleteFile,triggerDeleteFile,}) => {
     const [showMessage,setShowMessage] = useState(false);
     const [message,setMessage] =useState('');
     const [status,setStatus] = useState('0');
-    const [load , setLoad] = useState(false);
     const [srcImage , setSrcImage] = useState('');
     const [info , setInfo] = useState({
         properties:'',
@@ -33,43 +26,63 @@ const PopUpUpload = ({currentUser ,close ,setTriggerDeleteFile,triggerDeleteFile
             formData.append('title',info.title);
             formData.append('sunTitle',info.sunTitle);
             formData.append('myFile',info.myFile);
-            await fetch("/api/profile/upload", {
-                headers: {
-                    'Authorization': currentUser
-                },
-                method:"POST",
-                body:formData
-            })
-            .then((response)=>{ 
-                return response.json();   
-            })
-            .then((dataRes)=>{
-                if(dataRes.seccess){
-                    setStatus('1')
-                    setMessage('فایل مورد نظر ثبت شد');
-                    setShowMessage(true);
-                    setTriggerDeleteFile(!triggerDeleteFile);
-                }else{
-                    if(dataRes.reload){
-                        setStatus('0')
-                        setMessage(dataRes.message)
-                        setShowMessage(true);
-                        setTimeout(() => {
-                            router.push('/login')
-                        }, 1000);
-                    }else{
-                        setStatus('0')
-                        setMessage(dataRes.message)
-                        setShowMessage(true);
-                    }
-                }
+            const { error, isLoaded, data ,reload } = await setApiRequest("/api/profile/upload" ,formData, true , currentUser )
+            if(reload){
+              setStatus('0')
+              setMessage(error)
+              setShowMessage(true);
+              setTimeout(() => {
+                  router.push('/login')
+              }, 1000);
+            }else if(error){
+              setStatus('0')
+              setMessage(error)
+              setShowMessage(true);
+            }else{
+              setStatus('1')
+              setMessage('اطلاعات شما با موفقیت ثبت شد');
+              setShowMessage(true);
+              refreshData();
+            //   setTriggerDeleteFile(!triggerDeleteFile);
+            }
+            ///////////////////////////////////////////////////////
+            // await fetch("/api/profile/upload", {
+            //     headers: {
+            //         'Authorization': currentUser
+            //     },
+            //     method:"POST",
+            //     body:formData
+            // })
+            // .then((response)=>{ 
+            //     return response.json();   
+            // })
+            // .then((dataRes)=>{
+            //     if(dataRes.seccess){
+            //         setStatus('1')
+            //         setMessage('فایل مورد نظر ثبت شد');
+            //         setShowMessage(true);
+            //         setTriggerDeleteFile(!triggerDeleteFile);
+            //     }else{
+            //         if(dataRes.reload){
+            //             setStatus('0')
+            //             setMessage(dataRes.message)
+            //             setShowMessage(true);
+            //             setTimeout(() => {
+            //                 router.push('/login')
+            //             }, 1000);
+            //         }else{
+            //             setStatus('0')
+            //             setMessage(dataRes.message)
+            //             setShowMessage(true);
+            //         }
+            //     }
 
-            })
-            .catch(err => {
-                setStatus('0')
-                setMessage(err.message)
-                setShowMessage(true);
-            });
+            // })
+            // .catch(err => {
+            //     setStatus('0')
+            //     setMessage(err.message)
+            //     setShowMessage(true);
+            // });
        }else{
             setStatus('0')
             setMessage('انتخاب فایل و پر کردن عنوان الزامی است!!!');
@@ -107,9 +120,6 @@ const PopUpUpload = ({currentUser ,close ,setTriggerDeleteFile,triggerDeleteFile
                         <label htmlFor="upload" id="lable" style={{cursor:"pointer"}}>
                             <LogoContainer>
                                 <CameraIcon style={{fontSize:'9rem' , color:'#191e3e'}} />
-                                {/* <Logo 
-                                width="100%" height="100%"
-                                 layout="responsive" src={logo}/> */}
                                 <SettingIcon/>
                             </LogoContainer>
                         </label>
@@ -117,8 +127,8 @@ const PopUpUpload = ({currentUser ,close ,setTriggerDeleteFile,triggerDeleteFile
                             style={{display:"none"}}
                             type="file"
                             id="upload"
-                            accept="image/*"
-                            // accept="image/png,image/jpeg"
+                            // accept="image/*"
+                            accept="image/png,image/jpeg"
                             onChange={e => handlefile(e)}
                         />
                     </FileContainer>
@@ -150,17 +160,5 @@ const PopUpUpload = ({currentUser ,close ,setTriggerDeleteFile,triggerDeleteFile
         </PopUpContainer>
       );
 };
-
-// const mapStateToProps = (state, props) => {
-//   return createStructuredSelector({
-//       selectedCart: selectedCart(state, props.data.id), 
-//   });
-// };
-
-// const mapDispatchToProps = (dispatch) => ({
-//   addItemToSave : (id) => dispatch(addItem(id)),
-// });
-
-// export default connect(mapStateToProps , mapDispatchToProps)(PopUpUpload);
 
 export default PopUpUpload;

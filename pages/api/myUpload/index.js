@@ -1,7 +1,7 @@
-import mongoose  from'mongoose';
+// import mongoose  from'mongoose';
 import dbConnec from '../../../utils/dbConnect';
 import verifyToken from '../../../utils/middleware/withValidation';
-import User from '../../../models/UserModel';
+import UserModel from '../../../models/UserModel';
 import Files from '../../../models/FileModel';
 
 dbConnec();
@@ -16,11 +16,9 @@ const handler = async (req, res) =>{
                     ////////////////////////////////////////
                     var decoded = req.auth;
                     var id = decoded.userId;
-                    // var id = mongoose.Types.ObjectId(decoded.userId);
-                    
-                    User.findOne({user : id }).exec((err, user) => {
+                    UserModel.findOne({user : id }).exec((err, findedUser) => {
                       const data = {};
-                      data.user = user;
+                      data.user = findedUser;
                       if(err){
                         res.status(401).json({seccess:false,message:'مشکلی رخ داده است !'});
                       }else{
