@@ -85,6 +85,16 @@ export async function getServerSideProps({req, res}){
         error = dataRes.message;
     });
 
+
+    if(reload){
+        return {
+            redirect:{
+                destination:'/login'
+            }
+            
+        }
+    }
+
     return {
         props : {
             selected : selected,
