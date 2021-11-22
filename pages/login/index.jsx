@@ -12,11 +12,13 @@ import MySpinner from '../../component/MySpinner/MySpinner.component';
 import Link from 'next/link';
 import logo from '../../assets/img/galleryLg.png';
 //////////////////////////////////////
-import { useCookies } from "react-cookie"
+// import { useCookies } from "react-cookie";
+import Cookies from 'universal-cookie';
 ///////////////////////////////////////
 const LoginPage = (props) =>{
     /////////////////////////////
-    const [cookie, setCookie] = useCookies(["user"])
+    // const [cookie, setCookie] = useCookies(["user"]);
+    const cookies = new Cookies();
     /////////////////////////////
     const router = useRouter()
     /////////////////////////////
@@ -56,11 +58,12 @@ const LoginPage = (props) =>{
             .then((dataRes)=>{ 
                 if(dataRes.seccess){
                     //////////////////////////
-                    setCookie("user", dataRes.token ? dataRes.token : null, {
-                        path: "/",
-                        // maxAge: 3600, // Expires after 1hr
-                        sameSite: true,
-                    })
+                    // setCookie("user", dataRes.token ? dataRes.token : null, {
+                    //     path: "/",
+                    //     // maxAge: 3600, // Expires after 1hr
+                    //     sameSite: true,
+                    // });
+                    cookies.set('user', {key: dataRes.token ? dataRes.token : null}, {path: '/', expires: new Date(Date.now()+2592000)});
                     /////////////////////////
                     setStatus('1')
                     setMessage('ورود موفقیت آمیز بود');
