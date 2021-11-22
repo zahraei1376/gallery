@@ -8,12 +8,15 @@ import {NavberContainer,UserIconButton ,MyUserIcon ,ProfileBox,
 import logo from '../../assets/img/galleryLg.png';
 import { useRouter } from 'next/router';
 import ToolbarItems from './Toolbar/ToolbarItem.component';
+import Cookies from 'universal-cookie';
 
 const MyNavbar = ({currentUser , text}) =>{
     /////////////////////////////
     const [clicked,setClicked] = useState(false);
     /////////////////////////////
     const router = useRouter()
+    ///////////////////////////////////////////////////////////
+    var cookies = new Cookies();
     ///////////////////////////////////////////////////////////
     const [scrolling,setScrolling] = useState(false);
     ///////////////////////////////////////////////////////////
@@ -46,11 +49,26 @@ const MyNavbar = ({currentUser , text}) =>{
             </SearchBoxContaiber>
             
             <InfoContainer>
-                {currentUser ? <UserIconButton onClick={()=> router.push('/profile')} >
+                {/* {currentUser ? <UserIconButton onClick={()=> router.push('/profile')} >
                     <MyUserIcon />
                 </UserIconButton> : ''
                 }
                 {!currentUser ? 
+                    <LoginButtonContainer>
+                        <LoginButton 
+                        onClick={()=> router.push('/login')} 
+                        >ورود</LoginButton>
+                    </LoginButtonContainer> 
+                    : '' 
+                } */}
+
+                {cookies.get('user') ? 
+                    <UserIconButton onClick={()=> router.push('/profile')} >
+                        <MyUserIcon />
+                    </UserIconButton> : ''
+                }
+
+                {!cookies.get('user') ? 
                     <LoginButtonContainer>
                         <LoginButton 
                         onClick={()=> router.push('/login')} 

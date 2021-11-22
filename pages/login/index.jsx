@@ -63,7 +63,8 @@ const LoginPage = (props) =>{
                     //     // maxAge: 3600, // Expires after 1hr
                     //     sameSite: true,
                     // });
-                    cookies.set('user', {key: dataRes.token ? dataRes.token : null}, {path: '/', expires: new Date(Date.now()+2592000)});
+                    // cookies.set('user', {key: dataRes.token ? dataRes.token : null}, {path: '/', expires: new Date(Date.now()+2592000)});
+                    cookies.set('user', dataRes.token ? dataRes.token : null, {path: '/', expires: new Date(Date.now()+2592000)});
                     /////////////////////////
                     setStatus('1')
                     setMessage('ورود موفقیت آمیز بود');

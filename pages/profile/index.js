@@ -43,6 +43,7 @@ const ProfilePage = ({selected,files,userInfo,error,reload,}) =>{
 export async function getServerSideProps({req, res}){
     var data = [] , selected = [] , error =null , reload = false , userInfo = {};
     const myCookie = await parseCookies(req);
+    console.log("cookies.get('user')" ,myCookie.user);
     if(!myCookie.user){
         return {
             redirect:{
