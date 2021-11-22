@@ -117,7 +117,7 @@ export const LoginButton = styled.button`
   background-image: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgb(218,160,103) 50%);
   background-size: 200%;
   transition:all .2s;
-  font-size:1.9rem;
+  font-size:1.5rem;
   font-family:ir_sans;
   text-align:center;
   &:hover{

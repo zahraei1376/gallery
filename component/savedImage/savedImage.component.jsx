@@ -7,33 +7,48 @@ import { currentUser } from '../../redux/user/user.selector';
 import {selectedCart} from '../../redux/cart/cart.selectors';
 import MySnackbar from '../messageBox/messageBox.component';
 import { createStructuredSelector } from 'reselect';
+import Cookies from 'universal-cookie';
+import { useRouter } from 'next/router';
 
 const SavedImages = ({setLocation , addItemToSave,selectedCart,imageInfo , currentUser}) =>{
     const [showMessage,setShowMessage] = useState(false);
     const [message,setMessage] =useState('');
     const [status,setStatus] = useState('0');
     const [seved , setSaved] = useState(null);
-    ///////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////
+    const router = useRouter()
+    /////////////////////////////
+    var cookies = new Cookies();
+    ///////////////////////////////////////////////////////////
     useEffect(() =>{
         setSaved(selectedCart ? selectedCart : null);
     },[imageInfo._id]);
 
     const handleLoaction = (e) =>{
-        setLocation({x:e.pageX , y:e.pageY});
+        if(cookies.get('user')){
+            setLocation({x:e.pageX , y:e.pageY});
+        }else{
+            router.push('/login');
+        }
     }
 
     const handleAddItemToCard = (info) => {
         // addItemToSave(info);
-        addItemToSave({...info , user:currentUser});
-        if(!selectedCart){
-            setMessage('عکس مورد نظر ذخیره شد');
-            setStatus('1');
+        if(cookies.get('user')){
+            addItemToSave({...info , user:currentUser});
+            if(!selectedCart){
+                setMessage('عکس مورد نظر ذخیره شد');
+                setStatus('1');
+            }else{
+                setMessage('عکس از حالت ذخیره خارج شد');
+                setStatus('0');
+            }
+            setShowMessage(true);
+            setLocation({});
         }else{
-            setMessage('عکس از حالت ذخیره خارج شد');
-            setStatus('0');
+            router.push('/login');
         }
-        setShowMessage(true);
-        setLocation({});
+       
     }
 
     return(
