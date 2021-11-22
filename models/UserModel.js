@@ -1,4 +1,10 @@
 const mongoose = require('mongoose');
+// import { isEmail } from 'validator';
+
+var validateEmail = function(email) {
+    var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    return re.test(email)
+};
 
 const UserSchema = mongoose.Schema({
     // fullName:{
@@ -18,6 +24,17 @@ const UserSchema = mongoose.Schema({
     },
     email:{
         type:String,
+        required:[true,'فیلد ایمیل  را پر کنید!!!'],
+        lowercase: true,
+        validate: [validateEmail, 'Please fill a valid email address'],
+        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
+        // validate: [ isEmail, 'ایمیل درست را وارد کنید' ],
+
+        // validate:{
+        //     validator:(email)=> validateEmail(email),
+        //     message:"ایمیل درست را وارد کنید"
+        // },
+        // validate: [validateEmail, 'ایمیل درست را وارد کنید'],
     },
     username:{
         type:String,

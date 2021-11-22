@@ -52,7 +52,8 @@
     "swr": "^1.0.1",
     "universal-cookie": "^4.0.4",
     "unsplash-js": "^7.0.15",
-    "uuidv4": "^6.2.12"
+    "uuidv4": "^6.2.12",
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.13.2",

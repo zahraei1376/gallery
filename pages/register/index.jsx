@@ -33,57 +33,70 @@ const RegisterPage = () =>{
         setFiels({...fiels, [param] : val});
     }
 
+    var validateEmail = (email) => {
+        var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        return re.test(email)
+    };
+
     const submitRegister = async(e)=>{
         e.preventDefault();
         setLoading(true);
-        if(fiels.username !=""  && fiels.pass !="" && fiels.email !=""  && fiels.fullName !=""){
-            const data = {
-                username: fiels.username,
-                password:fiels.pass,
-                email:fiels.email,
-                fullName:fiels.fullName,
-            }
-            
-            await fetch("/api/register", {
-                headers: {
-                    'Content-Type': 'application/json'
-                    },
-                method:"POST",
-                body: JSON.stringify(data)
-            })
-            .then((response)=>{ 
-                return response.json();   
-            })
-            .then((dataRes)=>{ 
-                if(dataRes.seccess){
-                    setStatus('1')
-                    setMessage('با موفقیت ثبت نام شدید!!!');
-                    setShowMessage(true);
-                    setLoading(false);
-                    setTimeout(()=>{
-                        router.push('/login');
-                    },1000);
-                }else{
-                    setStatus('0')
-                    setMessage(dataRes.message)
-                    setShowMessage(true);
-                    setLoading(false);
-                }
-
-            })
-            .catch(err => {
-                setStatus('0')
-                setMessage(err.message)
-                setShowMessage(true);
-                setLoading(false);
-            });
-        }
-        else{
-            setStatus('0')
-            setMessage('ابتدا مقادیر خواسته شده را پر کنید');
+        if(!validateEmail(fiels.email)){
+            setStatus('0');
+            setMessage('ایمیل نامعتبر است');
             setShowMessage(true);
             setLoading(false);
+        }else{
+            if(fiels.username !=""  && fiels.pass !="" && fiels.email !="" && fiels.fullName !=""){
+                const data = {
+                    username: fiels.username,
+                    password:fiels.pass,
+                    email:fiels.email,
+                    fullName:fiels.fullName,
+                }
+                
+                await fetch("/api/register", {
+                    headers: {
+                        'Content-Type': 'application/json'
+                        },
+                    method:"POST",
+                    body: JSON.stringify(data)
+                })
+                .then((response)=>{ 
+                    return response.json();   
+                })
+                .then((dataRes)=>{ 
+                    if(dataRes.seccess){
+                        setStatus('1')
+                        setMessage('با موفقیت ثبت نام شدید!!!');
+                        setShowMessage(true);
+                        setLoading(false);
+                        setTimeout(()=>{
+                            router.push('/login');
+                        },1000);
+                    }else{
+                        setStatus('0')
+                        setMessage(dataRes.message)
+                        setShowMessage(true);
+                        setLoading(false);
+                    }
+    
+                })
+                .catch(err => {
+                    setStatus('0')
+                    setMessage(err.message)
+                    setShowMessage(true);
+                    setLoading(false);
+                });
+            }
+            else{
+                setStatus('0')
+                setMessage('ابتدا مقادیر خواسته شده را پر کنید');
+                setShowMessage(true);
+                setLoading(false);
+            }
         }
+      
 
 
     }

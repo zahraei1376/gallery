@@ -48,15 +48,10 @@ export default async (req, res) =>{
                     
                 } catch (error) {
                     let errors = "";
-                    console.log('errorerrorerrorerror',error.name);
                     if(error.name === "ValidationError"){
-                        
-                        
                         Object.keys(error.errors).forEach((key) => {
                             errors += error.errors[key].message;
                         });
-
-                        console.log('errorerrorerrorerror222222',errors);
                     }
                     res.status(400).json({seccess:false,message:errors,});
                     // res.status(400).json({seccess:false,message:'کاربر تشکیل نشد!!',});
