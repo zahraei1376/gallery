@@ -1,50 +1,49 @@
-import React, { useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import SegestionSearch from "../segestionSearch/segestionSearch.component";
-import {SearchBoxContainer , SearchBoxInput ,MySearchIcon ,SearchButton ,ClearIcon , BackDrop} from './searchBox.styles';
-import {Topics} from '../../generalMethod/topics';
+import { SearchBoxContainer, SearchBoxInput, MySearchIcon, SearchButton, ClearIcon, BackDrop, ClearButton } from './searchBox.styles';
+import { Topics } from '../../generalMethod/topics';
 
-const SearchBox = ({segestion , text , scroll , clicked}) =>{
-    const [searchText , setSearchText] = useState('');
+const SearchBox = ({ segestion, text, scroll, clicked }) => {
+    const [searchText, setSearchText] = useState('');
     const [showSegesion, setShowSegestion] = useState(false);
-    const [result , setResult] = useState([]);
+    const [result, setResult] = useState([]);
     //////////////////////////////////////////////////
-    useEffect(() =>{
+    useEffect(() => {
         setSearchText(text);
-    },[text]);
-    
+    }, [text]);
 
     const handleSearchText = (value) => {
         setSearchText(value);
-        if(Topics && Topics.length > 0){
+        if (Topics && Topics.length > 0) {
             var res = Topics.filter(title => {
-                if(value && value != " "){
+                if (value && value != " ") {
                     return title.title.includes(value);
                 }
-                
             });
-            setResult(res);
+            setResult(res || "");
         }
     }
 
-    const handleBlur = () =>{
-
-        setTimeout(()=>{
+    const handleBlur = () => {
+        setTimeout(() => {
             setShowSegestion(false);
-        },500);
-        
+        }, 500);
     }
 
-    return(
+    return (
         <React.Fragment>
             <SearchBoxContainer>
-                {searchText ? 
-                <SearchButton segestion={segestion} onClick={() => {setSearchText('')}} >
-                    <ClearIcon scroll={scroll} clicked={clicked}/>
-                </SearchButton> : ''}
+                {searchText ?
+                    <ClearButton segestion={segestion} onClick={() => { handleSearchText('') }} >
+                        <ClearIcon scroll={scroll} clicked={clicked} />
+                    </ClearButton> : ''}
                 <SearchBoxInput segestion={segestion} scroll={scroll} clicked={clicked}
-                onBlur  = {() => handleBlur()}
-                 onFocus = {() => setShowSegestion(true)} type="text" placeholder="جستجو &#x1F50E;" value = {searchText}  onChange = {(e) => handleSearchText(e.target.value)} />
-                <SegestionSearch segestion= {segestion} result = {result} showSegesion = {showSegesion} setShowSegestion = {setShowSegestion} />
+                    onBlur={() => handleBlur()}
+                    onFocus={() => setShowSegestion(true)} type="text" placeholder="جستجو" value={searchText} onChange={(e) => handleSearchText(e.target.value)} />
+                <SegestionSearch segestion={segestion} result={result} showSegesion={showSegesion} setShowSegestion={setShowSegestion} />
+                <SearchButton segestion={segestion}>
+                    <MySearchIcon />
+                </SearchButton>
             </SearchBoxContainer>
             {/* <BackDrop show = {showSegesion ? showSegesion :null} onClick = {() =>setShowSegestion(false)} /> */}
         </React.Fragment>

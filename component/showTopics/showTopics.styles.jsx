@@ -8,28 +8,37 @@ export const Container = styled.div`
 export const TitleShowAll = styled.h3`
     // color: #191e3e;
     color: #fff;
-    font-size:1.8rem;
+    font-size:1.3rem;
     font-weight:800;
     font-family:ir_sans;
     display: block;
     overflow: hidden;
-    line-height: 2rem;
+    // line-height: 2rem;
     text-overflow: ellipsis;
     white-space: nowrap;
     text-align: center;
     transition:all .3s;
     cursor:pointer;
+    background-color:rgb(218,160,103);
+    padding:0.5rem 1rem;
+    border-radius:1rem;
+    // &:hover{
+    //     font-size:1.5rem;
+    //     color: #fff;
+    //     // border-bottom:1px solid #191e3e;
+    // }
 
-    &:hover{
-        font-size:2rem;
-        color: #fff;
-        // border-bottom:1px solid #191e3e;
+    &:hover,
+    &:active {
+        box-shadow: 0 1rem 2rem rgba(0,0,0, .4);
+        // font-size:1.4rem;
+        transform: scale(1.1);
     }
 `;
 
 export const ShowAllContainer = styled.div`
     transition:all .3s;
-    padding:1rem 0;
+    // padding:1rem 0;
     // border-bottom:1px solid #fff;
     display:flex;
     justify-content:flex-end;
@@ -37,11 +46,9 @@ export const ShowAllContainer = styled.div`
    
 `
 
-
-
 export const Title = styled.h3`
     color: #191e3e;
-    font-size:1.8rem;
+    font-size:1.3rem;
     font-weight:800;
     font-family:ir_sans;
     display: block;
@@ -55,7 +62,6 @@ export const Title = styled.h3`
     left:2rem;
     display:none;
     transition:all .3s;
-
 
     @media only screen and (max-width: 768px){
         display:block;

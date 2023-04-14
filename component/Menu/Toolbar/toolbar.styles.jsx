@@ -1,24 +1,26 @@
 
-import styled ,{css} from "styled-components";
-import  {NavLink} from 'react-router-dom';
-import ListAltIcon from '@material-ui/icons/ListAlt';
-import MenuIcon from '@material-ui/icons/Menu';
-import CloseIcon from '@material-ui/icons/Close';
-import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import { IconButton } from '@material-ui/core';
-import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
-import InstagramIcon from '@material-ui/icons/Instagram';
-import TelegramIcon from '@material-ui/icons/Telegram';
+import CloseIcon from '@material-ui/icons/Close';
 import FacebookIcon from '@material-ui/icons/Facebook';
+import InstagramIcon from '@material-ui/icons/Instagram';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import MenuIcon from '@material-ui/icons/Menu';
+import TelegramIcon from '@material-ui/icons/Telegram';
+import BookmarkAddedRoundedIcon from '@mui/icons-material/BookmarkAddedRounded';
+import CloudUploadRoundedIcon from '@mui/icons-material/CloudUploadRounded';
+import FaceRoundedIcon from '@mui/icons-material/FaceRounded';
+import LoginIcon from '@mui/icons-material/Login';
+import ManageAccountsRoundedIcon from '@mui/icons-material/ManageAccountsRounded';
+import TocRoundedIcon from '@mui/icons-material/TocRounded';
+import styled, { css } from "styled-components";
 
 const IconsConnectionCss = css`
     color:#fff;
-    font-size:2.5rem !important;
+    font-size:2rem !important;
     cursor:pointer;
 
     &:hover {
-        color :rgba(157, 198, 218, 1);
+        color :rgb(218,160,103);
     }
 `;
 
@@ -31,24 +33,20 @@ export const Title = styled.h1`
 `;
 
 export const SubTitle = styled.h4`
-    color:#fff;
-    font-size:2rem;
+    color:rgb(218,160,103);
+    font-size:1.5rem;
     text-align:right;
     width:100%;
-    margin-top:2.5rem;
+    margin-bottom:1.5rem;
     font-family:ir_sans;
-`;
-
-export const ToolbarContainer = styled.div`
 `;
 
 export const ToolbarInfoBack = styled.div`
     width:100%;
     background-color: #1d1d1d;
     transition:all .3s;
-    height:${props => props.show ? '40rem' : '0'};
+    height:${props => props.show ? '28rem' : '0'};
     position:${props => props.position ? 'absolute' : 'fixed'};
-    // position:fixed;
     top:0;
     left:0;
     z-index:1;
@@ -76,10 +74,11 @@ export const ToolbarInfoContainer = styled.div`
 `;
 
 export const ToolbarInfo = styled.div`
+    margin-top:4rem;
     display: ${props => props.show ? 'block' : 'none'};
     opacity:${props => props.show ? '1' : '0'};
     width:${props => props.show ? '50%' : '0'};
-
+    // height:100%;
     @media only screen and (max-width: 540px){
         width:${props => props.show ? '80%' : '0'};
     }
@@ -92,12 +91,13 @@ export const ToolbarInfo = styled.div`
 export const ToolbarInfoText = styled.div`
     width:${props => props.show ? '50%' : '0'};
     display:${props => props.show ? 'flex' : 'none'};
-    margin-top:3rem;
+    margin-top:4rem;
     flex-direction:column;
     justify-content:center;
     text-align:right;
     padding:0 4rem 0 3rem;
-    
+    // height:100%;
+
     @media only screen and (max-width: 540px){
         width:${props => props.show ? '80%' : '0'};
         padding:0;
@@ -121,33 +121,13 @@ export const ListContainer = styled.div`
     }
 `;
 
-export const ImgContainer = styled.div`
-    width:100%;
-    margin:1rem 0;
-    display:flex;
-    justify-content:center;
-`;
-
-export const ListImg = styled.img`
-    width:17rem;
-    height:17rem;
-`;
-
-
-export const DrawerContainer = styled.div`
-    padding:2rem;
-    display: flex;
-    flex-direction:column;
-    align-tems:center;
-`;
-
 const IconsCss = css`
     color:rgb(218,160,103);
 `;
 
-export const MyListIcon = styled(ListAltIcon)`
-    ${IconsCss};
+const navTitlesIcons = css`
     font-size:2rem !important;
+    transition:all 1s;
 `;
 
 export const ArrowIcon = styled(MenuIcon)`
@@ -162,6 +142,33 @@ export const MyCloseIcon = styled(CloseIcon)`
     font-size:2.5rem !important;
 `;
 
+export const LoginNavIcon = styled(LoginIcon)`
+    ${IconsCss};
+    ${navTitlesIcons};
+`;
+export const FaceRoundedNavIcon = styled(FaceRoundedIcon)`
+    ${IconsCss};
+    ${navTitlesIcons};
+`;
+export const ManageAccountsRoundedNavIcon = styled(ManageAccountsRoundedIcon)`
+    ${IconsCss};
+    ${navTitlesIcons};
+`;
+export const TocRoundedNavIcon = styled(TocRoundedIcon)`
+    ${IconsCss};
+    ${navTitlesIcons};
+`;
+export const CloudUploadRoundedNavIcon = styled(CloudUploadRoundedIcon)`
+    ${IconsCss};
+    ${navTitlesIcons};
+`;
+export const CloBookmarkNavIcon = styled(BookmarkAddedRoundedIcon)`
+    ${IconsCss};
+    ${navTitlesIcons};
+`;
+
+export const ToolbarContainer = styled.div`
+`;
 
 
 export const ArrowIconButton = styled(IconButton)`
@@ -199,6 +206,9 @@ export const MyNavLink = styled.a`
     font-family:ir_sans;
     font-size:1.5rem;
     text-align:right;
+    // display:flex;
+    // justify-content:center;
+    // align-items:center;
 
     &:hover{
         text-decoration: none;
@@ -239,15 +249,12 @@ export const ListItem = styled.div`
         height: 0;
         background-color:#242d64;
         z-index: -1;
-        // transition:all .3s;
         transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.1s;
     }
 
     &:hover::before{
         width:100%;
         height: 100%;
-        // background-color:rgb(218,160,103);
-        // color:#fff;
     }
 
     &:hover a{
@@ -255,27 +262,8 @@ export const ListItem = styled.div`
         color:#fff;
     }
 
-    &:hover ${MyListIcon}{
+    &:hover ${IconContainer} > svg{
         color:#fff;
-    }
-
-    &:hover ${ArrowIcon}{
-        color:#fff;
-    }
-
-`;
-
-export const ListLink = styled.a`
-    color: white;
-    text-decoration: none;
-`;
-
-export const ConnectionIcon = styled(AssignmentIndIcon) `
-    font-size:2.5rem !important;
-    color:#fff;
-
-    &:hover{
-        color:#bf4f7b;
     }
 `;
 
@@ -285,7 +273,6 @@ export const IconBox = styled.div`
         color : #bf4f7b;
     }
 `;
-
 
 export const MyInstagramIcon = styled(InstagramIcon)`
     ${IconsConnectionCss}
@@ -304,19 +291,19 @@ export const MyMailOutlineIcon = styled(MailOutlineIcon)`
 `;
 
 export const ConnectionBox = styled.div`
-    border-bottom:1px solid rgb(218,160,103);
-    padding-bottom:2rem;
-    margin-bottom:1rem;
+    border-top:1px solid rgb(218,160,103);
+    padding-top:2rem;
+    margin-top:auto;
     display:flex;
     justify-content:flex-end;
     align-items:center;
     @media only screen and (max-width: 540px){
-        border-top:1px solid rgb(218,160,103);
-        border-bottom:none;
+        border-bottom:1px solid rgb(218,160,103);
+        border-top:none;
         text-align:center;
         justify-content:center;
-        padding-top:2rem;
-        margin-top:1rem;
+        padding-bottom:2rem;
+        margin-bottom:1rem;
     }
 `;
 
@@ -325,7 +312,8 @@ export const TitleBox = styled.div`
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    margin-top: 3rem;
+    margin-top: 1rem;
+    margin-bottom:2rem;
 
     @media only screen and (max-width: 540px){
         display:none;

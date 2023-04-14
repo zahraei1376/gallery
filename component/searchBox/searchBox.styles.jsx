@@ -3,7 +3,25 @@ import SearchIcon from '@material-ui/icons/Search';
 import CloseIcon from '@material-ui/icons/Close';
 import { IconButton } from '@material-ui/core';
 
-export const SearchButton = styled(IconButton)`
+export const SearchButton = styled.div`
+    // margin-right:2rem !important;
+    
+    position:absolute !important;
+    // top:${props => props.segestion ? "4px" : "1px"};
+    right: 5px;
+    // top: 1.2rem;
+    top:${props => props.segestion ? "0.8rem" : "1.2rem"};
+
+    // @media only screen and (max-width: 899px){
+    //   top:${props => props.segestion ? "5px" : "1px"};
+    // }
+
+    // @media only screen and (max-width: 583px){
+    //   top:${props => props.segestion ? "7px" : "1px"};
+    // }
+`;
+
+export const ClearButton = styled(IconButton)`
     margin-right:-4rem !important;
     position:absolute !important;
     top:${props => props.segestion ? "-4px" : "-1px"};
@@ -29,6 +47,7 @@ export const MySearchIcon = styled(SearchIcon)`
   font-size:3rem !important;
 //   margin-right:-4rem ;
   z-index:3 !important;
+  color:#9B9FA0;
 `;
 
 export const SearchBoxContainer = styled.div`
@@ -53,23 +72,23 @@ export const SearchBoxContainer = styled.div`
 `;
 
 export const SearchBoxInput = styled.input`
-    width:${props => props.segestion ? 'auto': '100%'};
-    height:${props => props.segestion ? '4rem': '5rem'};
-    border-radius:${props => props.segestion ? '5rem': '1rem'};
+    width:${props => props.segestion ? 'auto' : '100%'};
+    height:${props => props.segestion ? '4rem' : '5rem'};
+    border-radius:${props => props.segestion ? '5rem' : '1rem'};
     // border:2px solid rgb(218,160,103);
-    border: ${props => props.segestion ? '2px solid rgb(218,160,103)': '2px solid #eee'};
-    color:${props => props.segestion && props.scroll || props.clicked ? '#fff': '#000'};
+    border: ${props => props.segestion ? '2px solid rgb(218,160,103)' : '2px solid #eee'};
+    color:${props => props.segestion && props.scroll || props.clicked ? '#fff' : '#000'};
     // background-color:transparent;
-    background-color: ${props => props.segestion ? 'transparent': '#eee'};
+    background-color: ${props => props.segestion ? 'transparent' : '#eee'};
     z-index:2;
-    padding:0 2rem;
+    padding:0 4rem 0 2rem;
     text-align:right;
     font-family:ir_sans;
     font-size:1.5rem;
     // #fc8d6d,#bf4f7b,#242d64 80%,#191e3e
 
     &::placeholder {
-      color: ${props => props.segestion ? 'rgb(218,160,103)': '#999'};
+      color: ${props => props.segestion ? 'rgb(218,160,103)' : '#999'};
     }
 
     &:focus{

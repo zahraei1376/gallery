@@ -18,7 +18,7 @@ export const SegeestionContainer = styled.div`
 
 export const SegestionContent = styled.ul`
     list-style:persian;
-    border-bottom:3px solid #eee;
+    border-bottom:${props => props.result ? '3px solid #eee' : 'none'}; ;
     direction:rtl;
     padding-bottom:2rem;
 `;
@@ -59,23 +59,30 @@ export const SegestionBox = styled.li`
 `;
 
 export const NewestSection = styled.div`
-    display:${props => props.segestion ? "none" : "grid"};
-    grid-template-columns:${props => props.segestion ? "auto" : "auto auto auto"};
+    display:${props => props.segestion ? "grid" : "grid"};
+    grid-template-columns:${props => props.segestion ? "auto" : "auto auto auto auto"};
     // grid-template-columns:repeat(3 , minmax(0,1fr));
     grid-gap: 2rem;
     padding:2rem 1rem;
+
+    @media only screen and (max-width: 768px){
+        grid-template-columns:${props => props.segestion ? "auto" : "auto auto auto"};
+        // grid-template-columns:auto auto;
+    }
+
     @media only screen and (max-width: 414px){
-        grid-template-columns:auto auto;
+        grid-template-columns:${props => props.segestion ? "auto" : "auto auto"};
+        // grid-template-columns:auto auto;
     }
 `;
 
 export const NewestBox = styled.div`
     // max-width:100%;
-    padding: 0 0 0 5px;
-    border-radius:5px;
+    padding: ${props => props.segestion ? "0" : "0 0 0 5px"};
+    border-radius:${props => props.segestion ? "5px" : "5px"};
     // border-radius:5rem;
     text-align:right;
-    box-shadow:0 0 4px 1px rgba(0,0,0,.4);
+    box-shadow::${props => props.segestion ? "0" : "0 0 4px 1px rgba(0,0,0,.4)"};
     display:flex;
     justify-content:flex-end;
     align-items:center;

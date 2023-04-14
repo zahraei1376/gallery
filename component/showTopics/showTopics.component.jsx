@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {Card, Title , Container ,TitleShowAll,ShowAllContainer,ImageContainer ,Image} from './showTopics.styles';
+import { Card, Title, Container, TitleShowAll, ShowAllContainer, ImageContainer, Image } from './showTopics.styles';
 import Slider from "react-slick";
 import { useRouter } from 'next/router';
-import {Topics} from '../../generalMethod/topics';
+import { Topics } from '../../generalMethod/topics';
 
 const ShowTopics = () => {
-  const [topics,setTopics] = useState(Topics);
+  const [topics, setTopics] = useState(Topics);
   const router = useRouter();
   let settings = {
     infinite: false,
@@ -36,35 +36,36 @@ const ShowTopics = () => {
   };
   return (
     <div className="container">
-       <ShowAllContainer 
-         >
-            <TitleShowAll onClick={() => router.push({
-              pathname: '/showAllTopic',
-            })}>نمایش همه</TitleShowAll>
-        </ShowAllContainer>
-        <Container>
-            {topics.length === 0 ? (
-                ""
-            ) : (
-                <Slider {...settings}>
-                    {topics.map((current , index) => {
-                      return(
-                        <Card key={index} onClick={() => router.push({
-                          pathname: '/gallery',
-                          query: { images: current.name}
-                          })}>
-                            <ImageContainer>
-                                <Image src = {current.topicImage}/>
-                            </ImageContainer>
-                            <Title>
-                                {current.name}
-                            </Title>
-                        </Card>
-                    )})}
-                </Slider>
-            )}
-        </Container>
-       
+      <ShowAllContainer
+      >
+        <TitleShowAll onClick={() => router.push({
+          pathname: '/showAllTopic',
+        })}>همه عنوان ها</TitleShowAll>
+      </ShowAllContainer>
+      <Container>
+        {topics.length === 0 ? (
+          ""
+        ) : (
+          <Slider {...settings}>
+            {topics.map((current, index) => {
+              return (
+                <Card key={index} onClick={() => router.push({
+                  pathname: '/gallery',
+                  query: { images: current.name }
+                })}>
+                  <ImageContainer>
+                    <Image src={current.topicImage} alt="titleImage" />
+                  </ImageContainer>
+                  <Title>
+                    {current.name}
+                  </Title>
+                </Card>
+              )
+            })}
+          </Slider>
+        )}
+      </Container>
+
     </div>
   );
 }

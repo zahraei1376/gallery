@@ -1,111 +1,119 @@
 import { useRouter } from 'next/router';
-import {ToolbarContainer,ToolbarInfoContainer,ToolbarInfo,DrawerContainer,ToolbarInfoBack,
-    IconContainer,MyListIcon ,MyCloseIcon,ListContainer,ToolbarInfoText,List ,
-    ListItem ,ListImg,ImgContainer,MyNavLink,ArrowIcon,ArrowIconButton,ListLink,
-    ConnectionBox,ConnectionIcon,TitleBox,SubTitle,Title,IconBox,
-    MyInstagramIcon,MyTelegramIcon,MyFacebookIcon,MyMailOutlineIcon,
-  } from './toolbar.styles';
+import {
+  CloBookmarkNavIcon,
+  CloudUploadRoundedNavIcon,
+  ConnectionBox,
+  FaceRoundedNavIcon,
+  IconBox,
+  IconContainer,
+  ListContainer,
+  ListItem,
+  LoginNavIcon,
+  ManageAccountsRoundedNavIcon,
+  MyFacebookIcon,
+  MyInstagramIcon,
+  MyMailOutlineIcon,
+  MyNavLink,
+  MyTelegramIcon,
+  SubTitle, Title,
+  TitleBox,
+  TocRoundedNavIcon,
+  ToolbarInfo,
+  ToolbarInfoBack,
+  ToolbarInfoContainer,
+  ToolbarInfoText
+} from './toolbar.styles';
 
-const ToolbarItems = ({clicked , position}) =>{
-  /////////////////////////////////////////////////////////////
+const ToolbarItems = ({ clicked, position, setClicked }) => {
   const router = useRouter();
-  ////////////////////////////////////////////////////////////
-  const handleUrl = (url) =>{
+
+  const handleUrl = (url) => {
     router.push(url);
   }
-    return(
-        <ToolbarInfoBack show = {clicked ? "true" : null} position={position ? position : null}>
-        <ToolbarInfoContainer show = {clicked ? "true" : null}>
-          <ToolbarInfo show = {clicked ? "true" : null}>
-            <ListContainer>
-              {/* <ListItem onClick={()=>handleUrl('/register')}>
-                <MyNavLink 
-                href ='/register'
-                >ثبت نام</MyNavLink>
-                <IconContainer><MyListIcon/></IconContainer> 
-              </ListItem> */}
-               <ListItem onClick={()=>handleUrl('/profile')}>
-                <MyNavLink 
-                href ='/profile'
-                >پنل کاربری</MyNavLink>
-                <IconContainer><MyListIcon/></IconContainer> 
-              </ListItem>
 
-              <ListItem onClick={()=>handleUrl('/login')}>
-                <MyNavLink 
-                href ='/login'
-                >ورود</MyNavLink>
-                <IconContainer><MyListIcon/></IconContainer> 
-              </ListItem>
-            </ListContainer>
+  const handleClose = () => {
+    console.log("11111111");
+    if (clicked) {
+      console.log("2222222");
+      setTimeout(() => {
+        setClicked(false);
+      }, 100);
+    }
+  }
 
-            <ListContainer>
-              
-              <ListItem onClick={()=>handleUrl('/profile')}>
-              <MyNavLink 
-              href ='/profile'
+  return (
+    <ToolbarInfoBack show={clicked ? "true" : null} position={position ? position : null} onBlur={handleClose}>
+      <ToolbarInfoContainer show={clicked ? "true" : null}>
+        <ToolbarInfo show={clicked ? "true" : null}>
+          <ListContainer>
+            <ListItem onClick={() => handleUrl('/profile')}>
+              <MyNavLink
+                href='/profile'
+              >پنل کاربری
+              </MyNavLink>
+              <IconContainer><FaceRoundedNavIcon /></IconContainer>
+            </ListItem>
+            <ListItem onClick={() => handleUrl('/login')}>
+              <MyNavLink
+                href='/login'
+              >ورود</MyNavLink>
+              <IconContainer><LoginNavIcon /></IconContainer>
+            </ListItem>
+          </ListContainer>
+          <ListContainer>
+            <ListItem onClick={() => handleUrl('/profile')}>
+              <MyNavLink
+                href='/profile'
               >تغییر اطلاعات شخصی</MyNavLink>
-                <IconContainer><MyListIcon/></IconContainer> 
-              </ListItem>
-              <ListItem onClick={()=>handleUrl('/profile')}>
-                <MyNavLink 
-                href ='/profile'
-                >بارگزاری عکس</MyNavLink>
-                <IconContainer><MyListIcon/></IconContainer> 
-              </ListItem>
+              <IconContainer><ManageAccountsRoundedNavIcon /></IconContainer>
+            </ListItem>
+            <ListItem onClick={() => handleUrl('/profile')}>
+              <MyNavLink
+                href='/profile'
+              >بارگزاری عکس</MyNavLink>
+              <IconContainer><CloudUploadRoundedNavIcon /></IconContainer>
+            </ListItem>
+          </ListContainer>
+          <ListContainer>
+            <ListItem onClick={() => handleUrl('/mySaved')}>
+              <MyNavLink
+                href='/mySaved'
+              >عکس های ذخیره شده</MyNavLink>
+              <IconContainer><CloBookmarkNavIcon /></IconContainer>
+            </ListItem>
+            <ListItem onClick={() => handleUrl('/showAllTopic')}>
+              <MyNavLink
+                href='/showAllTopic'
+              >همه عنوان ها</MyNavLink>
+              <IconContainer><TocRoundedNavIcon /></IconContainer>
+            </ListItem>
+          </ListContainer>
+        </ToolbarInfo>
+        <ToolbarInfoText show={clicked ? "true" : null}>
+          <TitleBox>
+            <SubTitle>زیبایی های دنیا از دوربین ما</SubTitle>
+            <Title>طبیعت ، دنیای ما</Title>
+          </TitleBox>
+          <ConnectionBox>
+            <IconBox>
+              <MyInstagramIcon />
+            </IconBox>
 
-              
-            </ListContainer>
+            <IconBox>
+              <MyTelegramIcon />
+            </IconBox>
 
-            <ListContainer>
-            <ListItem onClick={()=>handleUrl('/mySaved')}>
-                <MyNavLink 
-                href ='/mySaved'
-                >عکس های ذخیره شده</MyNavLink>
-                <IconContainer><MyListIcon/></IconContainer> 
-              </ListItem>
-              <ListItem onClick={()=>handleUrl('/showAllTopic')}>
-                <MyNavLink 
-                href ='/showAllTopic'
-                >همه عنوان ها</MyNavLink>
-                <IconContainer><MyListIcon/></IconContainer> 
-              </ListItem>
-              
-            </ListContainer>
-          </ToolbarInfo>
-          
-          <ToolbarInfoText show = {clicked ? "true" : null}>
-            <ConnectionBox>
-              <IconBox>
-                <MyInstagramIcon />
-              </IconBox>
-
-              <IconBox>
-                <MyTelegramIcon />
-              </IconBox>
-
-              <IconBox>
-                <MyFacebookIcon />
-              </IconBox>
-
-              <IconBox>
-                <MyMailOutlineIcon />
-              </IconBox>
-              
-
-              {/* <ConnectionIcon/>
-              <ConnectionIcon/>
-              <ConnectionIcon/> */}
-            </ConnectionBox>
-            <TitleBox>
-                <Title>طبیعت ، دنیای ما</Title>
-                <SubTitle>زیبایی های دنیا از دوربین ما</SubTitle>
-            </TitleBox>
-          </ToolbarInfoText>
-        </ToolbarInfoContainer>
-        
-        </ToolbarInfoBack>
-    )
+            <IconBox>
+              <MyFacebookIcon />
+            </IconBox>
+            <IconBox>
+              <MyMailOutlineIcon />
+            </IconBox>
+          </ConnectionBox>
+        </ToolbarInfoText>
+      </ToolbarInfoContainer>
+    </ToolbarInfoBack>
+  )
 }
 
 export default ToolbarItems;
