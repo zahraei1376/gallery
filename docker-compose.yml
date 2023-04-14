@@ -9,6 +9,7 @@ services:
   #   depends_on:
   #     - mongo
   mongo:
+    container_name: mongodb
     image: mongo
     restart: always
     ports:
@@ -17,6 +18,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: test
       MONGO_INITDB_ROOT_PASSWORD: test
   mongo-express:
+    container_name: mongoExpressDashbord
     image: mongo-express
     restart: always
     ports:

@@ -106,10 +106,6 @@ export const SectionLogin = styled.div`
     // background-image: linear-gradient(to right ,#191e3e,#242d64,#bf4f7b,#fc8d6d);
     // background-image: linear-gradient(to bottom ,#fc8d6d,#bf4f7b,#242d64,#191e3e);
     background-image: radial-gradient(ellipse at top ,#fc8d6d,#bf4f7b,#242d64 80%,#191e3e 100%);
-    // background-image: linear-gradient(105deg, 
-    // #3f87a6 0%,
-    // #3f87a6 50%,
-    // rgba(256,256,256, .9) 50%);
     background-size: 100%;
     background-position:center;
 
@@ -119,9 +115,11 @@ export const SectionLogin = styled.div`
 `;
 
 export const LoginBox = styled.div`
-    width:30%;
-    // padding: 6rem;
+    width:35%;
+    padding: 6rem 6rem 1rem 6rem;
     display: flex;
+    border-radius:1rem;
+    background-color:rgba(256,256,256,0.5);
     flex-direction:column;
     justify-content: center;
     align-items:center;
@@ -136,11 +134,6 @@ export const LoginBox = styled.div`
 
 
 export const LoginFormContainer = styled.div`
-    // width: 80%;
-    // padding: 6rem;
-    // display:flex;
-    // justify-content:center;
-
     @media only screen and (max-width: 75em) {
         width: 65%;
     }; 
@@ -153,21 +146,12 @@ export const LoginFormContainer = styled.div`
 
 export const LoginForm = styled.form`
     width: 100%;
-    // padding: 6rem;
     margin-bottom:3rem;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    border-bottom: 1px solid #fff;
-    // border-bottom:1px solid #eee;
-    // @media only screen and (max-width: 75em) {
-    //     width: 65%;
-    // }; 
-
-    // @media only screen and (max-width: 56.25em) {
-    //     width: 100%;
-    // };
+    // border-bottom: 1px solid #fff;
 `;
 
 export const FormGroup = styled.div`
@@ -178,38 +162,18 @@ export const FormGroup = styled.div`
     align-items:center;
     border-radius:5px;
     border:1px solid #fff;
-
-    // @media only screen and (max-width: 75em) {
-    //     width: 85%;
-    // }; 
-
-    // @media only screen and (max-width: 56.25em) {
-    //     width: 100%;
-    // };
 `;
 
 export const FormGroupBtn = styled.div`
     width:100%;
     margin:1rem 0;
-    // margin-bottom: 2rem;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    // border-radius:5px;
-    // border:1px solid #fff;
-
-    // @media only screen and (max-width: 75em) {
-    //     width: 85% !important;
-    // }; 
-
-    // @media only screen and (max-width: 56.25em) {
-    //     width: 100% !important;
-    // };
 `;
 
 export const FormInput = styled.input`
     font-size: 1.5rem;
-    // font-family: inherit;
     font-family:ir_sans;
     color: inherit;
     padding: 1rem 2rem;
@@ -244,7 +208,7 @@ export const FormInput = styled.input`
 export const StyledLink = styled.a`
     color:#fff;
     font-size:1.4rem;
-    margin:2rem 0 4rem 0;
+    margin:2rem 0 1rem 0;
     transition:all .3s;
     font-family:ir_sans;
 
@@ -266,30 +230,15 @@ export const FooterLogin = styled.div`
     @media only screen and (max-width: 56.25em) {
         width: 85%;
     };
-// display:flex;
-// justify-content:center;
-// border-top: 1px solid $color-grey-dark;
-// padding-top: 2rem;
-// width: 80%;
-// float: right;
-
-// @include respond(tab-port) {
-//     width: 100%;
-//     float: none;
-// }
 `;
 
 
 export const FooterLoginText = styled.p`
     width:70%;
     text-align:center;
-    // border-top: 1px solid #fff;
     padding-top: 2rem;
     width: 80%;
     color:#fff;
-    // @media only screen and (max-width: 56.25em) {
-    //     width: 100%;
-    // };
 `;
 
 
@@ -307,7 +256,6 @@ export const FooterLoginLink = styled.a`
 
     &:hover,
     &:active {
-        // color: $color-primary;
         box-shadow: 0 1rem 2rem rgba(0,0,0, .4);
         transform: rotate(5deg) scale(1.3);
     }

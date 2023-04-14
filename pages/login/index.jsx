@@ -11,31 +11,26 @@ import {Btn} from '../../generalCss/generalCss.styles';
 import MySpinner from '../../component/MySpinner/MySpinner.component';
 import Link from 'next/link';
 import logo from '../../assets/img/galleryLg.png';
-//////////////////////////////////////
-// import { useCookies } from "react-cookie";
+// import { object, string, number, date, InferType } from 'yup';
+// import { yupResolver } from "@hookform/resolvers/yup";
 import Cookies from 'universal-cookie';
-///////////////////////////////////////
+
 const LoginPage = (props) =>{
-    /////////////////////////////
-    // const [cookie, setCookie] = useCookies(["user"]);
     const cookies = new Cookies();
-    /////////////////////////////
     const router = useRouter()
-    /////////////////////////////
     const [fiels,setFiels] = useState({
         username:'',
         pass:'',
     });
-    /////////////////////////
     const [showMessage,setShowMessage] = useState(false);
     const [message,setMessage] =useState('');
     const [status,setStatus] =useState(0);
     const [loading,setLoading] = useState(false);
-    /////////////////////////
+
     const handleSetFeild = (val , param) =>{
         setFiels({...fiels, [param] : val});
     }
-    /////////////////////////
+
     const submitLogin = async(e)=>{
         e.preventDefault();
         setLoading(true);
@@ -97,7 +92,25 @@ const LoginPage = (props) =>{
             setLoading(false);
         }
     }
-    /////////////////////////
+
+    // const validationSchema = Yup.object({
+    //     userName: Yup.string().required().min(2, "حداقل 2 کارکتر میباشد")
+    //     .max(50, "حداکثر 50 کارکتر میباشد"),
+    //     password:Yup.string().required().min(6, "حداقل 6 کارکتر میباشد")
+    //     .max(50, "حداکثر 50 کارکتر میباشد"),
+    //     // email: Yup.string().email().required(),
+    //   });
+    
+    //   const initialValues = {
+    //     userName: "",
+    //     password: "",
+    //   };
+      
+
+    //   const onSubmit = (values) => {
+    //     alert(JSON.stringify(values, null, 2));
+    //   };
+
     return(
         <SectionLogin>
             <LogoContainer>
@@ -107,6 +120,7 @@ const LoginPage = (props) =>{
             </LogoContainer>
             <LoginBox>
                     <LoginForm action="#">
+                        <h1>ورود به دنیای عکس</h1>
                         <FormGroup>
                             <FormInput type="text"  placeholder="نام کاربری" id="username" required onChange={e => handleSetFeild(e.target.value , 'username')} />
                             <IconContainer>

@@ -22,11 +22,7 @@ function MySnackbar({message ,status,showMessage,setShowMessage}) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
 
-  const handleClick = () => {
-    setOpen(true);
-  };
-
-  const handleClose = (event, reason) => {
+  const handleClose = (_event, reason) => {
     if (reason === 'clickaway') {
       setShowMessage(!showMessage);
       return;
@@ -38,7 +34,6 @@ function MySnackbar({message ,status,showMessage,setShowMessage}) {
   return (
     <div className={classes.root}>
       <MySnackbarDiv open={open} 
-      // autoHideDuration={1000}
       onClick={handleClose}
        onClose={handleClose}>
         <Alert style={{
