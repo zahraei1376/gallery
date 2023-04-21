@@ -1,4 +1,4 @@
-import styled ,{css} from "styled-components";
+import styled, { css } from "styled-components";
 // import back from '../../../asset/img/back4.jpg';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -116,7 +116,7 @@ export const SectionLogin = styled.div`
 
 export const LoginBox = styled.div`
     width:35%;
-    padding: 6rem 6rem 1rem 6rem;
+    padding: 2rem 6rem 1rem 6rem;
     display: flex;
     border-radius:1rem;
     background-color:rgba(256,256,256,0.5);
@@ -132,6 +132,9 @@ export const LoginBox = styled.div`
     };
 `;
 
+export const LoginTitle = styled.h1`
+    padding: 1rem 0 2rem 0;
+`;
 
 export const LoginFormContainer = styled.div`
     @media only screen and (max-width: 75em) {

@@ -1,4 +1,4 @@
-import styled ,{css} from "styled-components";
+import styled, { css } from "styled-components";
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import WcIcon from '@material-ui/icons/Wc';
@@ -127,7 +127,9 @@ background-image: radial-gradient(ellipse at top ,#fc8d6d,#bf4f7b,#242d64 80%,#1
 
 export const RegisterBox = styled.div`
     width:60%;
-    // padding: 6rem;
+    padding: 2rem 6rem 1rem 6rem;
+    border-radius:1rem;
+    background-color:rgba(256,256,256,0.5);
     display: flex;
     flex-direction:column;
     justify-content: center;

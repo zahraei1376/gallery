@@ -119,9 +119,8 @@ export const ToolbarInfoText = styled.div`
 export const ListContainer = styled.div`
     display:grid;
     grid-template-columns:repeat(2, 1fr);
-    // grid-template-columns: auto auto;
+    direction: rtl;
     grid-column-gap: 50px;
-    
     z-index:4;
     @media only screen and (max-width: 645px){
         grid-column-gap: 14px;
@@ -240,7 +239,7 @@ export const ListItem = styled.div`
     padding: 1.5rem 2rem;
     display:flex;
     align-items:center;
-    justify-content:flex-end;
+    justify-content:flex-start;
     transition:all .3s;
     color:#fff;
     position:relative;

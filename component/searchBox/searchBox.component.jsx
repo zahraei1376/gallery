@@ -17,7 +17,7 @@ const SearchBox = ({ segestion, text, scroll, clicked }) => {
         if (Topics && Topics.length > 0) {
             var res = Topics.filter(title => {
                 if (value && value != " ") {
-                    return title.title.includes(value);
+                    return title.title?.includes(value);
                 }
             });
             setResult(res || "");

@@ -6,17 +6,25 @@ import { newestCategory } from '../../generalMethod/topics';
 import { useRouter } from 'next/router';
 
 const SegestionSearch = ({ showSegesion, setShowSegestion, result, segestion }) => {
-    const router = useRouter()
+    const router = useRouter();
+
     const handleSearch = (name) => {
         setShowSegestion(false);
-        router.push({
-            pathname: '/gallery',
-            query: { images: name }
-        });
+        if (name === 'همه عناوین') {
+            router.push({
+                pathname: '/showAllTopic',
+            });
+        } else {
+            router.push({
+                pathname: '/gallery',
+                query: { images: name }
+            });
+        }
     }
+
     return (
         <SegeestionContainer show={showSegesion ? showSegesion : null}>
-            <SegestionContent result={result && result.length > 0}>
+            <SegestionContent result={result && result.length > 0 ? "true" : null}>
                 {
                     result && result.length > 0 ? result.map((res, index) => (
                         <SegestionBox onClick={() => handleSearch(res.title)} key={index}>

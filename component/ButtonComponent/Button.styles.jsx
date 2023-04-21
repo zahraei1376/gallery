@@ -1,6 +1,7 @@
 import styled from "styled-components";
 export const ButtonContainer = styled.div`
-  margin-top:${props => props.mg ? `${props.mg}rem`:"1rem"};
+  margin-top:${props => props.mg ? `${props.mg}rem` : "1rem"};
+  margin-bottom:1rem;
   display:grid;
 `;
 

@@ -23,18 +23,18 @@ import {
   ToolbarInfoContainer,
   ToolbarInfoText
 } from './toolbar.styles';
+import Cookies from 'universal-cookie';
 
 const ToolbarItems = ({ clicked, position, setClicked }) => {
   const router = useRouter();
+  const cookies = new Cookies();
 
   const handleUrl = (url) => {
     router.push(url);
   }
 
   const handleClose = () => {
-    console.log("11111111");
     if (clicked) {
-      console.log("2222222");
       setTimeout(() => {
         setClicked(false);
       }, 100);
@@ -46,46 +46,46 @@ const ToolbarItems = ({ clicked, position, setClicked }) => {
       <ToolbarInfoContainer show={clicked ? "true" : null}>
         <ToolbarInfo show={clicked ? "true" : null}>
           <ListContainer>
+
+            {!cookies.get('user') ?
+              <ListItem onClick={() => handleUrl('/login')}>
+                <IconContainer><LoginNavIcon /></IconContainer>
+                <MyNavLink
+                  href='/login'
+                >ورود</MyNavLink>
+              </ListItem> : ''
+            }
             <ListItem onClick={() => handleUrl('/profile')}>
+              <IconContainer><FaceRoundedNavIcon /></IconContainer>
               <MyNavLink
                 href='/profile'
               >پنل کاربری
               </MyNavLink>
-              <IconContainer><FaceRoundedNavIcon /></IconContainer>
             </ListItem>
-            <ListItem onClick={() => handleUrl('/login')}>
-              <MyNavLink
-                href='/login'
-              >ورود</MyNavLink>
-              <IconContainer><LoginNavIcon /></IconContainer>
-            </ListItem>
-          </ListContainer>
-          <ListContainer>
             <ListItem onClick={() => handleUrl('/profile')}>
+              <IconContainer><ManageAccountsRoundedNavIcon /></IconContainer>
               <MyNavLink
                 href='/profile'
               >تغییر اطلاعات شخصی</MyNavLink>
-              <IconContainer><ManageAccountsRoundedNavIcon /></IconContainer>
             </ListItem>
+
             <ListItem onClick={() => handleUrl('/profile')}>
+              <IconContainer><CloudUploadRoundedNavIcon /></IconContainer>
               <MyNavLink
                 href='/profile'
               >بارگزاری عکس</MyNavLink>
-              <IconContainer><CloudUploadRoundedNavIcon /></IconContainer>
             </ListItem>
-          </ListContainer>
-          <ListContainer>
             <ListItem onClick={() => handleUrl('/mySaved')}>
+              <IconContainer><CloBookmarkNavIcon /></IconContainer>
               <MyNavLink
                 href='/mySaved'
               >عکس های ذخیره شده</MyNavLink>
-              <IconContainer><CloBookmarkNavIcon /></IconContainer>
             </ListItem>
             <ListItem onClick={() => handleUrl('/showAllTopic')}>
+              <IconContainer><TocRoundedNavIcon /></IconContainer>
               <MyNavLink
                 href='/showAllTopic'
               >همه عنوان ها</MyNavLink>
-              <IconContainer><TocRoundedNavIcon /></IconContainer>
             </ListItem>
           </ListContainer>
         </ToolbarInfo>
