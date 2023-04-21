@@ -1,4 +1,5 @@
 const multer = require('multer');
+const fs = require("fs");
 import { v4 as uuidv4 } from 'uuid';
 //////////////////////////////////////
 export const config = {
@@ -10,6 +11,10 @@ export const config = {
 const fileStorage = multer.diskStorage({
 
     destination: (req, file, cb) => {//مقصد
+        const uploadDirectory = "./public/upload";
+        if (!fs.existsSync(uploadDirectory)) {
+            fs.mkdirSync(uploadDirectory);
+        }
         cb(null, './public/upload');
     },
     filename: (req, file, cb) => {//نام فایل
