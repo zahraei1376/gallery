@@ -50,6 +50,10 @@ export const ToolbarInfoBack = styled.div`
     top:0;
     left:0;
     z-index:1;
+
+    @media only screen and (max-width: 37.5em){
+        height:${props => props.show ? '32rem' : '0'};
+    }
 `;
 export const ToolbarInfoContainer = styled.div`
     width:100%;
@@ -101,6 +105,10 @@ export const ToolbarInfoText = styled.div`
     @media only screen and (max-width: 540px){
         width:${props => props.show ? '80%' : '0'};
         padding:0;
+    }
+
+    @media only screen and (max-width: 37.5em){
+        margin-top:1rem;
     }
 
     @media only screen and (max-width: 411px){

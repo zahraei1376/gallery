@@ -56,6 +56,12 @@ export const LoginButtonContainer = styled.div`
   align-items:center;
 `;
 
+export const LogoAndSearchContainer = styled.div`
+  display:flex;
+  justify-content:Center;
+  align-items:center;
+`;
+
 export const LoginButton = styled.button`
   padding: 5px 2rem 5px 2rem;
   border-radius:5px;

@@ -18,12 +18,14 @@ export const SegeestionContainer = styled.div`
 
 export const SegestionContent = styled.ul`
     list-style:persian;
-    border-bottom:${props => props.result ? '3px solid #eee' : 'none'}; ;
+    border-bottom:${props => props.result ? '3px solid #eee' : 'none'}; 
     direction:rtl;
     padding-bottom:2rem;
+    display:${props => props.result ? 'block' : 'none'} !important; 
 `;
 
 export const SegestionBox = styled.li`
+    width:100%;
     padding:1.5rem 1rem;
     transition:all .3s;
     cursor:pointer;

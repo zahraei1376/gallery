@@ -1,25 +1,17 @@
 import '../styles/globals.css'
 import { Provider } from 'react-redux';
-import {store} from "../redux/store";
-/////////////////////////////////////////
-// import { CookiesProvider } from "react-cookie";
-// import { CookiesProvider } from "universal-cookie";
-/////////////////////////////////////////
+import { store } from "../redux/store";
+
 function MyApp({ Component, pageProps }) {
   return (
-    // <Provider store = {store}>
-    //   <Component {...pageProps} />
-    // </Provider>
     <div>
-        <body>
-          {/* <CookiesProvider> */}
-            <Provider store = {store}>
-              <Component {...pageProps} />
-            </Provider>
-          {/* </CookiesProvider> */}
-        </body>
+      <body>
+        <Provider store={store}>
+          <Component {...pageProps} />
+        </Provider>
+      </body>
     </div>
-    )
+  )
 }
 
 export default MyApp

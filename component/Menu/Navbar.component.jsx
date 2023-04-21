@@ -5,7 +5,7 @@ import Toolbar from './Toolbar/toolbar.component';
 import {
     NavberContainer, UserIconButton, MyUserIcon,
     LoginButtonContainer, LoginButton, InfoContainer,
-    LogoContainer, Logo, SearchBoxContaiber
+    LogoContainer, Logo, SearchBoxContaiber, LogoAndSearchContainer
 } from './Navbar.styles';
 import logo from '../../assets/img/galleryLg.png';
 import { useRouter } from 'next/router';
@@ -38,15 +38,18 @@ const MyNavbar = ({ currentUser }) => {
 
     return (
         <NavberContainer scroll={scrolling ? "true" : null}>
-            <LogoContainer>
-                <Logo src={logo}
-                    onClick={() => router.push('/')}
-                />
-            </LogoContainer>
-            <SearchBoxContaiber scroll={scrolling ? "true" : null}>
-                {/* <SearchBox /> */}
-                <SearchBox segestion="true" scroll={scrolling ? "true" : null} />
-            </SearchBoxContaiber>
+            <LogoAndSearchContainer>
+                <LogoContainer>
+                    <Logo src={logo}
+                        onClick={() => router.push('/')}
+                    />
+                </LogoContainer>
+                <SearchBoxContaiber scroll={scrolling ? "true" : null}>
+                    {/* <SearchBox /> */}
+                    <SearchBox segestion="true" scroll={scrolling ? "true" : null} />
+                </SearchBoxContaiber>
+            </LogoAndSearchContainer>
+
             <InfoContainer>
                 {cookies.get('user') ?
                     <Tooltip placement="bottom" title={<h1 style={{ fontSize: "1.5rem" }}>پنل کاربری</h1>}>
