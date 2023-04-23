@@ -1,4 +1,7 @@
 ## Gallery
+
+In this project, the goal is to implement a custom layout for displaying images.
+
 This is a photo gallery project for downloading and uploading photos on a small scale.
 
 ![Alt Text](./assets/img/layout.png)
