@@ -1,6 +1,8 @@
 ## Gallery
 This is a photo gallery project for downloading and uploading photos on a small scale.
 
+![Alt Text](./assets/img/layout.png)
+
 - My project is written on the basis of **NextJs** , **CSS in js (Styled-components)** , **Javascript** , **Docker** and **mongoDB**.
 - **JWT** are used for **authenticating** users in the server-side. in the client-side tokens are stored in **Cookies** and **Redux**.
 - Validation is done as a **middlewares**.
