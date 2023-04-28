@@ -13,6 +13,7 @@ This is a photo gallery project for downloading and uploading photos on a small 
 A fixed array is used to display the photos.
 By hover the photos, you can save the photos or view the saved photos.
 View information and download photo by clicking on the photo.
+Using animation to display photo information in the form of flipping paper.
 
 pages:
 1) main page
